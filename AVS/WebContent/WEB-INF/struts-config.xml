@@ -19,9 +19,5 @@
 
 
 	<message-resources parameter="messages/application"></message-resources>
-	<message-resources
-		parameter="messages/application_fr"></message-resources>
-	<message-resources
-		parameter="messages/application_en"></message-resources>
-
+	
 </struts-config>
