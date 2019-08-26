@@ -7,14 +7,14 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
+-- -----------------------------------------------------
+-- suppression base avs
+-- -----------------------------------------------------
+DROP DATABASE IF EXISTS `avs` ;
+
 
 -- -----------------------------------------------------
--- Schema avs
--- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `avs` ;
-
--- -----------------------------------------------------
--- Schema avs
+-- Database avs
 -- -----------------------------------------------------
 CREATE DATABASE IF NOT EXISTS `avs` DEFAULT CHARACTER SET utf16 COLLATE utf16_general_ci;
 
@@ -45,7 +45,7 @@ DROP TABLE IF EXISTS `avs`.`Commande` ;
 
 CREATE TABLE IF NOT EXISTS `avs`.`Commande` (
   `id_Commande` INT NOT NULL,
-  `id_Utilisateur` INT NOT NULL,
+  `id_Utilisateur` INT NULL,
   `nom` VARCHAR(255) NOT NULL,
   `adresse_livraison` VARCHAR(255) NOT NULL,
   `adresse_facturation` VARCHAR(255) NOT NULL,  
