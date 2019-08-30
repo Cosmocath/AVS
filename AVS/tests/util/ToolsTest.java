@@ -4,7 +4,13 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class UtilTest {
+/**
+ * Classe JUnit permettant de tester les méthodes de la classe Tools
+ * 
+ * @author Administrateur
+ *
+ */
+public class ToolsTest {
 
     /**
      * Test method for {@link persistance.Tools#verifDate(java.lang.String)}.
@@ -13,16 +19,14 @@ class UtilTest {
     void testVerifDate() {
 
         Assertions.assertTrue(Tools.verifDate("26/08/2012"));
+        Assertions.assertTrue(Tools.verifDate("29/02/2016"));
+
         Assertions.assertFalse(Tools.verifDate("26/13/2012"));
-
-        // TODO On passe ce test en commentaire => année bisextile qui n'est pas repérée alors que Calendar!! A vérifier avec Xavier Sintive
-        //Assertions.assertFalse(persistance.Tools.verifDate("29/08/2013"));
-
+        Assertions.assertFalse(Tools.verifDate("29/02/2013"));
         Assertions.assertFalse(Tools.verifDate("26/08/12"));
-
         Assertions.assertFalse(Tools.verifDate("26/8/2012"));
-
         Assertions.assertFalse(Tools.verifDate("6/08/2012"));
+        Assertions.assertFalse(Tools.verifDate("30/02/2012"));
 
     }
 
@@ -32,10 +36,11 @@ class UtilTest {
     @Test
     void testVerifMail() {
         Assertions.assertFalse(Tools.verifMail("noraliferk7542motmail.fr"));
-        Assertions.assertTrue(Tools.verifMail("noraliferki@hotmail.fr"));
         Assertions.assertFalse(Tools.verifMail("noraliferki@è(-z'(q.rezrethrst"));
         Assertions.assertFalse(Tools.verifMail("(è_-è(-'z(@hotmail.fr"));
+
         Assertions.assertTrue(Tools.verifMail("xavierSintive@gmail.com"));
+        Assertions.assertTrue(Tools.verifMail("noraliferki@hotmail.fr"));
 
     }
 
@@ -45,9 +50,11 @@ class UtilTest {
     @Test
     void testverifNombre() {
         Assert.assertTrue(Tools.verifNombre("123456"));
+
         Assert.assertFalse(Tools.verifNombre("12aa56"));
-        Assert.assertNotNull(Tools.verifNombre("A"));
         Assert.assertFalse(Tools.verifNombre("123456,45"));
+
+        Assert.assertNotNull(Tools.verifNombre("A"));
     }
 
     /**

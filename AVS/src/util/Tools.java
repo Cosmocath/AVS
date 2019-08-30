@@ -11,7 +11,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @author Administrateur Classe Toold permettant de vérifier les adresses mails, dates, prix, nombres et leurs formats précis
+ * @author Tools permettant de vérifier les adresses mails, dates, prix, nombres et leurs formats précis
  *
  */
 public class Tools {
@@ -32,6 +32,8 @@ public class Tools {
     }
 
     /**
+     * Méthode verifDate permettant de vérifier le format de la date
+     * 
      * @param dateString
      * @return true si la date est strictement au bon format et correspond bien au calendrier de la timeZone sinon false
      */
@@ -62,7 +64,7 @@ public class Tools {
     }
 
     /**
-     * permet de verifier que le nombre est bien un entier positif
+     * Méthode verifNombre permettant de verifier que le nombre est bien un entier positif
      * 
      * @param number
      * @return true si le nombre est strictement au bon format
@@ -72,7 +74,7 @@ public class Tools {
     }
 
     /**
-     * permet de vérifier que le prix est bien un nombre décimal positif, contenant une césure tous les 3 chiffres <br>
+     * Méthode verifPrix permettant de vérifier que le prix est bien un nombre décimal positif, contenant une césure tous les 3 chiffres <br>
      * et ne commençant pas par zéro
      * 
      * @param number
