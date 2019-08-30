@@ -19,15 +19,19 @@ public class FormatUtil {
      * @param entier
      * @return
      */
-    public String convertirEntierToString(final int entier) {
+    public static String convertirEntierToString(final int entier) {
         //On retourne directement 
         return Integer.toString(entier);
 
     }
 
     //Conversion
-    public String convertirDateToString(final Date date) {
-        final DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+    /**
+     * @param date
+     * @return
+     */
+    public static String convertirDateToString(final Date date) {
+        final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         return dateFormat.format(date);
     }
 
