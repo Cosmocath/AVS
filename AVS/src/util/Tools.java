@@ -11,7 +11,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @author Tools permettant de vérifier les adresses mails, dates, prix, nombres et leurs formats précis
+ * Tools permettant de vérifier les adresses mails, dates, prix, nombres et leurs formats précis
+ * 
+ * @author Nora et Catherine
  *
  */
 public class Tools {
