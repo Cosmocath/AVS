@@ -23,7 +23,7 @@ class MD5EncryptionTest {
         assertEquals("a32b814d73b6364fe0d8d7b0d8050ba9", MD5Encryption.encrypt("54^ç3?@é"));
         assertEquals("3215f290480cb4c09d2c1ab5cc222376", MD5Encryption.encrypt("543.Méad!"));
         assertNotEquals("543.Méad!", MD5Encryption.encrypt("3215f290480cb4c09d2c1ab5cc222376"));
-        assertNotEquals("54^ç3?@é", MD5Encryption.encrypt("a32b814d73b6364fe0d8d7b0d8050ba9"));
+        assertNotEquals("a32b814d73b6364fe0d8d7b0d8050ba8", MD5Encryption.encrypt("54^ç3?@é"));
     }
 
 }
