@@ -8,10 +8,17 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
+ * Cette classe permet de faire la conversion des entiers en String <br/>
+ * puis de Date en String.
+ * 
  * @author Administrateur
  *
  */
 public class FormatUtil {
+    /**
+     * 
+     */
+    private static final String FORMAT_DATE = "dd/MM/yyyy";
 
     /**
      * Conversion d'entier en string
@@ -31,7 +38,7 @@ public class FormatUtil {
      * @return
      */
     public static String convertirDateToString(final Date date) {
-        final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        final DateFormat dateFormat = new SimpleDateFormat(FORMAT_DATE);
         return dateFormat.format(date);
     }
 
