@@ -3,9 +3,7 @@ package service.produit;
 import java.util.ArrayList;
 import java.util.List;
 
-import persistance.bean.ChatDo;
 import persistance.produit.beanDo.ProduitDo;
-import presentation.bean.ChatDto;
 import presentation.produit.beanDto.ProduitDto;
 
 /**
@@ -22,9 +20,9 @@ public class ProduitMapper {
      * @param chatDo
      * @return
      */
-    public static ProduitDto mapToDto(final ProduitDo produitDo) {
-        return ProduitDto.build(produitDo.getId(), produitDo.getDesignation(), produitDo.getReference(),  produitDo.getDescription(),produitDo.getPrix(),produitDo.getImage(),produitDo.getNumero_version(),produitDo.getActif());
-    }
+//    public static ProduitDto mapToDto(final ProduitDo produitDo) {
+//        return ProduitDto.build(produitDo.getId(), produitDo.getDesignation(), produitDo.getReference(),  produitDo.getDescription(),produitDo.getPrix(),produitDo.getImage(),produitDo.getNumero_version(),produitDo.getActif());
+//    }
 
 //    /**
 //     * Permet de mapper un ChatDto en ChatDo
@@ -40,18 +38,18 @@ public class ProduitMapper {
 //        return produitDo;
 //    }
 
-    /**
-     * Permet de mapper une liste de ChatDo en liste de ChatDto
-     * 
-     * @param listeChatDo
-     * @return
-     */
-    public static List<ProduitDto> mapToListDto(final List<ProduitDo> listeProduitDo) {
-        final List<ProduitDto> listeProduitDto = new ArrayList<>();
-        for (final ProduitDo produitDo : listeProduitDo) {
-            listeProduitDto.add(mapToDto(produitDo));
-        }
-        return listeProduitDto;
-    }
+    //    /**
+    //     * Permet de mapper une liste de ChatDo en liste de ChatDto
+    //     * 
+    //     * @param listeChatDo
+    //     * @return
+    //     */
+    //    public static List<ProduitDto> mapToListDto(final List<ProduitDo> listeProduitDo) {
+    //        final List<ProduitDto> listeProduitDto = new ArrayList<>();
+    //        for (final ProduitDo produitDo : listeProduitDo) {
+    //            listeProduitDto.add(mapToDto(produitDo));
+    //        }
+    //        return listeProduitDto;
+    //    }
 
 }
