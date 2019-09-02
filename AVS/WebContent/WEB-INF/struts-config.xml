@@ -11,8 +11,8 @@
 		<!-- TODO à titre d'exemple, à supprimer -->
 		<action path="/TestHello" scope="request" input="" parameter=""
 			type="presentation.testStruts.TestHello">
-			<forward name="success" path="templateTest"
-				redirect="false"></forward>
+			<!-- le path n'est pas une jsp mais le nom defini dans le tiles-defs.xml -->
+			<forward name="success" path="templateTest" redirect="false"></forward>
 		</action>
 
 	</action-mappings>

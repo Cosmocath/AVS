@@ -1,9 +1,7 @@
-<body bgcolor="#D65858">
-	<p>sample body content.</p>
-	<br>
-	<br>
-	<h1>Body Section</h1>
+<div style="background-color: #D65858;">
+	<p>Eample de jsp</p>
 	<br />
-
-</body>
-</html>
+	<br />
+	<h1>Example de H1 dans le body</h1>
+	<br />
+</div>

@@ -5,16 +5,16 @@
        "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
 
 <tiles-definitions>
+	<!-- Voici l'organisation du template de base à ne jamais toucher. Il faut 
+		faire un extends comme l'exemple ci-dessous -->
 	<definition name="template" page="/jsp/tiles/template.jsp">
-		<put name="title" type="string" value="Accueil" />
 		<put name="header" value="/jsp/tiles/header.jsp" />
 		<put name="menu" value="/jsp/tiles/menu.jsp" />
 		<put name="body" value="/jsp/tiles/body.jsp" />
 		<put name="footer" value="/jsp/tiles/footer.jsp" />
 	</definition>
-
+	
 	<definition name="templateTest" extends="template">
-		<put name="title" type="string" value="Test Hello Tiles" />
 		<put name="body" value="/jsp/testStruts/testStruts.jsp" />
 	</definition>
 </tiles-definitions>
