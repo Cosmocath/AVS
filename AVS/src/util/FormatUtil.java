@@ -16,13 +16,15 @@ import java.util.Date;
  */
 public class FormatUtil {
 
-    /*
+    /**
      * Format de la date
+     * 
      */
     public static final String FORMAT_DATE = "dd/MM/yyyy";
 
     /**
      * Permet de convertir un entier en String
+     * 
      * 
      * @param entier
      * @return
@@ -34,6 +36,7 @@ public class FormatUtil {
 
     /**
      * Permet de convertir une date en String
+     * 
      * 
      * @param date
      * @return
