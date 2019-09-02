@@ -2,8 +2,8 @@
 -- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- H√¥te : 127.0.0.1:3306
--- G√©n√©r√© le :  lun. 02 sep. 2019 √† 14:16
+-- HÙte : 127.0.0.1:3306
+-- GÈnÈrÈ le :  lun. 02 sep. 2019 √† 14:16
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.2.14
 
@@ -19,23 +19,23 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de donn√©es :  `avs`
+-- Base de donnÈes :  `avs`
 --
 
 --
--- D√©chargement des donn√©es de la table `commande`
+-- DÈchargement des donnÈes de la table `commande`
 --
 
 INSERT INTO `commande` (`id_Commande`, `id_Utilisateur`, `nom`, `adresse_livraison`, `adresse_facturation`, `numero_commande`, `date_commande`, `montant_sans_remise`, `remise`) VALUES(1, 8, 'commande_jardin', '19_rue_montebello', '19_rue_montebello', 'jd_1546', '2016-06-17', 60, 0);
 
 --
--- D√©chargement des donn√©es de la table `commandeproduit`
+-- DÈchargement des donnÈes de la table `commandeproduit`
 --
 
 INSERT INTO `commandeproduit` (`id_CommandeProduit`, `idCommande`, `id_ProduitVendu`, `quantite`) VALUES(1, 1, 1, 2);
 
 --
--- D√©chargement des donn√©es de la table `droit`
+-- DÈchargement des donnÈes de la table `droit`
 --
 
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(1, 'accueil.html', 'acc√©der_a_l_accueil ');
@@ -43,7 +43,7 @@ INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(2, 'connexion.jsp'
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(3, 'ajouter-produit.jsp', 'droit_d_ajout_de_produit');
 
 --
--- D√©chargement des donn√©es de la table `produit`
+-- DÈchargement des donnÈes de la table `produit`
 --
 
 INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(12, 'jadinage', 123456, 'entretien de jardin', 30, 'null', 1, b'1');
@@ -51,13 +51,13 @@ INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, 
 INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(14, 'demenagement', 456789, 'service_au_demenagement', 40, 'null', 1, b'1');
 
 --
--- D√©chargement des donn√©es de la table `produitvendu`
+-- DÈchargement des donnÈes de la table `produitvendu`
 --
 
 INSERT INTO `produitvendu` (`id_ProduitVendu`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `id_Produit_Historise`) VALUES(1, 'jadinage', 123456, 'entretien de jardin', 30, 'null', 1, 12);
 
 --
--- D√©chargement des donn√©es de la table `profil`
+-- DÈchargement des donnÈes de la table `profil`
 --
 
 INSERT INTO `profil` (`id_Profil`, `nom`) VALUES(1, 'visiteur');
@@ -65,7 +65,7 @@ INSERT INTO `profil` (`id_Profil`, `nom`) VALUES(2, 'client');
 INSERT INTO `profil` (`id_Profil`, `nom`) VALUES(3, 'admin');
 
 --
--- D√©chargement des donn√©es de la table `profildroit`
+-- DÈchargement des donnÈes de la table `profildroit`
 --
 
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(1, 1, 1);
@@ -75,7 +75,7 @@ INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(4, 
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(5, 3, 3);
 
 --
--- D√©chargement des donn√©es de la table `utilisateur`
+-- DÈchargement des donnÈes de la table `utilisateur`
 --
 
 INSERT INTO `utilisateur` (`id_Utilisateur`, `nom`, `prenom`, `date_naissance`, `adresse`, `mail`, `password`, `actif`, `id_Profil`) VALUES(7, 'ad', 'min', '1987-05-11', '19_rue_montebello', 'utili.sateur@outlook.com', 'pass', b'1', 3);
