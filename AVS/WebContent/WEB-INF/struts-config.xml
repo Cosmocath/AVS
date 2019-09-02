@@ -12,12 +12,15 @@
 		<action path="/TestHello" scope="request" input="" parameter=""
 			type="presentation.testStruts.TestHello">
 			<forward name="success" path="/jsp/testStruts/testStruts.jsp"
-				redirect="true"></forward>
+				redirect="false"></forward>
+		</action>
+		<action path="/changerLangue" scope="request" input=""
+			parameter="" type="presentation.i18n.action.ChangerLangueAction">
 		</action>
 
 	</action-mappings>
 
 
 	<message-resources parameter="messages/application"></message-resources>
-	
+
 </struts-config>
