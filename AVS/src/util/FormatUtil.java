@@ -3,7 +3,6 @@
  */
 package util;
 
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -14,19 +13,20 @@ import java.util.Date;
  */
 public class FormatUtil {
 
-    //Conversion entier en string
     /**
+     * Conversion d'entier en string
+     * 
      * @param entier
      * @return
      */
     public static String convertirEntierToString(final int entier) {
-        //On retourne directement 
         return Integer.toString(entier);
 
     }
 
-    //Conversion
     /**
+     * Conversion de date en String
+     * 
      * @param date
      * @return
      */
