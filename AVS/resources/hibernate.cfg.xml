@@ -23,6 +23,10 @@
 		<!-- Permet de formatter les requêtes executées par hibernate -->
 		<!-- <property name="format_sql>true</property> -->
 
+		<!-- Liste des fichiers de Mapping hbm pour chaque table / Do -->
+		<mapping resource="hbm/User.hbm.xml" />
+		<mapping resource="hbm/Profil.hbm.xml" />
+
 
 	</session-factory>
 
