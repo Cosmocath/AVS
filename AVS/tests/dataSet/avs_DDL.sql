@@ -21,6 +21,31 @@ CREATE DATABASE IF NOT EXISTS `avs` DEFAULT CHARACTER SET utf16 COLLATE utf16_ge
 USE `avs` ;
 
 -- -----------------------------------------------------
+-- Table `avs`.`Profil`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `avs`.`Profil` ;
+
+CREATE TABLE IF NOT EXISTS `avs`.`Profil` (
+  `id_Profil` INT NOT NULL,
+  `nom` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`id_Profil`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `avs`.`Droit`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `avs`.`Droit` ;
+
+CREATE TABLE IF NOT EXISTS `avs`.`Droit` (
+  `id_Droit` INT NOT NULL,
+  `url` VARCHAR(255) NOT NULL,
+  `description` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`id_Droit`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `avs`.`Utilisateur`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `avs`.`Utilisateur` ;
@@ -34,7 +59,14 @@ CREATE TABLE IF NOT EXISTS `avs`.`Utilisateur` (
   `mail` VARCHAR(255) NOT NULL,
   `password` VARCHAR(255) NOT NULL,
   `actif` BIT(1) NOT NULL,
-  PRIMARY KEY (`id_Utilisateur`))
+  `id_Profil` INT NOT NULL,
+  PRIMARY KEY (`id_Utilisateur`),
+  INDEX `fk_Utilisateur_Profil1_idx` (`id_Profil` ASC),
+  CONSTRAINT `fk_Utilisateur_Profil1`
+    FOREIGN KEY (`id_Profil`)
+    REFERENCES `avs`.`Profil` (`id_Profil`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -99,30 +131,6 @@ CREATE TABLE IF NOT EXISTS `avs`.`Produit` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `avs`.`Profil`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `avs`.`Profil` ;
-
-CREATE TABLE IF NOT EXISTS `avs`.`Profil` (
-  `id_Profil` INT NOT NULL,
-  `nom` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`id_Profil`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `avs`.`Droit`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `avs`.`Droit` ;
-
-CREATE TABLE IF NOT EXISTS `avs`.`Droit` (
-  `id_Droit` INT NOT NULL,
-  `url` VARCHAR(255) NOT NULL,
-  `description` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`id_Droit`))
-ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `avs`.`CommandeProduit`
@@ -175,31 +183,3 @@ CREATE TABLE IF NOT EXISTS `avs`.`ProfilDroit` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `avs`.`UtilisateurProfil`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `avs`.`UtilisateurProfil` ;
-
-CREATE TABLE IF NOT EXISTS `avs`.`UtilisateurProfil` (
-  `id_UtilisateurProfil` INT NOT NULL,
-  `id_Profil` INT NOT NULL,
-  `id_utilisateur` INT NOT NULL,
-  PRIMARY KEY (`id_UtilisateurProfil`, `id_Profil`, `id_utilisateur`),
-  INDEX `fk_UtilisateurProfil_Profil1_idx` (`id_Profil` ASC) ,
-  INDEX `fk_UtilisateurProfil_Utilisateur1_idx` (`id_utilisateur` ASC) ,
-  CONSTRAINT `fk_UtilisateurProfil_Profil1`
-    FOREIGN KEY (`id_Profil`)
-    REFERENCES `avs`.`Profil` (`id_Profil`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_UtilisateurProfil_Utilisateur1`
-    FOREIGN KEY (`id_utilisateur`)
-    REFERENCES `avs`.`Utilisateur` (`id_Utilisateur`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
