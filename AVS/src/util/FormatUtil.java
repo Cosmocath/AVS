@@ -15,10 +15,12 @@ import java.util.Date;
  *
  */
 public class FormatUtil {
+
     /**
+     * Format de la date
      * 
      */
-    private static final String FORMAT_DATE = "dd/MM/yyyy";
+    public static final String FORMAT_DATE = "dd/MM/yyyy";
 
     /**
      * Conversion d'entier en string
