@@ -35,12 +35,12 @@ public class ToolsTest {
      */
     @Test
     void testVerifMail() {
+        Assertions.assertTrue(Tools.verifMail("xavierSintive@gmail.com"));
+        Assertions.assertTrue(Tools.verifMail("noraliferki@hotmail.fr"));
+
         Assertions.assertFalse(Tools.verifMail("noraliferk7542motmail.fr"));
         Assertions.assertFalse(Tools.verifMail("noraliferki@è(-z'(q.rezrethrst"));
         Assertions.assertFalse(Tools.verifMail("(è_-è(-'z(@hotmail.fr"));
-
-        Assertions.assertTrue(Tools.verifMail("xavierSintive@gmail.com"));
-        Assertions.assertTrue(Tools.verifMail("noraliferki@hotmail.fr"));
 
     }
 
@@ -54,7 +54,6 @@ public class ToolsTest {
         Assert.assertFalse(Tools.verifNombre("12aa56"));
         Assert.assertFalse(Tools.verifNombre("123456,45"));
 
-        Assert.assertNotNull(Tools.verifNombre("A"));
     }
 
     /**
@@ -68,10 +67,11 @@ public class ToolsTest {
         Assert.assertTrue(Tools.verifPrix("421 254 111 255,00"));
         Assert.assertTrue(Tools.verifPrix("1,20"));
         Assert.assertTrue(Tools.verifPrix("10,20"));
-        Assert.assertTrue(Tools.verifPrix("125,2"));
         Assert.assertTrue(Tools.verifPrix("1 000 421,20"));
         Assert.assertTrue(Tools.verifPrix("145 421,20"));
 
+        Assert.assertFalse(Tools.verifPrix("145,2"));
+        Assert.assertFalse(Tools.verifPrix("012,25"));
         Assert.assertFalse(Tools.verifPrix("12 512"));
         Assert.assertFalse(Tools.verifPrix("1855,20"));
         Assert.assertFalse(Tools.verifPrix("125.15"));
