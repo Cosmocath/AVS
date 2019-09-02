@@ -46,6 +46,8 @@ class FormatUtilTest {
         Assert.assertNotEquals("12-2015", FormatUtil.convertirDateToString(calendar2.getTime()));
         Assert.assertNotEquals("12-15", FormatUtil.convertirDateToString(calendar2.getTime()));
         Assert.assertNotEquals("03-81", FormatUtil.convertirDateToString(calendar2.getTime()));
-
+        Assert.assertNotEquals(Calendar.AUGUST,FormatUtil.convertirDateToString(calendar1.getTime()));
+       
+        
     }
 }
