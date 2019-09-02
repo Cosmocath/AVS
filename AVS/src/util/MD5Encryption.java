@@ -1,6 +1,3 @@
-/**
- * 
- */
 package util;
 
 import java.nio.charset.StandardCharsets;
@@ -8,6 +5,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
+ * Cette classe sert au cryptage des mots de passe.
+ * 
  * @author Administrateur
  *
  */
@@ -32,11 +31,11 @@ public class MD5Encryption {
             final MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             final byte[] hashInBytes = messageDigest.digest(motDePasse.getBytes(StandardCharsets.UTF_8));
 
-            for (byte b : hashInBytes) {
+            for (final byte b : hashInBytes) {
                 sb.append(String.format("%02x", b));
             }
 
-        } catch (NoSuchAlgorithmException algorimthmException) {
+        } catch (final NoSuchAlgorithmException algorimthmException) {
             algorimthmException.printStackTrace();
         }
         return sb.toString();
