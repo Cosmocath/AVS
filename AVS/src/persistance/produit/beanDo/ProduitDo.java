@@ -1,32 +1,28 @@
 /**
  * 
  */
-package presentation.produit.beanDto;
-
-import java.io.Serializable;
+package persistance.produit.beanDo;
 
 /**
- * @author Administrateur
+ * @author Nora Liferki
  *
  */
-public class ProduitDto implements Serializable {
+public class ProduitDo {
+    private Integer id;
+    private String  designation;
+    private Integer reference;
+    private String  description;
+    private float   prix;
+    private String  image;
+    private Integer numero_version;
+    private byte    actif;
 
     /**
+     * Constructeur
      * 
      */
-    private static final long serialVersionUID = 7637214908602744909L;
-
-    private Integer           id;
-    private String            designation;
-    private Integer           reference;
-    private String            description;
-    private double            prix;
-    private String            image;
-    private int               noVersion;
-    private boolean           actif;
-
-    private ProduitDto() {
-        // empty method
+    public ProduitDo() {
+        //empty constructeur  
     }
 
     /**
@@ -88,14 +84,14 @@ public class ProduitDto implements Serializable {
     /**
      * @return the prix
      */
-    public double getPrix() {
+    public float getPrix() {
         return prix;
     }
 
     /**
      * @param prix the prix to set
      */
-    public void setPrix(final double prix) {
+    public void setPrix(final float prix) {
         this.prix = prix;
     }
 
@@ -114,30 +110,30 @@ public class ProduitDto implements Serializable {
     }
 
     /**
-     * @return the noVersion
+     * @return the numero_version
      */
-    public int getNoVersion() {
-        return noVersion;
+    public Integer getNumero_version() {
+        return numero_version;
     }
 
     /**
-     * @param noVersion the noVersion to set
+     * @param numero_version the numero_version to set
      */
-    public void setNoVersion(final int noVersion) {
-        this.noVersion = noVersion;
+    public void setNumero_version(final Integer numero_version) {
+        this.numero_version = numero_version;
     }
 
     /**
      * @return the actif
      */
-    public boolean isActif() {
+    public byte getActif() {
         return actif;
     }
 
     /**
      * @param actif the actif to set
      */
-    public void setActif(final boolean actif) {
+    public void setActif(final byte actif) {
         this.actif = actif;
     }
 
