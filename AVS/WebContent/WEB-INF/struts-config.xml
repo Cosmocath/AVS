@@ -15,9 +15,20 @@
 				redirect="true"></forward>
 		</action>
 
+		<!-- Actions pour les ecrans PRODUIT -->
+
+
+		<!-- Actions pour les ecrans PANIER -->
+
+
+		<!-- Actions pour les ecrans COMMANDE -->
+
+
+		<!-- Actions pour les ecrans USERS -->
+
 	</action-mappings>
 
 
 	<message-resources parameter="messages/application"></message-resources>
-	
+
 </struts-config>
