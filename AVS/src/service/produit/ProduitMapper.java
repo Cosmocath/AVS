@@ -7,9 +7,9 @@ import persistance.produit.beanDo.ProduitDo;
 import presentation.produit.beanDto.ProduitDto;
 
 /**
- * Mapper Dto/Do bidirectionnel pour un Chat
+ * Mapper un produitDo en produitDto
  * 
- * @author xsint
+ * @author Nora LIFERKI
  *
  */
 public class ProduitMapper {
@@ -17,38 +17,34 @@ public class ProduitMapper {
     /**
      * Permet de mapper un ProduitDo en ProduitDto
      * 
-     * @param chatDo
+     * @param produitDo
      * @return
      */
-    //    public static ProduitDto mapToDto(final ProduitDo produitDo) {
-    //        return ProduitDto.build(produitDo.getId(), produitDo.getDesignation(), produitDo.getReference(),  produitDo.getDescription(),produitDo.getPrix(),produitDo.getImage(),produitDo.getNumero_version(),produitDo.getActif());    }
+    public static ProduitDto mapToDto(final ProduitDo produitDo) {
+        final ProduitDto produitDto = new ProduitDto();
+        produitDto.setId(produitDo.getId());
+        produitDto.setDesignation(produitDo.getDesignation());
+        produitDto.setReference(produitDo.getReference());
+        produitDto.setDescription(produitDo.getDescription());
+        produitDto.setPrix(produitDo.getPrix());
+        produitDto.setImage(produitDo.getImage());
+        produitDto.setNoVersion(produitDo.getNumero_version());
+        produitDto.setActif(produitDo.getActif());
 
-    /**
-     * Permet de mapper un ChatDto en ChatDo
-     * 
-     * @param chatDto
-     * @return
-     */
-    public static ProduitDo mapToDo(final ProduitDto produitDto) {
-        final ProduitDo produitDo = new ProduitDo();
-        produitDo.setId(produitDto.getId());
-        produitDo.setDescription(produitDto.getDescription());
-
-        return produitDo;
-        //    }
-
-        //    /**
-        //     * Permet de mapper une liste de ChatDo en liste de ChatDto
-        //     * 
-        //     * @param listeChatDo
-        //     * @return
-        //     */
-        //    public static List<ProduitDto> mapToListDto(final List<ProduitDo> listeProduitDo) {
-        //        final List<ProduitDto> listeProduitDto = new ArrayList<>();
-        //        for (final ProduitDo produitDo : listeProduitDo) {
-        //            listeProduitDto.add(mapToDto(produitDo));
-        //        }
-        //        return listeProduitDto;
+        return produitDto;
     }
 
+    /**
+     * Permet de mapper une liste de ProduitDo en liste de ProduitDto
+     * 
+     * @param listeProduitDo
+     * @return
+     */
+    public static List<ProduitDto> mapToListDto(final List<ProduitDo> listeProduitDo) {
+        final List<ProduitDto> listeProduitDto = new ArrayList<>();
+        for (final ProduitDo produitDo : listeProduitDo) {
+            listeProduitDto.add(mapToDto(produitDo));
+        }
+        return listeProduitDto;
+    }
 }

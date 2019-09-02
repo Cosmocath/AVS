@@ -15,7 +15,7 @@ public class ProduitDo {
     private float   prix;
     private String  image;
     private Integer numero_version;
-    private byte    actif;
+    private boolean actif;
 
     /**
      * Constructeur
@@ -126,14 +126,14 @@ public class ProduitDo {
     /**
      * @return the actif
      */
-    public byte getActif() {
+    public boolean getActif() {
         return actif;
     }
 
     /**
      * @param actif the actif to set
      */
-    public void setActif(final byte actif) {
+    public void setActif(final boolean actif) {
         this.actif = actif;
     }
 

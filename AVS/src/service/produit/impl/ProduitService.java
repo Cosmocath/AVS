@@ -3,63 +3,38 @@
  */
 package service.produit.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import persistance.produit.beanDo.ProduitDo;
 import persistance.produit.dao.IProduitDao;
 import presentation.produit.beanDto.ProduitDto;
 import service.produit.IProduitService;
+import service.produit.ProduitMapper;
 import util.Factory;
+import util.OrderBy;
 
 /**
  * @author Nora Liferki
  *
  */
-public class ProduitService {
+public class ProduitService implements IProduitService {
 
-    private final IProduitDao      iProduitDao = Factory.getInstance(IProduitDao.class);
+    private final IProduitDao iProduitDao = Factory.getInstance(IProduitDao.class);
 
-    // SINGLETON QUI COMPREND: UNE INSTANCE / UN CONSTRUCTEUR Private / GETiNSTANCE
-
-    // Instanciation d'une Instance IProduitService
-    private static IProduitService INSTANCE    = null;
+    // SINGLETON QUI COMPREND UNIQUEMENT UN CONSTRUCTEUR Private => plus besoin de l'instance et du getInstance grâce à la factory de XSI
 
     /**
      * Constructeur
      * 
      */
     private ProduitService() {
-        // empty method
+        // empty constructor
     }
 
-    // On map une liste de produitDo en une liste de produitDto
-    /**
-     * On map une liste de produitDo en une liste de produitDto
-     * 
-     * @param listeProduitDo
-     * @return une liste de produitDto
-     */
-    private List<ProduitDto> mapToListProduitDto(final List<ProduitDo> listeProduitDo) {
-        final List<ProduitDto> listeProduitDto = new ArrayList<>();
+    @Override
+    public List<ProduitDto> findAllProduitOrderBy(final OrderBy orderBy) {
 
-        for (final ProduitDo produitDo : listeProduitDo) {
-            listeProduitDto.add(mapToProduitDo(produitDo));
-        }
-        return listeProduitDto;
-    }
-
-    // On map un produitDo en produitDto
-    /**
-     * On map un produitDo en produitDto
-     * 
-     * @param ProduitDo
-     * @return ProduitDto
-     */
-    private ProduitDto mapToProduitDo(final ProduitDo produitDo) {
-        final ProduitDto produitDto = new ProduitDto();
-        produitDto.setId(produitDo.getId());
-        produitDto.setDescription(produitDo.getDescription());
-        return produitDto;
+        final List<ProduitDo> listeProduitDo = iProduitDao.findAllProduitOrderBy(orderBy);
+        return ProduitMapper.mapToListDto(listeProduitDo);
     }
 }
