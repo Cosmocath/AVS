@@ -20,18 +20,24 @@ public class MD5Encryption {
         // empty method
     }
 
-    public static String encrypt(String mdp) {
-        StringBuilder sb = new StringBuilder();
+    /**
+     * Methode qui prend en parametre une chaine de caractere "motDePasse" et retournera une autre chaine de caratere afin de crypter le mot de passe.
+     * 
+     * @param mdp
+     * @return
+     */
+    public static String encrypt(final String motDePasse) {
+        final StringBuilder sb = new StringBuilder();
         try {
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            byte[] hashInBytes = md.digest(mdp.getBytes(StandardCharsets.UTF_8));
+            final MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            final byte[] hashInBytes = messageDigest.digest(motDePasse.getBytes(StandardCharsets.UTF_8));
 
             for (byte b : hashInBytes) {
                 sb.append(String.format("%02x", b));
             }
 
-        } catch (NoSuchAlgorithmException exception) {
-            exception.printStackTrace();
+        } catch (NoSuchAlgorithmException algorimthmException) {
+            algorimthmException.printStackTrace();
         }
         return sb.toString();
 
