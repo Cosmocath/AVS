@@ -22,12 +22,12 @@ class FormatUtilTest {
         Assert.assertEquals("123", FormatUtil.convertirEntierToString(123));
         Assert.assertNotEquals(123, FormatUtil.convertirEntierToString(123));
         Assert.assertNotEquals("023", FormatUtil.convertirEntierToString(123));
-
     }
 
     /**
-     * le mois dans le calendar est compté à partir de zero c'est-à-dire que le mois de janvier est le mois 0 <br/>
-     * et le mois de décembre est le mois 11. Important pour la saisie du test. <br/>
+     * Le mois dans le calendar est compté à partir de zero c'est-à-dire que le mois de janvier est le mois 0 et le mois de décembre est le mois 11. <br/>
+     * Important pour la saisie du test. <br/>
+     * 
      * Test method for {@link util.FormatUtil#convertirDateToString(java.util.Date)}.
      */
     @Test

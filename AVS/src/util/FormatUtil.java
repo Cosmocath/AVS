@@ -8,8 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Cette classe permet de faire la conversion des entiers en String <br/>
- * puis de Date en String.
+ * Cette classe permet de faire la conversion de types différents en String <br/>
  * 
  * @author Administrateur
  *
