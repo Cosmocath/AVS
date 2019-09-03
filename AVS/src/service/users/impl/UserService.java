@@ -1,7 +1,3 @@
-
-/**
- * 
- */
 package service.users.impl;
 
 import persistance.users.beanDo.UserDo;
@@ -11,13 +7,15 @@ import service.users.IUserService;
 import util.Factory;
 
 /**
+ * 
+ * Implémentation du service pour gérer les users
+ * 
  * @author Administrateur
  *
  */
 public class UserService implements IUserService {
 
     private UserService() {
-
         // empty constructor
     }
 

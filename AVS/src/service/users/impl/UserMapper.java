@@ -1,6 +1,3 @@
-/**
- * 
- */
 package service.users.impl;
 
 import persistance.users.beanDo.ProfilDo;
@@ -9,11 +6,19 @@ import presentation.users.TypeDeProfil;
 import presentation.users.beanDto.ConnectedUserDto;
 
 /**
+ * Mapper Dto/Do bidirectionnel pour un User
+ * 
  * @author Administrateur
  *
  */
 public class UserMapper {
 
+    /**
+     * Permet de mapper un UserDo en UserDto
+     * 
+     * @param userDo
+     * @return
+     */
     public static ConnectedUserDto mapToDto(final UserDo userDo) {
         final ConnectedUserDto connectedUserDto = new ConnectedUserDto();
         connectedUserDto.setId(userDo.getId());

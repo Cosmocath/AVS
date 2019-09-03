@@ -1,6 +1,3 @@
-/**
- * 
- */
 package persistance.users.dao.impl;
 
 import java.util.Optional;
@@ -16,6 +13,8 @@ import persistance.users.beanDo.UserDo;
 import persistance.users.dao.IUserDao;
 
 /**
+ * Implementation de IUserDao
+ * 
  * @author Administrateur
  *
  */
@@ -23,6 +22,9 @@ public class UserDao implements IUserDao {
 
     private SessionFactory sessionFactory = HibernateFactory.getSessionFactory();
 
+    /**
+     * 
+     */
     private UserDao() {
         //empty method
     }

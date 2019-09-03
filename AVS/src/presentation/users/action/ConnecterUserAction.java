@@ -1,6 +1,3 @@
-/**
- * 
- */
 package presentation.users.action;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +18,8 @@ import service.users.IUserService;
 import util.Factory;
 
 /**
+ * Action permettant de connecter un user
+ * 
  * @author Administrateur
  *
  */
@@ -37,7 +36,7 @@ public class ConnecterUserAction extends Action {
         // on teste le retour du service
         if (connectedUserDto == null) {
             final ActionErrors errors = new ActionErrors();
-            errors.add("error", new ActionMessage("errors.connection"));
+            errors.add("error", new ActionMessage("voirConnecterUser.errors.connection"));
             saveErrors(request, errors);
             return mapping.findForward("notSuccess");
 

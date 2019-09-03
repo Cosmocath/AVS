@@ -86,13 +86,14 @@ public class ToolsTest {
 
     }
 
+    /**
+     * Test method for {@link persistance.Tools#isEmpty(java.lang.String)}.
+     */
     @Test
     void testIsEmpty() {
         assertNotNull(Tools.isEmpty(""));
         assertTrue(Tools.isEmpty(""));
         assertTrue(Tools.isEmpty(null));
         assertFalse(Tools.isEmpty("doudou"));
-        
-
     }
 }

@@ -1,11 +1,9 @@
-/**
- * 
- */
 package presentation.users.beanDto;
 
 import presentation.users.TypeDeProfil;
 
 /**
+ * Bean pour la connection d'un user
  * @author Administrateur
  *
  */
