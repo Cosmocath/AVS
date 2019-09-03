@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 </head>
 <body style="margin: 0px; min-height: 100%">
-	<table width="100%" style="height: 900px" cellpadding="0px" cellspacing="0px">
+	<table width="100%" style="height: 750px" cellpadding="0px" cellspacing="0px">
 		<tr>
 			<td colspan="2" style="height: 10%">
 				<tiles:insert attribute="header" />
