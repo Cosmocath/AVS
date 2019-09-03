@@ -23,10 +23,12 @@ public class CommandeService implements ICommandeService {
     }
 
     @Override
-    public List<CommandeDto> findAllChat(int id_Utilisateur) {
+    public List<CommandeDto> findAllCommande(final int id_Utilisateur) {
         final ICommandeDao iCommandeDao = Factory.getInstance(ICommandeDao.class);
         // on pourrait ne pas utiliser cette variable
         final List<CommandeDo> listeCommandeDo = (iCommandeDao).findAllCommandeDo(id_Utilisateur);
         return CommandeMapper.mapToListDto(listeCommandeDo);
     }
+
+   
 }

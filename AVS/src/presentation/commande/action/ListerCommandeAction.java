@@ -15,7 +15,6 @@ import org.apache.struts.action.ActionMapping;
 
 import presentation.commande.beanDto.CommandeDto;
 import service.commande.ICommandeService;
-import service.commande.impl.CommandeService;
 import util.Factory;
 
 /**
@@ -29,8 +28,8 @@ public class ListerCommandeAction extends Action {
     @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
         final ICommandeService iCommandeService = Factory.getInstance(ICommandeService.class);
-//        final List<CommandeDto> listeCommandeDto = iCommandeService.findAllChat();
-//        request.setAttribute("listeCommande", listeCommandeDto);
+        final List<CommandeDto> listeCommandeDto = iCommandeService.findAllCommande(8);
+        request.setAttribute("listeCommande", listeCommandeDto);
 
         return mapping.findForward("success");
     }

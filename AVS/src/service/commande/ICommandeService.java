@@ -20,6 +20,6 @@ public interface ICommandeService {
      * 
      * @return
      */
-    List<CommandeDto> findAllChat(final int id_Utilisateur);
+    List<CommandeDto> findAllCommande(final int id_Utilisateur);
 
 }

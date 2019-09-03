@@ -10,14 +10,14 @@
 <title>Commande</title>
 </head>
 <body>
-<%-- parcours de la liste des Chats et affichage leur numero de puce --%>
-<%-- 	 	<logic:iterate name="listeCommande" id="id_Utilisateur" scope="request"> --%>
-	 		<tr>
-	 			<td width="70%" align="left" style="padding-left: 10px">
-					<html:link href="consulterCommande.do?id=${commande.id_Utilisateur}">
-						- <bean:write name="commande" property="id_Utilisateur"/>
-					</html:link>
-				</td>
-				</tr>
+
+	<logic:iterate name="listeCommande" id="id_Utilisateur" scope="request">
+		<tr>
+			<td width="70%" align="left" style="padding-left: 10px"><html:link
+					href="consulterCommande.do?id=${commande.id_Utilisateur}">
+						- <bean:write name="commande" property="id_Utilisateur" />
+				</html:link></td>
+		</tr>
+	</logic:iterate>
 </body>
 </html:html>
