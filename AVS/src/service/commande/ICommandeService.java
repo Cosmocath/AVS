@@ -16,10 +16,10 @@ import presentation.commande.beanDto.CommandeDto;
 public interface ICommandeService {
 
     /**
-     * Permet de faire appel à la couche persitance afin de rechercher toutes les Commandes d'un utilistaeur
+     * Permet de faire appel à la couche persitance afin de rechercher toutes les Commandes d'un utilisateur
      * 
-     * @return
+     * @return la liste de commande d'un Utilisateur
      */
-    List<CommandeDto> findAllCommande(final int id_Utilisateur);
+    List<CommandeDto> findAllCommande(final int idUtilisateur);
 
 }

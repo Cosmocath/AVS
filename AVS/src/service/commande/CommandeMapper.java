@@ -11,13 +11,21 @@ import presentation.commande.beanDto.CommandeDto;
 import util.FormatUtil;
 
 /**
+ * Mapper Dto/Do pour une commande
+ * 
  * @author Administrateur
  *
  */
 public class CommandeMapper {
 
+    /**
+     * Permet de mapper une commandeDo en commandeDto
+     * @param commandeDo
+     * @return
+     */
     public static CommandeDto mapToDto(final CommandeDo commandeDo) {
-        return CommandeDto.build(commandeDo.getId_Utilisateur(), commandeDo.getId_Commande(), commandeDo.getNumero_Commande(), FormatUtil.convertirDateToString(commandeDo.getDate_Commande()), (int)commandeDo.getMontant_Sans_Remise());
+        return CommandeDto.build(commandeDo.getIdUtilisateur(), commandeDo.getIdCommande(), commandeDo.getNumeroCommande(), FormatUtil.convertirDateToString(commandeDo.getDateCommande()),
+                        (int) commandeDo.getMontantSansRemise());
     }
 
     /**

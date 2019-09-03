@@ -1,5 +1,5 @@
 /**
- * 
+ * test de la couche persistance 
  */
 package persistance.dao;
 
@@ -26,9 +26,7 @@ import util.Factory;
  */
 class CommandeDaoTest {
 
-    /**
-     * 
-     */
+  
     @BeforeEach
     public void initData() {
         try (final Session session = HibernateFactory.getSessionFactory().openSession()) {
