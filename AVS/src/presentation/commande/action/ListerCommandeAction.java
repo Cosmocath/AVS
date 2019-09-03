@@ -30,7 +30,7 @@ public class ListerCommandeAction extends Action {
         final ICommandeService iCommandeService = Factory.getInstance(ICommandeService.class);
         final List<CommandeDto> listeCommandeDto = iCommandeService.findAllCommande(8);
         request.setAttribute("listeCommande", listeCommandeDto);
-
+        
         return mapping.findForward("success");
     }
 }

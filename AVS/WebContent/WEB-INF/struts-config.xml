@@ -19,7 +19,7 @@
 
 		<action path="/listerCommande" scope="request" input=""
 			parameter="" type="presentation.commande.action.ListerCommandeAction">
-			<forward name="success" path="/jsp/listerCommande.jsp"
+			<forward name="success" path="/jsp/commande/listerCommande.jsp"
 				redirect="false"></forward>
 		</action>
 
