@@ -96,7 +96,7 @@ INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, 
 INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(13, 'menage', 987654, 'entretien d_interieur', 20, 'null', 1, b'0');
 INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(14, 'demenagement', 456789, 'service_au_demenagement', 40, 'null', 1, b'1');
 
-
+COMMIT;
 
 
 
