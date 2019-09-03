@@ -26,11 +26,11 @@ import util.Factory;
 public class ListerCommandeAction extends Action {
 
     @Override
-    public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         final ICommandeService iCommandeService = Factory.getInstance(ICommandeService.class);
         final List<CommandeDto> listeCommandeDto = iCommandeService.findAllCommande(8);
         request.setAttribute("listeCommande", listeCommandeDto);
-        
+
         return mapping.findForward("success");
     }
 }

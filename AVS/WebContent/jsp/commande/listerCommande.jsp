@@ -10,7 +10,9 @@
 <title>Commande</title>
 </head>
 <body>
-
+<definition name="listerCommande" extends="template">
+		<put name="body" value="/jsp/commande/listerCommande.jsp" />
+		</definition>
 	<logic:iterate name="listeCommande" id="commande" scope="request">
 	
 		<div>

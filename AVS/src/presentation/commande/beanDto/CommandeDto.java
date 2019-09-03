@@ -91,7 +91,7 @@ public class CommandeDto implements Serializable {
     /**
      * @param numero_Commande the numero_Commande to set
      */
-    public void setNumero_Commande(String numero_Commande) {
+    public void setNumero_Commande(final String numero_Commande) {
         this.numero_Commande = numero_Commande;
     }
 
