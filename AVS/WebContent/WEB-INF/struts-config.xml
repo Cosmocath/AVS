@@ -19,6 +19,9 @@
 			<!-- le path n'est pas une jsp mais le nom defini dans le tiles-defs.xml -->
 			<forward name="success" path="templateTest" redirect="false"></forward>
 		</action>
+		<action path="/changerLangue" scope="request" input=""
+			parameter="" type="presentation.i18n.action.ChangerLangueAction">
+		</action>
 
 		<action path="/connecterUser" scope="request" input="voirConnecterUser"
 			parameter="" name="connecterUserForm"
