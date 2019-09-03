@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package presentation.i18n.action;
 
 import java.util.Locale;
@@ -15,19 +13,24 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 /**
+ * Permet de basculer d'une langue à une autre en fonction du paramètre "langue"
+ * 
  * @author Rodolphe
  *
  */
 public class ChangerLangueAction extends Action {
 
     @Override
-    public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public ActionForward execute(final ActionMapping mapping, ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
+        // récupération du paramètre de requête "langue"
         final String langue = request.getParameter("langue");
-        switch (langue) {
-            case "fr" :
+        // conversion dans notre enum 
+        final Langue enumLangue = Langue.valueOf(langue);
+        switch (enumLangue) {
+            case FR:
                 request.getSession().setAttribute(Globals.LOCALE_KEY, Locale.FRENCH);
                 break;
-            case "en" :
+            case EN :
                 request.getSession().setAttribute(Globals.LOCALE_KEY, Locale.ENGLISH);
                 break;
             default :

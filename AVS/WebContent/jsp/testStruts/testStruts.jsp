@@ -9,9 +9,10 @@
 	<br />
 	
 	<bean:message key="test.helloworld2" />
-
-	<a href="<%=request.getContextPath()%>/changerLangue.do?langue=fr"><html:img src="img/flag_fr.svg" width="60px"></html:img></a>
-	<a href="<%=request.getContextPath()%>/changerLangue.do?langue=en"><html:img src="img/flag_en.svg" width="60px"></html:img></a>
+	
+	<bean:define id="contextPath" value="<%=request.getContextPath() %>" />
+	<html:link href="${contextPath}/changerLangue.do?langue=FR" ><html:img src="img/flag_fr.svg" width="60px"></html:img></html:link>
+	<html:link href="${contextPath}/changerLangue.do?langue=EN" ><html:img src="img/flag_en.svg" width="60px"></html:img></html:link>
 </div>
 </body>
 
