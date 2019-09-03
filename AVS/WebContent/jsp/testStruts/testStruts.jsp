@@ -1,15 +1,6 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
-<%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
-<html:html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>TestStruts</title>
-</head>
+<%@include file="/jsp/tiles/taglib.jsp" %>
 <body>
+<div style="background-color: green; height: 100%; padding: 10px">
 	<%
 	    //TODO à titre d'exemple, à supprimer avec son folder
 	%>
@@ -18,7 +9,10 @@
 	<br />
 	
 	<bean:message key="test.helloworld2" />
+
 	<a href="<%=request.getContextPath()%>/changerLangue.do?langue=fr"><html:img src="img/flag_fr.svg" width="60px"></html:img></a>
 	<a href="<%=request.getContextPath()%>/changerLangue.do?langue=en"><html:img src="img/flag_en.svg" width="60px"></html:img></a>
+</div>
 </body>
-</html:html>
+
+
