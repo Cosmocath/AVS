@@ -20,7 +20,8 @@ import util.OrderBy;
 
 /**
  * @author Catherine Hermary
- *
+ * 
+ *         Classe permettant de créer l'action de lister les produit par ordre alphabétique asc ou desc
  */
 public class ListerProduitAction extends Action {
 

@@ -8,8 +8,6 @@
 		<logic:iterate name="listeProduits" id="produit" scope="request">
 			<tr>
 				<td>Mettre l'url de l'image ici</td>
-
-
 				<td width="60%" style="padding-left: 100px"><bean:write name="produit"
 						property="designation" /> /<bean:write name="produit"
 						property="reference" /><br /> <bean:write name="produit"
@@ -21,9 +19,6 @@
 						<bean:message key="bouton.ajouterPanier" />
 					</html:button></td>
 			</tr>
-
-
-
 		</logic:iterate>
 	</table>
 </div>

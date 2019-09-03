@@ -16,7 +16,8 @@ import util.Factory;
 import util.OrderBy;
 
 /**
- * @author Administrateur
+ * @author Nora Liferki
+ * Permet de tester la classe ProduitDao
  *
  */
 class ProduitDaoTest {
@@ -28,11 +29,10 @@ class ProduitDaoTest {
     void testFindAllProduitOrderBy() {
         final IProduitDao iProduitDao = Factory.getInstance(IProduitDao.class);
         assertNotNull(iProduitDao.findAllProduitOrderBy(OrderBy.ASC));
+        
         final List<ProduitDo> listeProduitDo = iProduitDao.findAllProduitOrderBy(OrderBy.ASC);
         assertEquals(2, listeProduitDo.size());
         assertEquals("Bernard Jardinier", listeProduitDo.get(0).getDesignation());
         assertEquals("Robert Bricoleur", listeProduitDo.get(1).getDesignation());
-
     }
-
 }

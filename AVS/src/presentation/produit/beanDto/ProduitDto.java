@@ -25,8 +25,12 @@ public class ProduitDto implements Serializable {
     private int               noVersion;
     private boolean           actif;
 
+    /**
+     * Constructeur
+     * 
+     */
     public ProduitDto() {
-        // empty method
+        // empty constructor
     }
 
     /**

@@ -25,9 +25,12 @@ import util.OrderBy;
  */
 public class ProduitDao implements IProduitDao {
 
-    // on peut mettre la sessionFactory en attribut
     private SessionFactory sessionFactory = HibernateFactory.getSessionFactory();
 
+    /**
+     * Constructeur
+     * 
+     */
     private ProduitDao() {
         // empty constructor
     }
