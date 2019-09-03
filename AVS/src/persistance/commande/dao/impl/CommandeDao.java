@@ -13,15 +13,17 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import persistance.commande.beanDo.CommandeDo;
 import persistance.commande.dao.ICommandeDao;
+import persistance.factory.HibernateFactory;
 
 /**
+ * Implémentation de ICommandeDao
+ * 
  * @author Administrateur
- *
+ * 
  */
 public class CommandeDao implements ICommandeDao {
 
-    //Nous mettons la session Factory en attribut
-    private SessionFactory sessionFactory = null;
+    private SessionFactory sessionFactory = HibernateFactory.getSessionFactory();
 
     /**
      * 
@@ -37,9 +39,10 @@ public class CommandeDao implements ICommandeDao {
     public List<CommandeDo> findAllCommandeDo(final int id_Utilisateur) {
         try (final Session session = sessionFactory.openSession()) {
             final Transaction transaction = session.beginTransaction();
-            final Query<CommandeDo> query = session.createQuery("From CommandeDo : ", CommandeDo.class);
+            final Query<CommandeDo> query = session.createQuery("From CommandeDo where id_Utilisateur = :id_Utilisateur", CommandeDo.class);
             query.setParameter("id_Utilisateur", id_Utilisateur);
             final List<CommandeDo> listeCommandeDo = query.getResultList();
+
             session.flush();
             transaction.commit();
             return listeCommandeDo;

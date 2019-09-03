@@ -12,13 +12,13 @@ import java.util.Date;
 public class CommandeDo {
     private int    id_Commande;
     private int    id_Utilisateur;
-    private String nom;
-    private String adresse_Livraison;
-    private String adresse_Facturation;
     private String numero_Commande;
     private Date   date_Commande;
-    private double montant_Sans_Remise;
-    private double remise;
+    private double montant_Avec_Remise;
+
+    public CommandeDo() {
+        //empty constructeur
+    }
 
     /**
      * @return the id_Commande
@@ -46,48 +46,6 @@ public class CommandeDo {
      */
     public void setId_Utilisateur(final int id_Utilisateur) {
         this.id_Utilisateur = id_Utilisateur;
-    }
-
-    /**
-     * @return the nom
-     */
-    public String getNom() {
-        return nom;
-    }
-
-    /**
-     * @param nom the nom to set
-     */
-    public void setNom(final String nom) {
-        this.nom = nom;
-    }
-
-    /**
-     * @return the adresse_Livraison
-     */
-    public String getAdresse_Livraison() {
-        return adresse_Livraison;
-    }
-
-    /**
-     * @param adresse_Livraison the adresse_Livraison to set
-     */
-    public void setAdresse_Livraison(final String adresse_Livraison) {
-        this.adresse_Livraison = adresse_Livraison;
-    }
-
-    /**
-     * @return the adresse_Facturation
-     */
-    public String getAdresse_Facturation() {
-        return adresse_Facturation;
-    }
-
-    /**
-     * @param adresse_Facturation the adresse_Facturation to set
-     */
-    public void setAdresse_Facturation(final String adresse_Facturation) {
-        this.adresse_Facturation = adresse_Facturation;
     }
 
     /**
@@ -119,31 +77,16 @@ public class CommandeDo {
     }
 
     /**
-     * @return the montant_Sans_Remise
+     * @return the montant_Avec_Remise
      */
-    public double getMontant_Sans_Remise() {
-        return montant_Sans_Remise;
+    public double getMontant_Avec_Remise() {
+        return montant_Avec_Remise;
     }
 
     /**
-     * @param montant_Sans_Remise the montant_Sans_Remise to set
+     * @param montant_Avec_Remise the montant_Avec_Remise to set
      */
-    public void setMontant_Sans_Remise(final double montant_Sans_Remise) {
-        this.montant_Sans_Remise = montant_Sans_Remise;
+    public void setMontant_Avec_Remise(final double montant_Avec_Remise) {
+        this.montant_Avec_Remise = montant_Avec_Remise;
     }
-
-    /**
-     * @return the remise
-     */
-    public double getRemise() {
-        return remise;
-    }
-
-    /**
-     * @param remise the remise to set
-     */
-    public void setRemise(final double remise) {
-        this.remise = remise;
-    }
-
 }
