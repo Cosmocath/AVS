@@ -30,7 +30,7 @@ public class CommandeDto implements Serializable {
      * @param numero_Commande
      * @param date
      * @param montantAvecRemise
-     * @return
+     * @return la commade Dto Initialisé
      */
     public static CommandeDto build(final Integer id_Utilisateur, final Integer id_Commande, final String numero_Commande, final String date, final Integer montantAvecRemise) {
         final CommandeDto commandeDto = new CommandeDto();
