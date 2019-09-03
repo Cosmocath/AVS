@@ -27,7 +27,7 @@ public class ChangerLangueAction extends Action {
         // conversion dans notre enum 
         final Langue enumLangue = Langue.valueOf(langue);
         switch (enumLangue) {
-            case FR:
+            case FR :
                 request.getSession().setAttribute(Globals.LOCALE_KEY, Locale.FRENCH);
                 break;
             case EN :
