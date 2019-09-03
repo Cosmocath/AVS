@@ -26,7 +26,7 @@ USE `avs` ;
 DROP TABLE IF EXISTS `avs`.`Profil` ;
 
 CREATE TABLE IF NOT EXISTS `avs`.`Profil` (
-  `id_Profil` INT NOT NULL,
+  `id_Profil` INT NOT NULL AUTO_INCREMENT,
   `nom` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id_Profil`))
 ENGINE = InnoDB;
@@ -38,7 +38,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `avs`.`Droit` ;
 
 CREATE TABLE IF NOT EXISTS `avs`.`Droit` (
-  `id_Droit` INT NOT NULL,
+  `id_Droit` INT NOT NULL AUTO_INCREMENT,
   `url` VARCHAR(255) NOT NULL,
   `description` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id_Droit`))
@@ -51,7 +51,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `avs`.`Utilisateur` ;
 
 CREATE TABLE IF NOT EXISTS `avs`.`Utilisateur` (
-  `id_Utilisateur` INT NOT NULL,
+  `id_Utilisateur` INT NOT NULL AUTO_INCREMENT,
   `nom` VARCHAR(255) NOT NULL,
   `prenom` VARCHAR(255) NOT NULL,
   `date_naissance` DATE NOT NULL,
@@ -76,7 +76,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `avs`.`Commande` ;
 
 CREATE TABLE IF NOT EXISTS `avs`.`Commande` (
-  `id_Commande` INT NOT NULL,
+  `id_Commande` INT NOT NULL AUTO_INCREMENT,
   `id_Utilisateur` INT NULL,
   `nom` VARCHAR(255) NOT NULL,
   `adresse_livraison` VARCHAR(255) NOT NULL,
@@ -101,7 +101,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `avs`.`ProduitVendu` ;
 
 CREATE TABLE IF NOT EXISTS `avs`.`ProduitVendu` (
-  `id_ProduitVendu` INT NOT NULL,
+  `id_ProduitVendu` INT NOT NULL AUTO_INCREMENT,
   `designation` VARCHAR(255) NOT NULL,
   `reference` INT NOT NULL,
   `description` VARCHAR(255) NOT NULL,
@@ -119,7 +119,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `avs`.`Produit` ;
 
 CREATE TABLE IF NOT EXISTS `avs`.`Produit` (
-  `id_Produit` INT NOT NULL,
+  `id_Produit` INT NOT NULL AUTO_INCREMENT,
   `designation` VARCHAR(255) NOT NULL,
   `reference` INT NOT NULL,
   `description` VARCHAR(255) NOT NULL,
@@ -138,7 +138,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `avs`.`CommandeProduit` ;
 
 CREATE TABLE IF NOT EXISTS `avs`.`CommandeProduit` (
-  `id_CommandeProduit` INT NOT NULL,
+  `id_CommandeProduit` INT NOT NULL AUTO_INCREMENT,
   `idCommande` INT NOT NULL,
   `id_ProduitVendu` INT NOT NULL,
   `quantite` INT NOT NULL,
@@ -164,7 +164,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `avs`.`ProfilDroit` ;
 
 CREATE TABLE IF NOT EXISTS `avs`.`ProfilDroit` (
-  `id_ProfilDroit` INT NOT NULL,
+  `id_ProfilDroit` INT NOT NULL AUTO_INCREMENT,
   `id_Profil` INT NOT NULL,
   `id_Droit` INT NOT NULL,
   PRIMARY KEY (`id_ProfilDroit`),
