@@ -8,23 +8,37 @@
 	<action-mappings
 		type="org.apache.struts.action.ActionMapping">
 
-		<!-- TODO à titre d'exemple, à supprimer -->
-		<!-- <action path="/TestHello" scope="request" input="" parameter="" -->
-		<!-- type="presentation.testStruts.TestHello"> -->
-		<!-- <forward name="success" path="/jsp/testStruts/testStruts.jsp" -->
-		<!-- redirect="true"></forward> -->
-		<!-- </action> -->
+<!-- 		TODO à titre d'exemple, à supprimer -->
+<!-- 		<action path="/TestHello" scope="request" input="" parameter="" -->
+<!-- 		type="presentation.testStruts.TestHello"> -->
+<!-- 		<forward name="success" path="/jsp/testStruts/testStruts.jsp" -->
+<!-- 		redirect="true"></forward> -->
+<!-- 		</action> -->
 
 
 
 		<action path="/listerCommande" scope="request" input=""
 			parameter="" type="presentation.commande.action.ListerCommandeAction">
 			<forward name="success" path="/jsp/listerCommande.jsp"
-				redirect="false" />
+				redirect="false"></forward>
+		</action>
+
+		<action path="/TestHello" scope="request" input="" parameter=""
+			type="presentation.testStruts.TestHello">
+			<!-- le path n'est pas une jsp mais le nom defini dans le tiles-defs.xml -->
+			<forward name="success" path="templateTest" redirect="false"></forward>
+
 		</action>
 
 	</action-mappings>
 
 	<message-resources parameter="messages/application"></message-resources>
+
+
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config"
+			value="/WEB-INF/tiles-defs.xml" />
+		<set-property property="moduleAware" value="true" />
+	</plug-in>
 
 </struts-config>
