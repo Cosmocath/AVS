@@ -1,11 +1,10 @@
-/**
- * 
- */
 package presentation.produit.beanDto;
 
 import java.io.Serializable;
 
 /**
+ * ProduitDto couche presentation pour l'écran
+ * 
  * @author Catherine Hermary
  *
  */

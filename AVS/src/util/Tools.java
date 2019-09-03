@@ -1,6 +1,3 @@
-/**
- * 
- */
 package util;
 
 import java.text.ParseException;
@@ -11,7 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- *Classe Tools permettant de vérifier les adresses mails, dates, prix, nombres et leurs formats précis
+ * Classe Tools permettant de vérifier les adresses mails, dates, prix, nombres et leurs formats précis
  * 
  * @author Nora et Catherine
  *

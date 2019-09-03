@@ -1,6 +1,3 @@
-/**
- * 
- */
 package service.produit.impl;
 
 import java.util.List;
@@ -14,12 +11,12 @@ import util.Factory;
 import util.OrderBy;
 
 /**
+ * Implémentation du service pour gérer les produits
+ * 
  * @author Nora Liferki
  *
  */
 public class ProduitService implements IProduitService {
-
-    private final IProduitDao iProduitDao = Factory.getInstance(IProduitDao.class);
 
     // SINGLETON QUI COMPREND UNIQUEMENT UN CONSTRUCTEUR Private => plus besoin de l'instance et du getInstance grâce à la factory de XSI
 
@@ -33,6 +30,8 @@ public class ProduitService implements IProduitService {
 
     @Override
     public List<ProduitDto> findAllProduitOrderBy(final OrderBy orderBy) {
+
+        final IProduitDao iProduitDao = Factory.getInstance(IProduitDao.class);
 
         final List<ProduitDo> listeProduitDo = iProduitDao.findAllProduitOrderBy(orderBy);
         return ProduitMapper.mapToListDto(listeProduitDo);

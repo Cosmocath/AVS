@@ -1,6 +1,3 @@
-/**
- * 
- */
 package util;
 
 /**
@@ -10,6 +7,5 @@ package util;
  *
  */
 public enum OrderBy {
-
     ASC, DESC;
 }

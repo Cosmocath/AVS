@@ -1,6 +1,3 @@
-/**
- * 
- */
 package service.produit;
 
 import java.util.List;
@@ -9,7 +6,10 @@ import presentation.produit.beanDto.ProduitDto;
 import util.OrderBy;
 
 /**
- * @author Nora Liferki Interface IProduitService
+ * 
+ * Interface permettant de déclarer les méthodes du business service ProduitService
+ * 
+ * @author Nora Liferki
  *
  */
 public interface IProduitService {

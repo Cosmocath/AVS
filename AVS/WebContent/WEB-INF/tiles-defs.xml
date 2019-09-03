@@ -13,14 +13,13 @@
 		<put name="body" value="/jsp/tiles/body.jsp" />
 		<put name="footer" value="/jsp/tiles/footer.jsp" />
 	</definition>
-	
+
 	<definition name="templateTest" extends="template">
 		<put name="body" value="/jsp/testStruts/testStruts.jsp" />
 	</definition>
-	
-		<definition name="listerProduitClient" extends="template">
+
+	<definition name="listerProduitClient" extends="template">
 		<put name="body" value="/jsp/produit/listerProduitClient.jsp" />
 	</definition>
-	
-	
+
 </tiles-definitions>

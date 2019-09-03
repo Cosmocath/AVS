@@ -1,6 +1,3 @@
-/**
- * 
- */
 package presentation.produit.action;
 
 import java.util.List;
@@ -19,9 +16,10 @@ import util.Factory;
 import util.OrderBy;
 
 /**
+ * Classe permettant de créer l'action de lister les produit par ordre alphabétique asc ou desc
+ * 
  * @author Catherine Hermary
  * 
- *         Classe permettant de créer l'action de lister les produit par ordre alphabétique asc ou desc
  */
 public class ListerProduitAction extends Action {
 

@@ -18,7 +18,7 @@ public class ProduitMapper {
      * Permet de mapper un ProduitDo en ProduitDto
      * 
      * @param produitDo
-     * @return
+     * @return produitDto
      */
     public static ProduitDto mapToDto(final ProduitDo produitDo) {
         final ProduitDto produitDto = new ProduitDto();
@@ -38,7 +38,7 @@ public class ProduitMapper {
      * Permet de mapper une liste de ProduitDo en liste de ProduitDto
      * 
      * @param listeProduitDo
-     * @return
+     * @return listeProduitDto
      */
     public static List<ProduitDto> mapToListDto(final List<ProduitDo> listeProduitDo) {
         final List<ProduitDto> listeProduitDto = new ArrayList<>();

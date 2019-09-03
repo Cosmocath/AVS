@@ -1,10 +1,10 @@
-/**
- * 
- */
 package persistance.produit.beanDo;
 
 /**
+ * Représentation du produit pour la BD
+ * 
  * @author Nora Liferki
+ * 
  *
  */
 public class ProduitDo {
@@ -12,7 +12,7 @@ public class ProduitDo {
     private String  designation;
     private Integer reference;
     private String  description;
-    private float   prix;
+    private double  prix;
     private String  image;
     private Integer numero_version;
     private boolean actif;
@@ -84,14 +84,14 @@ public class ProduitDo {
     /**
      * @return the prix
      */
-    public float getPrix() {
+    public double getPrix() {
         return prix;
     }
 
     /**
      * @param prix the prix to set
      */
-    public void setPrix(final float prix) {
+    public void setPrix(final double prix) {
         this.prix = prix;
     }
 

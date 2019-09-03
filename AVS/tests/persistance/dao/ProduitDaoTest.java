@@ -1,6 +1,3 @@
-/**
- * 
- */
 package persistance.dao;
 
 import static org.junit.Assert.assertEquals;
@@ -16,8 +13,9 @@ import util.Factory;
 import util.OrderBy;
 
 /**
- * @author Nora Liferki
  * Permet de tester la classe ProduitDao
+ * 
+ * @author Nora Liferki
  *
  */
 class ProduitDaoTest {
@@ -29,7 +27,7 @@ class ProduitDaoTest {
     void testFindAllProduitOrderBy() {
         final IProduitDao iProduitDao = Factory.getInstance(IProduitDao.class);
         assertNotNull(iProduitDao.findAllProduitOrderBy(OrderBy.ASC));
-        
+
         final List<ProduitDo> listeProduitDo = iProduitDao.findAllProduitOrderBy(OrderBy.ASC);
         assertEquals(2, listeProduitDo.size());
         assertEquals("Bernard Jardinier", listeProduitDo.get(0).getDesignation());
