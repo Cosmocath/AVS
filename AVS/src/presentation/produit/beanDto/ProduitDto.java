@@ -6,7 +6,7 @@ package presentation.produit.beanDto;
 import java.io.Serializable;
 
 /**
- * @author Administrateur
+ * @author Catherine Hermary
  *
  */
 public class ProduitDto implements Serializable {

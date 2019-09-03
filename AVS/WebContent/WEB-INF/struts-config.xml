@@ -9,23 +9,11 @@
 		type="org.apache.struts.action.ActionMapping">
 
 		<!-- TODO à titre d'exemple, à supprimer -->
-		<action path="/TestHello" scope="request" input="" parameter=""
-			type="presentation.testStruts.TestHello">
-			<forward name="success" path="/jsp/testStruts/testStruts.jsp"
-				redirect="true"></forward>
+		<action path="/listeProduitClient" scope="request" input=""
+			parameter="" type="presentation.produit.action.ListerProduitAction">
+			<forward name="success"
+				path="/jsp/produit/listeProduitClient.jsp" redirect="false"></forward>
 		</action>
-
-		<!-- Actions pour les ecrans PRODUIT -->
-
-
-		<!-- Actions pour les ecrans PANIER -->
-
-
-		<!-- Actions pour les ecrans COMMANDE -->
-
-
-		<!-- Actions pour les ecrans USERS -->
-
 	</action-mappings>
 
 
