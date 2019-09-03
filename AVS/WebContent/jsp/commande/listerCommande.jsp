@@ -11,13 +11,15 @@
 </head>
 <body>
 
-	<logic:iterate name="listeCommande" id="id_Utilisateur" scope="request">
-		<tr>
-			<td width="70%" align="left" style="padding-left: 10px"><html:link
-					href="consulterCommande.do?id=${commande.id_Utilisateur}">
-						- <bean:write name="commande" property="id_Utilisateur" />
-				</html:link></td>
-		</tr>
+	<logic:iterate name="listeCommande" id="commande" scope="request">
+	
+		<div>
+			<html:link href="consulterCommande.do?id=${commande.id_Commande}">
+				<bean:write name="commande" property="numero_Commande" />				
+			</html:link>
+			<br />
+			<bean:write name="commande" property="date" />
+		</div>
 	</logic:iterate>
 </body>
 </html:html>
