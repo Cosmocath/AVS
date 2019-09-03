@@ -14,7 +14,9 @@ public class CommandeDo {
     private int    id_Utilisateur;
     private String numero_Commande;
     private Date   date_Commande;
+    private double montant_Sans_Remise;
     private double montant_Avec_Remise;
+    
 
     public CommandeDo() {
         //empty constructeur
@@ -89,4 +91,19 @@ public class CommandeDo {
     public void setMontant_Avec_Remise(final double montant_Avec_Remise) {
         this.montant_Avec_Remise = montant_Avec_Remise;
     }
+
+    /**
+     * @return the montant_Sans_Remise
+     */
+    public double getMontant_Sans_Remise() {
+        return montant_Sans_Remise;
+    }
+
+    /**
+     * @param montant_Sans_Remise the montant_Sans_Remise to set
+     */
+    public void setMontant_Sans_Remise(double montant_Sans_Remise) {
+        this.montant_Sans_Remise = montant_Sans_Remise;
+    }
+        
 }

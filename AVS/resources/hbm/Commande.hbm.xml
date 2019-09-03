@@ -2,3 +2,17 @@
 <!DOCTYPE hibernate-mapping PUBLIC
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping>
+	<class name="persistance.commande.beanDo.CommandeDo" table="commande">
+		<!-- la clé primaire -->
+		<id name="id_Commande" column="id_Commande" type="int">
+			<generator class="identity"></generator>
+		</id>
+		
+		<!-- les propriétés simples -->
+		<property name="id_Utilisateur" column="id_Utilisateur" type="int" ></property>
+		<property name="numero_Commande" column="numero_Commande" ></property>
+		<property name="date_Commande" column="date_Commande" type="date"></property>
+		<property name="montant_Sans_Remise" column="montant_Sans_Remise" ></property>
+	</class>
+</hibernate-mapping>

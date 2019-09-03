@@ -55,7 +55,7 @@ class CommandeDaoTest {
     @Test
     void testFindAllCommandeDo() {
         final ICommandeDao iCommandeDao = Factory.getInstance(ICommandeDao.class);
-        final List<CommandeDo> listeCommandeDo = iCommandeDao.findAllCommandeDo(1);      
+        final List<CommandeDo> listeCommandeDo = iCommandeDao.findAllCommandeDo(8);      
         Assert.assertNull(listeCommandeDo);
     }
 
