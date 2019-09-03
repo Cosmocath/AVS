@@ -18,6 +18,8 @@ import persistance.produit.dao.IProduitDao;
 import util.OrderBy;
 
 /**
+ * ProduitDao qui implémente l'interface IProduitDao
+ * 
  * @author Nora Liferki
  *
  */
@@ -31,11 +33,11 @@ public class ProduitDao implements IProduitDao {
     }
 
     @Override
-    public List<ProduitDo> findAllProduitOrderBy(OrderBy orderBy) {
+    public List<ProduitDo> findAllProduitOrderBy(final OrderBy orderBy) {
         try (final Session session = sessionFactory.openSession()) {
             final Transaction transaction = session.beginTransaction();
             List<ProduitDo> listeProduitDo = new ArrayList<>();
-            String req = "From ProduitDo ORDER BY designation ";
+            String req = "From ProduitDo WHERE actif = 1 ORDER BY designation ";
 
             if (OrderBy.ASC.equals(orderBy)) {
                 req += " ASC";

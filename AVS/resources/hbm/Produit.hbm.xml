@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="persistance.produit.beanDo.ProduitDo"
+		table="produit">
+		<!-- la clé primaire -->
+		<id name="id" column="id_Produit" type="integer">
+			<generator class="identity"></generator>
+		</id>
+
+		<property name="designation" column="designation"></property>
+		<property name="reference" column="reference"></property>
+		<property name="description" column="description"></property>
+		<property name="prix" column="prix"></property>
+		<property name="image" column="image"></property>
+		<property name="numero_version" column="numero_version"></property>
+		<property name="actif" column="actif" type="boolean"></property>
+	</class>
+</hibernate-mapping>

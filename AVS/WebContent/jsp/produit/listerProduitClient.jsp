@@ -8,30 +8,33 @@
 <html:html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title><bean:message key="listeProduits.titre" /></title>
+<title><bean:message key="listerProduits.titre" /></title>
 <%-- JS nécessaire pour le bouton ajouter au panier  --%>
 <script type="text/javascript">
-      function RedirectionJavascript(){
-//     	 alert(document.getElementById("id").value);
-         document.location.href="supprimerChat.do?id=" + document.getElementById("id").value;
-      }
+	function RedirectionJavascript() {
+		//     	 alert(document.getElementById("id").value);
+
+		// Modifier le bouton avec URL pour image
+		document.location.href = "#";
+	}
 </script>
 </head>
 <body>
-
-
-	<bean:message key="listeProduits.titre" />
-
+	<h1>
+		<bean:message key="listerProduits.titre" />
+	</h1>
 
 	<logic:iterate name="listeProduits" id="produit" scope="request">
 		<tr>
 			<td></td>
-			<td style="padding-left: 250px"><bean:write
-					name="produit" property="designation" /> /<bean:write
-					name="produit" property="reference" /><br/> <bean:write name="produit"
-					property="description" /><br/> <bean:write name="produit"
-					property="prix" /> EURO <bean:message key="produit.labelPrix" /> 
-	<html:button property="delete" onclick="RedirectionJavascript()"><bean:message key="bouton.ajouterPanier"/></html:button></td>
+			<td style="padding-left: 250px"><bean:write name="produit"
+					property="designation" /> /<bean:write name="produit"
+					property="reference" /><br /> <bean:write name="produit"
+					property="description" /><br /> <bean:write name="produit"
+					property="prix" /> EURO <bean:message key="produit.labelPrix" />
+				<html:button property="ajout" onclick="RedirectionJavascript()">
+					<bean:message key="bouton.ajouterPanier" />
+				</html:button></td>
 		</tr>
 		<hr></hr>
 	</logic:iterate>

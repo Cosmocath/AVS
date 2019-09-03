@@ -9,10 +9,10 @@
 		type="org.apache.struts.action.ActionMapping">
 
 		<!-- TODO à titre d'exemple, à supprimer -->
-		<action path="/listeProduitClient" scope="request" input=""
+		<action path="/listerProduitClient" scope="request" input=""
 			parameter="" type="presentation.produit.action.ListerProduitAction">
 			<forward name="success"
-				path="/jsp/produit/listeProduitClient.jsp" redirect="false"></forward>
+				path="/jsp/produit/listerProduitClient.jsp" redirect="false"></forward>
 		</action>
 	</action-mappings>
 
