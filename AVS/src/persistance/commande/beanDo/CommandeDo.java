@@ -102,7 +102,7 @@ public class CommandeDo {
     /**
      * @param montant_Sans_Remise the montant_Sans_Remise to set
      */
-    public void setMontant_Sans_Remise(double montant_Sans_Remise) {
+    public void setMontant_Sans_Remise(final double montant_Sans_Remise) {
         this.montant_Sans_Remise = montant_Sans_Remise;
     }
         

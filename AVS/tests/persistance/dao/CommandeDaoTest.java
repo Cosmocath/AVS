@@ -33,11 +33,11 @@ class CommandeDaoTest {
     public void initData() {
         try (final Session session = HibernateFactory.getSessionFactory().openSession()) {
             final Transaction transaction = session.beginTransaction();
-            try (final Scanner scanner = new Scanner(new FileReader("tests/dataSet/avs_DDL.sql"))) {
+            try (final Scanner scanner = new Scanner(new FileReader("tests/dataSet/avs_DML.sql"))) {
                 while (scanner.hasNext()) {
                     final String sql = scanner.nextLine();
                     if (!sql.isEmpty()) {
-                       
+
                         final NativeQuery<?> query = session.createNativeQuery(sql);
                         query.executeUpdate();
                     }
@@ -55,8 +55,9 @@ class CommandeDaoTest {
     @Test
     void testFindAllCommandeDo() {
         final ICommandeDao iCommandeDao = Factory.getInstance(ICommandeDao.class);
-        final List<CommandeDo> listeCommandeDo = iCommandeDao.findAllCommandeDo(8);      
-        Assert.assertNull(listeCommandeDo);
+        final List<CommandeDo> listeCommandeDo = iCommandeDao.findAllCommandeDo(8);
+        Assert.assertNotNull(listeCommandeDo);
+        Assert.assertEquals(1, listeCommandeDo.size());
     }
 
 }

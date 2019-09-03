@@ -22,6 +22,8 @@
 		<property name="hibernate.show_sql">true</property>
 		<!-- Permet de formatter les requêtes executées par hibernate -->
 		<!-- <property name="format_sql>true</property> -->
+		
+		<mapping resource="hbm/Commande.hbm.xml" />
 
 
 	</session-factory>
