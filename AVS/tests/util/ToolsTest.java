@@ -1,5 +1,9 @@
 package util;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -79,6 +83,16 @@ public class ToolsTest {
         Assert.assertFalse(Tools.verifPrix("125,255"));
         Assert.assertFalse(Tools.verifPrix("125.20"));
         Assert.assertFalse(Tools.verifPrix("Ab5,20"));
+
+    }
+
+    @Test
+    void testIsEmpty() {
+        assertNotNull(Tools.isEmpty(""));
+        assertTrue(Tools.isEmpty(""));
+        assertTrue(Tools.isEmpty(null));
+        assertFalse(Tools.isEmpty("doudou"));
+        
 
     }
 }
