@@ -1,7 +1,7 @@
 /**
  * 
  */
-package persistance.users.dao.impl;
+package persistance.users.dao;
 
 import persistance.users.beanDo.UserDo;
 

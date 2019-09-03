@@ -20,16 +20,18 @@
 			<forward name="success" path="templateTest" redirect="false"></forward>
 		</action>
 
-		<action path="/connecterUser" scope="request" input="/jsp/users/connecterUser.jsp"
+		<action path="/connecterUser" scope="request" input="voirConnecterUser"
 			parameter="" name="connecterUserForm"
 			type="presentation.users.action.ConnecterUserAction">
-			<forward name="success" path="/jsp/testStruts/testStruts.jsp"
-				redirect="false"></forward>
+			<forward name="success" path="/TestHello.do"
+				redirect="true"></forward>
+				<forward name="notSuccess" path="voirConnecterUser" 
+				redirect="false" />		
 		</action>
 
 		<action path="/voirConnecterUser" scope="request" input=""
 			parameter="" type="presentation.users.action.VoirConnecterUserAction">
-			<forward name="success" path="/jsp/users/connecterUser.jsp"
+			<forward name="success" path="voirConnecterUser" 
 				redirect="false" />
 		</action>
 	</action-mappings>

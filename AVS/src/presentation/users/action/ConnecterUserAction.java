@@ -39,14 +39,15 @@ public class ConnecterUserAction extends Action {
             final ActionErrors errors = new ActionErrors();
             errors.add("error", new ActionMessage("errors.connection"));
             saveErrors(request, errors);
+            return mapping.findForward("notSuccess");
+
         } else {
             final ActionMessages messages = new ActionMessages();
             messages.add("creationOK", new ActionMessage("creer.ok"));
             saveMessages(request, messages);
             session.setAttribute("userConnected", connecterUserForm);
-
+            return mapping.findForward("success");
         }
-        return mapping.findForward("success");
     }
 
 }

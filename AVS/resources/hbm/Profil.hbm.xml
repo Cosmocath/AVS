@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="persistance.bean.ProfilDo" table="profil">
+	<class name="persistance.users.beanDo.ProfilDo" table="profil">
 		<!-- la clé primaire -->
 		<id name="id" column="id_Profil" type="integer">
 			<generator class="identity"></generator>
