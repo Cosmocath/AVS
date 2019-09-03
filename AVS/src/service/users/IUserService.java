@@ -4,7 +4,6 @@ import presentation.users.beanDto.ConnectedUserDto;
 
 public interface IUserService {
 
-  
     /**
      * @param mail
      * @param password

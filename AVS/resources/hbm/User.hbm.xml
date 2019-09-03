@@ -20,8 +20,9 @@
 		<property name="password" column="password"></property>
 		<property name="actif" column="actif"></property>
 
-		<many-to-one name="profilDo" column="id_Profil" lazy="false"></many-to-one>
-	
+		<many-to-one name="profilDo" column="id_Profil"
+			lazy="false"></many-to-one>
+
 
 	</class>
 </hibernate-mapping>

@@ -25,7 +25,7 @@ public class UserService implements IUserService {
     public ConnectedUserDto findUserForConnexion(final String mail, final String password) {
         final IUserDao iUserDao = Factory.getInstance(IUserDao.class);
         final UserDo userDo = iUserDao.findUserForConnexion(mail, password);
-        if(userDo == null || !userDo.isActif()) {
+        if (userDo == null || !userDo.isActif()) {
             return null;
         }
         return UserMapper.mapToDto(userDo);
