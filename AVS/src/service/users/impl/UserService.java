@@ -7,6 +7,7 @@ package service.users.impl;
 import persistance.users.beanDo.UserDo;
 import persistance.users.dao.impl.IUserDao;
 import presentation.users.beanDto.ConnectedUserDto;
+import service.users.IUserService;
 import util.Factory;
 
 /**
@@ -16,6 +17,8 @@ import util.Factory;
 public class UserService implements IUserService {
 
     private UserService() {
+        
+        
         // empty constructor
     }
 

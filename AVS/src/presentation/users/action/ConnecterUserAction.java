@@ -17,7 +17,7 @@ import org.apache.struts.action.ActionMessages;
 
 import presentation.users.beanDto.ConnectedUserDto;
 import presentation.users.form.ConnecterUserForm;
-import service.users.impl.IUserService;
+import service.users.IUserService;
 import util.Factory;
 
 /**

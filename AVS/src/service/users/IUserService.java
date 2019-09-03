@@ -1,4 +1,4 @@
-package service.users.impl;
+package service.users;
 
 import presentation.users.beanDto.ConnectedUserDto;
 
