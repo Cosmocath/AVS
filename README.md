@@ -27,12 +27,3 @@ et la base des données.
 Le choix d'une base des données relationnelle est fait pour sa pertinence concernant l'intégrité relationnelle dans ce sens qu'on ne peut modifier aisement une table 
 sans tenir compte des clés et étrangères des autres tables.
 Ces différents choix permettent de rendre le code claire et structuré.
-
-   
-
-  
-
- 
-
-
-
