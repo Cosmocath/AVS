@@ -6,7 +6,7 @@ public interface IUserService {
 
     /**
      * @param mail
-     * @param pwd
+     * @param password
      * @return
      */
     ConnectedUserDto findUserForConnexion(final String mail, final String password);
