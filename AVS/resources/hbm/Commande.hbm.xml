@@ -17,8 +17,7 @@
 		<property name="date_Commande" column="date_Commande"
 			type="date"></property>
 		
-		<property name="montant_Sans_Remise" type="double">
-			
+		<property name="montant_Sans_Remise" type="double">			
 			<column name="montant_Sans_Remise" sql-type="float" />
 		</property>
 	</class>

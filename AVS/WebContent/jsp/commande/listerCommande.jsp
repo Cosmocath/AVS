@@ -12,10 +12,10 @@
 <body>
 
 	<logic:iterate name="listeCommande" id="commande" scope="request">
-	
+
 		<div>
 			<html:link href="consulterCommande.do?id=${commande.id_Commande}">
-				<bean:write name="commande" property="numero_Commande" />				
+				<bean:write name="commande" property="numero_Commande" />
 			</html:link>
 			<br />
 			<bean:write name="commande" property="date" />

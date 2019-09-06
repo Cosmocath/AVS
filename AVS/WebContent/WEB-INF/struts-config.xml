@@ -8,18 +8,18 @@
 	<action-mappings
 		type="org.apache.struts.action.ActionMapping">
 
-<!-- 		TODO à titre d'exemple, à supprimer -->
-<!-- 		<action path="/TestHello" scope="request" input="" parameter="" -->
-<!-- 		type="presentation.testStruts.TestHello"> -->
-<!-- 		<forward name="success" path="/jsp/testStruts/testStruts.jsp" -->
-<!-- 		redirect="true"></forward> -->
-<!-- 		</action> -->
+		<!-- TODO à titre d'exemple, à supprimer -->
+		<!-- <action path="/TestHello" scope="request" input="" parameter="" -->
+		<!-- type="presentation.testStruts.TestHello"> -->
+		<!-- <forward name="success" path="/jsp/testStruts/testStruts.jsp" -->
+		<!-- redirect="true"></forward> -->
+		<!-- </action> -->
 
 
 
 		<action path="/listerCommande" scope="request" input=""
 			parameter="" type="presentation.commande.action.ListerCommandeAction">
-			<forward name="success" path="/jsp/commande/listerCommande.jsp"
+			<forward name="success" path="listerCommande"
 				redirect="false"></forward>
 		</action>
 
