@@ -1,11 +1,10 @@
-/**
- * 
- */
 package presentation.users.beanDto;
 
-import presentation.users.TypeDeProfil;
+import util.TypeDeProfil;
 
 /**
+ * Bean pour la connection d'un user
+ * 
  * @author Administrateur
  *
  */
@@ -13,21 +12,6 @@ public class ConnectedUserDto {
     private Integer      id;
     private String       nom;
     private TypeDeProfil profil;
-    private boolean      actif;
-
-    /**
-     * @return the actif
-     */
-    public boolean isActif() {
-        return actif;
-    }
-
-    /**
-     * @param actif the actif to set
-     */
-    public void setActif(final boolean actif) {
-        this.actif = actif;
-    }
 
     /**
      * @return the id

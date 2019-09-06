@@ -1,11 +1,10 @@
-/**
- * 
- */
 package persistance.users.beanDo;
 
 import java.util.Date;
 
 /**
+ * Representation du user pour la bd
+ * 
  * @author Administrateur
  *
  */

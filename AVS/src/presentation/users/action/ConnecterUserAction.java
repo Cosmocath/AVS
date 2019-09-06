@@ -1,6 +1,3 @@
-/**
- * 
- */
 package presentation.users.action;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,10 +18,13 @@ import service.users.IUserService;
 import util.Factory;
 
 /**
+ * Action permettant de connecter un user
+ * 
  * @author Administrateur
  *
  */
 public class ConnecterUserAction extends Action {
+    public static final String USER_CONNECTED = "userConnected";
 
     @Override
     public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
@@ -37,16 +37,17 @@ public class ConnecterUserAction extends Action {
         // on teste le retour du service
         if (connectedUserDto == null) {
             final ActionErrors errors = new ActionErrors();
-            errors.add("error", new ActionMessage("errors.connection"));
+            errors.add("error", new ActionMessage("USR_00.errors.connection"));
             saveErrors(request, errors);
+            return mapping.findForward("notSuccess");
+
         } else {
             final ActionMessages messages = new ActionMessages();
             messages.add("creationOK", new ActionMessage("creer.ok"));
             saveMessages(request, messages);
-            session.setAttribute("userConnected", connecterUserForm);
-
+            session.setAttribute(USER_CONNECTED, connecterUserForm);
+            return mapping.findForward("success");
         }
-        return mapping.findForward("success");
     }
 
 }

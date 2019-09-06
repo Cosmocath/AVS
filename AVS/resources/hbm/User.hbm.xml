@@ -4,14 +4,12 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="persistance.bean.UserDo" table="utilisateur">
+	<class name="persistance.users.beanDo.UserDo" table="utilisateur">
 		<!-- la clé primaire -->
 		<id name="id" column="id_Utilisateur" type="integer">
 			<generator class="identity"></generator>
 		</id>
-
 		<!-- les propriétés simples -->
-
 		<property name="nom" column="nom"></property>
 		<property name="prenom" column="prenom"></property>
 		<property name="dateNaissance" column="date_naissance"></property>
@@ -19,6 +17,7 @@
 		<property name="mail" column=""></property>
 		<property name="password" column="password"></property>
 		<property name="actif" column="actif"></property>
-
+		<many-to-one name="profilDo" column="id_Profil"
+			lazy="false"></many-to-one>
 	</class>
 </hibernate-mapping>

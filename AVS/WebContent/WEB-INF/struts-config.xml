@@ -18,19 +18,29 @@
 			type="presentation.testStruts.TestHello">
 			<!-- le path n'est pas une jsp mais le nom defini dans le tiles-defs.xml -->
 			<forward name="success" path="templateTest" redirect="false"></forward>
+		</action>	
+			
+		<action path="/listerProduitClient" scope="request" input=""
+			parameter="" type="presentation.produit.action.ListerProduitAction">
+			<forward name="success" path="listerProduitClient"
+				redirect="false"></forward>
+		</action>
+
+		<action path="/changerLangue" scope="request" input=""
+			parameter="" type="presentation.i18n.action.ChangerLangueAction">
 		</action>
 
 		<action path="/connecterUser" scope="request"
-			input="/jsp/users/connecterUser.jsp" parameter=""
-			name="connecterUserForm"
+			input="voirConnecterUser" parameter="" name="connecterUserForm"
 			type="presentation.users.action.ConnecterUserAction">
-			<forward name="success" path="/jsp/testStruts/testStruts.jsp"
-				redirect="false"></forward>
+			<forward name="success" path="template" redirect="true"></forward>
+			<forward name="notSuccess" path="voirConnecterUser"
+				redirect="false" />
 		</action>
 
 		<action path="/voirConnecterUser" scope="request" input=""
 			parameter="" type="presentation.users.action.VoirConnecterUserAction">
-			<forward name="success" path="/jsp/users/connecterUser.jsp"
+			<forward name="success" path="voirConnecterUser"
 				redirect="false" />
 		</action>
 

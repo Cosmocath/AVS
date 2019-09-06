@@ -1,6 +1,3 @@
-/**
- * 
- */
 package presentation.users.form;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +10,8 @@ import org.apache.struts.action.ActionMessage;
 import util.Tools;
 
 /**
+ * Form permettant à un user de se connecter
+ * 
  * @author Administrateur
  *
  */
@@ -35,10 +34,10 @@ public class ConnecterUserForm extends ActionForm {
     public ActionErrors validate(final ActionMapping mapping, final HttpServletRequest request) {
         final ActionErrors errors = new ActionErrors();
         if (Tools.isEmpty(mail)) {
-            errors.add("mail", new ActionMessage("errors.mail.obligatoire"));
+            errors.add("mail", new ActionMessage("USR_00.errors.mail.obligatoire"));
         }
         if (Tools.isEmpty(password)) {
-            errors.add("password", new ActionMessage("errors.password.obligatoire"));
+            errors.add("password", new ActionMessage("USR_00.errors.password.obligatoire"));
         }
         return errors;
     }

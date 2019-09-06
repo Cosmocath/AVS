@@ -1,9 +1,8 @@
-/**
- * 
- */
 package persistance.users.beanDo;
 
 /**
+ * Representation du profil pour la bd
+ * 
  * @author Administrateur
  *
  */
