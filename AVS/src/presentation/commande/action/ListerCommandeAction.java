@@ -1,6 +1,3 @@
-/**
- * 
- */
 package presentation.commande.action;
 
 import java.util.List;

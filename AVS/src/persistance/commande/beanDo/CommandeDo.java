@@ -1,6 +1,3 @@
-/**
- * 
- */
 package persistance.commande.beanDo;
 
 import java.util.Date;

@@ -1,6 +1,3 @@
-/**
- * 
- */
 package service.commande.impl;
 
 import java.util.List;

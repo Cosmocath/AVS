@@ -25,7 +25,7 @@ public class CommandeMapper {
      */
     public static CommandeDto mapToDto(final CommandeDo commandeDo) {
         return CommandeDto.build(commandeDo.getIdUtilisateur(), commandeDo.getIdCommande(), commandeDo.getNumeroCommande(), FormatUtil.convertirDateToString(commandeDo.getDateCommande()),
-                        (int) commandeDo.getMontantSansRemise());
+                        commandeDo.getMontantSansRemise());
     }
 
     /**

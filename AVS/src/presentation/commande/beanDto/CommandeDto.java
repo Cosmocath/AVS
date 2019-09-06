@@ -1,11 +1,10 @@
-/**
- * 
- */
 package presentation.commande.beanDto;
 
 import java.io.Serializable;
 
-/**Représentation de l'écran CDE_00
+/**
+ * Représentation de l'écran CDE_00
+ * 
  * @author Administrateur
  *
  */
@@ -20,7 +19,7 @@ public class CommandeDto implements Serializable {
     private Integer           idCommande;
     private String            numeroCommande;
     private String            date;
-    private Integer           montantAvecRemise;
+    private Double            montantAvecRemise;
 
     /**
      * Builder pour le Dto
@@ -32,7 +31,7 @@ public class CommandeDto implements Serializable {
      * @param montantAvecRemise
      * @return la commade Dto Initialisé
      */
-    public static CommandeDto build(final Integer idUtilisateur, final Integer idCommande, final String numeroCommande, final String date, final Integer montantAvecRemise) {
+    public static CommandeDto build(final Integer idUtilisateur, final Integer idCommande, final String numeroCommande, final String date, final Double montantAvecRemise) {
         final CommandeDto commandeDto = new CommandeDto();
         commandeDto.setIdUtilisateur(idUtilisateur);
         commandeDto.setIdCommande(idCommande);
@@ -49,7 +48,7 @@ public class CommandeDto implements Serializable {
      * @param montantAvecRemise
      * @return la commande Dto Initialisé
      */
-    public static CommandeDto build(final Integer idCommande, final String numeroCommande, final String date, final Integer montantAvecRemise) {
+    public static CommandeDto build(final Integer idCommande, final String numeroCommande, final String date, final Double montantAvecRemise) {
         return build(null, idCommande, numeroCommande, date, montantAvecRemise);
     }
 
@@ -103,24 +102,24 @@ public class CommandeDto implements Serializable {
     }
 
     /**
-     * @param date the date to set
-     */
-    public void setDate(final String date) {
-        this.date = date;
-    }
-
-    /**
      * @return the montantAvecRemise
      */
-    public Integer getMontantAvecRemise() {
+    public Double getMontantAvecRemise() {
         return montantAvecRemise;
     }
 
     /**
      * @param montantAvecRemise the montantAvecRemise to set
      */
-    public void setMontantAvecRemise(final Integer montantAvecRemise) {
+    public void setMontantAvecRemise(final Double montantAvecRemise) {
         this.montantAvecRemise = montantAvecRemise;
+    }
+
+    /**
+     * @param date the date to set
+     */
+    public void setDate(final String date) {
+        this.date = date;
     }
 
     /**
