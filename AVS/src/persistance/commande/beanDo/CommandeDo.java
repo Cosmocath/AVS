@@ -6,104 +6,105 @@ package persistance.commande.beanDo;
 import java.util.Date;
 
 /**
+ * Représentation de la commande dans la base de donnée
+ * 
  * @author Administrateur
  *
  */
 public class CommandeDo {
-    private int    id_Commande;
-    private int    id_Utilisateur;
-    private String numero_Commande;
-    private Date   date_Commande;
-    private double montant_Sans_Remise;
-    private double montant_Avec_Remise;
-    
+    private int    idCommande;
+    private int    idUtilisateur;
+    private String numeroCommande;
+    private Date   dateCommande;
+    private double montantSansRemise;
+    private double montantAvecRemise;
 
     public CommandeDo() {
         //empty constructeur
     }
 
     /**
-     * @return the id_Commande
+     * @return the idCommande
      */
-    public int getId_Commande() {
-        return id_Commande;
+    public int getIdCommande() {
+        return idCommande;
     }
 
     /**
-     * @param id_Commande the id_Commande to set
+     * @param idCommande the idCommande to set
      */
-    public void setId_Commande(final int id_Commande) {
-        this.id_Commande = id_Commande;
+    public void setIdCommande(final int idCommande) {
+        this.idCommande = idCommande;
     }
 
     /**
-     * @return the id_Utilisateur
+     * @return the idUtilisateur
      */
-    public int getId_Utilisateur() {
-        return id_Utilisateur;
+    public int getIdUtilisateur() {
+        return idUtilisateur;
     }
 
     /**
-     * @param id_Utilisateur the id_Utilisateur to set
+     * @param idUtilisateur the idUtilisateur to set
      */
-    public void setId_Utilisateur(final int id_Utilisateur) {
-        this.id_Utilisateur = id_Utilisateur;
+    public void setIdUtilisateur(final int idUtilisateur) {
+        this.idUtilisateur = idUtilisateur;
     }
 
     /**
-     * @return the numero_Commande
+     * @return the numeroCommande
      */
-    public String getNumero_Commande() {
-        return numero_Commande;
+    public String getNumeroCommande() {
+        return numeroCommande;
     }
 
     /**
-     * @param numero_Commande the numero_Commande to set
+     * @param numeroCommande the numeroCommande to set
      */
-    public void setNumero_Commande(final String numero_Commande) {
-        this.numero_Commande = numero_Commande;
+    public void setNumeroCommande(final String numeroCommande) {
+        this.numeroCommande = numeroCommande;
     }
 
     /**
-     * @return the date_Commande
+     * @return the dateCommande
      */
-    public Date getDate_Commande() {
-        return date_Commande;
+    public Date getDateCommande() {
+        return dateCommande;
     }
 
     /**
-     * @param date_Commande the date_Commande to set
+     * @param dateCommande the dateCommande to set
      */
-    public void setDate_Commande(final Date date_Commande) {
-        this.date_Commande = date_Commande;
+    public void setDateCommande(final Date dateCommande) {
+        this.dateCommande = dateCommande;
     }
 
     /**
-     * @return the montant_Avec_Remise
+     * @return the montantSansRemise
      */
-    public double getMontant_Avec_Remise() {
-        return montant_Avec_Remise;
+    public double getMontantSansRemise() {
+        return montantSansRemise;
     }
 
     /**
-     * @param montant_Avec_Remise the montant_Avec_Remise to set
+     * @param montantSansRemise the montantSansRemise to set
      */
-    public void setMontant_Avec_Remise(final double montant_Avec_Remise) {
-        this.montant_Avec_Remise = montant_Avec_Remise;
+    public void setMontantSansRemise(final double montantSansRemise) {
+        this.montantSansRemise = montantSansRemise;
     }
 
     /**
-     * @return the montant_Sans_Remise
+     * @return the montantAvecRemise
      */
-    public double getMontant_Sans_Remise() {
-        return montant_Sans_Remise;
+    public double getMontantAvecRemise() {
+        return montantAvecRemise;
     }
 
     /**
-     * @param montant_Sans_Remise the montant_Sans_Remise to set
+     * @param montantAvecRemise the montantAvecRemise to set
      */
-    public void setMontant_Sans_Remise(final double montant_Sans_Remise) {
-        this.montant_Sans_Remise = montant_Sans_Remise;
+    public void setMontantAvecRemise(final double montantAvecRemise) {
+        this.montantAvecRemise = montantAvecRemise;
     }
-        
+
 }

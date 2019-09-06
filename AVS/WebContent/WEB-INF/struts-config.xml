@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE struts-config PUBLIC 
 "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" 
-"http://struts.apache.org/dtds/struts-config_1_3.dtd">
+"http://jakarta.apache.org/dtds/struts-config_1_3.dtd">
 
 <struts-config>
 
@@ -9,31 +9,23 @@
 		type="org.apache.struts.action.ActionMapping">
 
 		<!-- TODO à titre d'exemple, à supprimer -->
-		<!-- <action path="/TestHello" scope="request" input="" parameter="" -->
-		<!-- type="presentation.testStruts.TestHello"> -->
-		<!-- <forward name="success" path="/jsp/testStruts/testStruts.jsp" -->
-		<!-- redirect="true"></forward> -->
-		<!-- </action> -->
-
-
-
+		<action path="/TestHello" scope="request" input="" parameter=""
+			type="presentation.testStruts.TestHello">
+			<!-- le path n'est pas une jsp mais le nom defini dans le tiles-defs.xml -->
+			<forward name="success" path="templateTest" redirect="false"></forward>
+		</action>
 		<action path="/listerCommande" scope="request" input=""
 			parameter="" type="presentation.commande.action.ListerCommandeAction">
 			<forward name="success" path="listerCommande"
 				redirect="false"></forward>
 		</action>
-
-		<action path="/TestHello" scope="request" input="" parameter=""
-			type="presentation.testStruts.TestHello">
-			<!-- le path n'est pas une jsp mais le nom defini dans le tiles-defs.xml -->
-			<forward name="success" path="templateTest" redirect="false"></forward>
-
+		<action path="/changerLangue" scope="request" input=""
+			parameter="" type="presentation.i18n.action.ChangerLangueAction">
 		</action>
 
 	</action-mappings>
 
 	<message-resources parameter="messages/application"></message-resources>
-
 
 	<plug-in className="org.apache.struts.tiles.TilesPlugin">
 		<set-property property="definitions-config"

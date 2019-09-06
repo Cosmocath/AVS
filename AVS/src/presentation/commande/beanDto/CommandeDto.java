@@ -5,7 +5,7 @@ package presentation.commande.beanDto;
 
 import java.io.Serializable;
 
-/**
+/**Représentation de l'écran CDE_00
  * @author Administrateur
  *
  */
@@ -16,83 +16,83 @@ public class CommandeDto implements Serializable {
      */
     private static final long serialVersionUID = 542346324375306389L;
 
-    private Integer           id_Utilisateur;
-    private Integer           id_Commande;
-    private String            numero_Commande;
+    private Integer           idUtilisateur;
+    private Integer           idCommande;
+    private String            numeroCommande;
     private String            date;
     private Integer           montantAvecRemise;
 
     /**
      * Builder pour le Dto
      * 
-     * @param id_Utilisateur
-     * @param id_Commande
-     * @param numero_Commande
+     * @param idUtilisateur
+     * @param idCommande
+     * @param numeroCommande
      * @param date
      * @param montantAvecRemise
      * @return la commade Dto Initialisé
      */
-    public static CommandeDto build(final Integer id_Utilisateur, final Integer id_Commande, final String numero_Commande, final String date, final Integer montantAvecRemise) {
+    public static CommandeDto build(final Integer idUtilisateur, final Integer idCommande, final String numeroCommande, final String date, final Integer montantAvecRemise) {
         final CommandeDto commandeDto = new CommandeDto();
-        commandeDto.setId_Utilisateur(id_Utilisateur);
-        commandeDto.setId_Commande(id_Commande);
-        commandeDto.setNumero_Commande(numero_Commande);
+        commandeDto.setIdUtilisateur(idUtilisateur);
+        commandeDto.setIdCommande(idCommande);
+        commandeDto.setNumeroCommande(numeroCommande);
         commandeDto.setDate(date);
         commandeDto.setMontantAvecRemise(montantAvecRemise);
         return commandeDto;
     }
 
     /**
-     * @param id_Commande
-     * @param numero_Commande
+     * @param idCommande
+     * @param numeroCommande
      * @param date
      * @param montantAvecRemise
      * @return la commande Dto Initialisé
      */
-    public static CommandeDto build(final Integer id_Commande, final String numero_Commande, final String date, final Integer montantAvecRemise) {
-        return build(null, id_Commande, numero_Commande, date, montantAvecRemise);
+    public static CommandeDto build(final Integer idCommande, final String numeroCommande, final String date, final Integer montantAvecRemise) {
+        return build(null, idCommande, numeroCommande, date, montantAvecRemise);
     }
 
     /**
      * @return the id_Utilisateur
      */
-    public Integer getId_Utilisateur() {
-        return id_Utilisateur;
+    public Integer getIdUtilisateur() {
+        return idUtilisateur;
     }
 
     /**
      * @param id_Utilisateur the id_Utilisateur to set
      */
-    public void setId_Utilisateur(final Integer id_Utilisateur) {
-        this.id_Utilisateur = id_Utilisateur;
+    public void setIdUtilisateur(final Integer idUtilisateur) {
+        this.idUtilisateur = idUtilisateur;
     }
 
     /**
      * @return the id_Commande
      */
-    public Integer getId_Commande() {
-        return id_Commande;
+    public Integer getIdCommande() {
+        return idCommande;
     }
 
     /**
      * @param id_Commande the id_Commande to set
      */
-    public void setId_Commande(final Integer id_Commande) {
-        this.id_Commande = id_Commande;
+    public void setIdCommande(final Integer idCommande) {
+        this.idCommande = idCommande;
     }
 
     /**
      * @return the numero_Commande
      */
-    public String getNumero_Commande() {
-        return numero_Commande;
+    public String getNumeroCommande() {
+        return numeroCommande;
     }
 
     /**
      * @param numero_Commande the numero_Commande to set
      */
-    public void setNumero_Commande(String numero_Commande) {
-        this.numero_Commande = numero_Commande;
+    public void setNumeroCommande(final String numeroCommande) {
+        this.numeroCommande = numeroCommande;
     }
 
     /**

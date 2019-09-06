@@ -13,6 +13,8 @@ import service.commande.ICommandeService;
 import util.Factory;
 
 /**
+ * Implémentation du service pour gérer les commandes
+ * 
  * @author Administrateur
  *
  */
@@ -23,12 +25,10 @@ public class CommandeService implements ICommandeService {
     }
 
     @Override
-    public List<CommandeDto> findAllCommande(final int id_Utilisateur) {
+    public List<CommandeDto> findAllCommande(final int idUtilisateur) {
         final ICommandeDao iCommandeDao = Factory.getInstance(ICommandeDao.class);
-        // on pourrait ne pas utiliser cette variable
-        final List<CommandeDo> listeCommandeDo = (iCommandeDao).findAllCommandeDo(id_Utilisateur);
+        final List<CommandeDo> listeCommandeDo = (iCommandeDao).findAllCommandeDo(idUtilisateur);
         return CommandeMapper.mapToListDto(listeCommandeDo);
     }
 
-   
 }

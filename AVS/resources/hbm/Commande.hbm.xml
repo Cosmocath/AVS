@@ -6,18 +6,18 @@
 	<class name="persistance.commande.beanDo.CommandeDo"
 		table="commande">
 		<!-- la clé primaire -->
-		<id name="id_Commande" column="id_Commande" type="int">
+		<id name="idCommande" column="id_Commande" type="int">
 			<generator class="identity"></generator>
 		</id>
 
 		<!-- les propriétés simples -->
-		<property name="id_Utilisateur" column="id_Utilisateur"
+		<property name="idUtilisateur" column="id_Utilisateur"
 			type="int"></property>
-		<property name="numero_Commande" column="numero_Commande"></property>
-		<property name="date_Commande" column="date_Commande"
+		<property name="numeroCommande" column="numero_Commande"></property>
+		<property name="dateCommande" column="date_Commande"
 			type="date"></property>
-		
-		<property name="montant_Sans_Remise" type="double">			
+
+		<property name="montantSansRemise" type="double">
 			<column name="montant_Sans_Remise" sql-type="float" />
 		</property>
 	</class>

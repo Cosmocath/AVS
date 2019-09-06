@@ -32,15 +32,13 @@ public class CommandeDao implements ICommandeDao {
         //empty method
     }
 
-    /**
-     *
-     */
+   
     @Override
-    public List<CommandeDo> findAllCommandeDo(final int id_Utilisateur) {
+    public List<CommandeDo> findAllCommandeDo(final int idUtilisateur) {
         try (final Session session = sessionFactory.openSession()) {
             final Transaction transaction = session.beginTransaction();
             final Query<CommandeDo> query = session.createQuery("From CommandeDo where id_Utilisateur = :id_Utilisateur order by date_Commande desc", CommandeDo.class);
-            query.setParameter("id_Utilisateur", id_Utilisateur);
+            query.setParameter("id_Utilisateur", idUtilisateur);
             final List<CommandeDo> listeCommandeDo = query.getResultList();
 
             session.flush();
