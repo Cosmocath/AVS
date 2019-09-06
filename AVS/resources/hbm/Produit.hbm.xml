@@ -18,7 +18,6 @@
 			<column name="prix" sql-type="float" />
 		</property>
 
-
 		<property name="image" column="image"></property>
 		<property name="numero_version" column="numero_version"></property>
 		<property name="actif" column="actif" type="boolean"></property>
