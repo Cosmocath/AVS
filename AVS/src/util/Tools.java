@@ -1,6 +1,3 @@
-/**
- * 
- */
 package util;
 
 import java.text.ParseException;
@@ -11,7 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Tools permettant de vérifier les adresses mails, dates, prix, nombres et leurs formats précis
+ * Classe Tools permettant de vérifier les adresses mails, dates, prix, nombres et leurs formats précis
  * 
  * @author Nora et Catherine
  *
@@ -85,4 +82,15 @@ public class Tools {
     public static boolean verifPrix(final String number) {
         return number.matches("^[1-9]{1}[0-9]{0,2}( \\d{3})*(,\\d{2})$");
     }
+
+    /**
+     * Permet de dire si un mot est null ou vide. Pas de trim
+     * 
+     * @param mot
+     * @return true si le mot est null ou vide, false sinon
+     */
+    public static boolean isEmpty(final String mot) {
+        return mot == null || mot.isEmpty();
+    }
+
 }
