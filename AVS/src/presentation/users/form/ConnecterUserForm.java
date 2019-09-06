@@ -34,10 +34,10 @@ public class ConnecterUserForm extends ActionForm {
     public ActionErrors validate(final ActionMapping mapping, final HttpServletRequest request) {
         final ActionErrors errors = new ActionErrors();
         if (Tools.isEmpty(mail)) {
-            errors.add("mail", new ActionMessage("voirConnecterUser.errors.mail.obligatoire"));
+            errors.add("mail", new ActionMessage("USR_00.errors.mail.obligatoire"));
         }
         if (Tools.isEmpty(password)) {
-            errors.add("password", new ActionMessage("voirConnecterUser.errors.password.obligatoire"));
+            errors.add("password", new ActionMessage("USR_00.errors.password.obligatoire"));
         }
         return errors;
     }

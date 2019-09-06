@@ -37,7 +37,7 @@ public class ConnecterUserAction extends Action {
         // on teste le retour du service
         if (connectedUserDto == null) {
             final ActionErrors errors = new ActionErrors();
-            errors.add("error", new ActionMessage("voirConnecterUser.errors.connection"));
+            errors.add("error", new ActionMessage("USR_00.errors.connection"));
             saveErrors(request, errors);
             return mapping.findForward("notSuccess");
 
