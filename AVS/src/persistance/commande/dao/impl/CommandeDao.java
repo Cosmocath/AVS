@@ -32,7 +32,10 @@ public class CommandeDao implements ICommandeDao {
         //empty method
     }
 
-   
+    /**
+     * Permet de trouver toutes les commandes par ordre decroissant de la date de commande
+     *
+     */
     @Override
     public List<CommandeDo> findAllCommandeDo(final int idUtilisateur) {
         try (final Session session = sessionFactory.openSession()) {
