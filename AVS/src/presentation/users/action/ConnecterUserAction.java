@@ -45,7 +45,7 @@ public class ConnecterUserAction extends Action {
             final ActionMessages messages = new ActionMessages();
             messages.add("creationOK", new ActionMessage("creer.ok"));
             saveMessages(request, messages);
-            session.setAttribute(USER_CONNECTED, connecterUserForm);
+            session.setAttribute(USER_CONNECTED, connectedUserDto);
             return mapping.findForward("success");
         }
     }
