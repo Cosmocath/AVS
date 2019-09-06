@@ -17,8 +17,6 @@ import util.Factory;
 public class UserService implements IUserService {
 
     private UserService() {
-        
-        
         // empty constructor
     }
 

@@ -20,8 +20,9 @@
 			<forward name="success" path="templateTest" redirect="false"></forward>
 		</action>
 
-		<action path="/connecterUser" scope="request" input="/jsp/users/connecterUser.jsp"
-			parameter="" name="connecterUserForm"
+		<action path="/connecterUser" scope="request"
+			input="/jsp/users/connecterUser.jsp" parameter=""
+			name="connecterUserForm"
 			type="presentation.users.action.ConnecterUserAction">
 			<forward name="success" path="/jsp/testStruts/testStruts.jsp"
 				redirect="false"></forward>
@@ -32,6 +33,7 @@
 			<forward name="success" path="/jsp/users/connecterUser.jsp"
 				redirect="false" />
 		</action>
+
 	</action-mappings>
 
 	<message-resources parameter="messages/application"></message-resources>
