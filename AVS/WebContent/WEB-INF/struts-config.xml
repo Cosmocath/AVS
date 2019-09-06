@@ -5,6 +5,11 @@
 
 <struts-config>
 
+	<form-beans type="org.apache.struts.action.ActionFormBean">
+		<form-bean name="connecterUserForm"
+			type="presentation.users.form.ConnecterUserForm" />
+	</form-beans>
+
 	<action-mappings
 		type="org.apache.struts.action.ActionMapping">
 
@@ -25,6 +30,19 @@
 			parameter="" type="presentation.i18n.action.ChangerLangueAction">
 		</action>
 
+		<action path="/connecterUser" scope="request"
+			input="voirConnecterUser" parameter="" name="connecterUserForm"
+			type="presentation.users.action.ConnecterUserAction">
+			<forward name="success" path="template" redirect="true"></forward>
+			<forward name="notSuccess" path="voirConnecterUser"
+				redirect="false" />
+		</action>
+
+		<action path="/voirConnecterUser" scope="request" input=""
+			parameter="" type="presentation.users.action.VoirConnecterUserAction">
+			<forward name="success" path="voirConnecterUser"
+				redirect="false" />
+		</action>
 	</action-mappings>
 
 	<message-resources parameter="messages/application"></message-resources>
