@@ -15,7 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import presentation.users.action.ConnecterUserAction;
 import service.util.MapFactory;
+import util.TypeDeProfil;
 
 /**
  * @author Administrateur
@@ -46,15 +48,15 @@ public class FiltreDroitAcces implements Filter {
     public void doFilter(final ServletRequest req, final ServletResponse rep, final FilterChain chain) throws IOException, ServletException {
         final HttpServletRequest request = (HttpServletRequest) req;
         final HttpServletResponse response = (HttpServletResponse) rep;
-        final HttpSession session = request.getSession(false);
+        final HttpSession session = request.getSession();
 
         //je prend le profil qui est en session
         String profil = "";
 
-        if (session == null) {
+        if (session.getAttribute(ConnecterUserAction.USER_CONNECTED) == null) {
             profil = "visiteur";
         } else {
-            profil = (String) session.getAttribute("user");
+            profil = (String) session.getAttribute(ConnecterUserAction.USER_CONNECTED);
         }
 
         //je recupère l'url en request

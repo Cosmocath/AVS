@@ -1,14 +1,13 @@
-/**
- * 
- */
-package persistance.droit.beanDo;
+package persistance.users.beanDo;
 
 /**
+ * Representation du profil pour la bd
+ * 
  * @author Administrateur
  *
  */
 public class ProfilDo {
-    private Integer idProfil;
+    private Integer id;
     private String  nom;
 
     /**
@@ -19,17 +18,17 @@ public class ProfilDo {
     }
 
     /**
-     * @return the idProfil
+     * @return the id
      */
-    public Integer getIdProfil() {
-        return idProfil;
+    public Integer getId() {
+        return id;
     }
 
     /**
-     * @param idProfil the idProfil to set
+     * @param id the id to set
      */
-    public void setIdProfil(final Integer idProfil) {
-        this.idProfil = idProfil;
+    public void setId(final Integer id) {
+        this.id = id;
     }
 
     /**

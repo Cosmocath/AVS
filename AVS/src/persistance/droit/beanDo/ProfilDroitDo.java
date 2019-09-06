@@ -3,6 +3,8 @@
  */
 package persistance.droit.beanDo;
 
+import persistance.users.beanDo.ProfilDo;
+
 /**
  * @author Administrateur
  *

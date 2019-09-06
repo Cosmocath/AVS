@@ -1,13 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-configuration PUBLIC
-	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="persistance.droit.beanDo.ProfilDo" table="profil">
-		<id name="idProfil" column="id_Profil">
+	<class name="persistance.users.beanDo.ProfilDo" table="profil">
+		<!-- la clé primaire -->
+		<id name="id" column="id_Profil" type="integer">
 			<generator class="identity"></generator>
 		</id>
+
+		<!-- les propriétés simples -->
+
 		<property name="nom" column="nom"></property>
 	</class>
 </hibernate-mapping>
