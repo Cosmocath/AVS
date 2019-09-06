@@ -1,7 +1,6 @@
 package persistance.dao;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
@@ -26,11 +25,9 @@ class ProduitDaoTest {
     @Test
     void testFindAllProduitOrderBy() {
         final IProduitDao iProduitDao = Factory.getInstance(IProduitDao.class);
-        assertNotNull(iProduitDao.findAllProduitOrderBy(OrderBy.ASC));
-
         final List<ProduitDo> listeProduitDo = iProduitDao.findAllProduitOrderBy(OrderBy.ASC);
         assertEquals(2, listeProduitDo.size());
-        assertEquals("Bernard Jardinier", listeProduitDo.get(0).getDesignation());
-        assertEquals("Robert Bricoleur", listeProduitDo.get(1).getDesignation());
+        assertEquals("demenagement", listeProduitDo.get(0).getDesignation());
+        assertEquals("jadinage", listeProduitDo.get(1).getDesignation());
     }
 }

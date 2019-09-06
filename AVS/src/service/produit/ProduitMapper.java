@@ -28,7 +28,7 @@ public class ProduitMapper {
         produitDto.setDescription(produitDo.getDescription());
         produitDto.setPrix(produitDo.getPrix());
         produitDto.setImage(produitDo.getImage());
-        produitDto.setNoVersion(produitDo.getNumero_version());
+        produitDto.setNoVersion(produitDo.getNumeroVersion());
         produitDto.setActif(produitDo.getActif());
 
         return produitDto;

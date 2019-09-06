@@ -14,7 +14,7 @@ public class ProduitDo {
     private String  description;
     private double  prix;
     private String  image;
-    private Integer numero_version;
+    private Integer numeroVersion;
     private boolean actif;
 
     /**
@@ -110,17 +110,17 @@ public class ProduitDo {
     }
 
     /**
-     * @return the numero_version
+     * @return the numeroVersion
      */
-    public Integer getNumero_version() {
-        return numero_version;
+    public Integer getNumeroVersion() {
+        return numeroVersion;
     }
 
     /**
-     * @param numero_version the numero_version to set
+     * @param numeroVersion the numeroVersion to set
      */
-    public void setNumero_version(final Integer numero_version) {
-        this.numero_version = numero_version;
+    public void setNumeroVersion(final Integer numeroVersion) {
+        this.numeroVersion = numeroVersion;
     }
 
     /**
