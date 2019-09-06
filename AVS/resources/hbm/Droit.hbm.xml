@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="persistance.droit.beanDo.DroitDo" table="droit" >
+		<id name="idDroit" column="id_Droit">
+			<generator class="identity"></generator>
+		</id>
+		<property name="url" column="url"></property>
+		<property name="description" column="description"></property>
+		<set name="setProfilDroits" inverse="false" lazy="false" >
+			<key column="id_Droit" ></key>
+			<one-to-many class="persistance.droit.beanDo.ProfilDroitDo" />
+		</set>
+	</class>
+
+</hibernate-mapping>

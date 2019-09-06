@@ -22,6 +22,9 @@
 		<property name="hibernate.show_sql">true</property>
 		<!-- Permet de formatter les requêtes executées par hibernate -->
 		<!-- <property name="format_sql>true</property> -->
+		<mapping resource="hbm/Droit.hbm.xml" />
+		<mapping resource="hbm/Profil.hbm.xml" />
+		<mapping resource="hbm/ProfilDroit.hbm.xml" />
 
 
 	</session-factory>
