@@ -1,5 +1,5 @@
 <%@include file="/jsp/tiles/taglib.jsp"%>
-<title><bean:message key="connecterUser.titre" /></title>
+<title><bean:message key="USR_00.titre" /></title>
 
 <div style="height: 100%; padding: 10px">
 	<div>
