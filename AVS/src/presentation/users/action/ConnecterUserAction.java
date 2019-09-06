@@ -24,6 +24,7 @@ import util.Factory;
  *
  */
 public class ConnecterUserAction extends Action {
+    public static final String USER_CONNECTED = "userConnected";
 
     @Override
     public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
@@ -44,7 +45,7 @@ public class ConnecterUserAction extends Action {
             final ActionMessages messages = new ActionMessages();
             messages.add("creationOK", new ActionMessage("creer.ok"));
             saveMessages(request, messages);
-            session.setAttribute("userConnected", connecterUserForm);
+            session.setAttribute(USER_CONNECTED, connecterUserForm);
             return mapping.findForward("success");
         }
     }

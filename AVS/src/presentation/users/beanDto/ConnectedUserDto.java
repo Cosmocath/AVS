@@ -1,6 +1,6 @@
 package presentation.users.beanDto;
 
-import presentation.users.TypeDeProfil;
+import util.TypeDeProfil;
 
 /**
  * Bean pour la connection d'un user

@@ -15,7 +15,7 @@ public interface IUserService {
      * 
      * @param mail
      * @param password
-     * @return
+     * @return un ConnectedUserDto du user rechérché, null si non trouvé
      */
     ConnectedUserDto findUserForConnexion(final String mail, final String password);
 

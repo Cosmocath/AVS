@@ -1,7 +1,6 @@
 package util;
 
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Assert;
@@ -91,7 +90,6 @@ public class ToolsTest {
      */
     @Test
     void testIsEmpty() {
-        assertNotNull(Tools.isEmpty(""));
         assertTrue(Tools.isEmpty(""));
         assertTrue(Tools.isEmpty(null));
         assertFalse(Tools.isEmpty("doudou"));
