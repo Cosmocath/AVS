@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Classe JUnit permettant de tester les méthodes de la classe Tools
  * 
- * @author Administrateur
+ * @author Nora Liferki
  *
  */
 public class ToolsTest {
