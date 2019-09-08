@@ -26,6 +26,12 @@
 				redirect="false"></forward>
 		</action>
 
+		<action path="/consulterProduit" scope="request" input=""
+			parameter="" type="presentation.produit.action.ConsulterProduitAction">
+			<forward name="success" path="consulterProduit"
+				redirect="false"></forward>
+		</action>
+
 		<action path="/changerLangue" scope="request" input=""
 			parameter="" type="presentation.i18n.action.ChangerLangueAction">
 		</action>

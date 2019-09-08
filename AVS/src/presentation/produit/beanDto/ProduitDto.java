@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * ProduitDto couche presentation pour l'écran
  * 
- * @author Catherine Hermary
+ * @author Catherine Hermary / Nora Liferki
  *
  */
 public class ProduitDto implements Serializable {
@@ -30,6 +30,34 @@ public class ProduitDto implements Serializable {
      */
     public ProduitDto() {
         // empty constructor
+    }
+
+    /**
+     * Builder pour le ProduitDto
+     * 
+     * @param id
+     * @param designation
+     * @param reference
+     * @param description
+     * @param prix
+     * @param image
+     * @param noVersion
+     * @param actif
+     * @return le produitDto initialisé
+     */
+    public ProduitDto buildProduitDto(final Integer id, final String designation, final Integer reference, final String description, final double prix, final String image, final Integer noVersion,
+                    final Boolean actif) {
+        final ProduitDto produitDto = new ProduitDto();
+        produitDto.setId(id);
+        produitDto.setDesignation(designation);
+        produitDto.setReference(reference);
+        produitDto.setDescription(description);
+        produitDto.setPrix(prix);
+        produitDto.setImage(image);
+        produitDto.setNoVersion(noVersion);
+        produitDto.setActif(actif);
+
+        return produitDto;
     }
 
     /**
