@@ -1,5 +1,8 @@
 package util;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -7,7 +10,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Classe JUnit permettant de tester les méthodes de la classe Tools
  * 
- * @author Administrateur
+ * @author Nora Liferki
  *
  */
 public class ToolsTest {
@@ -80,5 +83,15 @@ public class ToolsTest {
         Assert.assertFalse(Tools.verifPrix("125.20"));
         Assert.assertFalse(Tools.verifPrix("Ab5,20"));
 
+    }
+
+    /**
+     * Test method for {@link persistance.Tools#isEmpty(java.lang.String)}.
+     */
+    @Test
+    void testIsEmpty() {
+        assertTrue(Tools.isEmpty(""));
+        assertTrue(Tools.isEmpty(null));
+        assertFalse(Tools.isEmpty("doudou"));
     }
 }
