@@ -14,6 +14,8 @@ import service.droit.IDroitService;
 import util.Factory;
 
 /**
+ * Permet de filtrer les urls selon le profil de l'utilisateur en session
+ * 
  * @author Guy-Jöel et Mireille
  *
  */
@@ -21,20 +23,18 @@ public class FiltreDroitAcces extends HttpFilter {
 
     private static final long serialVersionUID = 6800437749061875396L;
 
-    /**
-     * filtre les accès aux url
-     */
     @Override
     public void doFilter(final HttpServletRequest request, final HttpServletResponse response, final FilterChain chain) throws IOException, ServletException {
         final HttpSession session = request.getSession();
         final IDroitService iDroitService = Factory.getInstance(IDroitService.class);
 
-        //je prend le profil qui est en session
+        //je prends le profil qui est en session
         String profil = "";
 
         if (session.getAttribute(ConnecterUserAction.USER_CONNECTED) == null) {
             profil = "visiteur";
         } else {
+            // FIXME XSI : ClassCastException
             profil = (String) session.getAttribute(ConnecterUserAction.USER_CONNECTED);
         }
 

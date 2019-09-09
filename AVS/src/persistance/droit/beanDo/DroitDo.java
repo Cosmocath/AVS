@@ -1,16 +1,17 @@
-
 package persistance.droit.beanDo;
 
 import java.util.Set;
 
 /**
+ * Représentation d'un Droit en BD
+ * 
  * @author Guy-Jöel et Mireille
  *
  */
 public class DroitDo {
-    private Integer  idDroit;
-    private String   url;
-    private String   description;
+    private Integer            idDroit;
+    private String             url;
+    private String             description;
     private Set<ProfilDroitDo> setProfilDroits;
 
     /**

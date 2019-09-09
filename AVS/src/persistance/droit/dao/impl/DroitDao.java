@@ -1,6 +1,7 @@
-
 package persistance.droit.dao.impl;
+
 import java.util.List;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -12,6 +13,8 @@ import persistance.droit.dao.IDroitDao;
 import persistance.factory.HibernateFactory;
 
 /**
+ * Implémentation de IDroitaDao
+ * 
  * @author Guy-Jöel et Mireille
  *
  */
@@ -25,7 +28,6 @@ public class DroitDao implements IDroitDao {
     private DroitDao() {
         //Empty method
     }
-
 
     @Override
     public List<DroitDo> findAllDroits() {

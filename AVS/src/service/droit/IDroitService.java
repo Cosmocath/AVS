@@ -11,10 +11,12 @@ import java.util.Map;
  */
 public interface IDroitService {
     /**
+     * TODO XSI : compléter + formater
+     * 
      * @return une map qui prend en clé une url, et en valeur une liste de profil qui a accès à l'url
      */
     Map<String, List<String>> findAllDroitsWithProfil();
-    
+
     /**
      * permet de verifier si le profil a accès à l'url
      * 
