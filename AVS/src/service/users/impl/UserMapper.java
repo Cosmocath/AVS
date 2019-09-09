@@ -54,6 +54,12 @@ public class UserMapper {
         final UserDto userDto = new UserDto();
         userDto.setId(userDo.getId());
         userDto.setNom(userDo.getNom());
+        userDto.setPrenom(userDo.getPrenom());
+        userDto.setDateNaissance(userDo.getDateNaissance());
+        userDto.setAdresse(userDo.getAdresse());
+        userDto.setPassword(userDo.getPassword());
+        userDto.setMail(userDo.getMail());
+        userDto.setActif(userDo.isActif());
         userDto.setProfil(mapTypeProfilDoToTypeProfil(userDo.getProfilDo()));
         return userDto;
     }
