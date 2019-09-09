@@ -26,7 +26,7 @@ import util.OrderBy;
  *
  */
 class ProduitDaoTest {
-    
+
     /**
      * 
      */
