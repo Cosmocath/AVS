@@ -15,7 +15,7 @@ import persistance.users.dao.IUserDao;
 /**
  * Implementation de IUserDao
  * 
- * @author Administrateur
+ * @author Administrator
  *
  */
 public class UserDao implements IUserDao {
@@ -46,6 +46,44 @@ public class UserDao implements IUserDao {
             return userDo.orElse(null);
         } catch (final HibernateException hibernateException) {
             // on peut catcher des HibernateException
+            hibernateException.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public UserDo findUserByMail(final String mail) {
+        try (final Session session = sessionFactory.openSession()) {
+            final Transaction transaction = session.beginTransaction();
+            final Query<UserDo> query = session.createQuery("From UserDo where mail = :mail", UserDo.class);
+            // on initialise le paramètre
+            query.setParameter("mail", mail);
+            // regarder la Javadoc de Optional
+            final Optional<UserDo> userDo = query.uniqueResultOptional();
+
+            session.flush();
+            transaction.commit();
+            // suite de la feature Optional de Java 8
+            return userDo.orElse(null);
+        } catch (final HibernateException hibernateException) {
+            // on peut catcher des HibernateException
+            hibernateException.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public UserDo createUser(final UserDo userDo) {
+        try (final Session session = sessionFactory.openSession()) {
+            final Transaction transaction = session.beginTransaction();
+
+            session.save(userDo);
+            session.flush();
+
+            transaction.commit();
+
+            return userDo;
+        } catch (final HibernateException hibernateException) {
             hibernateException.printStackTrace();
         }
         return null;

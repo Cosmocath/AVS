@@ -19,6 +19,19 @@ public class UserDo {
     private String   mail;
     private boolean  actif;
 
+    public void initialiserUser(final Integer id, final String nom, final String prenom, final Date dateNaissance, final String adresse, final String password, final ProfilDo profilDo,
+                    final String mail, final boolean actif) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.dateNaissance = dateNaissance;
+        this.adresse = adresse;
+        this.password = password;
+        this.profilDo = profilDo;
+        this.mail = mail;
+        this.actif = actif;
+    }
+
     /**
      * @return the actif
      */

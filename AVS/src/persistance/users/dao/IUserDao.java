@@ -19,4 +19,19 @@ public interface IUserDao {
      */
     UserDo findUserForConnexion(final String mail, final String password);
 
+    /**
+     * Permer de rechercher un user selon son mail
+     * 
+     * @param mail
+     * @return le user recherché, null sinon
+     */
+    UserDo findUserByMail(final String mail);
+
+    /**
+     * Permer de créer un utilisateur en bdd
+     * 
+     * @param userDo
+     * @return le user crée
+     */
+    UserDo createUser(final UserDo userDo);
 }
