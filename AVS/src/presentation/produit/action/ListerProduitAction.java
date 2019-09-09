@@ -28,11 +28,30 @@ public class ListerProduitAction extends Action {
         // on récupère les données du Service
         final IProduitService iProduitService = Factory.getInstance(IProduitService.class);
 
-        // On recupere la liste de produits depuis la couche Service
-        final List<ProduitDto> listeProduitDto = iProduitService.findAllProduitOrderBy(OrderBy.ASC);
+        // on recupère le paramètre de la request et on le cast
+
+        String paramOrderBy = request.getParameter("orderBy");
+        OrderBy enumOrderBy = OrderBy.ASC;
+
+        if (paramOrderBy != null && !"".equals(paramOrderBy)) {
+            // on le convertit en enum
+            enumOrderBy = OrderBy.valueOf(paramOrderBy);
+
+        }
+        
+        // on appelle la methode
+        final List<ProduitDto> listeProduitDto = iProduitService.findAllProduitOrderBy(enumOrderBy);
+        
+        // si la methode a fonctionné en mode ascendant, alors on passe le parametre descendant en requete, et vice versa
+        if (enumOrderBy == OrderBy.ASC) {
+            request.setAttribute("TRI", OrderBy.DESC);
+        } else {
+            request.setAttribute("TRI", OrderBy.ASC);
+        }
 
         // mettre la liste à disposition de la vue
         request.setAttribute("listeProduits", listeProduitDto);
+
 
         // on va chercher le forward
         return mapping.findForward("success");
