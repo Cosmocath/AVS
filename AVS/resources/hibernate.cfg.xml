@@ -25,5 +25,7 @@
 		<!-- Liste des fichiers de Mapping hbm pour chaque table / Do -->
 		<mapping resource="hbm/User.hbm.xml" />
 		<mapping resource="hbm/Profil.hbm.xml" />
+		<mapping resource="hbm/Produit.hbm.xml" />
+
 	</session-factory>
 </hibernate-configuration>
