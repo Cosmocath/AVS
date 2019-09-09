@@ -38,7 +38,7 @@ public class ProduitDao implements IProduitDao {
     /**
      * Méthode getInstance pour le singleton
      * 
-     * @return
+     * @return un iProduitDao
      */
     public static IProduitDao getInstance() {
         synchronized (ProduitDao.class) {

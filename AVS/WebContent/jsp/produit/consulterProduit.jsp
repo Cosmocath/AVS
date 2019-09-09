@@ -17,7 +17,8 @@
 	</script>
 
 	<div style="float: right">
-		<html:button property="delete" onclick="RedirectionJavascript()">
+		<html:button property="retour" onclick="javascript:history.back()"
+			value="retour">
 			<bean:message key="PDT_01.bouton.retour" />
 		</html:button>
 	</div>

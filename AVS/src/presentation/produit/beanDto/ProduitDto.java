@@ -171,5 +171,4 @@ public class ProduitDto implements Serializable {
     public void setActif(final boolean actif) {
         this.actif = actif;
     }
-
 }
