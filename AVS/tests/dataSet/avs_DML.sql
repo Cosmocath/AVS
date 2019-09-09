@@ -34,16 +34,6 @@ delete from `commandeproduit`;
 delete from `produitvendu`;
 delete from `commande`;
 delete from `utilisateur`;
-delete from `profil`;
-
---
--- Déchargement des données de la table `profil`
---
-
-INSERT INTO `profil` (`id_Profil`, `nom`) VALUES(1, 'visiteur');
-INSERT INTO `profil` (`id_Profil`, `nom`) VALUES(2, 'client');
-INSERT INTO `profil` (`id_Profil`, `nom`) VALUES(3, 'admin');
-
 
 --
 -- Déchargement des données de la table `utilisateur`
@@ -74,9 +64,9 @@ INSERT INTO `commandeproduit` (`id_CommandeProduit`, `idCommande`, `id_ProduitVe
 -- Déchargement des données de la table `droit`
 --
 
-INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(1, 'accueil.html', 'acceder_a_l_accueil ');
-INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(2, 'connexion.jsp', 'droit_de_connexion');
-INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(3, 'ajouter-produit.jsp', 'droit_d_ajout_de_produit');
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(1, 'accueil.do', 'acceder_a_l_accueil ');
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(2, 'voirConnecterUser.do', 'droit_de_connexion');
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(3, 'TestHello.do', 'page_test');
 
 --
 -- Déchargement des données de la table `profildroit`
@@ -86,7 +76,9 @@ INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(1, 
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(2, 2, 1);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(3, 3, 1);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(4, 1, 2);
-INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(5, 3, 3);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(5, 1, 3);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(6, 2, 2);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(7, 3, 2);
 
 --
 -- Déchargement des données de la table `produit`
