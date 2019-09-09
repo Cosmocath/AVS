@@ -17,6 +17,7 @@ public class CommandeDo {
     private double montantAvecRemise;
 
     /**
+     * Constructeur
      * 
      */
     public CommandeDo() {

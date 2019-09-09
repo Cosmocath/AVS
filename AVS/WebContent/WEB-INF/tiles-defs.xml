@@ -29,4 +29,5 @@
 	<definition name="listerProduitClient" extends="template">
 		<put name="body" value="/jsp/produit/listerProduitClient.jsp" />
 	</definition>
+
 </tiles-definitions>
