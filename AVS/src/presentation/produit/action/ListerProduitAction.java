@@ -30,7 +30,7 @@ public class ListerProduitAction extends Action {
 
         // on recupère le paramètre de la request et on le cast
 
-        String paramOrderBy = request.getParameter("orderBy");
+        final String paramOrderBy = request.getParameter("orderBy");
         OrderBy enumOrderBy = OrderBy.ASC;
 
         if (paramOrderBy != null && !"".equals(paramOrderBy)) {
@@ -38,10 +38,10 @@ public class ListerProduitAction extends Action {
             enumOrderBy = OrderBy.valueOf(paramOrderBy);
 
         }
-        
+
         // on appelle la methode
         final List<ProduitDto> listeProduitDto = iProduitService.findAllProduitOrderBy(enumOrderBy);
-        
+
         // si la methode a fonctionné en mode ascendant, alors on passe le parametre descendant en requete, et vice versa
         if (enumOrderBy == OrderBy.ASC) {
             request.setAttribute("TRI", OrderBy.DESC);
@@ -51,7 +51,6 @@ public class ListerProduitAction extends Action {
 
         // mettre la liste à disposition de la vue
         request.setAttribute("listeProduits", listeProduitDto);
-
 
         // on va chercher le forward
         return mapping.findForward("success");
