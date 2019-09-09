@@ -6,6 +6,7 @@ import persistance.users.beanDo.UserDo;
 import persistance.users.dao.IUserDao;
 import presentation.users.beanDto.ConnectedUserDto;
 import presentation.users.beanDto.UserDto;
+import service.users.IProfilService;
 import service.users.IUserService;
 import util.Factory;
 
@@ -38,5 +39,28 @@ public class UserService implements IUserService {
         // on pourrait ne pas utiliser cette variable
         final List<UserDo> listeUserDo = iUserDao.findAllUserDo();
         return UserMapper.mapToListDto(listeUserDo);
+    }
+
+    @Override
+    public UserDto findUserByMail(final String mail) {
+        final IUserDao iUserDao = Factory.getInstance(IUserDao.class);
+        final UserDo userDo = iUserDao.findUserByMail(mail);
+
+        if (userDo == null) {
+            return null;
+        }
+
+        return UserMapper.mapToDto(userDo);
+    }
+
+    @Override
+    public UserDto createUser(final UserDto userDto) {
+        final IUserDao iUserDao = Factory.getInstance(IUserDao.class);
+        if (this.findUserByMail(userDto.getMail()) != null) {
+            return null;
+        }
+        final UserDo userDo = iUserDao.createUser(UserMapper.mapToDo(userDto));
+        return UserMapper.mapToDto(userDo);
+
     }
 }

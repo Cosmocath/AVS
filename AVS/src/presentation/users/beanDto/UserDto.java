@@ -2,7 +2,6 @@ package presentation.users.beanDto;
 
 import java.util.Date;
 
-import persistance.users.beanDo.ProfilDo;
 import util.TypeDeProfil;
 
 /**

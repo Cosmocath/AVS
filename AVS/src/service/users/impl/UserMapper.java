@@ -3,11 +3,9 @@ package service.users.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import persistance.users.beanDo.ProfilDo;
 import persistance.users.beanDo.UserDo;
 import presentation.users.beanDto.ConnectedUserDto;
 import presentation.users.beanDto.UserDto;
-import util.TypeDeProfil;
 
 /**
  * Mapper Dto/Do bidirectionnel pour un User
@@ -27,21 +25,8 @@ public class UserMapper {
         final ConnectedUserDto connectedUserDto = new ConnectedUserDto();
         connectedUserDto.setId(userDo.getId());
         connectedUserDto.setNom(userDo.getNom());
-        connectedUserDto.setProfil(mapTypeProfilDoToTypeProfil(userDo.getProfilDo()));
+        connectedUserDto.setProfil(ProfilMapper.mapProfilDoToTypeProfil(userDo.getProfilDo()));
         return connectedUserDto;
-    }
-
-    private static TypeDeProfil mapTypeProfilDoToTypeProfil(final ProfilDo profilDo) {
-        switch (profilDo.getNom()) {
-            case "Administrateur" :
-                return TypeDeProfil.ADMINISTRATEUR;
-            case "Client" :
-                return TypeDeProfil.CLIENT;
-            case "Visiteur" :
-                return TypeDeProfil.VISITEUR;
-            default :
-                return null;
-        }
     }
 
     /**
@@ -60,7 +45,7 @@ public class UserMapper {
         userDto.setPassword(userDo.getPassword());
         userDto.setMail(userDo.getMail());
         userDto.setActif(userDo.isActif());
-        userDto.setProfil(mapTypeProfilDoToTypeProfil(userDo.getProfilDo()));
+        userDto.setProfil(ProfilMapper.mapProfilDoToTypeProfil(userDo.getProfilDo()));
         return userDto;
     }
 
@@ -76,6 +61,19 @@ public class UserMapper {
             listeUserDto.add(mapToDto(userDo));
         }
         return listeUserDto;
+    }
+
+    public static UserDo mapToDo(final UserDto userDto) {
+        final UserDo userDo = new UserDo();
+        userDo.setId(userDto.getId());
+        userDo.setNom(userDto.getNom());
+        userDo.setPrenom(userDto.getPrenom());
+        userDo.setDateNaissance(userDto.getDateNaissance());
+        userDo.setAdresse(userDto.getAdresse());
+        userDo.setPassword(userDto.getPassword());
+        userDo.setMail(userDto.getMail());
+        userDo.setActif(userDto.isActif());
+        return userDo;
     }
 
 }
