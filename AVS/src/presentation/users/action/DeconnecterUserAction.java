@@ -1,6 +1,3 @@
-/**
- * 
- */
 package presentation.users.action;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +10,8 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 /**
+ * Action permettant de déconnecter un user
+ * 
  * @author Administrateur
  *
  */
