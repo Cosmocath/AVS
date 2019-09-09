@@ -32,7 +32,7 @@ public class ListerProduitAction extends Action {
 
         final String paramOrderBy = request.getParameter("orderBy");
         OrderBy enumOrderBy = OrderBy.ASC;
-        //TODO: utiliser le isEmpty
+
         if (paramOrderBy != null && !paramOrderBy.isEmpty()) {
             // on le convertit en enum
             enumOrderBy = OrderBy.valueOf(paramOrderBy);
