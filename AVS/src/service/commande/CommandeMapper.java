@@ -1,8 +1,6 @@
-/**
- * 
- */
 package service.commande;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,12 +18,14 @@ public class CommandeMapper {
 
     /**
      * Permet de mapper une commandeDo en commandeDto
+     * 
      * @param commandeDo
      * @return
      */
     public static CommandeDto mapToDto(final CommandeDo commandeDo) {
-        return CommandeDto.build(commandeDo.getIdUtilisateur(), commandeDo.getIdCommande(), commandeDo.getNumeroCommande(), FormatUtil.convertirDateToString(commandeDo.getDateCommande()),
-                        commandeDo.getMontantSansRemise());
+        DecimalFormat df = new DecimalFormat("0.00");
+        String montant = df.format(commandeDo.getMontantSansRemise());
+        return CommandeDto.build(commandeDo.getIdUtilisateur(), commandeDo.getIdCommande(), commandeDo.getNumeroCommande(), FormatUtil.convertirDateToString(commandeDo.getDateCommande()), montant);
     }
 
     /**

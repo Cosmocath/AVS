@@ -1,19 +1,37 @@
 <%@include file="/jsp/tiles/taglib.jsp"%>
-<link type="text/css" rel="stylesheet"
-	href="<c:url value="/css/styleListerCommande.css"/>" />
-<div style="background-color: #D65858; height: 100%; padding: 10px">
-	<p>Commande</p>
-	<br /> <br />
-	<logic:iterate name="listeCommande" id="commande" scope="request">
+<!-- style css -->
+<style>
+.prix_titre {
+	text-align: center;
+	margin-top: -4.5%;
+}
 
+.prix {
+	text-align: center;
+	margin-top: -2%;
+}
+</style>
+<div style="background-color: white; height: 100%; padding: 10px">
+	<!-- fin du style -->
+
+	<div class="commande">
+		<h2>Commande</h2>
+	</div>
+
+	<div class="prix_titre">
+		<h2>Prix</h2>
+	</div>
+	<logic:iterate name="listeCommande" id="commande" scope="request">
 		<div>
-			<html:link href="consulterCommande.do?id=${commande.idCommande}">
+			<html:link href="consulterCommande.do?id=${commande.idCommande}">	N°Commande
 				<bean:write name="commande" property="numeroCommande" />
 			</html:link>
-			<br />
+			<br /> Date :
 			<bean:write name="commande" property="date" />
-			<div class="gauche">
+			<div class="prix">
+				Prix :
 				<bean:write name="commande" property="montantAvecRemise" />
+				euro
 			</div>
 		</div>
 	</logic:iterate>

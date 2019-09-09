@@ -1,6 +1,3 @@
-/**
- * 
- */
 package persistance.commande.dao;
 
 import java.util.List;

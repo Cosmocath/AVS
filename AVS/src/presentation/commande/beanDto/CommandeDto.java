@@ -19,7 +19,7 @@ public class CommandeDto implements Serializable {
     private Integer           idCommande;
     private String            numeroCommande;
     private String            date;
-    private Double            montantAvecRemise;
+    private String            montantAvecRemise;
 
     /**
      * Builder pour le Dto
@@ -31,7 +31,7 @@ public class CommandeDto implements Serializable {
      * @param montantAvecRemise
      * @return la commade Dto Initialisé
      */
-    public static CommandeDto build(final Integer idUtilisateur, final Integer idCommande, final String numeroCommande, final String date, final Double montantAvecRemise) {
+    public static CommandeDto build(final Integer idUtilisateur, final Integer idCommande, final String numeroCommande, final String date, final String montantAvecRemise) {
         final CommandeDto commandeDto = new CommandeDto();
         commandeDto.setIdUtilisateur(idUtilisateur);
         commandeDto.setIdCommande(idCommande);
@@ -42,13 +42,15 @@ public class CommandeDto implements Serializable {
     }
 
     /**
+     * La methode permet de retourner le build CommandeDto
+     * 
      * @param idCommande
      * @param numeroCommande
      * @param date
      * @param montantAvecRemise
      * @return la commande Dto Initialisé
      */
-    public static CommandeDto build(final Integer idCommande, final String numeroCommande, final String date, final Double montantAvecRemise) {
+    public static CommandeDto build(final Integer idCommande, final String numeroCommande, final String date, final String montantAvecRemise) {
         return build(null, idCommande, numeroCommande, date, montantAvecRemise);
     }
 
@@ -102,20 +104,6 @@ public class CommandeDto implements Serializable {
     }
 
     /**
-     * @return the montantAvecRemise
-     */
-    public Double getMontantAvecRemise() {
-        return montantAvecRemise;
-    }
-
-    /**
-     * @param montantAvecRemise the montantAvecRemise to set
-     */
-    public void setMontantAvecRemise(final Double montantAvecRemise) {
-        this.montantAvecRemise = montantAvecRemise;
-    }
-
-    /**
      * @param date the date to set
      */
     public void setDate(final String date) {
@@ -123,10 +111,17 @@ public class CommandeDto implements Serializable {
     }
 
     /**
-     * @return the serialversionuid
+     * @return the montantAvecRemise
      */
-    public static long getSerialversionuid() {
-        return serialVersionUID;
+    public String getMontantAvecRemise() {
+        return montantAvecRemise;
+    }
+
+    /**
+     * @param montantAvecRemise the montantAvecRemise to set
+     */
+    public void setMontantAvecRemise(final String montantAvecRemise) {
+        this.montantAvecRemise = montantAvecRemise;
     }
 
 }
