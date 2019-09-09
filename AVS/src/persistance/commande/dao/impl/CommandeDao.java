@@ -22,15 +22,10 @@ public class CommandeDao implements ICommandeDao {
 
     private SessionFactory sessionFactory = HibernateFactory.getSessionFactory();
 
-   
     private CommandeDao() {
         //empty contructeur
     }
 
-    /**
-     * Permet de trouver toutes les commandes par ordre decroissant de la date de commande
-     *
-     */
     @Override
     public List<CommandeDo> findAllCommandeDo(final int idUtilisateur) {
         try (final Session session = sessionFactory.openSession()) {
