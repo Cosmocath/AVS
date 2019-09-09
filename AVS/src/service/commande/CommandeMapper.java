@@ -23,7 +23,7 @@ public class CommandeMapper {
      * @return
      */
     public static CommandeDto mapToDto(final CommandeDo commandeDo) {
-        DecimalFormat df = new DecimalFormat("0.00");
+        final DecimalFormat df = new DecimalFormat("0.00");
         String montant = df.format(commandeDo.getMontantSansRemise());
         return CommandeDto.build(commandeDo.getIdUtilisateur(), commandeDo.getIdCommande(), commandeDo.getNumeroCommande(), FormatUtil.convertirDateToString(commandeDo.getDateCommande()), montant);
     }

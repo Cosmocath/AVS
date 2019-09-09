@@ -22,11 +22,9 @@ public class CommandeDao implements ICommandeDao {
 
     private SessionFactory sessionFactory = HibernateFactory.getSessionFactory();
 
-    /**
-     * 
-     */
+   
     private CommandeDao() {
-        //empty method
+        //empty contructeur
     }
 
     /**
@@ -50,4 +48,5 @@ public class CommandeDao implements ICommandeDao {
         return new ArrayList<>();
 
     }
+
 }

@@ -16,6 +16,9 @@ public class CommandeDo {
     private double montantSansRemise;
     private double montantAvecRemise;
 
+    /**
+     * 
+     */
     public CommandeDo() {
         //empty constructeur
     }

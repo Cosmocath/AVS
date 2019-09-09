@@ -22,9 +22,6 @@ import util.Factory;
  */
 public class ListerCommandeAction extends Action {
 
-    /**
-     *
-     */
     @Override
     public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         final ICommandeService iCommandeService = Factory.getInstance(ICommandeService.class);

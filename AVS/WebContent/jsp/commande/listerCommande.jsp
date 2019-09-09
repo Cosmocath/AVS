@@ -15,21 +15,29 @@
 	<!-- fin du style -->
 
 	<div class="commande">
-		<h2>Commande</h2>
+		<h2>
+			<bean:message key="CDE_00.Commande.titre" />
+		</h2>
 	</div>
 
 	<div class="prix_titre">
-		<h2>Prix</h2>
+		<h2>
+			<bean:message key="CDE_00.Prix.titre" />
+		</h2>
 	</div>
 	<logic:iterate name="listeCommande" id="commande" scope="request">
 		<div>
-			<html:link href="consulterCommande.do?id=${commande.idCommande}">	N°Commande
+			<html:link href="consulterCommande.do?id=${commande.idCommande}">
+				<bean:message key="CDE_00.N°Commande" />
 				<bean:write name="commande" property="numeroCommande" />
 			</html:link>
-			<br /> Date :
+			<br />
+			<bean:message key="CDE_00.Date" />
+			:
 			<bean:write name="commande" property="date" />
 			<div class="prix">
-				Prix :
+				<bean:message key="CDE_00.Prix" />
+				:
 				<bean:write name="commande" property="montantAvecRemise" />
 				euro
 			</div>
