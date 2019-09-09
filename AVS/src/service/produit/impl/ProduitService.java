@@ -36,4 +36,22 @@ public class ProduitService implements IProduitService {
         final List<ProduitDo> listeProduitDo = iProduitDao.findAllProduitOrderBy(orderBy);
         return ProduitMapper.mapToListDto(listeProduitDo);
     }
+
+    @Override
+    public ProduitDto create(ProduitDto produitDto) {
+        // récupération de la couche persistance
+        final IProduitDao iProduitDao = Factory.getInstance(IProduitDao.class);
+        // la couche métier prend en charge la vérification de la non-existence de la référence en base en base (sinon insertion annulée)
+        if (iProduitDao.findByReference(produitDto.getReference()) != null) {
+            return null;
+        }
+        // on peut insérer
+        final ProduitDo produitDoNew = iProduitDao.createProduit(ProduitMapper.mapToDo(produitDto));
+        // transformation en Dto
+        if (produitDoNew != null) {
+            return ProduitMapper.mapToDto(produitDoNew);
+        }
+        return null;
+    }
+
 }

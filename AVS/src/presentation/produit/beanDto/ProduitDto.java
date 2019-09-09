@@ -32,6 +32,36 @@ public class ProduitDto implements Serializable {
         // empty constructor
     }
 
+
+    /**
+     * Builder pour le Dto
+     * 
+     * @param id
+     * @param designation
+     * @param reference
+     * @param description
+     * @param prix
+     * @param image
+     * @param noVersion
+     * @return le produitDto initialisé
+     */
+    public static ProduitDto build(final Integer id, final String designation, final Integer reference, final String description, final double prix, final String image, final int noVersion) {
+        final ProduitDto produitDto = new ProduitDto();
+        produitDto.setId(id);
+        produitDto.setDesignation(designation);
+        produitDto.setReference(reference);
+        produitDto.setDescription(description);
+        produitDto.setPrix(prix);
+        produitDto.setImage(image);
+        produitDto.setNoVersion(noVersion);
+        return produitDto;
+    }
+
+
+    public static ProduitDto build(final String designation, final Integer reference, final String description, final double prix, final String image, final int noVersion) {
+        return build(null, designation, reference, description, prix, image, noVersion);
+    }
+
     /**
      * @return the id
      */

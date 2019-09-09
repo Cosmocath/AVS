@@ -6,10 +6,8 @@
 <struts-config>
 
 	<form-beans type="org.apache.struts.action.ActionFormBean">
-		<form-bean name="connecterUserForm"
-			type="presentation.users.form.ConnecterUserForm" />
+		<form-bean name="produitForm" type="presentation.produit.form.ProduitForm" />
 	</form-beans>
-
 	<action-mappings
 		type="org.apache.struts.action.ActionMapping">
 
@@ -26,28 +24,22 @@
 				redirect="false"></forward>
 		</action>
 
+		<action path="/voirCreerProduit" scope="request" input=""
+			parameter=""
+			type="presentation.produit.action.VoirCreerProduitAction">
+			<forward name="success" path="voirCreerProduit"
+				redirect="false" />
+		</action>
+
+		<action path="/creerProduit" scope="request"
+			input="creerProduit" parameter="" name="produitForm"
+			type="presentation.produit.action.CreerProduitAction">
+			<forward name="success" path="creerProduit"
+				redirect="false" />
+		</action>
+
 		<action path="/changerLangue" scope="request" input=""
 			parameter="" type="presentation.i18n.action.ChangerLangueAction">
-		</action>
-
-		<action path="/connecterUser" scope="request"
-			input="voirConnecterUser" parameter="" name="connecterUserForm"
-			type="presentation.users.action.ConnecterUserAction">
-			<forward name="success" path="template" redirect="true"></forward>
-			<forward name="notSuccess" path="voirConnecterUser"
-				redirect="false" />
-		</action>
-
-		<action path="/voirConnecterUser" scope="request" input=""
-			parameter="" type="presentation.users.action.VoirConnecterUserAction">
-			<forward name="success" path="voirConnecterUser"
-				redirect="false" />
-		</action>
-
-		<action path="/deconnecterUser" scope="request" input=""
-			parameter="" type="presentation.users.action.DeconnecterUserAction">
-			<forward name="success" path="listerProduitClient"
-				redirect="true"></forward>
 		</action>
 
 	</action-mappings>
