@@ -1,5 +1,6 @@
 package persistance.dao;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
@@ -21,6 +22,8 @@ class FindAllUrlTest {
     void testFindAllDroits() {
         final IDroitDao iDroitAcces = Factory.getInstance(IDroitDao.class);
         assertEquals(3, iDroitAcces.findAllDroits().size());
+        assertEquals("accueil.do", iDroitAcces.findAllDroits().get(0).getUrl());
+        assertEquals(3, iDroitAcces.findAllDroits().get(0).getSetProfilDroits().size());
     }
 
 }
