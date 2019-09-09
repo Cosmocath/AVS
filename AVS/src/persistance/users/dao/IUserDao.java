@@ -1,5 +1,7 @@
 package persistance.users.dao;
 
+import java.util.List;
+
 import persistance.users.beanDo.UserDo;
 
 /**
@@ -19,4 +21,11 @@ public interface IUserDao {
      */
     UserDo findUserForConnexion(final String mail, final String password);
 
+    /**
+     * Permet de retrouver tous les users
+     * 
+     * 
+     * @return la liste de tous les users, vide ou remplie
+     */
+    List<UserDo> findAllUserDo();
 }
