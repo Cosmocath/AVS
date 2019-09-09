@@ -1,12 +1,10 @@
-/**
- * 
- */
+
 package persistance.droit.beanDo;
 
 import java.util.Set;
 
 /**
- * @author Administrateur
+ * @author Guy-Jöel et Mireille
  *
  */
 public class DroitDo {
@@ -16,7 +14,7 @@ public class DroitDo {
     private Set<ProfilDroitDo> setProfilDroits;
 
     /**
-     * 
+     * Constructeur sans paramètre
      */
     public DroitDo() {
         // Empty method

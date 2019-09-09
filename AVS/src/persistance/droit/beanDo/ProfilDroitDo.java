@@ -1,12 +1,10 @@
-/**
- * 
- */
+
 package persistance.droit.beanDo;
 
 import persistance.users.beanDo.ProfilDo;
 
 /**
- * @author Administrateur
+ * @author Guy-Jöel et Mireille
  *
  */
 public class ProfilDroitDo {
@@ -15,7 +13,7 @@ public class ProfilDroitDo {
     private DroitDo  droitDo;
 
     /**
-     * 
+     * Constructeur sans paramètre
      */
     public ProfilDroitDo() {
         // Empty method

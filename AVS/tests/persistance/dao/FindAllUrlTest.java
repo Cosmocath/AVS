@@ -1,13 +1,10 @@
-/**
- * 
- */
 package persistance.dao;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import persistance.droit.dao.IDroitAccesUrl;
+import persistance.droit.dao.IDroitDao;
 import util.Factory;
 
 /**
@@ -22,7 +19,7 @@ class FindAllUrlTest {
      */
     @Test
     void testFindAllDroits() {
-        final IDroitAccesUrl iDroitAcces = Factory.getInstance(IDroitAccesUrl.class);
+        final IDroitDao iDroitAcces = Factory.getInstance(IDroitDao.class);
         assertEquals(3, iDroitAcces.findAllDroits().size());
     }
 
