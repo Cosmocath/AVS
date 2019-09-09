@@ -25,9 +25,7 @@
 	</definition>
 
 	<!-- Equipe Users -->
-	<definition name="" extends="">
-		<put name="" value="" />
-	</definition>
+	
 
 	<!-- Equipe Produit -->
 	<definition name="listerProduitClient" extends="template">
@@ -35,13 +33,9 @@
 	</definition>
 	
 	<!-- Equipe Commande -->
-	<definition name="" extends="">
-		<put name="" value="" />
-	</definition>
+	
 	
 	<!-- Equipe Panier -->
-	<definition name="" extends="">
-		<put name="" value="" />
-	</definition>
+	
 	
 </tiles-definitions>

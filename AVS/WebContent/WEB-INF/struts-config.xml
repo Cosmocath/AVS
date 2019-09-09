@@ -54,19 +54,13 @@
 		</action>
 
 		<!-- Action de l'équipe User -->
-		<action path="" scope="request" input="" parameter="" type="">
-			<forward name="success" path="" redirect="false"></forward>
-		</action>
+		
 
 		<!-- Action de l'équipe Panier -->
-		<action path="" scope="request" input="" parameter="" type="">
-			<forward name="success" path="" redirect="false"></forward>
-		</action>
+		
 
 		<!-- Action de l'équipe Commande -->
-		<action path="" scope="request" input="" parameter="" type="">
-			<forward name="success" path="" redirect="false"></forward>
-		</action>
+		
 
 	</action-mappings>
 
