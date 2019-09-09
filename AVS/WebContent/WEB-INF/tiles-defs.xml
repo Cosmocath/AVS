@@ -14,15 +14,34 @@
 		<put name="footer" value="/jsp/tiles/footer.jsp" />
 	</definition>
 
+	<!-- Dans le body LE TEST!!! -->
 	<definition name="templateTest" extends="template">
 		<put name="body" value="/jsp/testStruts/testStruts.jsp" />
 	</definition>
-
+	
+	<!-- La connection / déconnexion -->
 	<definition name="voirConnecterUser" extends="template">
 		<put name="body" value="/jsp/users/connecterUser.jsp" />
 	</definition>
+
+	<!-- Equipe Users -->
+	<definition name="" extends="">
+		<put name="" value="" />
+	</definition>
+
+	<!-- Equipe Produit -->
 	<definition name="listerProduitClient" extends="template">
 		<put name="body" value="/jsp/produit/listerProduitClient.jsp" />
 	</definition>
-
+	
+	<!-- Equipe Commande -->
+	<definition name="" extends="">
+		<put name="" value="" />
+	</definition>
+	
+	<!-- Equipe Panier -->
+	<definition name="" extends="">
+		<put name="" value="" />
+	</definition>
+	
 </tiles-definitions>
