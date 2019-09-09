@@ -77,7 +77,7 @@ public class ProduitDao implements IProduitDao {
         try (final Session session = sessionFactory.openSession()) {
             final Transaction transaction = session.beginTransaction();
             final Query<ProduitDo> query = session.createQuery("From ProduitDo WHERE actif = 1 and id = :idProduit", ProduitDo.class);
-            query.setParameter("id", idProduit);
+            query.setParameter("idProduit", idProduit);
             // regarder la Javadoc de Optional
             final Optional<ProduitDo> produitDo = query.uniqueResultOptional();
 

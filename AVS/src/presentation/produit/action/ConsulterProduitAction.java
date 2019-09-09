@@ -22,7 +22,7 @@ public class ConsulterProduitAction extends Action {
 
     @Override
     public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
-        final int idProduit = Integer.parseInt(request.getParameter("idProduit"));
+        final Integer idProduit = Integer.parseInt(request.getParameter("id"));
         final IProduitService iProduitService = Factory.getInstance(IProduitService.class);
         final ProduitDto produitDto = iProduitService.getProduitById(idProduit);
         request.setAttribute("produit", produitDto);
