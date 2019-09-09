@@ -18,6 +18,9 @@
 		<put name="body" value="/jsp/testStruts/testStruts.jsp" />
 	</definition>
 
+	<definition name="voirConnecterUser" extends="template">
+		<put name="body" value="/jsp/users/connecterUser.jsp" />
+	</definition>
 	<definition name="listerProduitClient" extends="template">
 		<put name="body" value="/jsp/produit/listerProduitClient.jsp" />
 	</definition>
