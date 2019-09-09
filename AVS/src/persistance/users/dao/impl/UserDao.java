@@ -1,5 +1,7 @@
 package persistance.users.dao.impl;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.hibernate.HibernateException;
@@ -65,11 +67,24 @@ public class UserDao implements IUserDao {
             transaction.commit();
             // suite de la feature Optional de Java 8
             return userDo.orElse(null);
+        }
+    }
+
+    @Override
+    public List<UserDo> findAllUserDo() {
+        try (final Session session = sessionFactory.openSession()) {
+            final Transaction transaction = session.beginTransaction();
+            final Query<UserDo> query = session.createQuery("From UserDo where actif = 1", UserDo.class);
+            final List<UserDo> listeUserDo = query.getResultList();
+
+            session.flush();
+            transaction.commit();
+            return listeUserDo;
         } catch (final HibernateException hibernateException) {
             // on peut catcher des HibernateException
             hibernateException.printStackTrace();
         }
-        return null;
+        return new ArrayList<>();
     }
 
     @Override

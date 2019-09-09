@@ -4,10 +4,20 @@ import static org.junit.Assert.assertNotNull;
 
 import java.util.Date;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.List;
+import java.util.Scanner;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.NativeQuery;
 import org.junit.Assert;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import persistance.users.beanDo.ProfilDo;
+import persistance.factory.HibernateFactory;
 import persistance.users.beanDo.UserDo;
 import persistance.users.dao.IUserDao;
 import util.Factory;
@@ -18,6 +28,31 @@ import util.FormatUtil;
  *
  */
 class UserDaoTest {
+
+    /**
+     * 
+     */
+    @BeforeEach
+    public void initData() {
+        try (final Session session = HibernateFactory.getSessionFactory().openSession()) {
+            final Transaction transaction = session.beginTransaction();
+            // on lit le fichier
+            try (final Scanner scanner = new Scanner(new FileReader("test/dataSet/avs_DML.sql"))) {
+                while (scanner.hasNext()) {
+                    final String sql = scanner.nextLine();
+                    // pour chaque ligne non vide
+                    if (!sql.isEmpty()) {
+                        // on l'exécute en tant que query native (sql natif)
+                        final NativeQuery<?> query = session.createNativeQuery(sql);
+                        query.executeUpdate();
+                    }
+                }
+            } catch (final FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            transaction.commit();
+        }
+    }
 
     /**
      * Test method for {@link persistance.users.dao.impl.UserDao#findUserForConnexion(java.lang.String, java.lang.String)}.
@@ -61,10 +96,22 @@ class UserDaoTest {
         final ProfilDo profilDo = new ProfilDo();
         profilDo.setId(2);
         profilDo.setNom("client");
-        
+
         final UserDo userDo = new UserDo();
         userDo.initialiserUser(2, "testNomCreation", "testPrenomCreation", new Date(), "rue test", "acvc", profilDo, "r@t.fr", true);
 
         assertNotNull(iUserDao.createUser(userDo));
     }
+
+    /**
+     * Test method for {@link persistance.users.dao.impl.UserDao#findAllUserDo()}.
+     */
+    @Test
+    public final void testFindAllUserDo() {
+        final IUserDao iUserDao = Factory.getInstance(IUserDao.class);
+        final List<UserDo> listeUserDo = iUserDao.findAllUserDo();
+        Assert.assertNotNull(listeUserDo);
+        Assert.assertEquals(1, listeUserDo.size());
+    }
+
 }

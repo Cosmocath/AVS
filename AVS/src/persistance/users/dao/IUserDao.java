@@ -1,5 +1,7 @@
 package persistance.users.dao;
 
+import java.util.List;
+
 import persistance.users.beanDo.UserDo;
 
 /**
@@ -34,4 +36,12 @@ public interface IUserDao {
      * @return le user crée
      */
     UserDo createUser(final UserDo userDo);
+
+    /**
+     * Permet de retrouver tous les users
+     * 
+     * 
+     * @return la liste de tous les users, vide ou remplie
+     */
+    List<UserDo> findAllUserDo();
 }

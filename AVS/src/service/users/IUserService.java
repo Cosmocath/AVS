@@ -1,6 +1,9 @@
 package service.users;
 
+import java.util.List;
+
 import presentation.users.beanDto.ConnectedUserDto;
+import presentation.users.beanDto.UserDto;
 
 /**
  * Interface permettant de déclarer les méthodes du business service UserService
@@ -19,4 +22,10 @@ public interface IUserService {
      */
     ConnectedUserDto findUserForConnexion(final String mail, final String password);
 
+    /**
+     * permet de faire appel a la couche persistance afin de rechercher tous les users stockés en BDD
+     * 
+     * @return la liste de tous les user stockés en BDD
+     */
+    List<UserDto> findAllUserDto();
 }

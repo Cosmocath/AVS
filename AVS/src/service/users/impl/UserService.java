@@ -1,8 +1,11 @@
 package service.users.impl;
 
+import java.util.List;
+
 import persistance.users.beanDo.UserDo;
 import persistance.users.dao.IUserDao;
 import presentation.users.beanDto.ConnectedUserDto;
+import presentation.users.beanDto.UserDto;
 import service.users.IUserService;
 import util.Factory;
 
@@ -26,7 +29,14 @@ public class UserService implements IUserService {
         if (userDo == null || !userDo.isActif()) {
             return null;
         }
-        return UserMapper.mapToDto(userDo);
+        return UserMapper.mapToConnectedUserDto(userDo);
     }
 
+    @Override
+    public List<UserDto> findAllUserDto() {
+        final IUserDao iUserDao = Factory.getInstance(IUserDao.class);
+        // on pourrait ne pas utiliser cette variable
+        final List<UserDo> listeUserDo = iUserDao.findAllUserDo();
+        return UserMapper.mapToListDto(listeUserDo);
+    }
 }
