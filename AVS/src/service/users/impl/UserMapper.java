@@ -41,4 +41,20 @@ public class UserMapper {
         }
 
     }
+    
+  
+    public static String mapTypeProfilToProfil(final TypeDeProfil typeDeProfil) {
+
+        switch (typeDeProfil) {
+            case ADMINISTRATEUR :
+                return "Administrateur";
+            case  CLIENT:
+                return "Client";
+            case VISITEUR :
+                return "Visiteur";
+            default :
+                return "visiteur";
+        }
+
+    }
 }

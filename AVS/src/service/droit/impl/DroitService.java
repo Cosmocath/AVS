@@ -13,13 +13,15 @@ import service.droit.IDroitService;
 import util.Factory;
 
 /**
+ * DroitService qui implémente l'interface IDroitService
+ * 
  * @author Guy-Jöel et Mireille
  *
  */
 public class DroitService implements IDroitService {
-    private static Map<String, List<String>> map                   = null;
-    private final IDroitDao iDroitAccesUrl = Factory.getInstance(IDroitDao.class);
-    private static final IDroitService idroitService = Factory.getInstance(IDroitService.class);
+    private static Map<String, List<String>> map            = null;
+    private final IDroitDao                  iDroitAccesUrl = Factory.getInstance(IDroitDao.class);
+    private static final IDroitService       idroitService  = Factory.getInstance(IDroitService.class);
 
     /**
      * Constructeur privé
@@ -27,7 +29,7 @@ public class DroitService implements IDroitService {
     private DroitService() {
         // Empty method
     }
-    
+
     //initialisation map
     static {
         if (map == null) {

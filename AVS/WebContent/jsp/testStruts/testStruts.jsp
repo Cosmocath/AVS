@@ -16,6 +16,3 @@
 	<html:link href="${contextPath}/changerLangue.do?langue=EN">
 		<html:img src="img/flag_en.svg" width="60px"></html:img>
 	</html:link>
-</div>
-
-

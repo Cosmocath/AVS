@@ -11,7 +11,9 @@ import javax.servlet.http.HttpSession;
 
 import presentation.users.action.ConnecterUserAction;
 import service.droit.IDroitService;
+import service.users.impl.UserMapper;
 import util.Factory;
+import util.TypeDeProfil;
 
 /**
  * @author Guy-Jöel et Mireille
@@ -29,14 +31,15 @@ public class FiltreDroitAcces extends HttpFilter {
         final HttpSession session = request.getSession();
         final IDroitService iDroitService = Factory.getInstance(IDroitService.class);
 
-        //je prend le profil qui est en session
-        String profil = "";
+        //par défaut le typeDeprofil est visiteur
+        TypeDeProfil typeDeProfil = TypeDeProfil.VISITEUR;
 
-        if (session.getAttribute(ConnecterUserAction.USER_CONNECTED) == null) {
-            profil = "visiteur";
-        } else {
-            profil = (String) session.getAttribute(ConnecterUserAction.USER_CONNECTED);
+      //je prend le profil qui est en session
+        if (session.getAttribute(ConnecterUserAction.USER_CONNECTED) != null) {
+            typeDeProfil = (TypeDeProfil) session.getAttribute(ConnecterUserAction.USER_CONNECTED);
         }
+        //on mappe typeDeProfil en profil string
+        final String profil = UserMapper.mapTypeProfilToProfil(typeDeProfil);
 
         //je recupère l'url en request
         final String url = request.getRequestURI().substring(request.getContextPath().length() + 1);

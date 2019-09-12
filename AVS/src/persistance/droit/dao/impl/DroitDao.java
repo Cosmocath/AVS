@@ -31,7 +31,7 @@ public class DroitDao implements IDroitDao {
     public List<DroitDo> findAllDroits() {
         try (final Session session = sessionFactory.openSession()) {
             final Transaction transaction = session.beginTransaction();
-            final Query<DroitDo> query = session.createQuery("From DroitDo ", DroitDo.class);
+            final Query<DroitDo> query = session.createQuery("From DroitDo as dd order by dd.url asc", DroitDo.class);
             final List<DroitDo> listeDroitDo = query.getResultList();
             session.flush();
             transaction.commit();
