@@ -16,7 +16,10 @@ public class ConversionUtil {
      * @param decimalAVirgule (typiquement les champ "prix", "montant" des formulaires)
      * @return un double avec un point
      */
-    public static double convertDoubleCommaToDot(final String decimalAVirgule) {
+    public static Double convertDoubleCommaToDot(final String decimalAVirgule) {
+        if (Tools.isEmpty(decimalAVirgule)) {
+            return null;
+        }
         return Double.valueOf(decimalAVirgule.replaceFirst(",", "."));
     }
 

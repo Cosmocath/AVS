@@ -1,6 +1,3 @@
-/**
- * 
- */
 package presentation.i18n.action;
 
 import java.util.Locale;
@@ -15,13 +12,15 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 /**
+ * Action permettant de basculer d'une langue à l'autre
+ * 
  * @author Rodolphe
  *
  */
 public class ChangerLangue extends Action {
 
     @Override
-    public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         final String langue = request.getParameter("langue");
         switch (langue) {
             case "fr" :

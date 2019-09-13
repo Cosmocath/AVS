@@ -56,6 +56,17 @@ public class ProduitDto implements Serializable {
         return produitDto;
     }
 
+    /**
+     * Builder pour le Dto avec id null
+     * 
+     * @param designation
+     * @param reference
+     * @param description
+     * @param prix
+     * @param image
+     * @param noVersion
+     * @return le Produit Dto créé
+     */
     public static ProduitDto build(final String designation, final Integer reference, final String description, final double prix, final String image, final int noVersion) {
         return build(null, designation, reference, description, prix, image, noVersion);
     }

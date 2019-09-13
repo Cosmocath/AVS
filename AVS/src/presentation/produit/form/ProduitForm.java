@@ -34,7 +34,7 @@ public class ProduitForm extends ActionForm {
     private String            image;
 
     @Override
-    public void reset(ActionMapping mapping, HttpServletRequest request) {
+    public void reset(final ActionMapping mapping, final HttpServletRequest request) {
         // empty method
     }
 

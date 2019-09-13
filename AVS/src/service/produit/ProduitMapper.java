@@ -52,7 +52,7 @@ public class ProduitMapper {
      * Permet de mapper un ProduitDto en ProduitDo
      * 
      * @param produitDto
-     * @return
+     * @return le produitDo
      */
     public static ProduitDo mapToDo(final ProduitDto produitDto) {
         final ProduitDo produitDo = new ProduitDo();

@@ -75,8 +75,6 @@ public class ProduitDao implements IProduitDao {
         final SessionFactory sessionFactory = HibernateFactory.getSessionFactory();
         try (final Session session = sessionFactory.openSession()) {
             final Transaction transaction = session.beginTransaction();
-            // TODO virer les sysout
-            System.out.println("reference" + reference);
             final Query<ProduitDo> query = session.createQuery("From ProduitDo where reference = :reference", ProduitDo.class);
             // on initialise le paramètre
             query.setParameter("reference", reference);
