@@ -39,7 +39,7 @@
 				<bean:message key="CDE_00.Prix" />
 				:
 				<bean:write name="commande" property="montantAvecRemise" />
-				euro
+				&euro;
 			</div>
 		</div>
 	</logic:iterate>
