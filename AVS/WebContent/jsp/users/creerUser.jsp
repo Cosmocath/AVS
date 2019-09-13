@@ -1,63 +1,63 @@
 <%@include file="/jsp/tiles/taglib.jsp"%>
-<title><bean:message key="USR_00.titre" /></title>
+<title><bean:message key="USR_01.titre" /></title>
 
 <div style="height: 100%; padding: 10px">
 	<div>
-		<bean:message key="USR_00.titre" />
+		<bean:message key="USR_01.titre" />
 		<html:form action="/creerUser.do" focus="mail">
 
 			<table style="border: none;">
 				<%-- permet d'afficher les erreurs "globales" --%>
 				<html:errors property="error" />
 				<tr>
-					<td align="right"><bean:message key="USR_00.identifiant"></bean:message></td>
+					<td align="right"><bean:message key="USR_01.mail"></bean:message></td>
 					<td align="left"><html:text property="mail" size="25"
-							maxlength="25" altKey="USR_00.mail"></html:text></td>
+							maxlength="25"></html:text></td>
 					<td><html:errors property="mail" /></td>
 				</tr>
 
 				<tr>
-					<td align="right"><bean:message key="USR_00.nom"></bean:message></td>
+					<td align="right"><bean:message key="USR_01.nom"></bean:message></td>
 					<td align="left"><html:text property="nom" size="25"
 							maxlength="25"></html:text></td>
 					<td><html:errors property="nom" /></td>
 				</tr>
 
 				<tr>
-					<td align="right"><bean:message key="USR_00.prenom"></bean:message></td>
+					<td align="right"><bean:message key="USR_01.prenom"></bean:message></td>
 					<td align="left"><html:text property="prenom" size="25"
-							maxlength="25" altKey="USR_00.prenom"></html:text></td>
+							maxlength="25"></html:text></td>
 					<td><html:errors property="prenom" /></td>
 				</tr>
 
 				<tr>
-					<td align="right"><bean:message key="USR_00.datenaissance"></bean:message></td>
-					<td align="left"><html:text property="datenaissance" size="25"
-							maxlength="25" altKey="USR_00.datenaissance"></html:text></td>
-					<td><html:errors property="datenaissance" /></td>
+					<td align="right"><bean:message key="USR_01.dateNaissance"></bean:message></td>
+					<td align="left"><html:text property="dateNaissance" size="25"
+							maxlength="25"></html:text></td>
+					<td><html:errors property="dateNaissance" /></td>
 				</tr>
 
 				<tr>
-					<td align="right"><bean:message key="USR_00.password"></bean:message></td>
+					<td align="right"><bean:message key="USR_01.password"></bean:message></td>
 					<td align="left"><html:text property="password" size="25"
 							maxlength="25"></html:text></td>
 					<td><html:errors property="password" /></td>
 				</tr>
 				<tr>
-					<td align="right"><bean:message key="USR_00.confirmpassword"></bean:message></td>
+					<td align="right"><bean:message key="USR_01.confirmpassword"></bean:message></td>
 					<td align="left"><html:text property="confirmpassword"
 							size="25" maxlength="25"></html:text></td>
 					<td><html:errors property="confirmpassword" /></td>
 				</tr>
 				<tr>
-					<td align="right"><bean:message key="USR_00.adresse"></bean:message></td>
-					<td align="left"><html:text property="adresse"
-							size="25" maxlength="25"></html:text></td>
+					<td align="right"><bean:message key="USR_01.adresse"></bean:message></td>
+					<td align="left"><html:text property="adresse" size="25"
+							maxlength="25"></html:text></td>
 					<td><html:errors property="adresse" /></td>
 				</tr>
 				<tr>
 					<td align="right"><html:submit property="submit"
-							value="Se connecter" /></td>
+							value="Valider" /></td>
 				</tr>
 				<tr></tr>
 			</table>

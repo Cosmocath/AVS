@@ -6,7 +6,6 @@ import persistance.users.beanDo.UserDo;
 import persistance.users.dao.IUserDao;
 import presentation.users.beanDto.ConnectedUserDto;
 import presentation.users.beanDto.UserDto;
-import service.users.IProfilService;
 import service.users.IUserService;
 import util.Factory;
 
@@ -59,8 +58,8 @@ public class UserService implements IUserService {
         if (this.findUserByMail(userDto.getMail()) != null) {
             return null;
         }
-        final UserDo userDo = iUserDao.createUser(UserMapper.mapToDo(userDto));
-        return UserMapper.mapToDto(userDo);
+        iUserDao.createUser(UserMapper.mapToDo(userDto));
+        return userDto;
 
     }
 }

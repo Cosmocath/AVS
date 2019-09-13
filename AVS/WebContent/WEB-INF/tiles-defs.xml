@@ -18,24 +18,26 @@
 	<definition name="templateTest" extends="template">
 		<put name="body" value="/jsp/testStruts/testStruts.jsp" />
 	</definition>
-	
+
 	<!-- La connection / déconnexion -->
 	<definition name="voirConnecterUser" extends="template">
 		<put name="body" value="/jsp/users/connecterUser.jsp" />
 	</definition>
 
 	<!-- Equipe Users -->
-	
+	<definition name="voirCreerUser" extends="template">
+		<put name="body" value="/jsp/users/creerUser.jsp" />
+	</definition>
 
 	<!-- Equipe Produit -->
 	<definition name="listerProduitClient" extends="template">
 		<put name="body" value="/jsp/produit/listerProduitClient.jsp" />
 	</definition>
-	
+
 	<!-- Equipe Commande -->
-	
-	
+
+
 	<!-- Equipe Panier -->
-	
-	
+
+
 </tiles-definitions>

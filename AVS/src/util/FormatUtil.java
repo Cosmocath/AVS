@@ -4,6 +4,7 @@
 package util;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -45,4 +46,16 @@ public class FormatUtil {
         return dateFormat.format(date);
     }
 
+    /**
+     * Permet de convertir une String en Date
+     * 
+     * 
+     * @param date
+     * @return
+     * @throws ParseException
+     */
+    public static Date convertirStringToDate(final String date) throws ParseException {
+        final Date date1 = new SimpleDateFormat(FORMAT_DATE).parse(date);
+        return date1;
+    }
 }

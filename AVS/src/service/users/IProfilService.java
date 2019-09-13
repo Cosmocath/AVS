@@ -3,7 +3,7 @@
  */
 package service.users;
 
-import util.TypeDeProfil;
+import presentation.users.beanDto.ProfilDto;
 
 /**
  * @author Administrateur
@@ -16,5 +16,5 @@ public interface IProfilService {
      * @param id
      * @return
      */
-    TypeDeProfil findProfilById(final Integer id);
+    ProfilDto findProfilById(final Integer id);
 }

@@ -1,11 +1,17 @@
 package service.users.impl;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
 import persistance.users.beanDo.UserDo;
 import presentation.users.beanDto.ConnectedUserDto;
+import presentation.users.beanDto.ProfilDto;
 import presentation.users.beanDto.UserDto;
+import presentation.users.form.UserForm;
+import service.users.IProfilService;
+import util.Factory;
+import util.FormatUtil;
 
 /**
  * Mapper Dto/Do bidirectionnel pour un User
@@ -45,7 +51,7 @@ public class UserMapper {
         userDto.setPassword(userDo.getPassword());
         userDto.setMail(userDo.getMail());
         userDto.setActif(userDo.isActif());
-        userDto.setProfil(ProfilMapper.mapProfilDoToTypeProfil(userDo.getProfilDo()));
+        //userDto.setProfil(ProfilMapper.mapProfilDoToTypeProfil(userDo.getProfilDo()));
         return userDto;
     }
 
@@ -63,6 +69,10 @@ public class UserMapper {
         return listeUserDto;
     }
 
+    /**
+     * @param userDto
+     * @return
+     */
     public static UserDo mapToDo(final UserDto userDto) {
         final UserDo userDo = new UserDo();
         userDo.setId(userDto.getId());
@@ -73,7 +83,30 @@ public class UserMapper {
         userDo.setPassword(userDto.getPassword());
         userDo.setMail(userDto.getMail());
         userDo.setActif(userDto.isActif());
+        // userDo.setProfilDo(ProfilMapper.mapTypeProfilToProfilDo(userDto.getProfil());
         return userDo;
     }
 
+    /**
+     * @param userForm
+     * @return
+     * @throws ParseException
+     */
+    public static UserDto mapFormToDto(final UserForm userForm) throws ParseException {
+        final UserDto userDto = new UserDto();
+        userDto.setNom(userForm.getNom());
+        userDto.setPrenom(userForm.getPrenom());
+        userDto.setDateNaissance(FormatUtil.convertirStringToDate(userForm.getDateNaissance()));
+        userDto.setAdresse(userForm.getAdresse());
+        userDto.setPassword(userForm.getPassword());
+        userDto.setMail(userForm.getMail());
+        userDto.setActif(true);
+
+        final IProfilService iProfilService = Factory.getInstance(IProfilService.class);
+        final ProfilDto profilDto = iProfilService.findProfilById(2);
+
+        userDto.setProfilDto(profilDto);
+
+        return userDto;
+    }
 }

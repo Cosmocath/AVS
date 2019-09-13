@@ -8,6 +8,8 @@
 	<form-beans type="org.apache.struts.action.ActionFormBean">
 		<form-bean name="connecterUserForm"
 			type="presentation.users.form.ConnecterUserForm" />
+		<form-bean name="creerUserForm"
+			type="presentation.users.form.UserForm" />
 	</form-beans>
 
 	<action-mappings
@@ -54,13 +56,24 @@
 		</action>
 
 		<!-- Action de l'équipe User -->
-		
 
+		<action path="/creerUser" scope="request" input="voirCreerUser"
+			parameter="" name="creerUserForm"
+			type="presentation.users.action.CreerUserAction">
+			<forward name="success" path="template" redirect="true"></forward>
+			<forward name="notSuccess" path="voirCreerUser"
+				redirect="false" />
+		</action>
+
+		<action path="/voirCreerUser" scope="request" input=""
+			parameter="" type="presentation.users.action.VoirCreerUserAction">
+			<forward name="success" path="voirCreerUser" redirect="false" />
+		</action>
 		<!-- Action de l'équipe Panier -->
-		
+
 
 		<!-- Action de l'équipe Commande -->
-		
+
 
 	</action-mappings>
 

@@ -4,9 +4,7 @@
 package service.users.impl;
 
 import persistance.users.beanDo.ProfilDo;
-import persistance.users.dao.IProfilDao;
-import service.users.IProfilService;
-import util.Factory;
+import presentation.users.beanDto.ProfilDto;
 import util.TypeDeProfil;
 
 /**
@@ -30,5 +28,12 @@ public class ProfilMapper {
             default :
                 return null;
         }
+    }
+
+    public static ProfilDto mapProfilDoToProfilDto(final ProfilDo profilDo) {
+        final ProfilDto profilDto = new ProfilDto();
+        profilDto.setId(profilDo.getId());
+        profilDto.setNom(profilDo.getNom());
+        return profilDto;
     }
 }
