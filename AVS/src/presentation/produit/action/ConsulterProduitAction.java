@@ -26,6 +26,30 @@ public class ConsulterProduitAction extends Action {
         final IProduitService iProduitService = Factory.getInstance(IProduitService.class);
         final ProduitDto produitDto = iProduitService.getProduitById(idProduit);
         request.setAttribute("produit", produitDto);
+
+        //Instantiation d'un paramètre retour à ajouter dans le html link de la jsp "listerProduitClient" et les 3 autres jsp amenant à PDT_01 afin de le récupérer en getParameter  
+        //Instanciation d'un parametre urlRetour à ajouter dans le html link de la jsp "ConsulterProduit" afin de le récupérer en getParameter
+        String urlRetour = "";
+        String retour = request.getParameter("retour");
+
+        //on teste le parametre retour pour les 4 écrans qu'on veut attendre en cliquant retour
+        if (retour.equals("produitClient")) {
+            // on récupère l'url de la page d'ou on provient
+            urlRetour = "http://localhost:8080/AVS/listerProduitClient.do";
+        }
+        if (retour.equals("produitAdmin")) {
+            urlRetour = "http://localhost:8080/AVS/listerProduitAdmin.do";
+        }
+        if (retour.equals("panier")) {
+            urlRetour = "http://localhost:8080/AVS/consulterPanier.do";
+        }
+        if (retour.equals("commande")) {
+            urlRetour = "http://localhost:8080/AVS/consulterCommande.do";
+        }
+
+        // on passe le parametre de l'url en request 
+        request.setAttribute("urlRetour", urlRetour);
+        // On redirige 
         return mapping.findForward("success");
     }
 }

@@ -7,7 +7,7 @@
 	<table>
 		<logic:iterate name="listeProduits" id="produit" scope="request">
 			<tr>
-				<td><html:link href="consulterProduit.do?id=${produit.id}">
+				<td><html:link href="consulterProduit.do?id=${produit.id}&retour=produitClient">
 					Image
 				</html:link></td>
 				<td width="60%" style="padding-left: 100px"><bean:write

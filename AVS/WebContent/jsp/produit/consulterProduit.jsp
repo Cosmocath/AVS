@@ -7,21 +7,11 @@
 		<bean:write name="produit" property="reference" />
 	</h1>
 
-	<%-- JS nécessaire pour le bouton supprimer --%>
-
-	<script type="text/javascript">
-		function RedirectionJavascript() {
-			//     	 alert(document.getElementById("id").value);
-			document.location.href = "listerProduitClient.do";
-		}
-	</script>
-
 	<div style="float: right">
-		<html:button property="retour" onclick="javascript:history.back()"
-			value="retour">
-			<bean:message key="PDT_01.bouton.retour" />
-		</html:button>
+		<html:link href="${urlRetour}">Retour			
+				</html:link>
 	</div>
+
 	<br /> <br />
 	<table>
 		<tr>
