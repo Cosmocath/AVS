@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import presentation.users.action.ConnecterUserAction;
+import presentation.users.beanDto.ConnectedUserDto;
 import service.droit.IDroitService;
 import service.users.impl.UserMapper;
 import util.Factory;
@@ -36,7 +37,8 @@ public class FiltreDroitAcces extends HttpFilter {
 
       //je prend le profil qui est en session
         if (session.getAttribute(ConnecterUserAction.USER_CONNECTED) != null) {
-            typeDeProfil = (TypeDeProfil) session.getAttribute(ConnecterUserAction.USER_CONNECTED);
+            final ConnectedUserDto connectedUser = (ConnectedUserDto) session.getAttribute(ConnecterUserAction.USER_CONNECTED);
+            typeDeProfil = connectedUser.getProfil();
         }
         //on mappe typeDeProfil en profil string
         final String profil = UserMapper.mapTypeProfilToProfil(typeDeProfil);

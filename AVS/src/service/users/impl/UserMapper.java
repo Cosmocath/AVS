@@ -30,28 +30,33 @@ public class UserMapper {
     private static TypeDeProfil mapTypeProfilDoToTypeProfil(final ProfilDo profilDo) {
 
         switch (profilDo.getNom()) {
-            case "Administrateur" :
+            case "admin" :
                 return TypeDeProfil.ADMINISTRATEUR;
-            case "Client" :
+            case "client" :
                 return TypeDeProfil.CLIENT;
-            case "Visiteur" :
+            case "visiteur" :
                 return TypeDeProfil.VISITEUR;
             default :
                 return null;
         }
 
     }
-    
-  
+
+    /**
+     * Permet de mapper TypeDeProfil en String
+     * 
+     * @param typeDeProfil
+     * @return le profil
+     */
     public static String mapTypeProfilToProfil(final TypeDeProfil typeDeProfil) {
 
         switch (typeDeProfil) {
             case ADMINISTRATEUR :
-                return "Administrateur";
-            case  CLIENT:
-                return "Client";
+                return "admin";
+            case CLIENT :
+                return "client";
             case VISITEUR :
-                return "Visiteur";
+                return "visiteur";
             default :
                 return "visiteur";
         }
