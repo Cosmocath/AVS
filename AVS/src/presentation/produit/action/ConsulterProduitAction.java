@@ -29,22 +29,27 @@ public class ConsulterProduitAction extends Action {
 
         //Instantiation d'un paramètre retour à ajouter dans le html link de la jsp "listerProduitClient" et les 3 autres jsp amenant à PDT_01 afin de le récupérer en getParameter  
         //Instanciation d'un parametre urlRetour à ajouter dans le html link de la jsp "ConsulterProduit" afin de le récupérer en getParameter
-        String urlRetour = "";
-        String retour = request.getParameter("retour");
+        String urlRetour = "http://localhost:8080/AVS/";
+        final String retour = request.getParameter("retour");
 
         //on teste le parametre retour pour les 4 écrans qu'on veut attendre en cliquant retour
-        if (retour.equals("produitClient")) {
-            // on récupère l'url de la page d'ou on provient
-            urlRetour = "http://localhost:8080/AVS/listerProduitClient.do";
-        }
-        if (retour.equals("produitAdmin")) {
-            urlRetour = "http://localhost:8080/AVS/listerProduitAdmin.do";
-        }
-        if (retour.equals("panier")) {
-            urlRetour = "http://localhost:8080/AVS/consulterPanier.do";
-        }
-        if (retour.equals("commande")) {
-            urlRetour = "http://localhost:8080/AVS/consulterCommande.do";
+        switch (retour) {
+            case "produitClient" :
+                // on récupère l'url de la page d'ou on provient
+                urlRetour = urlRetour + "listerProduitClient.do";
+                break;
+
+            case "produitAdmin" :
+                urlRetour = urlRetour + "listerProduitAdmin.do";
+                break;
+
+            case "panier" :
+                urlRetour = "consulterPanier.do";
+                break;
+
+            case "commande" :
+                urlRetour = urlRetour + "consulterCommande.do";
+                break;
         }
 
         // on passe le parametre de l'url en request 
