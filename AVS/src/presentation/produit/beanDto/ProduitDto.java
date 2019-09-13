@@ -32,7 +32,6 @@ public class ProduitDto implements Serializable {
         // empty constructor
     }
 
-
     /**
      * Builder pour le Dto
      * 
@@ -56,7 +55,6 @@ public class ProduitDto implements Serializable {
         produitDto.setNoVersion(noVersion);
         return produitDto;
     }
-
 
     public static ProduitDto build(final String designation, final Integer reference, final String description, final double prix, final String image, final int noVersion) {
         return build(null, designation, reference, description, prix, image, noVersion);

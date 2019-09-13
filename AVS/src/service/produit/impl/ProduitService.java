@@ -38,7 +38,7 @@ public class ProduitService implements IProduitService {
     }
 
     @Override
-    public ProduitDto create(ProduitDto produitDto) {
+    public ProduitDto create(final ProduitDto produitDto) {
         // récupération de la couche persistance
         final IProduitDao iProduitDao = Factory.getInstance(IProduitDao.class);
         // la couche métier prend en charge la vérification de la non-existence de la référence en base en base (sinon insertion annulée)

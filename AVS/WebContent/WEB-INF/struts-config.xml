@@ -24,7 +24,6 @@
 				redirect="false"></forward>
 		</action>
 
-
 		<!-- Le language -->
 		<action path="/changerLangue" scope="request" input=""
 			parameter="" type="presentation.i18n.action.ChangerLangueAction">
@@ -37,8 +36,6 @@
 			<forward name="success" path="template" redirect="true"></forward>
 			<forward name="notSuccess" path="voirConnecterUser"></forward>
 		</action>
-
-
 
 		<action path="/changerLangue" scope="request" input=""
 			parameter="" type="presentation.i18n.action.ChangerLangueAction">

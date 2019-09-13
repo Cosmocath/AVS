@@ -34,11 +34,12 @@
 			</tr>
 			<tr>
 				<td align="right"><bean:message key="PDT_02.description" /></td>
-				<td align="left"><html:textarea property="description"  /></td>
+				<td align="left"><html:textarea property="description" /></td>
 				<td><html:errors property="description"
 						header="errors.field.header" footer="errors.field.footer" /></td>
 			</tr>
 			<tr>
+
 				<td align="right"><bean:message key="PDT_02.prix" /></td>
 				<td align="left"><html:text property="prix" size="25"
 						maxlength="25" /></td>

@@ -21,12 +21,12 @@ public interface IProduitService {
      * @return la liste des produits par ordre alphabétique
      */
     List<ProduitDto> findAllProduitOrderBy(final OrderBy orderBy);
-    
+
     /**
      * Création d'un produit
      * 
      * @param le produit à créer
      * @return le produit créé
      */
-    ProduitDto create(final ProduitDto produitDto);    
+    ProduitDto create(final ProduitDto produitDto);
 }
