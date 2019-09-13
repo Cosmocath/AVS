@@ -16,6 +16,8 @@ import util.FormatUtil;
  */
 public class CommandeMapper {
 
+    // TODO XSI : revoir Javadoc + final
+
     /**
      * Permet de mapper une commandeDo en commandeDto
      * 
