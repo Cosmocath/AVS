@@ -6,7 +6,15 @@
 		<bean:message key="MENU.ListeDesProduitsClient" />
 	</html:link>
 	<br>
+	<html:link href="http://localhost:8080/AVS/listerCommande.do">
+		<bean:message key="MENU.ListeDesCommandes" />
+	</html:link>
+	<br>
 	<html:link href="http://localhost:8080/AVS/voirConnecterUser.do">
 		<bean:message key="MENU.SeConnecter" />
+	</html:link>
+	<br>
+	<html:link href="http://localhost:8080/AVS/TestHello.do">
+		<bean:message key="MENU.Retour" />
 	</html:link>
 </div>
