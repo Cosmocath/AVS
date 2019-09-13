@@ -6,6 +6,7 @@ package util;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import util.factory.Factory;
 import util.factoryClass.IClassNoImpl;
 import util.factoryClass.IClassNoPrivateConstructor;
 import util.factoryClass.IClassNotImplemented;

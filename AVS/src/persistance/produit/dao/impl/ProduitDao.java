@@ -12,7 +12,7 @@ import org.hibernate.query.Query;
 import persistance.factory.HibernateFactory;
 import persistance.produit.beanDo.ProduitDo;
 import persistance.produit.dao.IProduitDao;
-import util.OrderBy;
+import util.enumeration.OrderBy;
 
 /**
  * ProduitDao qui implémente l'interface IProduitDao

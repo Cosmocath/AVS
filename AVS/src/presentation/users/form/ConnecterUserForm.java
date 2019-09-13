@@ -7,7 +7,9 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 
-import util.Tools;
+import util.tools.Tools;
+
+
 
 /**
  * Form permettant à un user de se connecter

@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 import persistance.commande.beanDo.CommandeDo;
 import persistance.commande.dao.ICommandeDao;
 import persistance.factory.HibernateFactory;
-import util.Factory;
+import util.factory.Factory;
 
 /**
  * @author Administrateur

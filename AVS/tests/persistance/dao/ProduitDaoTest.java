@@ -16,8 +16,8 @@ import org.junit.jupiter.api.Test;
 import persistance.factory.HibernateFactory;
 import persistance.produit.beanDo.ProduitDo;
 import persistance.produit.dao.IProduitDao;
-import util.Factory;
-import util.OrderBy;
+import util.enumeration.OrderBy;
+import util.factory.Factory;
 
 /**
  * Permet de tester la classe ProduitDao
