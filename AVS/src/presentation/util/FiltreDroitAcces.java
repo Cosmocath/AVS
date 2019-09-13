@@ -31,25 +31,15 @@ public class FiltreDroitAcces extends HttpFilter {
         final HttpSession session = request.getSession();
         final IDroitService iDroitService = Factory.getInstance(IDroitService.class);
 
-<<<<<<< HEAD
         //par défaut le typeDeprofil est visiteur
         TypeDeProfil typeDeProfil = TypeDeProfil.VISITEUR;
 
-      //je prend le profil qui est en session
+        //je prend le profil qui est en session
         if (session.getAttribute(ConnecterUserAction.USER_CONNECTED) != null) {
             final ConnectedUserDto connectedUser = (ConnectedUserDto) session.getAttribute(ConnecterUserAction.USER_CONNECTED);
             typeDeProfil = connectedUser.getProfil();
-=======
-        //je prends le profil qui est en session
-        String profil = "";
-
-        if (session.getAttribute(ConnecterUserAction.USER_CONNECTED) == null) {
-            profil = "visiteur";
-        } else {
-            // FIXME XSI : ClassCastException
-            profil = (String) session.getAttribute(ConnecterUserAction.USER_CONNECTED);
->>>>>>> a9f766e4777d9e948b391e77d52206312605927c
         }
+
         //on mappe typeDeProfil en profil string
         final String profil = UserMapper.mapTypeProfilToProfil(typeDeProfil);
 

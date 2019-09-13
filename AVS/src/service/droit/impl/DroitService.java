@@ -19,16 +19,10 @@ import util.Factory;
  *
  */
 public class DroitService implements IDroitService {
-<<<<<<< HEAD
+
     private static Map<String, List<String>> map            = null;
     private final IDroitDao                  iDroitAccesUrl = Factory.getInstance(IDroitDao.class);
     private static final IDroitService       idroitService  = Factory.getInstance(IDroitService.class);
-=======
-    private static Map<String, List<String>> map                   = null;
-    private final IDroitDao iDroitAccesUrl = Factory.getInstance(IDroitDao.class);
-    // TODO XSI : mettre en Maj si constante
-    private static final IDroitService idroitService = Factory.getInstance(IDroitService.class);
->>>>>>> a9f766e4777d9e948b391e77d52206312605927c
 
     /**
      * Constructeur privé

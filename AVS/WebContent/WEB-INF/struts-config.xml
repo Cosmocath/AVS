@@ -21,15 +21,12 @@
 			type="presentation.testStruts.TestHello">
 			<!-- le path n'est pas une jsp mais le nom defini dans le tiles-defs.xml -->
 			<forward name="success" path="templateTest" redirect="false"></forward>
-<<<<<<< HEAD
 		</action>
 
 		<action path="/listerCommande" scope="request" input=""
 			parameter="" type="presentation.commande.action.ListerCommandeAction">
 			<forward name="success" path="listerCommande"
 				redirect="false"></forward>
-=======
->>>>>>> a9f766e4777d9e948b391e77d52206312605927c
 		</action>
 
 		<action path="/listerProduitClient" scope="request" input=""
