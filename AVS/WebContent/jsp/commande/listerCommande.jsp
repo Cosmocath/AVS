@@ -39,7 +39,7 @@
 				<bean:message key="CDE_00.Prix" />
 				:
 				<bean:write name="commande" property="montantAvecRemise" />
-				<bean:message key="CDE_00.Symbole_euro" />
+				<bean:message key="Global.euro" />
 			</div>
 		</div>
 	</logic:iterate>

@@ -18,9 +18,8 @@
 						name="produit" property="designation" /> /<bean:write
 						name="produit" property="reference" /><br /> <bean:write
 						name="produit" property="description" /><br /> <bean:write
-						name="produit" property="prix" /> <bean:message
-						key="CDE_00.Symbole_euro" /> <bean:message
-						key="PDT_00.produit.labelPrix" /></td>
+						name="produit" property="prix" /> <bean:message key="Global.euro" />
+					<bean:message key="PDT_00.produit.labelPrix" /></td>
 
 				<td align="right"><html:button property="ajout" onclick="">
 						<bean:message key="PDT_00.bouton.ajouterPanier" />
