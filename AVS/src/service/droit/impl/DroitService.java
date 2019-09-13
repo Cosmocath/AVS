@@ -22,6 +22,7 @@ public class DroitService implements IDroitService {
 
     private static Map<String, List<String>> map            = null;
     private final IDroitDao                  iDroitAccesUrl = Factory.getInstance(IDroitDao.class);
+    // TODO XSI : constante
     private static final IDroitService       idroitService  = Factory.getInstance(IDroitService.class);
 
     /**
