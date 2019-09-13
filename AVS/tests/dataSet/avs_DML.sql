@@ -65,7 +65,6 @@ INSERT INTO `commandeproduit` (`id_CommandeProduit`, `idCommande`, `id_ProduitVe
 -- Déchargement des données de la table `droit`
 --
 
-INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(1, 'accueil.do', 'acceder_a_l_accueil ');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(2, 'voirConnecterUser.do', 'droit_de_connexion');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(3, 'TestHello.do', 'droit_d_ajout_de_produit');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(4, 'connecterUser.do', 'connexion au site');
