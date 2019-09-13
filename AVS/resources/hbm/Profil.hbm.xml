@@ -13,6 +13,5 @@
 		<!-- les propriétés simples -->
 
 		<property name="nom" column="nom"></property>
-
 	</class>
 </hibernate-mapping>
