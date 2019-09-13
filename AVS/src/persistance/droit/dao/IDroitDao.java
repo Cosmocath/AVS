@@ -1,4 +1,3 @@
-
 package persistance.droit.dao;
 
 import java.util.List;
@@ -14,5 +13,5 @@ public interface IDroitDao {
     /**
      * @return une liste des droitDos
      */
-    List<DroitDo> findAllDroits(); 
+    List<DroitDo> findAllDroits();
 }

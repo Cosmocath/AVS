@@ -1,9 +1,10 @@
-
 package persistance.droit.beanDo;
 
 import persistance.users.beanDo.ProfilDo;
 
 /**
+ * Représentation du ProfilDroitDo en BD
+ * 
  * @author Guy-Jöel et Mireille
  *
  */
