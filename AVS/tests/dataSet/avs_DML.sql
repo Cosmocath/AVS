@@ -34,6 +34,15 @@ delete from `commandeproduit`;
 delete from `produitvendu`;
 delete from `commande`;
 delete from `utilisateur`;
+delete from `profil`;
+
+--
+-- Déchargement des données de la table `profil`
+--
+
+INSERT INTO `profil` (`id_Profil`, `nom`) VALUES(1, 'visiteur');
+INSERT INTO `profil` (`id_Profil`, `nom`) VALUES(2, 'client');
+INSERT INTO `profil` (`id_Profil`, `nom`) VALUES(3, 'admin');
 
 
 --
@@ -77,9 +86,6 @@ INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(8, 'changerLangue.
 -- Déchargement des données de la table `profildroit`
 --
 
-INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(1, 1, 1);
-INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(2, 2, 1);
-INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(3, 3, 1);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(4, 1, 2);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(5, 2, 3);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(6, 2, 2);
