@@ -35,6 +35,10 @@ public class ConnecterUserForm extends ActionForm {
         final ActionErrors errors = new ActionErrors();
         if (Tools.isEmpty(mail)) {
             errors.add("mail", new ActionMessage("USR_00.errors.mail.obligatoire"));
+        } else {
+            if (!Tools.verifMail(mail)) {
+                errors.add("mail", new ActionMessage("USR_00.errors.mail.pattern"));
+            }
         }
         if (Tools.isEmpty(password)) {
             errors.add("password", new ActionMessage("USR_00.errors.password.obligatoire"));

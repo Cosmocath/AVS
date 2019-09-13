@@ -11,6 +11,13 @@ public class ProfilDo {
     private String  nom;
 
     /**
+     * Constructeur par défaut
+     */
+    public ProfilDo() {
+        // Empty method
+    }
+
+    /**
      * @return the id
      */
     public Integer getId() {
