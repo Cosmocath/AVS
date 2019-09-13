@@ -14,10 +14,19 @@
 		type="org.apache.struts.action.ActionMapping">
 
 		<!-- TODO à titre d'exemple, à supprimer -->
+
+		<!-- LE TEST : TODO à titre d'exemple, à supprimer -->
+
 		<action path="/TestHello" scope="request" input="" parameter=""
 			type="presentation.testStruts.TestHello">
 			<!-- le path n'est pas une jsp mais le nom defini dans le tiles-defs.xml -->
 			<forward name="success" path="templateTest" redirect="false"></forward>
+		</action>
+
+		<action path="/listerCommande" scope="request" input=""
+			parameter="" type="presentation.commande.action.ListerCommandeAction">
+			<forward name="success" path="listerCommande"
+				redirect="false"></forward>
 		</action>
 
 		<action path="/listerProduitClient" scope="request" input=""
@@ -27,15 +36,18 @@
 		</action>
 
 		<action path="/consulterProduit" scope="request" input=""
-			parameter="" type="presentation.produit.action.ConsulterProduitAction">
+			parameter=""
+			type="presentation.produit.action.ConsulterProduitAction">
 			<forward name="success" path="consulterProduit"
 				redirect="false"></forward>
 		</action>
+
 
 		<action path="/changerLangue" scope="request" input=""
 			parameter="" type="presentation.i18n.action.ChangerLangueAction">
 		</action>
 
+		<!-- La connection/déconnection d'un utilisateur -->
 		<action path="/connecterUser" scope="request"
 			input="voirConnecterUser" parameter="" name="connecterUserForm"
 			type="presentation.users.action.ConnecterUserAction">
@@ -49,6 +61,29 @@
 			<forward name="success" path="voirConnecterUser"
 				redirect="false" />
 		</action>
+
+		<action path="/deconnecterUser" scope="request" input=""
+			parameter="" type="presentation.users.action.DeconnecterUserAction">
+			<forward name="success" path="listerProduitClient"
+				redirect="true"></forward>
+		</action>
+
+		<!-- Action de l'équipe Produit -->
+		<action path="/listerProduitClient" scope="request" input=""
+			parameter="" type="presentation.produit.action.ListerProduitAction">
+			<forward name="success" path="listerProduitClient"
+				redirect="false"></forward>
+		</action>
+
+		<!-- Action de l'équipe User -->
+
+
+		<!-- Action de l'équipe Panier -->
+
+
+		<!-- Action de l'équipe Commande -->
+
+
 	</action-mappings>
 
 	<message-resources parameter="messages/application"></message-resources>

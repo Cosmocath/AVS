@@ -1,6 +1,3 @@
-/**
- * 
- */
 package persistance.factory;
 
 import org.hibernate.SessionFactory;

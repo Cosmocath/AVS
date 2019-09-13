@@ -53,14 +53,14 @@ public class ProduitDao implements IProduitDao {
     public List<ProduitDo> findAllProduitOrderBy(final OrderBy orderBy) {
         try (final Session session = sessionFactory.openSession()) {
             final Transaction transaction = session.beginTransaction();
-            String req = "From ProduitDo WHERE actif = 1 ORDER BY designation ";
+            String req = "From ProduitDo WHERE actif = 1 ORDER BY designation";
             if (OrderBy.ASC.equals(orderBy)) {
                 req += " ASC";
             } else {
-                req += "DESC";
+                req += " DESC";
             }
             final Query<ProduitDo> query = session.createQuery(req, ProduitDo.class);
-            List<ProduitDo> listeProduitDo = query.getResultList();
+            final List<ProduitDo> listeProduitDo = query.getResultList();
             session.flush();
             transaction.commit();
             return listeProduitDo;

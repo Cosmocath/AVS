@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!DOCTYPE tiles-definitions PUBLIC
        "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
        "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
@@ -14,18 +13,35 @@
 		<put name="footer" value="/jsp/tiles/footer.jsp" />
 	</definition>
 
+	<!-- Dans le body LE TEST!!! -->
 	<definition name="templateTest" extends="template">
 		<put name="body" value="/jsp/testStruts/testStruts.jsp" />
 	</definition>
 
+	<definition name="listerCommande" extends="template">
+		<put name="body" value="/jsp/commande/listerCommande.jsp" />
+	</definition>
+
+	<!-- La connection / déconnexion -->
+
 	<definition name="voirConnecterUser" extends="template">
 		<put name="body" value="/jsp/users/connecterUser.jsp" />
 	</definition>
+
+	<!-- Equipe Users -->
+
+
+	<!-- Equipe Produit -->
 	<definition name="listerProduitClient" extends="template">
 		<put name="body" value="/jsp/produit/listerProduitClient.jsp" />
 	</definition>
 		<definition name="consulterProduit" extends="template">
 		<put name="body" value="/jsp/produit/consulterProduit.jsp" />
 	</definition>
+
+	<!-- Equipe Commande -->
+
+
+	<!-- Equipe Panier -->
 
 </tiles-definitions>
