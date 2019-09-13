@@ -11,7 +11,7 @@
 	<action-mappings
 		type="org.apache.struts.action.ActionMapping">
 
-		<!-- TODO à titre d'exemple, à supprimer -->
+		<!-- LE TEST : TODO à titre d'exemple, à supprimer -->
 		<action path="/TestHello" scope="request" input="" parameter=""
 			type="presentation.testStruts.TestHello">
 			<!-- le path n'est pas une jsp mais le nom defini dans le tiles-defs.xml -->
@@ -24,23 +24,54 @@
 				redirect="false"></forward>
 		</action>
 
+
+		<!-- Le language -->
+		<action path="/changerLangue" scope="request" input=""
+			parameter="" type="presentation.i18n.action.ChangerLangueAction">
+		</action>
+
+		<!-- La connection/déconnection d'un utilisateur -->
+		<action path="/connecterUser" scope="request"
+			input="voirConnecterUser" parameter="" name="connecterUserForm"
+			type="presentation.users.action.ConnecterUserAction">
+			<forward name="success" path="template" redirect="true"></forward>
+			<forward name="notSuccess" path="voirConnecterUser"></forward>
+		</action>
+
+
+
+		<action path="/changerLangue" scope="request" input=""
+			parameter="" type="presentation.i18n.action.ChangerLangueAction">
+		</action>
+
+		<!-- Action de l'équipe Produit -->
+		<action path="/listerProduitClient" scope="request" input=""
+			parameter="" type="presentation.produit.action.ListerProduitAction">
+			<forward name="success" path="listerProduitClient"
+				redirect="false"></forward>
+		</action>
+		
 		<action path="/voirCreerProduit" scope="request" input=""
 			parameter=""
 			type="presentation.produit.action.VoirCreerProduitAction">
 			<forward name="success" path="voirCreerProduit"
 				redirect="false" />
 		</action>
-
+		
 		<action path="/creerProduit" scope="request"
 			input="creerProduit" parameter="" name="produitForm"
 			type="presentation.produit.action.CreerProduitAction">
 			<forward name="success" path="creerProduit"
 				redirect="false" />
 		</action>
+		<!-- Action de l'équipe User -->
+		
 
-		<action path="/changerLangue" scope="request" input=""
-			parameter="" type="presentation.i18n.action.ChangerLangueAction">
-		</action>
+		<!-- Action de l'équipe Panier -->
+		
+
+		<!-- Action de l'équipe Commande -->
+		
 
 	</action-mappings>
 
