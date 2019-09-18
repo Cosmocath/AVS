@@ -10,7 +10,7 @@ package persistance.produit.beanDo;
 public class ProduitDo {
     private Integer id;
     private String  designation;
-    private Integer reference;
+    private String  reference;
     private String  description;
     private double  prix;
     private String  image;
@@ -56,14 +56,14 @@ public class ProduitDo {
     /**
      * @return the reference
      */
-    public Integer getReference() {
+    public String getReference() {
         return reference;
     }
 
     /**
      * @param reference the reference to set
      */
-    public void setReference(final Integer reference) {
+    public void setReference(final String reference) {
         this.reference = reference;
     }
 
