@@ -78,8 +78,6 @@ public class UserMapper {
         return listeUserDto;
     }
 
-<<<<<<< HEAD
-=======
     /**
      * Permet de mapper TypeDeProfil en String
      * 
@@ -100,5 +98,4 @@ public class UserMapper {
         }
 
     }
->>>>>>> develop
 }
