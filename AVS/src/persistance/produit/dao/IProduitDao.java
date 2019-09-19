@@ -21,4 +21,12 @@ public interface IProduitDao {
      * @return une liste de produits
      */
     List<ProduitDo> findAllProduitOrderBy(final OrderBy orderBy);
+
+    /**
+     * Permet de rechercher un produit selon son Id
+     * 
+     * @param idProduit du produit recherché
+     * @return le produit recherché, null sinon
+     */
+    ProduitDo findProduitById(final Integer idProduit);
 }

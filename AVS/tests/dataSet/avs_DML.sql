@@ -62,7 +62,7 @@ INSERT INTO `commande` (`id_Commande`, `id_Utilisateur`, `nom`, `adresse_livrais
 -- Déchargement des données de la table `produitvendu`
 --
 
-INSERT INTO `produitvendu` (`id_ProduitVendu`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `id_Produit_Historise`) VALUES(1, 'jadinage', 123456, 'entretien de jardin', 30, 'null', 1, 12);
+INSERT INTO `produitvendu` (`id_ProduitVendu`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `id_Produit_Historise`) VALUES(1, 'jadinage', 'AB3456', 'entretien de jardin', 30, 'null', 1, 12);
 
 --
 -- Déchargement des données de la table `commandeproduit`
@@ -108,9 +108,9 @@ INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(20,
 -- Déchargement des données de la table `produit`
 --
 
-INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(12, 'jadinage', 123456, 'entretien de jardin', 30, 'null', 1, b'1');
-INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(13, 'menage', 987654, 'entretien d_interieur', 20, 'null', 1, b'0');
-INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(14, 'demenagement', 456789, 'service_au_demenagement', 40, 'null', 1, b'1');
+INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(12, 'jadinage', 'AB3456', 'entretien de jardin', 30, 'null', 1, b'1');
+INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(13, 'menage', 'BC7654', 'entretien d_interieur', 20, 'null', 1, b'0');
+INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(14, 'demenagement', 'DE6789', 'service_au_demenagement', 40, 'null', 1, b'1');
 
 COMMIT;
 
