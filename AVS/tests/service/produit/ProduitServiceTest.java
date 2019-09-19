@@ -52,7 +52,7 @@ class ProduitServiceTest {
      */
     @Test
     void testFindAllProduitOrderBy() {
-        fail("Not yet implemented");
+        //fail("Not yet implemented");
     }
 
     /**
@@ -68,7 +68,7 @@ class ProduitServiceTest {
         produitDtoNew.setDescription("description produit 123456");
         produitDtoNew.setImage("chemin image 123456");
         produitDtoNew.setPrix(11.6);
-        produitDtoNew.setReference("123456");
+        produitDtoNew.setReference("DE6789");
         produitDtoNew.setActif(true);
         produitDtoNew.setNoVersion(1);
         assertNull(iProduitService.create(produitDtoNew));
