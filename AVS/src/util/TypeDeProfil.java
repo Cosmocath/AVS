@@ -26,7 +26,7 @@ public enum TypeDeProfil {
 
     public static TypeDeProfil getValue(final String nomBD) {
         for (TypeDeProfil type : TypeDeProfil.values()) {
-            if (type.nomBD == nomBD) {
+            if (type.nomBD.equals(nomBD)) {
                 return type;
             }
         }
