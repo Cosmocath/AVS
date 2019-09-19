@@ -14,6 +14,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import persistance.factory.HibernateFactory;
@@ -50,9 +51,9 @@ class ProduitServiceTest {
     /**
      * Test method for {@link service.produit.impl.ProduitService#findAllProduitOrderBy(util.OrderBy)}.
      */
-    @Test
+    @Disabled
     void testFindAllProduitOrderBy() {
-        //fail("Not yet implemented");
+        // TODO fail("Not yet implemented");
     }
 
     /**

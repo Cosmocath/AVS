@@ -19,6 +19,12 @@ public enum TypeDeProfil {
         this.nomBD = nomBD;
     }
 
+    /**
+     * retourne le TypeDeProfil associé au String passé en param
+     * 
+     * @param nomBD : le nom de type de profilassocié en BD
+     * @return le type de profil
+     */
     public static TypeDeProfil getValue(final String nomBD) {
         for (final TypeDeProfil type : TypeDeProfil.values()) {
             if (type.nomBD.equals(nomBD)) {
