@@ -35,7 +35,7 @@
 	<definition name="listerProduitClient" extends="template">
 		<put name="body" value="/jsp/produit/listerProduitClient.jsp" />
 	</definition>
-		<definition name="consulterProduit" extends="template">
+	<definition name="consulterProduit" extends="template">
 		<put name="body" value="/jsp/produit/consulterProduit.jsp" />
 	</definition>
 

@@ -42,6 +42,7 @@
 				redirect="false"></forward>
 		</action>
 
+		<!-- Le language -->
 
 		<action path="/changerLangue" scope="request" input=""
 			parameter="" type="presentation.i18n.action.ChangerLangueAction">

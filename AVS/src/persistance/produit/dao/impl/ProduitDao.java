@@ -23,9 +23,7 @@ import util.OrderBy;
  */
 public class ProduitDao implements IProduitDao {
 
-    private SessionFactory     sessionFactory = HibernateFactory.getSessionFactory();
-
-    private static IProduitDao iProduitDao    = null;
+    private SessionFactory sessionFactory = HibernateFactory.getSessionFactory();
 
     /**
      * Constructeur
@@ -33,20 +31,6 @@ public class ProduitDao implements IProduitDao {
      */
     private ProduitDao() {
         // empty constructor
-    }
-
-    /**
-     * Méthode getInstance pour le singleton
-     * 
-     * @return un iProduitDao
-     */
-    public static IProduitDao getInstance() {
-        synchronized (ProduitDao.class) {
-            if (iProduitDao == null) {
-                iProduitDao = new ProduitDao();
-            }
-            return iProduitDao;
-        }
     }
 
     @Override

@@ -8,8 +8,9 @@
 	</h1>
 
 	<div style="float: right">
-		<html:link href="${urlRetour}">Retour			
-				</html:link>
+		<html:link href="${urlRetour}">
+			<bean:message key="PDT_01.bouton.retour" />
+		</html:link>
 	</div>
 
 	<br /> <br />

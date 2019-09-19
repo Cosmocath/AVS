@@ -38,7 +38,7 @@ public class ProduitDo {
      * @param actif
      * @return le produitDo initialisé
      */
-    public ProduitDo buildProduitDo(final Integer id, final String designation, final Integer reference, final String description, final double prix, final String image, final Integer numeroVersion,
+    public ProduitDo buildProduitDo(final Integer id, final String designation, final String reference, final String description, final double prix, final String image, final Integer numeroVersion,
                     final Boolean actif) {
         final ProduitDo produitDo = new ProduitDo();
         produitDo.setId(id);
