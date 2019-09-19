@@ -7,8 +7,8 @@ import persistance.produit.dao.IProduitDao;
 import presentation.produit.beanDto.ProduitDto;
 import service.produit.IProduitService;
 import service.produit.ProduitMapper;
-import util.Factory;
-import util.OrderBy;
+import util.enumeration.OrderBy;
+import util.factory.Factory;
 
 /**
  * Implémentation du service pour gérer les produits
@@ -36,6 +36,23 @@ public class ProduitService implements IProduitService {
     }
 
     @Override
+    public ProduitDto create(final ProduitDto produitDto) {
+        // récupération de la couche persistance
+        final IProduitDao iProduitDao = Factory.getInstance(IProduitDao.class);
+        // la couche métier prend en charge la vérification de la non-existence de la référence en base en base (sinon insertion annulée)
+        if (iProduitDao.findByReference(produitDto.getReference()) != null) {
+            return null;
+        }
+        // on peut insérer
+        final ProduitDo produitDoNew = iProduitDao.createProduit(ProduitMapper.mapDtoToDo(produitDto));
+        // transformation en Dto
+        if (produitDoNew != null) {
+            return ProduitMapper.mapToDto(produitDoNew);
+        }
+        return null;
+    }
+
+    // TODO XSI : @Override
     public ProduitDto getProduitById(final int idProduit) {
         final IProduitDao iProduitDao = Factory.getInstance(IProduitDao.class);
         // on pourrait ne pas utiliser cette variable

@@ -41,6 +41,14 @@
 		<put name="body" value="/jsp/produit/consulterProduit.jsp" />
 	</definition>
 
+	<definition name="voirCreerProduit" extends="template">
+		<put name="body" value="/jsp/produit/creerProduit.jsp" />
+	</definition>
+
+	<definition name="creerProduit" extends="template">
+		<put name="body" value="/jsp/produit/creerProduit.jsp" />
+	</definition>
+	
 	<!-- Equipe Commande -->
 
 

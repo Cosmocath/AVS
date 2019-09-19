@@ -3,7 +3,7 @@ package persistance.users.dao;
 import java.util.List;
 
 import persistance.users.beanDo.UserDo;
-import util.OrderBy;
+import util.enumeration.OrderBy;
 
 /**
  * Interface de UserDao

@@ -7,7 +7,7 @@ import persistance.users.beanDo.ProfilDo;
 import persistance.users.beanDo.UserDo;
 import presentation.users.beanDto.ConnectedUserDto;
 import presentation.users.beanDto.UserDto;
-import util.TypeDeProfil;
+import util.enumeration.TypeDeProfil;
 
 /**
  * Mapper Dto/Do bidirectionnel pour un User

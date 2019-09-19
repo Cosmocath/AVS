@@ -13,7 +13,7 @@ import org.hibernate.query.Query;
 import persistance.factory.HibernateFactory;
 import persistance.users.beanDo.UserDo;
 import persistance.users.dao.IUserDao;
-import util.OrderBy;
+import util.enumeration.OrderBy;
 
 /**
  * Implementation de IUserDao

@@ -6,7 +6,7 @@ import java.util.List;
 
 import persistance.commande.beanDo.CommandeDo;
 import presentation.commande.beanDto.CommandeDto;
-import util.FormatUtil;
+import util.tools.FormatUtil;
 
 /**
  * Mapper Dto/Do pour une commande

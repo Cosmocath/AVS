@@ -4,7 +4,7 @@ import java.util.List;
 
 import presentation.users.beanDto.ConnectedUserDto;
 import presentation.users.beanDto.UserDto;
-import util.OrderBy;
+import util.enumeration.OrderBy;
 
 /**
  * Interface permettant de déclarer les méthodes du business service UserService

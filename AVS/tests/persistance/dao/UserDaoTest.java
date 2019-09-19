@@ -17,8 +17,8 @@ import org.junit.jupiter.api.Test;
 import persistance.factory.HibernateFactory;
 import persistance.users.beanDo.UserDo;
 import persistance.users.dao.IUserDao;
-import util.Factory;
-import util.OrderBy;
+import util.enumeration.OrderBy;
+import util.factory.Factory;
 
 /**
  * @author Administrateur

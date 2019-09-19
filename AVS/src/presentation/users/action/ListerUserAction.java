@@ -12,8 +12,8 @@ import org.apache.struts.action.ActionMapping;
 
 import presentation.users.beanDto.UserDto;
 import service.users.IUserService;
-import util.Factory;
-import util.OrderBy;
+import util.enumeration.OrderBy;
+import util.factory.Factory;
 
 /**
  * @author Administrateur
