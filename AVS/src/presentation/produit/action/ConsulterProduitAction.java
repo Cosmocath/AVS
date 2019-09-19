@@ -10,7 +10,7 @@ import org.apache.struts.action.ActionMapping;
 
 import presentation.produit.beanDto.ProduitDto;
 import service.produit.IProduitService;
-import util.Factory;
+import util.factory.Factory;
 
 /**
  * Action permettant de consulter un produit

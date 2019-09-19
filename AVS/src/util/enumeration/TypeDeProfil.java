@@ -1,4 +1,4 @@
-package util;
+package util.enumeration;
 
 /**
  * Énumeration des 3 type de profil

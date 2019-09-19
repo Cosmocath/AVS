@@ -7,6 +7,8 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import util.tools.Tools;
+
 /**
  * Classe JUnit permettant de tester les méthodes de la classe Tools
  * 

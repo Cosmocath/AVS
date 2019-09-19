@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 
 import persistance.droit.dao.IDroitDao;
 import persistance.factory.HibernateFactory;
-import util.Factory;
+import util.factory.Factory;
 
 /**
  * @author Administrateur
