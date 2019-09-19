@@ -23,6 +23,8 @@ import util.OrderBy;
  */
 public class ProduitDao implements IProduitDao {
 
+    private SessionFactory sessionFactory = HibernateFactory.getSessionFactory();
+
     /**
      * Constructeur
      * 
@@ -33,7 +35,6 @@ public class ProduitDao implements IProduitDao {
 
     @Override
     public List<ProduitDo> findAllProduitOrderBy(final OrderBy orderBy) {
-        final SessionFactory sessionFactory = HibernateFactory.getSessionFactory();
         try (final Session session = sessionFactory.openSession()) {
             final Transaction transaction = session.beginTransaction();
             String req = "From ProduitDo WHERE actif = 1 ORDER BY designation";
@@ -80,6 +81,25 @@ public class ProduitDao implements IProduitDao {
             query.setParameter("reference", reference);
             // regarder la Javadoc de Optional
             final Optional<ProduitDo> produitDo = query.uniqueResultOptional();
+            session.flush();
+            transaction.commit();
+            // suite de la feature Optional de Java 8
+            return produitDo.orElse(null);
+        } catch (final HibernateException hibernateException) {
+            // on peut catcher des HibernateException
+            hibernateException.printStackTrace();
+        }
+        return null;
+    }
+
+    public ProduitDo findProduitById(final Integer idProduit) {
+        try (final Session session = sessionFactory.openSession()) {
+            final Transaction transaction = session.beginTransaction();
+            final Query<ProduitDo> query = session.createQuery("From ProduitDo WHERE actif = 1 and id = :idProduit", ProduitDo.class);
+            query.setParameter("idProduit", idProduit);
+            // regarder la Javadoc de Optional
+            final Optional<ProduitDo> produitDo = query.uniqueResultOptional();
+
             session.flush();
             transaction.commit();
             // suite de la feature Optional de Java 8
