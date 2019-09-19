@@ -1,4 +1,4 @@
-package util;
+package util.tools;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -80,6 +80,7 @@ public class Tools {
      * @return true si le Prix est strictement au bon format
      */
     public static boolean verifPrix(final String number) {
+        // TODO XSI : revoir
         return number.matches("^[1-9]{1}[0-9]{0,2}( \\d{3})*(,\\d{2})$");
     }
 

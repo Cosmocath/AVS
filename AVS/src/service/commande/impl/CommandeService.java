@@ -7,7 +7,7 @@ import persistance.commande.dao.ICommandeDao;
 import presentation.commande.beanDto.CommandeDto;
 import service.commande.CommandeMapper;
 import service.commande.ICommandeService;
-import util.Factory;
+import util.factory.Factory;
 
 /**
  * Implémentation du service pour gérer les commandes

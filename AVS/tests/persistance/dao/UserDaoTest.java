@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import persistance.users.beanDo.UserDo;
 import persistance.users.dao.IUserDao;
-import util.Factory;
+import util.factory.Factory;
 
 /**
  * @author Administrateur

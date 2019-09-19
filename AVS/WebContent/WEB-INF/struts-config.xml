@@ -8,6 +8,8 @@
 	<form-beans type="org.apache.struts.action.ActionFormBean">
 		<form-bean name="connecterUserForm"
 			type="presentation.users.form.ConnecterUserForm" />
+		<form-bean name="produitForm"
+			type="presentation.produit.form.ProduitForm" />
 	</form-beans>
 
 	<action-mappings
@@ -32,6 +34,13 @@
 		<action path="/listerProduitClient" scope="request" input=""
 			parameter="" type="presentation.produit.action.ListerProduitAction">
 			<forward name="success" path="listerProduitClient"
+				redirect="false"></forward>
+		</action>
+
+		<action path="/consulterProduit" scope="request" input=""
+			parameter=""
+			type="presentation.produit.action.ConsulterProduitAction">
+			<forward name="success" path="consulterProduit"
 				redirect="false"></forward>
 		</action>
 
@@ -67,6 +76,19 @@
 			parameter="" type="presentation.produit.action.ListerProduitAction">
 			<forward name="success" path="listerProduitClient"
 				redirect="false"></forward>
+		</action>
+
+		<action path="/voirCreerProduit" scope="request" input=""
+			parameter=""
+			type="presentation.produit.action.VoirCreerProduitAction">
+			<forward name="success" path="voirCreerProduit"
+				redirect="false" />
+		</action>
+
+		<action path="/creerProduit" scope="request"
+			input="creerProduit" parameter="" name="produitForm"
+			type="presentation.produit.action.CreerProduitAction">
+			<forward name="success" path="creerProduit" redirect="false" />
 		</action>
 
 		<!-- Action de l'équipe User -->

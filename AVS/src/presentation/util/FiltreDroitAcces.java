@@ -13,8 +13,8 @@ import presentation.users.action.ConnecterUserAction;
 import presentation.users.beanDto.ConnectedUserDto;
 import service.droit.IDroitService;
 import service.users.impl.UserMapper;
-import util.Factory;
-import util.TypeDeProfil;
+import util.enumeration.TypeDeProfil;
+import util.factory.Factory;
 
 /**
  * Permet de filtrer les urls selon le profil de l'utilisateur en session

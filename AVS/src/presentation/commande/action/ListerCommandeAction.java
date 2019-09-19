@@ -12,7 +12,7 @@ import org.apache.struts.action.ActionMapping;
 
 import presentation.commande.beanDto.CommandeDto;
 import service.commande.ICommandeService;
-import util.Factory;
+import util.factory.Factory;
 
 /**
  * Action permettant de visualiser la liste des commandes
