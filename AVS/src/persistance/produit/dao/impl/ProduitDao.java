@@ -92,6 +92,7 @@ public class ProduitDao implements IProduitDao {
         return null;
     }
 
+    // TODO XSI : @Override
     public ProduitDo findProduitById(final Integer idProduit) {
         try (final Session session = sessionFactory.openSession()) {
             final Transaction transaction = session.beginTransaction();
