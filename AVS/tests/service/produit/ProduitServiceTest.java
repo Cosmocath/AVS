@@ -3,7 +3,6 @@ package service.produit;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.fail;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -74,7 +73,7 @@ class ProduitServiceTest {
         produitDtoNew.setNoVersion(1);
         assertNull(iProduitService.create(produitDtoNew));
         assertEquals(2, iProduitService.findAllProduitOrderBy(OrderBy.ASC).size());
-        
+
         // cas passant
         final ProduitDto produitDtoNew2 = new ProduitDto();
         produitDtoNew2.setDesignation("designationProduit123456");
