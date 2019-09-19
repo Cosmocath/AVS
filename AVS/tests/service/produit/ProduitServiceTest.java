@@ -18,8 +18,8 @@ import org.junit.jupiter.api.Test;
 
 import persistance.factory.HibernateFactory;
 import presentation.produit.beanDto.ProduitDto;
-import util.Factory;
-import util.OrderBy;
+import util.enumeration.OrderBy;
+import util.factory.Factory;
 
 /**
  * @author Rodolphe

@@ -8,7 +8,7 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 
-import util.Tools;
+import util.tools.Tools;
 
 /**
  * Formulaire pour la saisie d'un produit

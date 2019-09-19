@@ -5,12 +5,15 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 import org.junit.jupiter.api.Test;
 
+import util.enumeration.TypeDeProfil;
+
 /**
  * @author Rodolphe
  *
  */
 class TypeDeProfilTest {
 
+    // TODO XSI : Javadoc
     @Test
     void test() {
         assertEquals(TypeDeProfil.ADMINISTRATEUR, TypeDeProfil.getValue("admin"));
