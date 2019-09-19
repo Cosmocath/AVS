@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 import org.junit.jupiter.api.Test;
 
+import util.enumeration.TypeDeProfil;
+
 /**
  * @author Rodolphe
  *
