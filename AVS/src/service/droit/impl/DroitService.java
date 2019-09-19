@@ -10,7 +10,7 @@ import persistance.droit.beanDo.DroitDo;
 import persistance.droit.beanDo.ProfilDroitDo;
 import persistance.droit.dao.IDroitDao;
 import service.droit.IDroitService;
-import util.Factory;
+import util.factory.Factory;
 
 /**
  * DroitService qui implémente l'interface IDroitService

@@ -8,6 +8,8 @@ import java.util.Calendar;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
+import util.tools.FormatUtil;
+
 /**
  * @author Administrateur
  *
@@ -15,7 +17,7 @@ import org.junit.jupiter.api.Test;
 class FormatUtilTest {
 
     /**
-     * Test method for {@link util.FormatUtil#convertirEntierToString(int)}.
+     * Test method for {@link util.tools.FormatUtil#convertirEntierToString(int)}.
      */
     @Test
     void testConvertionEntierToString() {
@@ -28,7 +30,7 @@ class FormatUtilTest {
      * Le mois dans le calendar est compté à partir de zero c'est-à-dire que le mois de janvier est le mois 0 et le mois de décembre est le mois 11. <br/>
      * Important pour la saisie du test. <br/>
      * 
-     * Test method for {@link util.FormatUtil#convertirDateToString(java.util.Date)}.
+     * Test method for {@link util.tools.FormatUtil#convertirDateToString(java.util.Date)}.
      */
     @Test
     void testConvertionDateToString() {

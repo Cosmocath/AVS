@@ -1,4 +1,4 @@
-package util;
+package util.enumeration;
 
 /**
  * Enum OrderBy permettant de trier dans l'ordre asc ou desc
