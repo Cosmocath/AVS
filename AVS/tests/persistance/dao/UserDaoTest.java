@@ -1,5 +1,7 @@
 package persistance.dao;
 
+import static org.junit.Assert.assertEquals;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.List;
@@ -16,6 +18,7 @@ import persistance.factory.HibernateFactory;
 import persistance.users.beanDo.UserDo;
 import persistance.users.dao.IUserDao;
 import util.Factory;
+import util.OrderBy;
 
 /**
  * @author Administrateur
@@ -31,7 +34,7 @@ class UserDaoTest {
         try (final Session session = HibernateFactory.getSessionFactory().openSession()) {
             final Transaction transaction = session.beginTransaction();
             // on lit le fichier
-            try (final Scanner scanner = new Scanner(new FileReader("test/dataSet/avs_DML.sql"))) {
+            try (final Scanner scanner = new Scanner(new FileReader("tests/dataSet/avs_DML.sql"))) {
                 while (scanner.hasNext()) {
                     final String sql = scanner.nextLine();
                     // pour chaque ligne non vide
@@ -63,12 +66,16 @@ class UserDaoTest {
         Assert.assertNull(iUserDao.findUserForConnexion("x", "m"));
     }
 
+    /**
+     * Test method for {@link persistance.user.dao.impl.UserDao#findAllUserOrderBy(util.OrderBy)}.
+     */
     @Test
-    public final void testFindAllUserDo() {
+    void testFindAllUserOrderBy() {
         final IUserDao iUserDao = Factory.getInstance(IUserDao.class);
-        final List<UserDo> listeUserDo = iUserDao.findAllUserDo();
+        final List<UserDo> listeUserDo = iUserDao.findAllUserOrderBy(OrderBy.ASC);
         Assert.assertNotNull(listeUserDo);
-        Assert.assertEquals(1, listeUserDo.size());
+        assertEquals(1, listeUserDo.size());
+        assertEquals("utili.sateur@outlook.com", listeUserDo.get(0).getMail());
     }
 
 }
