@@ -80,7 +80,9 @@ public class DroitService implements IDroitService {
     public boolean isAcces(final String url, final String profil) {
         //on recupère la liste des profils
         final List<String> listeProfils = map.get(url);
-
+        if (listeProfils == null) {
+            return false;
+        }
         //je contrôle l'accès
         for (final String nomProfil : listeProfils) {
             if (profil.equals(nomProfil)) {
