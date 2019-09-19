@@ -8,6 +8,8 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import org.junit.jupiter.api.Test;
 
+import util.cryptage.MD5Encryption;
+
 /**
  * @author Administrateur
  *
@@ -15,7 +17,7 @@ import org.junit.jupiter.api.Test;
 class MD5EncryptionTest {
 
     /**
-     * Test method for {@link util.MD5Encryption#encrypt(java.lang.String)}.
+     * Test method for {@link util.cryptage.MD5Encryption#encrypt(java.lang.String)}.
      */
     @Test
     void testEncrypt() {
