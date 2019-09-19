@@ -10,7 +10,7 @@ package persistance.produit.beanDo;
 public class ProduitDo {
     private Integer id;
     private String  designation;
-    private Integer reference;
+    private String  reference;
     private String  description;
     private double  prix;
     private String  image;
@@ -23,6 +23,34 @@ public class ProduitDo {
      */
     public ProduitDo() {
         //empty constructeur  
+    }
+
+    /**
+     * Builder pour le ProduitDo
+     * 
+     * @param id
+     * @param designation
+     * @param reference
+     * @param description
+     * @param prix
+     * @param image
+     * @param numeroVersion
+     * @param actif
+     * @return le produitDo initialisé
+     */
+    public ProduitDo buildProduitDo(final Integer id, final String designation, final String reference, final String description, final double prix, final String image, final Integer numeroVersion,
+                    final Boolean actif) {
+        final ProduitDo produitDo = new ProduitDo();
+        produitDo.setId(id);
+        produitDo.setDesignation(designation);
+        produitDo.setReference(reference);
+        produitDo.setDescription(description);
+        produitDo.setPrix(prix);
+        produitDo.setImage(image);
+        produitDo.setNumeroVersion(numeroVersion);
+        produitDo.setActif(actif);
+
+        return produitDo;
     }
 
     /**
@@ -56,14 +84,14 @@ public class ProduitDo {
     /**
      * @return the reference
      */
-    public Integer getReference() {
+    public String getReference() {
         return reference;
     }
 
     /**
      * @param reference the reference to set
      */
-    public void setReference(final Integer reference) {
+    public void setReference(final String reference) {
         this.reference = reference;
     }
 

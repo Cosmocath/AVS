@@ -2,6 +2,7 @@ package persistance.produit.dao.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -22,6 +23,8 @@ import util.OrderBy;
  */
 public class ProduitDao implements IProduitDao {
 
+    private SessionFactory sessionFactory = HibernateFactory.getSessionFactory();
+
     /**
      * Constructeur
      * 
@@ -32,7 +35,6 @@ public class ProduitDao implements IProduitDao {
 
     @Override
     public List<ProduitDo> findAllProduitOrderBy(final OrderBy orderBy) {
-        final SessionFactory sessionFactory = HibernateFactory.getSessionFactory();
         try (final Session session = sessionFactory.openSession()) {
             final Transaction transaction = session.beginTransaction();
             String req = "From ProduitDo WHERE actif = 1 ORDER BY designation";
@@ -52,5 +54,61 @@ public class ProduitDao implements IProduitDao {
             hibernateException.printStackTrace();
         }
         return new ArrayList<>();
+    }
+
+    @Override
+    public ProduitDo createProduit(final ProduitDo produitDo) {
+        final SessionFactory sessionFactory = HibernateFactory.getSessionFactory();
+        try (final Session session = sessionFactory.openSession()) {
+            final Transaction transaction = session.beginTransaction();
+            session.save(produitDo);
+            session.flush();
+            transaction.commit();
+            return produitDo;
+        } catch (final HibernateException hibernateException) {
+            hibernateException.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public ProduitDo findByReference(final String reference) {
+        final SessionFactory sessionFactory = HibernateFactory.getSessionFactory();
+        try (final Session session = sessionFactory.openSession()) {
+            final Transaction transaction = session.beginTransaction();
+            final Query<ProduitDo> query = session.createQuery("From ProduitDo where reference = :reference", ProduitDo.class);
+            // on initialise le paramètre
+            query.setParameter("reference", reference);
+            // regarder la Javadoc de Optional
+            final Optional<ProduitDo> produitDo = query.uniqueResultOptional();
+            session.flush();
+            transaction.commit();
+            // suite de la feature Optional de Java 8
+            return produitDo.orElse(null);
+        } catch (final HibernateException hibernateException) {
+            // on peut catcher des HibernateException
+            hibernateException.printStackTrace();
+        }
+        return null;
+    }
+
+    // TODO XSI : @Override
+    public ProduitDo findProduitById(final Integer idProduit) {
+        try (final Session session = sessionFactory.openSession()) {
+            final Transaction transaction = session.beginTransaction();
+            final Query<ProduitDo> query = session.createQuery("From ProduitDo WHERE actif = 1 and id = :idProduit", ProduitDo.class);
+            query.setParameter("idProduit", idProduit);
+            // regarder la Javadoc de Optional
+            final Optional<ProduitDo> produitDo = query.uniqueResultOptional();
+
+            session.flush();
+            transaction.commit();
+            // suite de la feature Optional de Java 8
+            return produitDo.orElse(null);
+        } catch (final HibernateException hibernateException) {
+            // on peut catcher des HibernateException
+            hibernateException.printStackTrace();
+        }
+        return null;
     }
 }

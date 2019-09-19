@@ -30,10 +30,33 @@ public class ProduitService implements IProduitService {
 
     @Override
     public List<ProduitDto> findAllProduitOrderBy(final OrderBy orderBy) {
-
         final IProduitDao iProduitDao = Factory.getInstance(IProduitDao.class);
-
         final List<ProduitDo> listeProduitDo = iProduitDao.findAllProduitOrderBy(orderBy);
         return ProduitMapper.mapToListDto(listeProduitDo);
+    }
+
+    @Override
+    public ProduitDto create(final ProduitDto produitDto) {
+        // récupération de la couche persistance
+        final IProduitDao iProduitDao = Factory.getInstance(IProduitDao.class);
+        // la couche métier prend en charge la vérification de la non-existence de la référence en base en base (sinon insertion annulée)
+        if (iProduitDao.findByReference(produitDto.getReference()) != null) {
+            return null;
+        }
+        // on peut insérer
+        final ProduitDo produitDoNew = iProduitDao.createProduit(ProduitMapper.mapDtoToDo(produitDto));
+        // transformation en Dto
+        if (produitDoNew != null) {
+            return ProduitMapper.mapToDto(produitDoNew);
+        }
+        return null;
+    }
+
+    // TODO XSI : @Override
+    public ProduitDto getProduitById(final int idProduit) {
+        final IProduitDao iProduitDao = Factory.getInstance(IProduitDao.class);
+        // on pourrait ne pas utiliser cette variable
+        final ProduitDo produitDo = iProduitDao.findProduitById(idProduit);
+        return ProduitMapper.mapToDto(produitDo);
     }
 }

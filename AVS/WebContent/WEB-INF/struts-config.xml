@@ -8,19 +8,44 @@
 	<form-beans type="org.apache.struts.action.ActionFormBean">
 		<form-bean name="connecterUserForm"
 			type="presentation.users.form.ConnecterUserForm" />
+		<form-bean name="produitForm"
+			type="presentation.produit.form.ProduitForm" />
 	</form-beans>
 
 	<action-mappings
 		type="org.apache.struts.action.ActionMapping">
 
+		<!-- TODO à titre d'exemple, à supprimer -->
+
 		<!-- LE TEST : TODO à titre d'exemple, à supprimer -->
+
 		<action path="/TestHello" scope="request" input="" parameter=""
 			type="presentation.testStruts.TestHello">
 			<!-- le path n'est pas une jsp mais le nom defini dans le tiles-defs.xml -->
 			<forward name="success" path="templateTest" redirect="false"></forward>
 		</action>
 
+		<action path="/listerCommande" scope="request" input=""
+			parameter="" type="presentation.commande.action.ListerCommandeAction">
+			<forward name="success" path="listerCommande"
+				redirect="false"></forward>
+		</action>
+
+		<action path="/listerProduitClient" scope="request" input=""
+			parameter="" type="presentation.produit.action.ListerProduitAction">
+			<forward name="success" path="listerProduitClient"
+				redirect="false"></forward>
+		</action>
+
+		<action path="/consulterProduit" scope="request" input=""
+			parameter=""
+			type="presentation.produit.action.ConsulterProduitAction">
+			<forward name="success" path="consulterProduit"
+				redirect="false"></forward>
+		</action>
+
 		<!-- Le language -->
+
 		<action path="/changerLangue" scope="request" input=""
 			parameter="" type="presentation.i18n.action.ChangerLangueAction">
 		</action>
@@ -53,14 +78,27 @@
 				redirect="false"></forward>
 		</action>
 
+		<action path="/voirCreerProduit" scope="request" input=""
+			parameter=""
+			type="presentation.produit.action.VoirCreerProduitAction">
+			<forward name="success" path="voirCreerProduit"
+				redirect="false" />
+		</action>
+
+		<action path="/creerProduit" scope="request"
+			input="creerProduit" parameter="" name="produitForm"
+			type="presentation.produit.action.CreerProduitAction">
+			<forward name="success" path="creerProduit" redirect="false" />
+		</action>
+
 		<!-- Action de l'équipe User -->
-		
+
 
 		<!-- Action de l'équipe Panier -->
-		
+
 
 		<!-- Action de l'équipe Commande -->
-		
+
 
 	</action-mappings>
 
