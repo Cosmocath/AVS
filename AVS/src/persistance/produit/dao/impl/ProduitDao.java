@@ -71,7 +71,7 @@ public class ProduitDao implements IProduitDao {
     }
 
     @Override
-    public ProduitDo findByReference(final Integer reference) {
+    public ProduitDo findByReference(final String reference) {
         final SessionFactory sessionFactory = HibernateFactory.getSessionFactory();
         try (final Session session = sessionFactory.openSession()) {
             final Transaction transaction = session.beginTransaction();

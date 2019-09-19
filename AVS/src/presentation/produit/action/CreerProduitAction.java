@@ -31,7 +31,7 @@ public class CreerProduitAction extends Action {
      * @return
      */
     private ProduitDto mapToDto(final ProduitForm produitForm) {
-        return ProduitDto.build(produitForm.getDesignation(), Integer.valueOf(produitForm.getReference()), produitForm.getDescription(), ConversionUtil.convertDoubleCommaToDot(produitForm.getPrix()),
+        return ProduitDto.build(produitForm.getDesignation(), produitForm.getReference(), produitForm.getDescription(), ConversionUtil.convertDoubleCommaToDot(produitForm.getPrix()),
                         produitForm.getImage(), 1);
     }
 

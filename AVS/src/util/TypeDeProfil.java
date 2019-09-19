@@ -11,21 +11,16 @@ public enum TypeDeProfil {
     private String nomBD;
 
     /**
+     * Constructeur
+     * 
      * @param nomBD
      */
     private TypeDeProfil(final String nomBD) {
         this.nomBD = nomBD;
     }
 
-    /**
-     * @return the nomBD
-     */
-    public String getNomBD() {
-        return nomBD;
-    }
-
     public static TypeDeProfil getValue(final String nomBD) {
-        for (TypeDeProfil type : TypeDeProfil.values()) {
+        for (final TypeDeProfil type : TypeDeProfil.values()) {
             if (type.nomBD.equals(nomBD)) {
                 return type;
             }

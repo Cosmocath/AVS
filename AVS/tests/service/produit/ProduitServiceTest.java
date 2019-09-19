@@ -68,7 +68,7 @@ class ProduitServiceTest {
         produitDtoNew.setDescription("description produit 123456");
         produitDtoNew.setImage("chemin image 123456");
         produitDtoNew.setPrix(11.6);
-        produitDtoNew.setReference(123456);
+        produitDtoNew.setReference("123456");
         produitDtoNew.setActif(true);
         produitDtoNew.setNoVersion(1);
         assertNull(iProduitService.create(produitDtoNew));
@@ -80,7 +80,7 @@ class ProduitServiceTest {
         produitDtoNew2.setDescription("description produit 123456");
         produitDtoNew2.setImage("chemin image 123456");
         produitDtoNew2.setPrix(11.6);
-        produitDtoNew2.setReference(3001);
+        produitDtoNew2.setReference("3001");
         produitDtoNew2.setActif(true);
         produitDtoNew2.setNoVersion(1);
         final ProduitDto produitDtoInserted = iProduitService.create(produitDtoNew2);

@@ -36,5 +36,5 @@ public interface IProduitDao {
      * @param reference
      * @return le produit si existant, null sinon
      */
-    ProduitDo findByReference(final Integer reference);
+    ProduitDo findByReference(final String reference);
 }

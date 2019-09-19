@@ -1,6 +1,3 @@
-/**
- * 
- */
 package util;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -20,8 +17,8 @@ class ConversionUtilTest {
     void testConvertDoubleCommaToDot() {
         assertEquals(1.75, ConversionUtil.convertDoubleCommaToDot("1,75"));
         assertEquals(1.75, ConversionUtil.convertDoubleCommaToDot("1.75"));
-        assertNull( ConversionUtil.convertDoubleCommaToDot(""));
-        assertNull( ConversionUtil.convertDoubleCommaToDot(null));
+        assertNull(ConversionUtil.convertDoubleCommaToDot(""));
+        assertNull(ConversionUtil.convertDoubleCommaToDot(null));
     }
 
 }
