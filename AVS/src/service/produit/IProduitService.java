@@ -21,4 +21,12 @@ public interface IProduitService {
      * @return la liste des produits par ordre alphabétique
      */
     List<ProduitDto> findAllProduitOrderBy(final OrderBy orderBy);
+
+    /**
+     * Permet de faire appel à la couche persistance afin de rechercher un Produit en BDD à partir de son id
+     * 
+     * @param idProduit = id du Produit recherché
+     * @return un ProduitDto contenant les informations du Produit recherché, null si non existant
+     */
+    ProduitDto getProduitById(final int idProduit);
 }

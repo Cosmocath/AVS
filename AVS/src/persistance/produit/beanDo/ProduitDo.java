@@ -26,6 +26,34 @@ public class ProduitDo {
     }
 
     /**
+     * Builder pour le ProduitDo
+     * 
+     * @param id
+     * @param designation
+     * @param reference
+     * @param description
+     * @param prix
+     * @param image
+     * @param numeroVersion
+     * @param actif
+     * @return le produitDo initialisé
+     */
+    public ProduitDo buildProduitDo(final Integer id, final String designation, final String reference, final String description, final double prix, final String image, final Integer numeroVersion,
+                    final Boolean actif) {
+        final ProduitDo produitDo = new ProduitDo();
+        produitDo.setId(id);
+        produitDo.setDesignation(designation);
+        produitDo.setReference(reference);
+        produitDo.setDescription(description);
+        produitDo.setPrix(prix);
+        produitDo.setImage(image);
+        produitDo.setNumeroVersion(numeroVersion);
+        produitDo.setActif(actif);
+
+        return produitDo;
+    }
+
+    /**
      * @return the id
      */
     public Integer getId() {
