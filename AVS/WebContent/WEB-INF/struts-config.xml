@@ -45,7 +45,7 @@
 		<action path="/connecterUser" scope="request"
 			input="voirConnecterUser" parameter="" name="connecterUserForm"
 			type="presentation.users.action.ConnecterUserAction">
-			<forward name="success" path="template" redirect="true"></forward>
+			<forward name="success" path="listerProduitClient.do" redirect="true"></forward>
 			<forward name="notSuccess" path="voirConnecterUser"
 				redirect="false" />
 		</action>
