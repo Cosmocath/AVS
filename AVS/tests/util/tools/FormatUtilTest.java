@@ -1,7 +1,7 @@
 /**
  * 
  */
-package util;
+package util.tools;
 
 import java.util.Calendar;
 
