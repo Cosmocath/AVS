@@ -1,4 +1,3 @@
-<%@page import="presentation.users.action.ConnecterUserAction"%>
 <%@include file="/jsp/tiles/taglib.jsp"%>
 
 <div style="background-color: gray; height: 100%; padding: 10px">

@@ -103,7 +103,7 @@ DROP TABLE IF EXISTS `avs`.`ProduitVendu` ;
 CREATE TABLE IF NOT EXISTS `avs`.`ProduitVendu` (
   `id_ProduitVendu` INT NOT NULL AUTO_INCREMENT,
   `designation` VARCHAR(255) NOT NULL,
-  `reference` INT NOT NULL,
+  `reference` VARCHAR(255) NOT NULL,
   `description` VARCHAR(255) NOT NULL,
   `prix` FLOAT NOT NULL,
   `image` VARCHAR(255) NOT NULL,
@@ -121,7 +121,7 @@ DROP TABLE IF EXISTS `avs`.`Produit` ;
 CREATE TABLE IF NOT EXISTS `avs`.`Produit` (
   `id_Produit` INT NOT NULL AUTO_INCREMENT,
   `designation` VARCHAR(255) NOT NULL,
-  `reference` INT NOT NULL,
+  `reference` VARCHAR(255) NOT NULL,
   `description` VARCHAR(255) NOT NULL,
   `prix` FLOAT NOT NULL,
   `image` VARCHAR(255) NOT NULL,
