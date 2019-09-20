@@ -84,6 +84,11 @@
 
 		<!-- Action de l'équipe User -->
 
+		<action path="/listerUser" scope="request" input=""
+			parameter="" type="presentation.users.action.ListerUserAction">
+			<forward name="success" path="listerUser" redirect="true"></forward>
+		</action>
+
 
 		<!-- Action de l'équipe Panier -->
 
