@@ -3,7 +3,6 @@ package persistance.factory;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.junit.jupiter.api.Test;
@@ -13,13 +12,14 @@ import org.junit.jupiter.api.Test;
  *
  */
 class HibernateFactoryTest {
+
     public static SessionFactory sessionFactory = HibernateFactory.getSessionFactory();
 
     /**
      * Test method for {@link persistance.factory.HibernateFactory#getSessionFactory()}.
      */
     @Test
-    final void testGetSessionFactory() {
+    public final void testGetSessionFactory() {
         assertNotNull(sessionFactory);
         assertEquals(sessionFactory, HibernateFactory.getSessionFactory());
         try (final Session session = sessionFactory.openSession()) {

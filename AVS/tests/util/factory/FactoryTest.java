@@ -3,12 +3,11 @@ package util.factory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import util.factory.Factory;
-import util.factoryClass.IClassNoImpl;
-import util.factoryClass.IClassNoPrivateConstructor;
-import util.factoryClass.IClassNotImplemented;
-import util.factoryClass.IClassOk;
-import util.factoryClass.impl.ClassOk;
+import util.factory.factoryClass.IClassNoImpl;
+import util.factory.factoryClass.IClassNoPrivateConstructor;
+import util.factory.factoryClass.IClassNotImplemented;
+import util.factory.factoryClass.IClassOk;
+import util.factory.factoryClass.impl.ClassOk;
 
 /**
  * @author Xavier
