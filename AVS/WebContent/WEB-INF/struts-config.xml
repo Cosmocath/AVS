@@ -15,16 +15,6 @@
 	<action-mappings
 		type="org.apache.struts.action.ActionMapping">
 
-		<!-- TODO à titre d'exemple, à supprimer -->
-
-		<!-- LE TEST : TODO à titre d'exemple, à supprimer -->
-
-		<action path="/TestHello" scope="request" input="" parameter=""
-			type="presentation.testStruts.TestHello">
-			<!-- le path n'est pas une jsp mais le nom defini dans le tiles-defs.xml -->
-			<forward name="success" path="templateTest" redirect="false"></forward>
-		</action>
-
 		<action path="/listerCommande" scope="request" input=""
 			parameter="" type="presentation.commande.action.ListerCommandeAction">
 			<forward name="success" path="listerCommande"
@@ -54,7 +44,8 @@
 		<action path="/connecterUser" scope="request"
 			input="voirConnecterUser" parameter="" name="connecterUserForm"
 			type="presentation.users.action.ConnecterUserAction">
-			<forward name="success" path="listerProduitClient.do" redirect="true"></forward>
+			<forward name="success" path="listerProduitClient.do"
+				redirect="true"></forward>
 			<forward name="notSuccess" path="voirConnecterUser"
 				redirect="false" />
 		</action>
