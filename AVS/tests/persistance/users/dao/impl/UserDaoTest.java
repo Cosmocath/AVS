@@ -1,4 +1,4 @@
-package persistance.dao;
+package persistance.users.dao.impl;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;

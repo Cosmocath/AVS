@@ -1,4 +1,4 @@
-package util;
+package util.enumeration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -13,6 +13,7 @@ import util.enumeration.TypeDeProfil;
  */
 class TypeDeProfilTest {
 
+    // TODO XSI : Javadoc
     @Test
     void test() {
         assertEquals(TypeDeProfil.ADMINISTRATEUR, TypeDeProfil.getValue("admin"));

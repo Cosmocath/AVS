@@ -1,7 +1,7 @@
 /**
  * 
  */
-package util.factoryClass;
+package util.factory.factoryClass;
 
 /**
  * @author Xavier
