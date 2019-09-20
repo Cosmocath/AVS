@@ -18,11 +18,12 @@ public interface IDroitService {
     Map<String, List<String>> findAllDroitsWithProfil();
 
     /**
-     * permet de verifier si le profil a accès à l'url, elle peut renvoyer une exception si le l'url est inconnue
+     * permet de verifier si le profil a accès à l'url, elle peut renvoyer une exception si l'url est inconnue
      * 
-     * @param profil à tester
-     * @param l'url
+     * @param url
+     * @param profil
      * @return true si Accès ok, sinon false
+     * @throws IllegalArgumentException si l'url est inconnue
      */
     boolean isAcces(final String url, final String profil) throws IllegalArgumentException;
 }
