@@ -1,5 +1,7 @@
 package persistance.users.dao.impl;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.hibernate.HibernateException;
@@ -11,6 +13,7 @@ import org.hibernate.query.Query;
 import persistance.factory.HibernateFactory;
 import persistance.users.beanDo.UserDo;
 import persistance.users.dao.IUserDao;
+import util.enumeration.OrderBy;
 
 /**
  * Implementation de IUserDao
@@ -50,4 +53,28 @@ public class UserDao implements IUserDao {
         }
         return null;
     }
+
+    @Override
+    public List<UserDo> findAllUserOrderBy(final OrderBy orderBy) {
+        try (final Session session = sessionFactory.openSession()) {
+            final Transaction transaction = session.beginTransaction();
+            String req = "From UserDo WHERE actif = 1 ORDER BY mail";
+            if (OrderBy.ASC.equals(orderBy)) {
+                req += " ASC";
+            } else {
+                req += " DESC";
+            }
+            final Query<UserDo> query = session.createQuery(req, UserDo.class);
+            final List<UserDo> listeUserDo = query.getResultList();
+            session.flush();
+            transaction.commit();
+            return listeUserDo;
+
+            // On gère l'exception 
+        } catch (final HibernateException hibernateException) {
+            hibernateException.printStackTrace();
+        }
+        return new ArrayList<>();
+    }
+
 }
