@@ -15,7 +15,7 @@ import presentation.users.beanDto.UserDto;
 import presentation.users.form.UserForm;
 import service.users.IUserService;
 import service.users.impl.UserMapper;
-import util.Factory;
+import util.factory.Factory;
 
 /**
  * Action permettant de connecter un user

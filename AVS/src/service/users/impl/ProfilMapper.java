@@ -5,7 +5,7 @@ package service.users.impl;
 
 import persistance.users.beanDo.ProfilDo;
 import presentation.users.beanDto.ProfilDto;
-import util.TypeDeProfil;
+import util.enumeration.TypeDeProfil;
 
 /**
  * @author Administrator
@@ -18,12 +18,13 @@ public class ProfilMapper {
      * @return
      */
     public static TypeDeProfil mapProfilDoToTypeProfil(final ProfilDo profilDo) {
+
         switch (profilDo.getNom()) {
-            case "Administrateur" :
+            case "admin" :
                 return TypeDeProfil.ADMINISTRATEUR;
-            case "Client" :
+            case "client" :
                 return TypeDeProfil.CLIENT;
-            case "Visiteur" :
+            case "visiteur" :
                 return TypeDeProfil.VISITEUR;
             default :
                 return null;

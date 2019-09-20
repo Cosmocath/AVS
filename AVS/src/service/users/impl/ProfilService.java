@@ -7,7 +7,7 @@ import persistance.users.beanDo.ProfilDo;
 import persistance.users.dao.IProfilDao;
 import presentation.users.beanDto.ProfilDto;
 import service.users.IProfilService;
-import util.Factory;
+import util.factory.Factory;
 
 /**
  * @author Administrateur

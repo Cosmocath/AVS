@@ -7,7 +7,7 @@ import persistance.users.dao.IUserDao;
 import presentation.users.beanDto.ConnectedUserDto;
 import presentation.users.beanDto.UserDto;
 import service.users.IUserService;
-import util.Factory;
+import util.factory.Factory;
 
 /**
  * 

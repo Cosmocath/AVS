@@ -10,8 +10,9 @@ import presentation.users.beanDto.ProfilDto;
 import presentation.users.beanDto.UserDto;
 import presentation.users.form.UserForm;
 import service.users.IProfilService;
-import util.Factory;
-import util.FormatUtil;
+import util.factory.Factory;
+import util.tools.FormatUtil;
+import util.enumeration.TypeDeProfil;
 
 /**
  * Mapper Dto/Do bidirectionnel pour un User
@@ -112,5 +113,26 @@ public class UserMapper {
         }
 
         return userDto;
+    }
+
+    /**
+     * Permet de mapper TypeDeProfil en String
+     * 
+     * @param typeDeProfil
+     * @return le profil
+     */
+    public static String mapTypeProfilToProfil(final TypeDeProfil typeDeProfil) {
+
+        switch (typeDeProfil) {
+            case ADMINISTRATEUR :
+                return "admin";
+            case CLIENT :
+                return "client";
+            case VISITEUR :
+                return "visiteur";
+            default :
+                return "visiteur";
+        }
+
     }
 }
