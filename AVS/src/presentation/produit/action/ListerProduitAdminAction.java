@@ -15,8 +15,8 @@ import org.apache.struts.action.ActionMapping;
 
 import presentation.produit.beanDto.ProduitDto;
 import service.produit.IProduitService;
-import util.Factory;
-import util.OrderBy;
+import util.enumeration.OrderBy;
+import util.factory.Factory;
 
 /**
  * @author Catherine Hermary

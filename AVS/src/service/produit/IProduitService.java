@@ -1,8 +1,9 @@
 package service.produit;
 
 import java.util.List;
+
 import presentation.produit.beanDto.ProduitDto;
-import util.OrderBy;
+import util.enumeration.OrderBy;
 
 /**
  * 
@@ -30,10 +31,19 @@ public interface IProduitService {
     List<ProduitDto> findAllProduitAdminOrderBy(final OrderBy orderBy);
 
     /**
+     * Création d'un produit
+     * 
+     * @param le produit à créer
+     * @return le produit créé
+     */
+    ProduitDto create(final ProduitDto produitDto);
+
+    /**
      * Permet de faire appel à la couche persistance afin de rechercher un Produit en BDD à partir de son id
      * 
      * @param idProduit = id du Produit recherché
      * @return un ProduitDto contenant les informations du Produit recherché, null si non existant
      */
     ProduitDto getProduitById(final int idProduit);
+
 }

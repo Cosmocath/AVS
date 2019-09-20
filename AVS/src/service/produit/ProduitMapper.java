@@ -51,4 +51,25 @@ public class ProduitMapper {
         }
         return listeProduitDto;
     }
+
+    /**
+     * Permet de mapper un ProduitDto en ProduitDo
+     * 
+     * @param produitDto
+     * @return le produitDo
+     */
+    public static ProduitDo mapDtoToDo(final ProduitDto produitDto) {
+        final ProduitDo produitDo = new ProduitDo();
+        produitDo.setId(produitDto.getId());
+        produitDo.setDesignation(produitDto.getDesignation());
+        produitDo.setReference(produitDto.getReference());
+        produitDo.setDescription(produitDto.getDescription());;
+        produitDo.setPrix(produitDto.getPrix());
+        // TODO RKU : gérer l'image
+        //produitDo.setImage(produitDto.getImage());
+        produitDo.setImage("null");
+        produitDo.setNumeroVersion(produitDto.getNoVersion());
+        produitDo.setActif(true);
+        return produitDo;
+    }
 }
