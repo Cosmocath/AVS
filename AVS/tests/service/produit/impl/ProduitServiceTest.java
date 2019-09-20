@@ -1,4 +1,4 @@
-package service.produit;
+package service.produit.impl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -18,6 +18,7 @@ import org.junit.jupiter.api.Test;
 
 import persistance.factory.HibernateFactory;
 import presentation.produit.beanDto.ProduitDto;
+import service.produit.IProduitService;
 import util.enumeration.OrderBy;
 import util.factory.Factory;
 
