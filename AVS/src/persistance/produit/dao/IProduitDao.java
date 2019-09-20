@@ -3,7 +3,7 @@ package persistance.produit.dao;
 import java.util.List;
 
 import persistance.produit.beanDo.ProduitDo;
-import util.OrderBy;
+import util.enumeration.OrderBy;
 
 /**
  * 

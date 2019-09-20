@@ -15,7 +15,7 @@ import presentation.produit.beanDto.ProduitDto;
 import presentation.produit.form.ProduitForm;
 import service.produit.IProduitService;
 import util.ConversionUtil;
-import util.Factory;
+import util.factory.Factory;
 
 /**
  * Action permettant de créer un produit

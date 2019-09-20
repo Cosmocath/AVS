@@ -7,8 +7,8 @@ import persistance.produit.dao.IProduitDao;
 import presentation.produit.beanDto.ProduitDto;
 import service.produit.IProduitService;
 import service.produit.ProduitMapper;
-import util.Factory;
-import util.OrderBy;
+import util.enumeration.OrderBy;
+import util.factory.Factory;
 
 /**
  * Implémentation du service pour gérer les produits
@@ -52,6 +52,7 @@ public class ProduitService implements IProduitService {
         return null;
     }
 
+    // TODO XSI : @Override
     public ProduitDto getProduitById(final int idProduit) {
         final IProduitDao iProduitDao = Factory.getInstance(IProduitDao.class);
         // on pourrait ne pas utiliser cette variable
