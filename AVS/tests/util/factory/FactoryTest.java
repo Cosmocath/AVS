@@ -1,6 +1,3 @@
-/**
- * 
- */
 package util.factory;
 
 import org.junit.jupiter.api.Assertions;

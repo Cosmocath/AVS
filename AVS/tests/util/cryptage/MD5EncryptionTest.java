@@ -1,6 +1,3 @@
-/**
- * 
- */
 package util.cryptage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

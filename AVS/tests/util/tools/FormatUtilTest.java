@@ -1,6 +1,3 @@
-/**
- * 
- */
 package util.tools;
 
 import java.util.Calendar;
