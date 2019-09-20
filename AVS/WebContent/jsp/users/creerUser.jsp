@@ -55,12 +55,21 @@
 							maxlength="25"></html:text></td>
 					<td><html:errors property="adresse" /></td>
 				</tr>
-				<tr>
-					<td align="right"><bean:message key="USR_01.profil"></bean:message></td>
-					<td align="left"><html:radio property="profil" value="1" >Client</html:radio>
-						<html:radio property="profil" value="2"></html:radio>Admininstrateur</td>
-					<td><html:errors property="profil" /></td>
-				</tr>
+				<logic:present name="userConnected" scope="session">
+					<tr>
+						<td align="right"><bean:message key="USR_01.profil"></bean:message></td>
+						<td align="left"><html:radio property="profil" value="1">Client</html:radio>
+							<html:radio property="profil" value="2"></html:radio>Admininstrateur</td>
+						<td><html:errors property="profil" /></td>
+					</tr>
+				</logic:present>
+
+				<logic:notPresent name="userConnected" scope="session">
+					<tr>
+						<td align="right"><html:hidden property="profil" value="2" /></td>
+						<td><html:errors property="profil" /></td>
+					</tr>
+				</logic:notPresent>
 				<tr>
 					<td align="right"><html:submit property="submit"
 							value="Valider" /></td>
@@ -68,12 +77,5 @@
 				<tr></tr>
 			</table>
 		</html:form>
-
-		<%-- Permet d'afficher les messages si present --%>
-		<logic:messagesPresent message="true">
-			<html:messages id="connexionOK" property="connexionOK" message="true">
-				<bean:write name="connexionOK" />
-			</html:messages>
-		</logic:messagesPresent>
 	</div>
 </div>

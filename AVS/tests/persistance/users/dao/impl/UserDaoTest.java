@@ -37,7 +37,7 @@ class UserDaoTest {
         try (final Session session = HibernateFactory.getSessionFactory().openSession()) {
             final Transaction transaction = session.beginTransaction();
             // on lit le fichier
-            try (final Scanner scanner = new Scanner(new FileReader("test/dataSet/avs_DML.sql"))) {
+            try (final Scanner scanner = new Scanner(new FileReader("tests/dataSet/avs_DML.sql"))) {
                 while (scanner.hasNext()) {
                     final String sql = scanner.nextLine();
                     // pour chaque ligne non vide

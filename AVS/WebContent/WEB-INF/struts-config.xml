@@ -101,7 +101,7 @@
 		</action>
 
 		<action path="/creerUser" scope="request" input="voirCreerUser"
-			parameter="" name="creerUserForm"
+			parameter="" name="userForm"
 			type="presentation.users.action.CreerUserAction">
 			<forward name="success" path="template" redirect="true"></forward>
 			<forward name="notSuccess" path="voirCreerUser"

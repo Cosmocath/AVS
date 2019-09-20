@@ -1,5 +1,7 @@
 package presentation.users.action;
 
+import java.text.ParseException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -11,11 +13,12 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 
+import presentation.users.beanDto.ProfilDto;
 import presentation.users.beanDto.UserDto;
 import presentation.users.form.UserForm;
 import service.users.IUserService;
-import service.users.impl.UserMapper;
 import util.factory.Factory;
+import util.tools.FormatUtil;
 
 /**
  * Action permettant de connecter un user
@@ -25,12 +28,37 @@ import util.factory.Factory;
  */
 public class CreerUserAction extends Action {
 
+    /**
+     * permet de mapper un userForm en userDto
+     * 
+     * @param userForm
+     * @return le UserDto
+     * @throws ParseException
+     */
+    private static UserDto mapFormToDto(final UserForm userForm) throws ParseException {
+        final UserDto userDto = new UserDto();
+        userDto.setNom(userForm.getNom());
+        userDto.setPrenom(userForm.getPrenom());
+        userDto.setDateNaissance(FormatUtil.convertirStringToDate(userForm.getDateNaissance()));
+        userDto.setAdresse(userForm.getAdresse());
+        userDto.setPassword(userForm.getPassword());
+        userDto.setMail(userForm.getMail());
+        userDto.setActif(true);
+
+        final ProfilDto profilDto = new ProfilDto();
+        profilDto.setId(Integer.parseInt(userForm.getProfil()));
+
+        userDto.setProfilDto(profilDto);
+
+        return userDto;
+    }
+
     @Override
     public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         final UserForm userForm = (UserForm) form;
         final IUserService iUserService = Factory.getInstance(IUserService.class);
 
-        final UserDto userDto = iUserService.createUser(UserMapper.mapFormToDto(userForm));
+        final UserDto userDto = iUserService.createUser(mapFormToDto(userForm));
 
         if (userDto == null) {
             final ActionErrors errors = new ActionErrors();

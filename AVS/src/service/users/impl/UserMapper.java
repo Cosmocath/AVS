@@ -1,18 +1,11 @@
 package service.users.impl;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
 import persistance.users.beanDo.UserDo;
 import presentation.users.beanDto.ConnectedUserDto;
-import presentation.users.beanDto.ProfilDto;
 import presentation.users.beanDto.UserDto;
-import presentation.users.form.UserForm;
-import service.users.IProfilService;
-import util.factory.Factory;
-import util.tools.FormatUtil;
-import util.enumeration.TypeDeProfil;
 
 /**
  * Mapper Dto/Do bidirectionnel pour un User
@@ -71,8 +64,10 @@ public class UserMapper {
     }
 
     /**
+     * permet de mapper le userDto en userDo
+     * 
      * @param userDto
-     * @return
+     * @return le userDo
      */
     public static UserDo mapToDo(final UserDto userDto) {
         final UserDo userDo = new UserDo();
@@ -86,53 +81,5 @@ public class UserMapper {
         userDo.setActif(userDto.isActif());
         userDo.setProfilDo(ProfilMapper.mapProfilDtoToProfilDo(userDto.getProfilDto()));
         return userDo;
-    }
-
-    /**
-     * @param userForm
-     * @return
-     * @throws ParseException
-     */
-    public static UserDto mapFormToDto(final UserForm userForm) throws ParseException {
-        final UserDto userDto = new UserDto();
-        userDto.setNom(userForm.getNom());
-        userDto.setPrenom(userForm.getPrenom());
-        userDto.setDateNaissance(FormatUtil.convertirStringToDate(userForm.getDateNaissance()));
-        userDto.setAdresse(userForm.getAdresse());
-        userDto.setPassword(userForm.getPassword());
-        userDto.setMail(userForm.getMail());
-        userDto.setActif(true);
-
-        final IProfilService iProfilService = Factory.getInstance(IProfilService.class);
-        if (userForm.getProfil() != null) {
-            final ProfilDto profilDto = iProfilService.findProfilById(Integer.parseInt(userForm.getProfil()));
-            userDto.setProfilDto(profilDto);
-        } else {
-            final ProfilDto profilDto = iProfilService.findProfilById(2);
-            userDto.setProfilDto(profilDto);
-        }
-
-        return userDto;
-    }
-
-    /**
-     * Permet de mapper TypeDeProfil en String
-     * 
-     * @param typeDeProfil
-     * @return le profil
-     */
-    public static String mapTypeProfilToProfil(final TypeDeProfil typeDeProfil) {
-
-        switch (typeDeProfil) {
-            case ADMINISTRATEUR :
-                return "admin";
-            case CLIENT :
-                return "client";
-            case VISITEUR :
-                return "visiteur";
-            default :
-                return "visiteur";
-        }
-
     }
 }

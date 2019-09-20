@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import presentation.users.action.ConnecterUserAction;
 import presentation.users.beanDto.ConnectedUserDto;
 import service.droit.IDroitService;
-import service.users.impl.UserMapper;
+import service.users.impl.ProfilMapper;
 import util.enumeration.TypeDeProfil;
 import util.factory.Factory;
 
@@ -41,7 +41,7 @@ public class FiltreDroitAcces extends HttpFilter {
         }
 
         //on mappe typeDeProfil en profil string
-        final String profil = UserMapper.mapTypeProfilToProfil(typeDeProfil);
+        final String profil = ProfilMapper.mapTypeProfilToProfil(typeDeProfil);
 
         //je recupère l'url en request
         final String url = request.getRequestURI().substring(request.getContextPath().length() + 1);

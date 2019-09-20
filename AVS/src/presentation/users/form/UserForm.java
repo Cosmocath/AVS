@@ -70,7 +70,10 @@ public class UserForm extends ActionForm {
         } else if (!password.equals(confirmpassword)) {
             errors.add("password", new ActionMessage("USR_01.errors.password.match"));
         }
-
+        
+        if (Tools.isEmpty(profil)) {
+            errors.add("profil", new ActionMessage("USR_01.errors.profil.obligatoire"));
+        }
         return errors;
     }
 

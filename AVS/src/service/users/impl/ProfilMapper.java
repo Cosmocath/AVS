@@ -32,6 +32,28 @@ public class ProfilMapper {
     }
 
     /**
+     * Permet de mapper TypeDeProfil en String
+     * 
+     * @param typeDeProfil
+     * @return le profil
+     */
+    public static String mapTypeProfilToProfil(final TypeDeProfil typeDeProfil) {
+
+        switch (typeDeProfil) {
+            case ADMINISTRATEUR :
+                return "admin";
+            case CLIENT :
+                return "client";
+            case VISITEUR :
+                return "visiteur";
+            default :
+                return "visiteur";
+        }
+    }
+
+    /**
+     * Permet de mapper ProfilDo en ProfilDto
+     * 
      * @param profilDo
      * @return
      */
@@ -43,8 +65,10 @@ public class ProfilMapper {
     }
 
     /**
+     * Permet de mapper ProfilDto en ProfilDo
+     * 
      * @param profilDto
-     * @return
+     * @return le profilDo
      */
     public static ProfilDo mapProfilDtoToProfilDo(final ProfilDto profilDto) {
         final ProfilDo profilDo = new ProfilDo();
