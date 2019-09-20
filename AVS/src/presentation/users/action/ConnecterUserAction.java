@@ -36,7 +36,6 @@ public class ConnecterUserAction extends Action {
         // on récupère les données du Service
         final IUserService iUserService = Factory.getInstance(IUserService.class);
         final ConnectedUserDto connectedUserDto = iUserService.findUserForConnexion(connecterUserForm.getMail(), connecterUserForm.getPassword());
-        final PanierDto panierDto = new PanierDto();
         // on teste le retour du service
         if (connectedUserDto == null) {
             final ActionErrors errors = new ActionErrors();
@@ -49,6 +48,7 @@ public class ConnecterUserAction extends Action {
             messages.add("creationOK", new ActionMessage("creer.ok"));
             saveMessages(request, messages);
             session.setAttribute(USER_CONNECTED, connectedUserDto);
+            final PanierDto panierDto = new PanierDto();
             session.setAttribute(MON_PANIER, panierDto);
             return mapping.findForward("success");
         }

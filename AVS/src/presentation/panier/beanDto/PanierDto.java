@@ -1,6 +1,3 @@
-/**
- * 
- */
 package presentation.panier.beanDto;
 
 import java.io.Serializable;
@@ -10,6 +7,8 @@ import java.util.Map;
 import presentation.produit.beanDto.ProduitDto;
 
 /**
+ * PanierDto couche presentation pour l'ecran
+ * 
  * @author Administrateur
  *
  */
@@ -29,7 +28,7 @@ public class PanierDto implements Serializable {
     private Double                   totalApresRemise;
 
     //map de produit par rapport à leur qté 
-    private Map<ProduitDto, Integer> mapDesProduitsQte = new HashMap<ProduitDto, Integer>();
+    private Map<ProduitDto, Integer> mapDesProduitsQte = new HashMap<>();
 
     /**
      * Construsteur par defaut

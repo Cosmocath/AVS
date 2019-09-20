@@ -1,8 +1,6 @@
 <%@page import="presentation.panier.action.VoirPanierAction"%>
 <%@include file="/jsp/tiles/taglib.jsp"%>
 
-
-
 <div
 	style="background-color: white; height: auto; width: auto; border: 2px solid black; text-align: left; margin-top: 100px; align: center;">
 	<h1 style="background: white; margin-top: -30px;">Panier</h1>
