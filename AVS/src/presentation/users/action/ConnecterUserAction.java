@@ -16,7 +16,7 @@ import presentation.panier.beanDto.PanierDto;
 import presentation.users.beanDto.ConnectedUserDto;
 import presentation.users.form.ConnecterUserForm;
 import service.users.IUserService;
-import util.Factory;
+import util.factory.Factory;
 
 /**
  * Action permettant de connecter un user

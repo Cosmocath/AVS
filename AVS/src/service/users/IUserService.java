@@ -1,6 +1,10 @@
 package service.users;
 
+import java.util.List;
+
 import presentation.users.beanDto.ConnectedUserDto;
+import presentation.users.beanDto.UserDto;
+import util.enumeration.OrderBy;
 
 /**
  * Interface permettant de déclarer les méthodes du business service UserService
@@ -18,5 +22,13 @@ public interface IUserService {
      * @return un ConnectedUserDto du user rechérché, null si non trouvé
      */
     ConnectedUserDto findUserForConnexion(final String mail, final String password);
+
+    /**
+     * permet de faire appel a la couche persistance afin de rechercher tous les users stockés en BDD Méthode permettant de trier la liste par ordre alphabétique asc ou desc
+     * 
+     * @param enum {@link OrderBy} asc ou desc
+     * @return la liste des users par ordre alphabétique
+     */
+    List<UserDto> findAllUserOrderBy(final OrderBy orderBy);
 
 }

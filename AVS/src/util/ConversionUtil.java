@@ -1,17 +1,18 @@
 package util;
 
+import util.tools.Tools;
+
 /**
  * Outils de conversion
  * 
  * @author Rodolphe
  *
  */
+// TODO XSI : à déplacer
 public class ConversionUtil {
 
     /**
-     * Transforme la virgule d'un décimal en point (pour gestion des doubles)
-     * (typiquement les champ "prix", "montant" des formulaires)
-     * exemple : 1,25 => 1.25
+     * Transforme la virgule d'un décimal en point (pour gestion des doubles) (typiquement les champ "prix", "montant" des formulaires) exemple : 1,25 => 1.25
      * 
      * @param decimalAVirgule (typiquement les champ "prix", "montant" des formulaires)
      * @return un double avec un point

@@ -3,7 +3,7 @@ package service.produit;
 import java.util.List;
 
 import presentation.produit.beanDto.ProduitDto;
-import util.OrderBy;
+import util.enumeration.OrderBy;
 
 /**
  * 

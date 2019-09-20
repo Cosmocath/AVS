@@ -12,8 +12,8 @@ import org.apache.struts.action.ActionMapping;
 
 import presentation.produit.beanDto.ProduitDto;
 import service.produit.IProduitService;
-import util.Factory;
-import util.OrderBy;
+import util.enumeration.OrderBy;
+import util.factory.Factory;
 
 /**
  * Classe permettant de créer l'action de lister les produit par ordre alphabétique asc ou desc
