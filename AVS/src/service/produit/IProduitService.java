@@ -1,7 +1,6 @@
 package service.produit;
 
 import java.util.List;
-
 import presentation.produit.beanDto.ProduitDto;
 import util.OrderBy;
 
@@ -21,6 +20,14 @@ public interface IProduitService {
      * @return la liste des produits par ordre alphabétique
      */
     List<ProduitDto> findAllProduitOrderBy(final OrderBy orderBy);
+
+    /**
+     * Méthode permettant de trier la liste par ordre alphabétique asc ou desc (cette liste n'est visible que par l'administrateur)
+     * 
+     * @param enum {@link OrderBy} asc ou desc
+     * @return la liste de tous les produits dans l'ordre alphabétique (disponibles et indisponibles)
+     */
+    List<ProduitDto> findAllProduitAdminOrderBy(final OrderBy orderBy);
 
     /**
      * Permet de faire appel à la couche persistance afin de rechercher un Produit en BDD à partir de son id

@@ -111,7 +111,9 @@ INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(20,
 INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(12, 'jadinage', 'AB3456', 'entretien de jardin', 30, 'null', 1, b'1');
 INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(13, 'menage', 'BC7654', 'entretien d_interieur', 20, 'null', 1, b'0');
 INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(14, 'demenagement', 'DE6789', 'service_au_demenagement', 40, 'null', 1, b'1');
-
+INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(15, 'bricolage', 'FG1234', 'petits travaux de reparation', 50, 'null', 1, b'0');
+INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(16, 'assistance informatique', 'HI5678', 'installation de logiciels', 25, 'null', 1, b'0');
+INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(17, 'soutien scolaire', 'JK9123', 'aide aux devoirs', 25, 'null', 1, b'0');
 COMMIT;
 
 

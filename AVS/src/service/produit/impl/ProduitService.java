@@ -36,6 +36,13 @@ public class ProduitService implements IProduitService {
     }
 
     @Override
+    public List<ProduitDto> findAllProduitAdminOrderBy(final OrderBy orderBy) {
+        final IProduitDao iProduitDao = Factory.getInstance(IProduitDao.class);
+        final List<ProduitDo> listeProduitDo = iProduitDao.findAllProduitAdminOrderBy(orderBy);
+        return ProduitMapper.mapToListDto(listeProduitDo);
+    }
+
+    @Override
     public ProduitDto getProduitById(final int idProduit) {
         final IProduitDao iProduitDao = Factory.getInstance(IProduitDao.class);
         // on pourrait ne pas utiliser cette variable

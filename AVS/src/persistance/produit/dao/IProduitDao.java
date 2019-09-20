@@ -23,6 +23,14 @@ public interface IProduitDao {
     List<ProduitDo> findAllProduitOrderBy(final OrderBy orderBy);
 
     /**
+     * Affiche la liste de tous les produits dans l'ordre alphabétique. cette liste sera visible pour l'administrateur uniquement
+     * 
+     * @param enum {@link OrderBy} asc ou desc
+     * @return la liste de tous les produits dans l'ordre alphabétique (disponibles et indisponibles)
+     */
+    List<ProduitDo> findAllProduitAdminOrderBy(final OrderBy orderBy);
+
+    /**
      * Permet de rechercher un produit selon son Id
      * 
      * @param idProduit du produit recherché

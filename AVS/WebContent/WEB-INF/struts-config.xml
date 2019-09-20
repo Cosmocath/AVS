@@ -35,6 +35,13 @@
 				redirect="false"></forward>
 		</action>
 
+		<action path="/listerProduitAdmin" scope="request" input=""
+			parameter=""
+			type="presentation.produit.action.ListerProduitAdminAction">
+			<forward name="success" path="listerProduitAdmin"
+				redirect="false"></forward>
+		</action>
+
 		<action path="/consulterProduit" scope="request" input=""
 			parameter=""
 			type="presentation.produit.action.ConsulterProduitAction">

@@ -67,6 +67,20 @@ class ProduitDaoTest {
     }
 
     /**
+     * Test method for {@link persistance.produit.dao.impl.ProduitDao#findAllProduitAdminOrderBy(util.OrderBy)}.
+     */
+    @Test
+    void testFindAllProduitAdminOrderBy() {
+        final IProduitDao iProduitDao = Factory.getInstance(IProduitDao.class);
+        final List<ProduitDo> listeProduitDo = iProduitDao.findAllProduitAdminOrderBy(OrderBy.ASC);
+        assertEquals(6, listeProduitDo.size());
+        assertEquals("demenagement", listeProduitDo.get(2).getDesignation());
+        assertEquals("soutien scolaire", listeProduitDo.get(5).getDesignation());
+        assertEquals(true, listeProduitDo.get(2).getActif());
+        assertEquals(false, listeProduitDo.get(5).getActif());
+    }
+
+    /**
      * Test method for {@link persistance.produit.dao.impl.ProduitDao#findProduitById(java.lang.Integer)}.
      */
     @Test
