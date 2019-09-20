@@ -34,4 +34,11 @@ public enum TypeDeProfil {
         return null;
     }
 
+    /**
+     * @return the nomBD
+     */
+    public String getNomBD() {
+        return nomBD;
+    }
+
 }
