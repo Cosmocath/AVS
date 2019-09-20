@@ -31,20 +31,6 @@ public class UserMapper {
         return connectedUserDto;
     }
 
-    private static TypeDeProfil mapTypeProfilDoToTypeProfil(final ProfilDo profilDo) {
-
-        switch (profilDo.getNom()) {
-            case "admin" :
-                return TypeDeProfil.ADMINISTRATEUR;
-            case "client" :
-                return TypeDeProfil.CLIENT;
-            case "visiteur" :
-                return TypeDeProfil.VISITEUR;
-            default :
-                return null;
-        }
-    }
-
     /**
      * permet de mapper un userDo en userDto
      * 
@@ -80,23 +66,22 @@ public class UserMapper {
     }
 
     /**
+     * Permet de mapper un profil en TypeDeProfil
+     * 
+     * @param profilDo
+     * @return la valeur de l'enum TypeDeProfil
+     */
+    private static TypeDeProfil mapTypeProfilDoToTypeProfil(final ProfilDo profilDo) {
+        return TypeDeProfil.getValue(profilDo.getNom());
+    }
+
+    /**
      * Permet de mapper TypeDeProfil en String
      * 
      * @param typeDeProfil
      * @return le profil
      */
     public static String mapTypeProfilToProfil(final TypeDeProfil typeDeProfil) {
-
-        switch (typeDeProfil) {
-            case ADMINISTRATEUR :
-                return "admin";
-            case CLIENT :
-                return "client";
-            case VISITEUR :
-                return "visiteur";
-            default :
-                return "visiteur";
-        }
-
+        return typeDeProfil.getNomBD();
     }
 }
