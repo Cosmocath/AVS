@@ -49,7 +49,9 @@
 	
 	<!-- Equipe Commande -->
 
-
 	<!-- Equipe Panier -->
+	<definition name="afficherPanier" extends="template">
+		<put name="body" value="/jsp/panier/panier.jsp" />
+	</definition>
 
 </tiles-definitions>

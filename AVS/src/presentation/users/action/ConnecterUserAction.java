@@ -12,6 +12,7 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 
+import presentation.panier.beanDto.PanierDto;
 import presentation.users.beanDto.ConnectedUserDto;
 import presentation.users.form.ConnecterUserForm;
 import service.users.IUserService;
@@ -25,6 +26,7 @@ import util.Factory;
  */
 public class ConnecterUserAction extends Action {
     public static final String USER_CONNECTED = "userConnected";
+    public static final String MON_PANIER = "monPanierDto";
 
     @Override
     public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
@@ -34,6 +36,7 @@ public class ConnecterUserAction extends Action {
         // on récupère les données du Service
         final IUserService iUserService = Factory.getInstance(IUserService.class);
         final ConnectedUserDto connectedUserDto = iUserService.findUserForConnexion(connecterUserForm.getMail(), connecterUserForm.getPassword());
+        final PanierDto panierDto = new PanierDto();
         // on teste le retour du service
         if (connectedUserDto == null) {
             final ActionErrors errors = new ActionErrors();
@@ -46,6 +49,7 @@ public class ConnecterUserAction extends Action {
             messages.add("creationOK", new ActionMessage("creer.ok"));
             saveMessages(request, messages);
             session.setAttribute(USER_CONNECTED, connectedUserDto);
+            session.setAttribute(MON_PANIER, panierDto);
             return mapping.findForward("success");
         }
     }
