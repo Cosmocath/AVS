@@ -54,7 +54,8 @@
 		<action path="/connecterUser" scope="request"
 			input="voirConnecterUser" parameter="" name="connecterUserForm"
 			type="presentation.users.action.ConnecterUserAction">
-			<forward name="success" path="listerProduitClient.do" redirect="true"></forward>
+			<forward name="success" path="listerProduitClient.do"
+				redirect="true"></forward>
 			<forward name="notSuccess" path="voirConnecterUser"
 				redirect="false" />
 		</action>
@@ -70,7 +71,6 @@
 			<forward name="success" path="listerProduitClient"
 				redirect="true"></forward>
 		</action>
-
 
 		<!-- Action de l'équipe Produit -->
 		<action path="/listerProduitClient" scope="request" input=""
@@ -104,6 +104,7 @@
 
 
 		<!-- Action de l'équipe Commande -->
+
 
 	</action-mappings>
 

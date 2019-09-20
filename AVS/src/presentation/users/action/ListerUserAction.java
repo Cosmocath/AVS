@@ -16,6 +16,8 @@ import util.enumeration.OrderBy;
 import util.factory.Factory;
 
 /**
+ * permet de lister une liste d'utilisateur actif
+ * 
  * @author Administrateur
  *
  */

@@ -51,7 +51,10 @@ INSERT INTO `profil` (`id_Profil`, `nom`) VALUES(3, 'admin');
 
 INSERT INTO `utilisateur` (`id_Utilisateur`, `nom`, `prenom`, `date_naissance`, `adresse`, `mail`, `password`, `actif`, `id_Profil`) VALUES(7, 'ad', 'min', '1987-05-11', '19_rue_montebello', 'utili.sateur@outlook.com', 'pass', b'1', 3);
 INSERT INTO `utilisateur` (`id_Utilisateur`, `nom`, `prenom`, `date_naissance`, `adresse`, `mail`, `password`, `actif`, `id_Profil`) VALUES(8, 'cli', 'ent', '2000-09-25', '112_ave_republique', 'test.user@gmail.com', 'mdp', b'0', 2);
-
+INSERT INTO `utilisateur` (`id_Utilisateur`, `nom`, `prenom`, `date_naissance`, `adresse`, `mail`, `password`, `actif`, `id_Profil`) VALUES(9, 'Dupont', 'alfred', '1991-02-15', '84_rue_JeanBatsite_Leblanc', 'dup.al@outlook.com', 'mot', b'1', 2);
+INSERT INTO `utilisateur` (`id_Utilisateur`, `nom`, `prenom`, `date_naissance`, `adresse`, `mail`, `password`, `actif`, `id_Profil`) VALUES(10, 'Zuti', 'maria', '2004-01-02', '11_ave_Nicolas_Lebas', 'zut.ma@gmail.com', 'pwd', b'0', 2);
+INSERT INTO `utilisateur` (`id_Utilisateur`, `nom`, `prenom`, `date_naissance`, `adresse`, `mail`, `password`, `actif`, `id_Profil`) VALUES(11, 'Belka', 'sab', '1992-01-05', '84_rue_deLommes', 'bel.sab@outlook.com', 'secret', b'1', 3);
+INSERT INTO `utilisateur` (`id_Utilisateur`, `nom`, `prenom`, `date_naissance`, `adresse`, `mail`, `password`, `actif`, `id_Profil`) VALUES(12, 'Eg', 'emple', '1988-05-22', '11_ave_Bousbecque', 'eg.em@gmail.com', 'test', b'1', 2);
 --
 -- Déchargement des données de la table `commande`
 --

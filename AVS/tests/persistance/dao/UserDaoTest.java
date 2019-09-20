@@ -11,6 +11,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
 import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -73,9 +74,9 @@ class UserDaoTest {
     void testFindAllUserOrderBy() {
         final IUserDao iUserDao = Factory.getInstance(IUserDao.class);
         final List<UserDo> listeUserDo = iUserDao.findAllUserOrderBy(OrderBy.ASC);
-        Assert.assertNotNull(listeUserDo);
-        assertEquals(1, listeUserDo.size());
-        assertEquals("utili.sateur@outlook.com", listeUserDo.get(0).getMail());
+        Assertions.assertNotNull(listeUserDo);
+        assertEquals(4, listeUserDo.size());
+        assertEquals("bel.sab@outlook.com", listeUserDo.get(0).getMail());
     }
 
 }

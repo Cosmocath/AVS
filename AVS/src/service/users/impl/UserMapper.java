@@ -21,7 +21,7 @@ public class UserMapper {
      * Permet de mapper un UserDo en ConnectedUserDto
      * 
      * @param userDo
-     * @return
+     * @return un userDto connecté
      */
     public static ConnectedUserDto mapToConnectedUserDto(final UserDo userDo) {
         final ConnectedUserDto connectedUserDto = new ConnectedUserDto();
@@ -48,7 +48,7 @@ public class UserMapper {
      * permet de mapper un userDo en userDto
      * 
      * @param userDo
-     * @return
+     * @return un userDto
      */
     public static UserDto mapToDto(final UserDo userDo) {
         final UserDto userDto = new UserDto();

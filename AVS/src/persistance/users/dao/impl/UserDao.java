@@ -55,7 +55,7 @@ public class UserDao implements IUserDao {
     }
 
     @Override
-    public List<UserDo> findAllUserOrderBy(OrderBy orderBy) {
+    public List<UserDo> findAllUserOrderBy(final OrderBy orderBy) {
         try (final Session session = sessionFactory.openSession()) {
             final Transaction transaction = session.beginTransaction();
             String req = "From UserDo WHERE actif = 1 ORDER BY mail";

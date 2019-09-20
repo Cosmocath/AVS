@@ -34,7 +34,7 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public List<UserDto> findAllUserOrderBy(OrderBy orderBy) {
+    public List<UserDto> findAllUserOrderBy(final OrderBy orderBy) {
         final IUserDao iUserDao = Factory.getInstance(IUserDao.class);
         final List<UserDo> listeUserDo = iUserDao.findAllUserOrderBy(orderBy);
         return UserMapper.mapToListDto(listeUserDo);

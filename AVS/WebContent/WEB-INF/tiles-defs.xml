@@ -48,11 +48,10 @@
 	<definition name="creerProduit" extends="template">
 		<put name="body" value="/jsp/produit/creerProduit.jsp" />
 	</definition>
-	
+
 	<!-- Equipe Commande -->
 
 
 	<!-- Equipe Panier -->
-
 
 </tiles-definitions>

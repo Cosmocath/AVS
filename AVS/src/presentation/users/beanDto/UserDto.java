@@ -5,6 +5,8 @@ import java.util.Date;
 import util.enumeration.TypeDeProfil;
 
 /**
+ * Bean d'un utilisateur quelque soit son action
+ * 
  * @author Administrateur
  *
  */
@@ -19,6 +21,9 @@ public class UserDto {
     private boolean      actif;
     private TypeDeProfil profil;
 
+    /**
+     * constructeur du user dto
+     */
     public UserDto() {
         //emty method
     }
