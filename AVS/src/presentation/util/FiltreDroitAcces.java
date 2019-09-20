@@ -55,7 +55,8 @@ public class FiltreDroitAcces extends HttpFilter {
                 //si accès ok 
                 chain.doFilter(request, response);
             }
-        } catch (final NullPointerException nullPointerException) {
+            // si on recupère une exception pour un lien inconnue on redirige vers la liste des produit
+        } catch (final IllegalArgumentException illegalArgumentException) {
             response.sendRedirect(request.getContextPath() + "/listerProduitClient.do");
         }
 

@@ -77,11 +77,12 @@ public class DroitService implements IDroitService {
     }
 
     @Override
-    public boolean isAcces(final String url, final String profil) {
+    public boolean isAcces(final String url, final String profil) throws IllegalArgumentException {
         //on recupère la liste des profils
         final List<String> listeProfils = map.get(url);
+        // si l'url est inconnue on lance une exception
         if (listeProfils == null) {
-            throw new NullPointerException();
+            throw new IllegalArgumentException("Lien inconnue");
         }
         //je contrôle l'accès
         for (final String nomProfil : listeProfils) {
