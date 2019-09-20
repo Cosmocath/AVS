@@ -24,7 +24,9 @@
 	</definition>
 
 	<!-- Equipe Users -->
-
+	<definition name="listerUser" extends="template">
+		<put name="body" value="/jsp/users/listerUser.jsp" />
+	</definition>
 
 	<!-- Equipe Produit -->
 	<definition name="listerProduitClient" extends="template">
