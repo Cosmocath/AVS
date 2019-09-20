@@ -81,7 +81,7 @@ public class DroitService implements IDroitService {
         //on recupère la liste des profils
         final List<String> listeProfils = map.get(url);
         if (listeProfils == null) {
-            return false;
+            throw new NullPointerException();
         }
         //je contrôle l'accès
         for (final String nomProfil : listeProfils) {

@@ -46,14 +46,17 @@ public class FiltreDroitAcces extends HttpFilter {
         //je recupère l'url en request
         final String url = request.getRequestURI().substring(request.getContextPath().length() + 1);
 
-        //je contrôle l'accès
-        if (!iDroitService.isAcces(url, profil)) {
-            //si accès refusé on redirige vers la page de connection
-            response.sendRedirect(request.getContextPath() + "/voirConnecterUser.do");
-        } else {
-            //si accès ok 
-            chain.doFilter(request, response);
-
+        try {
+            //je contrôle l'accès
+            if (!iDroitService.isAcces(url, profil)) {
+                //si accès refusé on redirige vers la page de connection
+                response.sendRedirect(request.getContextPath() + "/voirConnecterUser.do");
+            } else {
+                //si accès ok 
+                chain.doFilter(request, response);
+            }
+        } catch (final NullPointerException nullPointerException) {
+            response.sendRedirect(request.getContextPath() + "/listerProduitClient.do");
         }
 
     }
