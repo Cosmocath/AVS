@@ -51,7 +51,7 @@ public class UserMapper {
         userDto.setPassword(userDo.getPassword());
         userDto.setMail(userDo.getMail());
         userDto.setActif(userDo.isActif());
-        //userDto.setProfil(ProfilMapper.mapProfilDoToTypeProfil(userDo.getProfilDo()));
+        userDto.setProfilDto(ProfilMapper.mapProfilDoToProfilDto(userDo.getProfilDo()));
         return userDto;
     }
 
@@ -83,7 +83,7 @@ public class UserMapper {
         userDo.setPassword(userDto.getPassword());
         userDo.setMail(userDto.getMail());
         userDo.setActif(userDto.isActif());
-        // userDo.setProfilDo(ProfilMapper.mapTypeProfilToProfilDo(userDto.getProfil());
+        userDo.setProfilDo(ProfilMapper.mapProfilDtoToProfilDo(userDto.getProfilDto()));
         return userDo;
     }
 
@@ -103,9 +103,13 @@ public class UserMapper {
         userDto.setActif(true);
 
         final IProfilService iProfilService = Factory.getInstance(IProfilService.class);
-        final ProfilDto profilDto = iProfilService.findProfilById(2);
-
-        userDto.setProfilDto(profilDto);
+        if (userForm.getProfil() != null) {
+            final ProfilDto profilDto = iProfilService.findProfilById(Integer.parseInt(userForm.getProfil()));
+            userDto.setProfilDto(profilDto);
+        } else {
+            final ProfilDto profilDto = iProfilService.findProfilById(2);
+            userDto.setProfilDto(profilDto);
+        }
 
         return userDto;
     }

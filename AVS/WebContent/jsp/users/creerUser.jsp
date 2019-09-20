@@ -56,6 +56,12 @@
 					<td><html:errors property="adresse" /></td>
 				</tr>
 				<tr>
+					<td align="right"><bean:message key="USR_01.profil"></bean:message></td>
+					<td align="left"><html:radio property="profil" value="1" >Client</html:radio>
+						<html:radio property="profil" value="2"></html:radio>Admininstrateur</td>
+					<td><html:errors property="profil" /></td>
+				</tr>
+				<tr>
 					<td align="right"><html:submit property="submit"
 							value="Valider" /></td>
 				</tr>

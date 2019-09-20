@@ -14,6 +14,12 @@ import util.Factory;
  *
  */
 public class ProfilService implements IProfilService {
+    /**
+     * 
+     */
+    private ProfilService() {
+        // empty constructor
+    }
 
     @Override
     public ProfilDto findProfilById(final Integer id) {

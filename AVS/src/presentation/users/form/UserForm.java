@@ -30,6 +30,7 @@ public class UserForm extends ActionForm {
     private String            password;
     private String            confirmpassword;
     private String            mail;
+    private String            profil;
 
     @Override
     public void reset(final ActionMapping mapping, final HttpServletRequest request) {
@@ -60,14 +61,13 @@ public class UserForm extends ActionForm {
         }
         if (Tools.isEmpty(dateNaissance)) {
             errors.add("dateNaissance", new ActionMessage("USR_01.errors.dateNaissance.obligatoire"));
-        }
-        if (!Tools.verifDate(dateNaissance)) {
+        } else if (!Tools.verifDate(dateNaissance)) {
             errors.add("dateNaissance", new ActionMessage("USR_01.errors.dateNaissance.format"));
         }
+
         if (Tools.isEmpty(confirmpassword)) {
             errors.add("confirmpassword", new ActionMessage("USR_01.errors.confirmpassword.obligatoire"));
-        }
-        if (!password.equals(confirmpassword)) {
+        } else if (!password.equals(confirmpassword)) {
             errors.add("password", new ActionMessage("USR_01.errors.password.match"));
         }
 
@@ -184,6 +184,20 @@ public class UserForm extends ActionForm {
      */
     public void setId(final String id) {
         this.id = id;
+    }
+
+    /**
+     * @return the profil
+     */
+    public String getProfil() {
+        return profil;
+    }
+
+    /**
+     * @param profil the profil to set
+     */
+    public void setProfil(final String profil) {
+        this.profil = profil;
     }
 
 }

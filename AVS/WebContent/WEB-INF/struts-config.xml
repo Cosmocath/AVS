@@ -56,6 +56,10 @@
 		</action>
 
 		<!-- Action de l'équipe User -->
+		<action path="/voirCreerUser" scope="request" input=""
+			parameter="" type="presentation.users.action.VoirCreerUserAction">
+			<forward name="success" path="voirCreerUser" redirect="false" />
+		</action>
 
 		<action path="/creerUser" scope="request" input="voirCreerUser"
 			parameter="" name="creerUserForm"
@@ -63,11 +67,6 @@
 			<forward name="success" path="template" redirect="true"></forward>
 			<forward name="notSuccess" path="voirCreerUser"
 				redirect="false" />
-		</action>
-
-		<action path="/voirCreerUser" scope="request" input=""
-			parameter="" type="presentation.users.action.VoirCreerUserAction">
-			<forward name="success" path="voirCreerUser" redirect="false" />
 		</action>
 		<!-- Action de l'équipe Panier -->
 

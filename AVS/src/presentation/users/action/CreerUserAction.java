@@ -11,10 +11,8 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 
-import presentation.users.beanDto.ProfilDto;
 import presentation.users.beanDto.UserDto;
 import presentation.users.form.UserForm;
-import service.users.IProfilService;
 import service.users.IUserService;
 import service.users.impl.UserMapper;
 import util.Factory;
@@ -33,12 +31,10 @@ public class CreerUserAction extends Action {
         final IUserService iUserService = Factory.getInstance(IUserService.class);
 
         final UserDto userDto = iUserService.createUser(UserMapper.mapFormToDto(userForm));
-        
-        userDto.se
-        
+
         if (userDto == null) {
             final ActionErrors errors = new ActionErrors();
-            errors.add("error", new ActionMessage("USR_01.errors.création"));
+            errors.add("error", new ActionMessage("USR_01.errors.creation"));
             saveErrors(request, errors);
             return mapping.findForward("notSuccess");
 

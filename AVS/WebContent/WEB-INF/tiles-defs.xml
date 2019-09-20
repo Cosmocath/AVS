@@ -28,7 +28,11 @@
 	<definition name="voirCreerUser" extends="template">
 		<put name="body" value="/jsp/users/creerUser.jsp" />
 	</definition>
-
+	
+	<definition name="voirInscrireUser" extends="template">
+		<put name="body" value="/jsp/users/inscrireUser.jsp" />
+	</definition>
+	
 	<!-- Equipe Produit -->
 	<definition name="listerProduitClient" extends="template">
 		<put name="body" value="/jsp/produit/listerProduitClient.jsp" />
