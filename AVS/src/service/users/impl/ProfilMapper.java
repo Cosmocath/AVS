@@ -14,21 +14,13 @@ import util.enumeration.TypeDeProfil;
 public class ProfilMapper {
 
     /**
+     * Permet de mapper un profil en TypeDeProfil
+     * 
      * @param profilDo
-     * @return
+     * @return la valeur de l'enum TypeDeProfil
      */
     public static TypeDeProfil mapProfilDoToTypeProfil(final ProfilDo profilDo) {
-
-        switch (profilDo.getNom()) {
-            case "admin" :
-                return TypeDeProfil.ADMINISTRATEUR;
-            case "client" :
-                return TypeDeProfil.CLIENT;
-            case "visiteur" :
-                return TypeDeProfil.VISITEUR;
-            default :
-                return null;
-        }
+        return TypeDeProfil.getValue(profilDo.getNom());
     }
 
     /**
@@ -38,17 +30,7 @@ public class ProfilMapper {
      * @return le profil
      */
     public static String mapTypeProfilToProfil(final TypeDeProfil typeDeProfil) {
-
-        switch (typeDeProfil) {
-            case ADMINISTRATEUR :
-                return "admin";
-            case CLIENT :
-                return "client";
-            case VISITEUR :
-                return "visiteur";
-            default :
-                return "visiteur";
-        }
+        return typeDeProfil.getNomBD();
     }
 
     /**

@@ -7,8 +7,16 @@ package presentation.users.beanDto;
  *
  */
 public class ProfilDto {
+
     private Integer id;
     private String  nom;
+
+    /**
+     * constructeur du profil dto
+     */
+    public ProfilDto() {
+        //empty method
+    }
 
     /**
      * @return the id

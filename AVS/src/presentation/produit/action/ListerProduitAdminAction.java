@@ -1,4 +1,4 @@
-package presentation.users.action;
+package presentation.produit.action;
 
 import java.util.List;
 
@@ -10,32 +10,37 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import presentation.users.beanDto.UserDto;
-import service.users.IUserService;
+import presentation.produit.beanDto.ProduitDto;
+import service.produit.IProduitService;
 import util.enumeration.OrderBy;
 import util.factory.Factory;
 
 /**
- * permet de lister une liste d'utilisateur actif
+ * Classe permettant de créer l'action de lister les produit par ordre alphabétique asc ou desc. <br>
+ * Cette liste est visible uniquement par les administrateurs.
  * 
- * @author Administrateur
- *
+ * @author Catherine Hermary
  */
-public class ListerUserAction extends Action {
+public class ListerProduitAdminAction extends Action {
 
     @Override
     public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
+
         // on récupère les données du Service
-        final IUserService iUserService = Factory.getInstance(IUserService.class);
+        final IProduitService iProduitService = Factory.getInstance(IProduitService.class);
+
         // on recupère le paramètre de la request et on le cast
+
         final String paramOrderBy = request.getParameter("orderBy");
         OrderBy enumOrderBy = OrderBy.ASC;
+
         if (paramOrderBy != null && !paramOrderBy.isEmpty()) {
             // on le convertit en enum
             enumOrderBy = OrderBy.valueOf(paramOrderBy);
         }
+
         // on appelle la methode
-        final List<UserDto> listeUserDto = iUserService.findAllUserOrderBy(enumOrderBy);
+        final List<ProduitDto> listeProduitDto = iProduitService.findAllProduitAdminOrderBy(enumOrderBy);
 
         // si la methode a fonctionné en mode ascendant, alors on passe le parametre descendant en requete, et vice versa
         if (enumOrderBy == OrderBy.ASC) {
@@ -44,8 +49,9 @@ public class ListerUserAction extends Action {
             request.setAttribute("TRI", OrderBy.ASC);
         }
 
-        // on les met à disposition de la vue
-        request.setAttribute("listeUser", listeUserDto);
+        // mettre la liste à disposition de la vue
+        request.setAttribute("listeProduits", listeProduitDto);
+
         // on va chercher le forward
         return mapping.findForward("success");
     }

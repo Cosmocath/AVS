@@ -19,7 +19,7 @@ public class UserMapper {
      * Permet de mapper un UserDo en ConnectedUserDto
      * 
      * @param userDo
-     * @return
+     * @return un userDto connecté
      */
     public static ConnectedUserDto mapToConnectedUserDto(final UserDo userDo) {
         final ConnectedUserDto connectedUserDto = new ConnectedUserDto();
@@ -33,7 +33,7 @@ public class UserMapper {
      * permet de mapper un userDo en userDto
      * 
      * @param userDo
-     * @return
+     * @return un userDto
      */
     public static UserDto mapToDto(final UserDo userDo) {
         final UserDto userDto = new UserDto();
@@ -63,6 +63,19 @@ public class UserMapper {
         return listeUserDto;
     }
 
+    //<<<<<<< HEAD
+    //=======
+    //    /**
+    //     * Permet de mapper un profil en TypeDeProfil
+    //     * 
+    //     * @param profilDo
+    //     * @return la valeur de l'enum TypeDeProfil
+    //     */
+    //    private static TypeDeProfil mapTypeProfilDoToTypeProfil(final ProfilDo profilDo) {
+    //        return TypeDeProfil.getValue(profilDo.getNom());
+    //    }
+    //
+    //>>>>>>> develop
     /**
      * permet de mapper le userDto en userDo
      * 

@@ -9,6 +9,7 @@ import presentation.users.beanDto.ProfilDto;
 import presentation.users.beanDto.UserDto;
 import service.users.IProfilService;
 import service.users.IUserService;
+import util.enumeration.OrderBy;
 import util.factory.Factory;
 
 /**
@@ -35,10 +36,9 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public List<UserDto> findAllUserDto() {
+    public List<UserDto> findAllUserOrderBy(final OrderBy orderBy) {
         final IUserDao iUserDao = Factory.getInstance(IUserDao.class);
-        // on pourrait ne pas utiliser cette variable
-        final List<UserDo> listeUserDo = iUserDao.findAllUserDo();
+        final List<UserDo> listeUserDo = iUserDao.findAllUserOrderBy(orderBy);
         return UserMapper.mapToListDto(listeUserDo);
     }
 

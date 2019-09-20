@@ -3,6 +3,7 @@ package persistance.users.dao.impl;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.Date;
+import static org.junit.Assert.assertEquals;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -13,6 +14,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
 import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -20,6 +22,7 @@ import persistance.users.beanDo.ProfilDo;
 import persistance.factory.HibernateFactory;
 import persistance.users.beanDo.UserDo;
 import persistance.users.dao.IUserDao;
+import util.enumeration.OrderBy;
 import util.factory.Factory;
 import util.tools.FormatUtil;
 
@@ -104,14 +107,15 @@ class UserDaoTest {
     }
 
     /**
-     * Test method for {@link persistance.users.dao.impl.UserDao#findAllUserDo()}.
+     * Test method for {@link persistance.user.dao.impl.UserDao#findAllUserOrderBy(util.OrderBy)}.
      */
     @Test
-    public final void testFindAllUserDo() {
+    void testFindAllUserOrderBy() {
         final IUserDao iUserDao = Factory.getInstance(IUserDao.class);
-        final List<UserDo> listeUserDo = iUserDao.findAllUserDo();
-        Assert.assertNotNull(listeUserDo);
-        Assert.assertEquals(1, listeUserDo.size());
+        final List<UserDo> listeUserDo = iUserDao.findAllUserOrderBy(OrderBy.ASC);
+        Assertions.assertNotNull(listeUserDo);
+        assertEquals(4, listeUserDo.size());
+        assertEquals("bel.sab@outlook.com", listeUserDo.get(0).getMail());
     }
 
 }

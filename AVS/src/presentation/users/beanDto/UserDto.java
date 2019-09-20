@@ -1,8 +1,9 @@
 package presentation.users.beanDto;
 
 import java.util.Date;
-
 /**
+ * Bean d'un utilisateur quelque soit son action
+ * 
  * @author Administrateur
  *
  */
@@ -17,6 +18,9 @@ public class UserDto {
     private boolean      actif;
     private ProfilDto profilDto;
 
+    /**
+     * constructeur du user dto
+     */
     public UserDto() {
         //emty method
     }

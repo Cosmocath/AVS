@@ -23,7 +23,14 @@ public interface IProduitService {
     List<ProduitDto> findAllProduitOrderBy(final OrderBy orderBy);
 
     /**
+     * Méthode permettant de trier la liste par ordre alphabétique asc ou desc (cette liste n'est visible que par l'administrateur)
      * 
+     * @param enum {@link OrderBy} asc ou desc
+     * @return la liste de tous les produits dans l'ordre alphabétique (disponibles et indisponibles)
+     */
+    List<ProduitDto> findAllProduitAdminOrderBy(final OrderBy orderBy);
+
+    /**
      * Création d'un produit
      * 
      * @param le produit à créer
