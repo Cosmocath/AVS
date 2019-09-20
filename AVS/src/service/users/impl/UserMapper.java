@@ -28,18 +28,6 @@ public class UserMapper {
     }
 
     private static TypeDeProfil mapTypeProfilDoToTypeProfil(final ProfilDo profilDo) {
-
-//        switch (profilDo.getNom()) {
-//            case "admin" :
-//                return TypeDeProfil.ADMINISTRATEUR;
-//            case "client" :
-//                return TypeDeProfil.CLIENT;
-//            case "visiteur" :
-//                return TypeDeProfil.VISITEUR;
-//            default :
-//                return null;
-//        }
-        System.out.println("TypeDeProfil : " + TypeDeProfil.getValue(profilDo.getNom()));
         return TypeDeProfil.getValue(profilDo.getNom());
 
     }
@@ -51,19 +39,6 @@ public class UserMapper {
      * @return le profil
      */
     public static String mapTypeProfilToProfil(final TypeDeProfil typeDeProfil) {
-
-//        switch (typeDeProfil) {
-//            case ADMINISTRATEUR :
-//                return "admin";
-//            case CLIENT :
-//                return "client";
-//            case VISITEUR :
-//                return "visiteur";
-//            default :
-//                return "visiteur";
-//        }
-//
-        System.out.println("String type de profil : " + typeDeProfil.getNomBD());
         return typeDeProfil.getNomBD();
     }
 }

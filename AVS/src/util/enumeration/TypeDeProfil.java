@@ -1,7 +1,7 @@
 package util.enumeration;
 
 /**
- * Énumeration des 3 type de profil
+ * Énumeration des 3 types de profil
  * 
  * @author Administrateur
  *
