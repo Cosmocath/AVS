@@ -88,6 +88,8 @@ INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(8, 'changerLangue.
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(9, 'voirCreerProduit.do', 'voirCreerProduit');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(10, 'creerProduit.do', 'creerProduit');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(11, 'listerUser.do', 'permet de voir la liste des users');
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(12, 'listerProduitAdmin.do', 'permet de voir la liste des produits Admin');
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(13, 'deconnecter.do', 'permet la deconnection');
 
 --
 -- Déchargement des données de la table `profildroit`
@@ -114,6 +116,7 @@ INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(21,
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(22, 3, 9);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(23, 3, 10);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(24, 3, 11);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(25, 3, 12);
 
 --
 -- Déchargement des données de la table `produit`
