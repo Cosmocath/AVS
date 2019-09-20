@@ -1,7 +1,8 @@
 <%@include file="/jsp/tiles/taglib.jsp"%>
-<title><bean:message key="USR_00.titre" /></title>
+<%-- <title><bean:message key="USR_00.titre" /></title> --%>
 
-<div style="height: 100%; padding: 10px">
+<div style="background-color: white; height: 100%; padding: 10px">
+
 	<div>
 		<bean:message key="USR_00.titre" />
 		<html:form action="/connecterUser.do" focus="mail">
@@ -26,7 +27,6 @@
 					<td align="right"><html:submit property="submit"
 							value="Se connecter" /></td>
 				</tr>
-				<tr></tr>
 			</table>
 		</html:form>
 
