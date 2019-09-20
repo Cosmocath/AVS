@@ -10,24 +10,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 </head>
 <body style="margin: 0px; min-height: 100%">
-	<table width="100%" style="height: 750px" cellpadding="0px" cellspacing="0px">
+	<table width="100%" style="height: 750px" cellpadding="0px"
+		cellspacing="0px">
 		<tr>
-			<td colspan="2" style="height: 10%">
-				<tiles:insert attribute="header" />
-			</td>
+			<td colspan="2" style="height: 10%"><tiles:insert
+					attribute="header" /></td>
 		</tr>
 		<tr>
-			<td width="20%" style="height: 80%">
-				<tiles:insert attribute="menu" />
-			</td>
-			<td width="80%" style="height: 80%">
-				<tiles:insert attribute="body" />
-			</td>
+			<td width="20%" style="height: 80%"><tiles:insert
+					attribute="menu" /></td>
+			<td width="80%" style="height: 80%; overflow-y: scroll"><tiles:insert
+					attribute="body" /></td>
 		</tr>
 		<tr>
-			<td colspan="2" style="height: 10%">
-				<tiles:insert attribute="footer" />
-			</td>
+			<td colspan="2" style="height: 10%"><tiles:insert
+					attribute="footer" /></td>
 		</tr>
 	</table>
 </body>
