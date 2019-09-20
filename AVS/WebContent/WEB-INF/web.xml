@@ -5,7 +5,7 @@
 	id="WebApp_ID" version="4.0">
 	<display-name>AVS</display-name>
 	<welcome-file-list>
-		<welcome-file>TestHello.do</welcome-file>
+		<welcome-file>listerProduitClient.do</welcome-file>
 	</welcome-file-list>
 	<servlet>
 		<servlet-name>action</servlet-name>
