@@ -13,11 +13,6 @@
 		<put name="footer" value="/jsp/tiles/footer.jsp" />
 	</definition>
 
-	<!-- Dans le body LE TEST!!! -->
-	<definition name="templateTest" extends="template">
-		<put name="body" value="/jsp/testStruts/testStruts.jsp" />
-	</definition>
-
 	<definition name="listerCommande" extends="template">
 		<put name="body" value="/jsp/commande/listerCommande.jsp" />
 	</definition>
@@ -51,7 +46,7 @@
 	<definition name="creerProduit" extends="template">
 		<put name="body" value="/jsp/produit/creerProduit.jsp" />
 	</definition>
-	
+
 	<!-- Equipe Commande -->
 
 
