@@ -1,18 +1,19 @@
-package persistance.dao;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+package persistance.commande.dao.impl;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.List;
 import java.util.Scanner;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
+import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import persistance.droit.dao.IDroitDao;
+import persistance.commande.beanDo.CommandeDo;
+import persistance.commande.dao.ICommandeDao;
 import persistance.factory.HibernateFactory;
 import util.factory.Factory;
 
@@ -20,19 +21,20 @@ import util.factory.Factory;
  * @author Administrateur
  *
  */
-class FindAllUrlTest {
+class CommandeDaoTest {
 
+    /**
+     * 
+     */
     @BeforeEach
     public void initData() {
         try (final Session session = HibernateFactory.getSessionFactory().openSession()) {
             final Transaction transaction = session.beginTransaction();
-            // on lit le fichier
             try (final Scanner scanner = new Scanner(new FileReader("tests/dataSet/avs_DML.sql"))) {
                 while (scanner.hasNext()) {
                     final String sql = scanner.nextLine();
-                    // pour chaque ligne non vide
                     if (!sql.isEmpty()) {
-                        // on l'exécute en tant que query native (sql natif)
+
                         final NativeQuery<?> query = session.createNativeQuery(sql);
                         query.executeUpdate();
                     }
@@ -45,14 +47,14 @@ class FindAllUrlTest {
     }
 
     /**
-     * Test method for {@link persistance.droit.dao.impl.DroitAccesUrl#findAllDroits()}.
+     * Test method for {@link persistance.commande.dao.impl.CommandeDao#findAllCommandeDo(int)}.
      */
     @Test
-    void testFindAllDroits() {
-        final IDroitDao iDroitAcces = Factory.getInstance(IDroitDao.class);
-        assertEquals(7, iDroitAcces.findAllDroits().size());
-        assertEquals("changerLangue.do", iDroitAcces.findAllDroits().get(0).getUrl());
-        assertEquals(3, iDroitAcces.findAllDroits().get(0).getSetProfilDroits().size());
+    void testFindAllCommandeDo() {
+        final ICommandeDao iCommandeDao = Factory.getInstance(ICommandeDao.class);
+        final List<CommandeDo> listeCommandeDo = iCommandeDao.findAllCommandeDo(8);
+        Assert.assertNotNull(listeCommandeDo);
+        Assert.assertEquals(1, listeCommandeDo.size());
     }
 
 }

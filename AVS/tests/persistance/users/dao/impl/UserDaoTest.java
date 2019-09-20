@@ -1,4 +1,4 @@
-package persistance.dao;
+package persistance.users.dao.impl;
 
 import static org.junit.Assert.assertEquals;
 

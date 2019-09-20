@@ -1,12 +1,9 @@
-package persistance.dao;
+package persistance.droit.dao.impl;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.List;
 import java.util.Scanner;
 
 import org.hibernate.Session;
@@ -15,23 +12,16 @@ import org.hibernate.query.NativeQuery;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import persistance.droit.dao.IDroitDao;
 import persistance.factory.HibernateFactory;
-import persistance.produit.beanDo.ProduitDo;
-import persistance.produit.dao.IProduitDao;
-import util.enumeration.OrderBy;
 import util.factory.Factory;
 
 /**
- * Permet de tester la classe ProduitDao
- * 
- * @author Nora Liferki
+ * @author Administrateur
  *
  */
-class ProduitDaoTest {
+class FindAllUrlTest {
 
-    /**
-     * 
-     */
     @BeforeEach
     public void initData() {
         try (final Session session = HibernateFactory.getSessionFactory().openSession()) {
@@ -55,24 +45,14 @@ class ProduitDaoTest {
     }
 
     /**
-     * Test method for {@link persistance.produit.dao.impl.ProduitDao#findAllProduitOrderBy(util.OrderBy)}.
+     * Test method for {@link persistance.droit.dao.impl.DroitAccesUrl#findAllDroits()}.
      */
     @Test
-    void testFindAllProduitOrderBy() {
-        final IProduitDao iProduitDao = Factory.getInstance(IProduitDao.class);
-        final List<ProduitDo> listeProduitDo = iProduitDao.findAllProduitOrderBy(OrderBy.ASC);
-        assertEquals(2, listeProduitDo.size());
-        assertEquals("demenagement", listeProduitDo.get(0).getDesignation());
-        assertEquals("jadinage", listeProduitDo.get(1).getDesignation());
+    void testFindAllDroits() {
+        final IDroitDao iDroitAcces = Factory.getInstance(IDroitDao.class);
+        assertEquals(7, iDroitAcces.findAllDroits().size());
+        assertEquals("changerLangue.do", iDroitAcces.findAllDroits().get(0).getUrl());
+        assertEquals(3, iDroitAcces.findAllDroits().get(0).getSetProfilDroits().size());
     }
 
-    /**
-     * Test method for {@link persistance.produit.dao.impl.ProduitDao#findProduitById(java.lang.Integer)}.
-     */
-    @Test
-    void testFindProduitById() {
-        final IProduitDao iProduitDao = Factory.getInstance(IProduitDao.class);
-        assertNotNull(iProduitDao.findProduitById(12));
-        assertNull(iProduitDao.findProduitById(2));
-    }
 }

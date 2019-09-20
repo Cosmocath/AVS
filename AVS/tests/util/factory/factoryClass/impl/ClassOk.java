@@ -1,9 +1,9 @@
 /**
  * 
  */
-package util.factoryClass.impl;
+package util.factory.factoryClass.impl;
 
-import util.factoryClass.IClassOk;
+import util.factory.factoryClass.IClassOk;
 
 /**
  * @author Xavier
