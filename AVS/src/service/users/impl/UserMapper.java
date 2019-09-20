@@ -32,6 +32,7 @@ public class UserMapper {
     }
 
     private static TypeDeProfil mapTypeProfilDoToTypeProfil(final ProfilDo profilDo) {
+
         switch (profilDo.getNom()) {
             case "admin" :
                 return TypeDeProfil.ADMINISTRATEUR;
