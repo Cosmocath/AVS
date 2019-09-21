@@ -16,6 +16,8 @@ import persistance.users.beanDo.ProfilDo;
 import persistance.users.dao.IProfilDao;
 
 /**
+ * Implementation de IProfilDao
+ * 
  * @author Administrator
  *
  */

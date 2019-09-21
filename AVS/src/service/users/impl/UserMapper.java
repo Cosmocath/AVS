@@ -63,19 +63,6 @@ public class UserMapper {
         return listeUserDto;
     }
 
-    //<<<<<<< HEAD
-    //=======
-    //    /**
-    //     * Permet de mapper un profil en TypeDeProfil
-    //     * 
-    //     * @param profilDo
-    //     * @return la valeur de l'enum TypeDeProfil
-    //     */
-    //    private static TypeDeProfil mapTypeProfilDoToTypeProfil(final ProfilDo profilDo) {
-    //        return TypeDeProfil.getValue(profilDo.getNom());
-    //    }
-    //
-    //>>>>>>> develop
     /**
      * permet de mapper le userDto en userDo
      * 

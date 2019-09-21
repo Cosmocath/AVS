@@ -36,7 +36,6 @@
 							maxlength="25"></html:text></td>
 					<td><html:errors property="dateNaissance" /></td>
 				</tr>
-
 				<tr>
 					<td align="right"><bean:message key="USR_01.password"></bean:message></td>
 					<td align="left"><html:text property="password" size="25"
@@ -55,6 +54,7 @@
 							maxlength="25"></html:text></td>
 					<td><html:errors property="adresse" /></td>
 				</tr>
+				
 				<logic:present name="userConnected" scope="session">
 					<tr>
 						<td align="right"><bean:message key="USR_01.profil"></bean:message></td>
@@ -70,6 +70,7 @@
 						<td><html:errors property="profil" /></td>
 					</tr>
 				</logic:notPresent>
+				
 				<tr>
 					<td align="right"><html:submit property="submit"
 							value="Valider" /></td>

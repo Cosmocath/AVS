@@ -23,7 +23,6 @@ public interface IUserDao {
     UserDo findUserForConnexion(final String mail, final String password);
 
     /**
-<<<<<<< HEAD
      * Permer de rechercher un user selon son mail
      * 
      * @param mail
@@ -40,10 +39,7 @@ public interface IUserDao {
     UserDo createUser(final UserDo userDo);
 
     /**
-     * Permet de retrouver tous les users
-=======
      * Affiche la liste des users dans l'ordre alphabétique
->>>>>>> develop
      * 
      * @param orderBy enum {@link OrderBy} asc ou des
      * @return une liste de user
