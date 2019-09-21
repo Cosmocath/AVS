@@ -9,15 +9,15 @@
 	</html:link>
 	<br>
 
-	<logic:notPresent name="UserDto" scope="session">
+	<logic:notPresent name="userConnected" scope="session">
 		<html:link href="${contextPath}/voirConnecterUser.do">
 			<bean:message key="MENU.SeConnecter" />
 		</html:link>
 	</logic:notPresent>
 
 
-	<logic:present name="UserDto" scope="session">
-		<logic:equal name="${UserDto.profil}" value="${CLIENT}">
+	<logic:present name="userConnected" scope="session">
+		<logic:equal name="userConnected" property="profil" value="CLIENT">
 			<html:link href="${contextPath}/listerCommande.do">
 				<bean:message key="MENU.ListeDesCommandes" />
 			</html:link>
@@ -27,7 +27,7 @@
 			</html:link>
 		</logic:equal>
 
-		<logic:equal name="${UserDto.profil}" value="${ADMINISTRATEUR}">
+		<logic:equal name="userConnected" property="profil" value="ADMINISTRATEUR">
 			<html:link href="${contextPath}/listerProduitAdmin.do">
 				<bean:message key="MENU.ListeProduitAdmin" />
 			</html:link>
@@ -51,7 +51,6 @@
 				<bean:message key="MENU.Deconnecter" />
 			</html:link>
 		</logic:equal>
-
 
 	</logic:present>
 </div>
