@@ -58,8 +58,8 @@
 				<logic:present name="userConnected" scope="session">
 					<tr>
 						<td align="right"><bean:message key="USR_01.profil"></bean:message></td>
-						<td align="left"><html:radio property="profil" value="1">Client</html:radio>
-							<html:radio property="profil" value="2"></html:radio>Admininstrateur</td>
+						<td align="left"><html:radio property="profil" value="2">Client</html:radio>
+							<html:radio property="profil" value="3"></html:radio>Admininstrateur</td>
 						<td><html:errors property="profil" /></td>
 					</tr>
 				</logic:present>
