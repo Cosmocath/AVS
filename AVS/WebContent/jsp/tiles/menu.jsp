@@ -27,9 +27,17 @@
 			<html:link href="${contextPath}/deconnecterUser.do">
 				<bean:message key="MENU.Deconnecter" />
 			</html:link>
+			<%
+			    //TODO a spprimer plus tard
+			%>
+			<br />
+			<html:link href="${contextPath}/afficherPanier.do">
+				Afficher Panier
+			</html:link>
 		</logic:equal>
 
-		<logic:equal name="userConnected" property="profil" value="ADMINISTRATEUR">
+		<logic:equal name="userConnected" property="profil"
+			value="ADMINISTRATEUR">
 			<html:link href="${contextPath}/listerProduitAdmin.do">
 				<bean:message key="MENU.ListeProduitAdmin" />
 			</html:link>
@@ -51,6 +59,13 @@
 			<br />
 			<html:link href="${contextPath}/deconnecterUser.do">
 				<bean:message key="MENU.Deconnecter" />
+			</html:link>
+			<%
+			    //TODO a spprimer plus tard
+			%>
+			<br />
+			<html:link href="${contextPath}/afficherPanier.do">
+				Afficher Panier
 			</html:link>
 		</logic:equal>
 
