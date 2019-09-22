@@ -6,7 +6,7 @@
 	}
 </script>
 
-<div style="background-color: white; height: 100%; padding: 10px">
+<div style="background-color: white; height: 100%">
 
 	<h1>
 		<bean:message key="PDT_04.listerProduits.titre" />

@@ -19,6 +19,7 @@ public class ProduitDto implements Serializable {
     private String            designation;
     private String            reference;
     private String            description;
+    // TODO XSI : ok pour affichage ?
     private double            prix;
     private String            image;
     private int               noVersion;
