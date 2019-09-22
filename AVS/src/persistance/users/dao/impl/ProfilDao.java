@@ -1,6 +1,3 @@
-/**
- * 
- */
 package persistance.users.dao.impl;
 
 import java.util.Optional;
@@ -25,7 +22,7 @@ public class ProfilDao implements IProfilDao {
     private SessionFactory sessionFactory = HibernateFactory.getSessionFactory();
 
     /**
-     * 
+     * Constructeur
      */
     private ProfilDao() {
         //empty method

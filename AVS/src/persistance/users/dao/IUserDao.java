@@ -14,7 +14,7 @@ import util.enumeration.OrderBy;
 public interface IUserDao {
 
     /**
-     * Permer de rechercher un user selon son mail et son mot de passe
+     * Permet de rechercher un user selon son mail et son mot de passe
      * 
      * @param mail
      * @param password
@@ -23,7 +23,7 @@ public interface IUserDao {
     UserDo findUserForConnexion(final String mail, final String password);
 
     /**
-     * Permer de rechercher un user selon son mail
+     * Permet de rechercher un user selon son mail
      * 
      * @param mail
      * @return le user recherché, null sinon
@@ -31,7 +31,7 @@ public interface IUserDao {
     UserDo findUserByMail(final String mail);
 
     /**
-     * Permer de créer un utilisateur en bdd
+     * Permet de créer un utilisateur en bdd
      * 
      * @param userDo
      * @return le user crée

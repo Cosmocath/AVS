@@ -18,7 +18,7 @@ import util.tools.Tools;
 public class UserForm extends ActionForm {
 
     /**
-     * 
+     * Clé de hashage de userform
      */
     private static final long serialVersionUID = 6398705056600842929L;
 

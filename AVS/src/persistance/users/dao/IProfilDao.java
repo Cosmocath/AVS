@@ -1,11 +1,10 @@
-/**
- * 
- */
 package persistance.users.dao;
 
 import persistance.users.beanDo.ProfilDo;
 
 /**
+ * Interface de ProfilDao
+ * 
  * @author Administrator
  *
  */

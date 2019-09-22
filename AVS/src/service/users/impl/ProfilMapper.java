@@ -1,6 +1,3 @@
-/**
- * 
- */
 package service.users.impl;
 
 import persistance.users.beanDo.ProfilDo;
@@ -8,6 +5,8 @@ import presentation.users.beanDto.ProfilDto;
 import util.enumeration.TypeDeProfil;
 
 /**
+ * Mapper Dto/Do bidirectionnel pour un Profil + TypeDeProfil
+ * 
  * @author Administrator
  *
  */

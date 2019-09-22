@@ -1,7 +1,7 @@
 <%@include file="/jsp/tiles/taglib.jsp"%>
 <title><bean:message key="USR_01.titre" /></title>
 
-<div style="height: 100%; padding: 10px">
+<div style="height: 100%;">
 	<div>
 		<bean:message key="USR_01.titre" />
 		<html:form action="/creerUser.do" focus="mail">
@@ -54,12 +54,14 @@
 							maxlength="25"></html:text></td>
 					<td><html:errors property="adresse" /></td>
 				</tr>
-				
+
 				<logic:present name="userConnected" scope="session">
 					<tr>
 						<td align="right"><bean:message key="USR_01.profil"></bean:message></td>
-						<td align="left"><html:radio property="profil" value="2">Client</html:radio>
-							<html:radio property="profil" value="3"></html:radio>Admininstrateur</td>
+						<td align="left"><html:radio property="profil" value="2">
+								<bean:message key="USR_01.profil.client" />
+							</html:radio> <html:radio property="profil" value="3"></html:radio> <bean:message
+								key="USR_01.profil.admin" /></td>
 						<td><html:errors property="profil" /></td>
 					</tr>
 				</logic:present>
@@ -70,7 +72,7 @@
 						<td><html:errors property="profil" /></td>
 					</tr>
 				</logic:notPresent>
-				
+
 				<tr>
 					<td align="right"><html:submit property="submit"
 							value="Valider" /></td>

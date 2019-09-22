@@ -35,11 +35,16 @@ public class CreerUserAction extends Action {
      * @return le UserDto
      * @throws ParseException
      */
-    private static UserDto mapFormToDto(final UserForm userForm) throws ParseException {
+    private static UserDto mapFormToDto(final UserForm userForm) {
         final UserDto userDto = new UserDto();
         userDto.setNom(userForm.getNom());
         userDto.setPrenom(userForm.getPrenom());
-        userDto.setDateNaissance(FormatUtil.convertirStringToDate(userForm.getDateNaissance()));
+        try {
+            userDto.setDateNaissance(FormatUtil.convertirStringToDate(userForm.getDateNaissance()));
+        } catch (final ParseException e) {
+            e.printStackTrace();
+            System.err.println("conversion du string en date impossible");
+        }
         userDto.setAdresse(userForm.getAdresse());
         userDto.setPassword(userForm.getPassword());
         userDto.setMail(userForm.getMail());

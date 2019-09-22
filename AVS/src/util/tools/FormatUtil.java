@@ -48,7 +48,7 @@ public class FormatUtil {
      * 
      * 
      * @param date
-     * @return
+     * @return la date au format Date
      * @throws ParseException
      */
     public static Date convertirStringToDate(final String date) throws ParseException {

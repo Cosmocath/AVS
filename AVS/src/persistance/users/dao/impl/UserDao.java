@@ -26,7 +26,7 @@ public class UserDao implements IUserDao {
     private SessionFactory sessionFactory = HibernateFactory.getSessionFactory();
 
     /**
-     * 
+     * Constructeur
      */
     private UserDao() {
         //empty method

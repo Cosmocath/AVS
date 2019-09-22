@@ -1,6 +1,3 @@
-/**
- * 
- */
 package service.users.impl;
 
 import persistance.users.beanDo.ProfilDo;
@@ -17,7 +14,7 @@ import util.factory.Factory;
  */
 public class ProfilService implements IProfilService {
     /**
-     * 
+     * Constructeur
      */
     private ProfilService() {
         // empty constructor
