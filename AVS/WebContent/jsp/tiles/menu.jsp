@@ -1,6 +1,6 @@
 <%@include file="/jsp/tiles/taglib.jsp"%>
 
-<div style="background-color: gray; height: 100%; padding: 10px">
+<div style="background-color: white; height: 100%">
 	<bean:define id="contextPath" value="<%=request.getContextPath()%>" />
 
 
