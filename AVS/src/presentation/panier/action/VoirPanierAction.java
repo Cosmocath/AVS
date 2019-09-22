@@ -23,10 +23,8 @@ import util.factory.Factory;
  */
 public class VoirPanierAction extends Action {
 
-    
     /**
-     * Iniatalise un panier virtuel
-     * TODO a supprimer après réalisation du bouton ajouter
+     * Iniatalise un panier virtuel TODO a supprimer après réalisation du bouton ajouter
      * 
      * @return panierDto initialisé
      */
