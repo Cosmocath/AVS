@@ -6,7 +6,7 @@
 	}
 </script>
 
-<div style="background-color: white; height: 100%; padding: 10px">
+<div style="background-color: white; height: 100%">
 
 	<h1>
 		<bean:message key="PDT_04.listerProduits.titre" />
@@ -21,8 +21,8 @@
 		</html:link>
 	</div>
 
-	<div style="width: 100%">
-		<logic:iterate name="listeProduits" id="produit" scope="request">
+	<logic:iterate name="listeProduits" id="produit" scope="request">
+		<div style="width: 100%; display: inline-block;">
 			<div style="width: 20%; float: left">
 				<html:link
 					href="consulterProduit.do?id=${produit.id}&retour=produitAdmin">
@@ -45,9 +45,11 @@
 				</div>
 			</div>
 
-			<div>
-				<hr style="color: grey; width: 100%;">
-			</div>
-		</logic:iterate>
-	</div>
+		</div>
+		<div>
+			<hr style="color: grey; width: 90%; padding : 0px">
+		</div>
+
+	</logic:iterate>
+
 </div>
