@@ -111,6 +111,12 @@
 
 		<!-- Action de l'équipe Panier -->
 
+		<action path="/afficherPanier" scope="session"
+			input="afficherPanier" parameter="" name="afficherPanier"
+			type="presentation.panier.action.VoirPanierAction">
+			<forward name="success" path="afficherPanier"
+				redirect="false" />
+		</action>
 
 		<!-- Action de l'équipe Commande -->
 

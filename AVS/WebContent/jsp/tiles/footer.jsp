@@ -1,6 +1,6 @@
 <%@include file="/jsp/tiles/taglib.jsp"%>
 
-<div style="background-color: #4B70D3FF; height: 100%; padding: 10px">
+<div style="background-color: #4B70D3FF; height: 100%">
 
 	<html:link href="#" style="color: white; text-align: center; position: relative; left: 450px">CGV</html:link>
 	<br />
