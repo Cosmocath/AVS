@@ -22,8 +22,7 @@ public class DroitService implements IDroitService {
 
     private static Map<String, List<String>> map            = null;
     private final IDroitDao                  iDroitAccesUrl = Factory.getInstance(IDroitDao.class);
-    // TODO XSI : constante
-    private static final IDroitService       idroitService  = Factory.getInstance(IDroitService.class);
+    private static final IDroitService       IDROITSERVICE  = Factory.getInstance(IDroitService.class);
 
     /**
      * Constructeur privé
@@ -35,7 +34,7 @@ public class DroitService implements IDroitService {
     //initialisation map
     static {
         if (map == null) {
-            map = idroitService.findAllDroitsWithProfil();
+            map = IDROITSERVICE.findAllDroitsWithProfil();
         }
     }
 

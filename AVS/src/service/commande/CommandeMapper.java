@@ -16,8 +16,6 @@ import util.tools.FormatUtil;
  */
 public class CommandeMapper {
 
-    // TODO XSI : revoir Javadoc + final
-
     /**
      * Permet de mapper une commandeDo en commandeDto
      * 
@@ -26,7 +24,7 @@ public class CommandeMapper {
      */
     public static CommandeDto mapToDto(final CommandeDo commandeDo) {
         final DecimalFormat df = new DecimalFormat("0.00");
-        String montant = df.format(commandeDo.getMontantSansRemise());
+        final String montant = df.format(commandeDo.getMontantSansRemise());
         return CommandeDto.build(commandeDo.getIdUtilisateur(), commandeDo.getIdCommande(), commandeDo.getNumeroCommande(), FormatUtil.convertirDateToString(commandeDo.getDateCommande()), montant);
     }
 

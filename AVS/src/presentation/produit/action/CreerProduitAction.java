@@ -14,7 +14,7 @@ import org.apache.struts.action.ActionMessages;
 import presentation.produit.beanDto.ProduitDto;
 import presentation.produit.form.ProduitForm;
 import service.produit.IProduitService;
-import util.ConversionUtil;
+import util.tools.ConversionUtil;
 import util.factory.Factory;
 
 /**
