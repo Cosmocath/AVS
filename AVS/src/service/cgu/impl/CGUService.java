@@ -4,6 +4,7 @@
 package service.cgu.impl;
 
 import persistance.cgu.dao.ICGUDao;
+import service.cgu.ICGUService;
 import util.factory.Factory;
 
 /**

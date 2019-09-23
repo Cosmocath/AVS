@@ -21,7 +21,7 @@ public class CGUDao implements ICGUDao {
         // empty constructor
     }
 
-    public static final String PATH_CGU = "C:\\CGU\\testCGU.txt";
+    public static final String PATH_CGU = "C:\\CGU\\testCGU.html";
 
     @Override
     public String lireCGUDao() {

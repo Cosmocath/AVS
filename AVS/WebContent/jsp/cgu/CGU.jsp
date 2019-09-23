@@ -1,3 +1,5 @@
 <%@include file="/jsp/tiles/taglib.jsp"%>
-<title><bean:message key="CGU.titre" /></title>
 
+<div style="background-color: white; height: 500px">
+	<jsp:include page="../../afficherCGU.do"/>
+</div>

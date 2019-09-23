@@ -11,21 +11,17 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import service.cgu.ICGUService;
-import util.factory.Factory;
-
 /**
  * @author Administrateur
  *
  */
-public class AfficherCGUAction extends Action {
+public class VoirCGUAction extends Action {
+
+    // TODO XSI : il faudra ajouter les url au JDD + fichier excel 
     
     @Override
     public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
-        final ICGUService iCGUService = Factory.getInstance(ICGUService.class);
-        response.getWriter().write(iCGUService.afficherCGU());
-        response.getWriter().flush();
-        return null;
+        return mapping.findForward("success");
     }
 
 }

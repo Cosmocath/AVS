@@ -22,6 +22,7 @@ class CGUDaoTest {
     void LireCGUDaoTest() {
         final ICGUDao iCGUDao = Factory.getInstance(ICGUDao.class);
         iCGUDao.lireCGUDao();
+        // TODO XSI : compléter le test
     }
 
 }

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package service.cgu.impl;
+package service.cgu;
 
 /**
  * @author Administrateur
