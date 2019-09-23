@@ -1,6 +1,4 @@
-package util;
-
-import util.tools.Tools;
+package util.tools;
 
 /**
  * Outils de conversion
@@ -8,7 +6,6 @@ import util.tools.Tools;
  * @author Rodolphe
  *
  */
-// TODO XSI : à déplacer
 public class ConversionUtil {
 
     /**
