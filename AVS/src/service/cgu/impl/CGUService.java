@@ -1,6 +1,3 @@
-/**
- * 
- */
 package service.cgu.impl;
 
 import persistance.cgu.dao.ICGUDao;

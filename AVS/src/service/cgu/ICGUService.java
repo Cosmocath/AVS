@@ -1,9 +1,9 @@
-/**
- * 
- */
 package service.cgu;
 
 /**
+ * 
+ * interface de CGUService
+ * 
  * @author Administrateur
  *
  */

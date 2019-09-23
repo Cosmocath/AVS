@@ -1,6 +1,3 @@
-/**
- * 
- */
 package presentation.cgu.action;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,11 +12,13 @@ import service.cgu.ICGUService;
 import util.factory.Factory;
 
 /**
+ * action permettant d'afficher les CGU
+ * 
  * @author Administrateur
  *
  */
 public class AfficherCGUAction extends Action {
-    
+
     @Override
     public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         final ICGUService iCGUService = Factory.getInstance(ICGUService.class);

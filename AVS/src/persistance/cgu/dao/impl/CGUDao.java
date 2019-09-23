@@ -1,6 +1,3 @@
-/**
- * 
- */
 package persistance.cgu.dao.impl;
 
 import java.io.File;
@@ -21,7 +18,10 @@ public class CGUDao implements ICGUDao {
         // empty constructor
     }
 
-    public static final String PATH_CGU = "C:\\CGU\\testCGU.html";
+    /**
+     * url du fichier texte des CGU en constante
+     */
+    public static final String PATH_CGU = "C:\\CGU\\textCGU.html";
 
     @Override
     public String lireCGUDao() {
