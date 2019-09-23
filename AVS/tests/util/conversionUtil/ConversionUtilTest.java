@@ -22,6 +22,7 @@ class ConversionUtilTest {
         assertEquals(1.75, ConversionUtil.convertDoubleCommaToDot("1.75"));
         assertEquals(1500, ConversionUtil.convertDoubleCommaToDot("1500"));
         assertEquals(12000, ConversionUtil.convertDoubleCommaToDot("12000"));
+        assertEquals(15000.19, ConversionUtil.convertDoubleCommaToDot("15000.19"));
         assertNull(ConversionUtil.convertDoubleCommaToDot(""));
         assertNull(ConversionUtil.convertDoubleCommaToDot(null));
     }

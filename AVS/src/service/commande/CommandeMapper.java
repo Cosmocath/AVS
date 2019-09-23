@@ -20,7 +20,7 @@ public class CommandeMapper {
      * Permet de mapper une commandeDo en commandeDto
      * 
      * @param commandeDo
-     * @return
+     * @return commandeDto
      */
     public static CommandeDto mapToDto(final CommandeDo commandeDo) {
         final DecimalFormat df = new DecimalFormat("0.00");
@@ -32,7 +32,7 @@ public class CommandeMapper {
      * Permet de mapper une liste de CommandeDo en liste de CommandeDto
      * 
      * @param listeCommandeDo
-     * @return
+     * @return listeCommandeDto
      */
     public static List<CommandeDto> mapToListDto(final List<CommandeDo> listeCommandeDo) {
         final List<CommandeDto> listeCommandeDto = new ArrayList<>();
