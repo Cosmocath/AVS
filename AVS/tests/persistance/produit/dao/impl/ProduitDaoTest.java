@@ -63,7 +63,7 @@ class ProduitDaoTest {
         final List<ProduitDo> listeProduitDo = iProduitDao.findAllProduitOrderBy(OrderBy.ASC);
         assertEquals(2, listeProduitDo.size());
         assertEquals("demenagement", listeProduitDo.get(0).getDesignation());
-        assertEquals("jadinage", listeProduitDo.get(1).getDesignation());
+        assertEquals("jardinage", listeProduitDo.get(1).getDesignation());
     }
 
     /**
