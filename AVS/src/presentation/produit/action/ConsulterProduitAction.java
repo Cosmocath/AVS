@@ -16,7 +16,7 @@ import util.factory.Factory;
 /**
  * Action permettant de consulter un produit
  * 
- * @author Nora LIFERKI
+ * @author Nora LIFERKI et Catherine HERMARY
  *
  */
 public class ConsulterProduitAction extends Action {
@@ -30,12 +30,12 @@ public class ConsulterProduitAction extends Action {
 
         //Instantiation d'un paramètre retour à ajouter dans le html link de la jsp "listerProduitClient" et les 3 autres jsp amenant à PDT_01 afin de le récupérer en getParameter  
         //Instanciation d'un parametre urlRetour à ajouter dans le html link de la jsp "ConsulterProduit" afin de le récupérer en getParameter
-        //String urlRetour = "http://localhost:8080/AVS/";
-        String urlRetour= request.getContextPath();
+
+        String urlRetour = request.getContextPath();
         final String retour = request.getParameter("retour");
         // je convertis ma chaine retour en une valeur de l enum
-        final ParamRetour valeurEnum= ParamRetour.getValue(retour); 
-        
+        final ParamRetour valeurEnum = ParamRetour.getValue(retour);
+
         //on teste la valeur de l'enum pour les 4 écrans qu'on veut attendre en cliquant retour
         switch (valeurEnum) {
             case PRODUIT_CLIENT :
