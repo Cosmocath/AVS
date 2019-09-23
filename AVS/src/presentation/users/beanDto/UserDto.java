@@ -1,6 +1,5 @@
 package presentation.users.beanDto;
 
-
 import util.enumeration.TypeDeProfil;
 
 /**
@@ -79,7 +78,7 @@ public class UserDto {
     /**
      * @param dateNaissance the dateNaissance to set
      */
-    public void setDateNaissance(String dateNaissance) {
+    public void setDateNaissance(final String dateNaissance) {
         this.dateNaissance = dateNaissance;
     }
 
