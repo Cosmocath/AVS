@@ -20,6 +20,12 @@
 			<forward name="success" path="templateTest" redirect="false"></forward>
 		</action>
 
+		<!-- Action d'affichage des CGU -->
+		<action path="/afficherCGU" scope="request" input=""
+			parameter="" type="presentation.cgu.action.AfficherCGUAction">
+			<forward name="success" path="afficherCGU" redirect="false"></forward>
+		</action>
+
 		<!-- Le language -->
 		<action path="/changerLangue" scope="request" input=""
 			parameter="" type="presentation.i18n.action.ChangerLangueAction">
@@ -54,13 +60,13 @@
 		</action>
 
 		<!-- Action de l'équipe User -->
-		
+
 
 		<!-- Action de l'équipe Panier -->
-		
+
 
 		<!-- Action de l'équipe Commande -->
-		
+
 
 	</action-mappings>
 
