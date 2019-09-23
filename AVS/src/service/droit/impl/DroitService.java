@@ -20,10 +20,10 @@ import util.factory.Factory;
  */
 public class DroitService implements IDroitService {
 
-    private static Map<String, List<String>> map            = null;
-    private final IDroitDao                  iDroitAccesUrl = Factory.getInstance(IDroitDao.class);
-    
-    private static final IDroitService       IDROITSERVICE  = Factory.getInstance(IDroitService.class);
+    private static Map<String, List<String>> map             = null;
+    private final IDroitDao                  iDroitAccesUrl  = Factory.getInstance(IDroitDao.class);
+    private static final IDroitService       I_DROIT_SERVICE = Factory.getInstance(IDroitService.class);
+
 
     /**
      * Constructeur privé
@@ -35,7 +35,7 @@ public class DroitService implements IDroitService {
     //initialisation map
     static {
         if (map == null) {
-            map = IDROITSERVICE.findAllDroitsWithProfil();
+            map = I_DROIT_SERVICE.findAllDroitsWithProfil();
         }
     }
 
