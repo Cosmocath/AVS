@@ -13,11 +13,6 @@
 		<put name="footer" value="/jsp/tiles/footer.jsp" />
 	</definition>
 
-	<!-- Dans le body LE TEST!!! -->
-	<definition name="templateTest" extends="template">
-		<put name="body" value="/jsp/testStruts/testStruts.jsp" />
-	</definition>
-
 	<definition name="listerCommande" extends="template">
 		<put name="body" value="/jsp/commande/listerCommande.jsp" />
 	</definition>
@@ -29,16 +24,37 @@
 	</definition>
 
 	<!-- Equipe Users -->
-
+	<definition name="listerUser" extends="template">
+		<put name="body" value="/jsp/users/listerUser.jsp" />
+	</definition>
 
 	<!-- Equipe Produit -->
 	<definition name="listerProduitClient" extends="template">
 		<put name="body" value="/jsp/produit/listerProduitClient.jsp" />
 	</definition>
 
+	<definition name="listerProduitAdmin" extends="template">
+		<put name="body" value="/jsp/produit/listerProduitAdmin.jsp" />
+	</definition>
+
+	<definition name="consulterProduit" extends="template">
+		<put name="body" value="/jsp/produit/consulterProduit.jsp" />
+	</definition>
+
+	<definition name="voirCreerProduit" extends="template">
+		<put name="body" value="/jsp/produit/creerProduit.jsp" />
+	</definition>
+
+	<definition name="creerProduit" extends="template">
+		<put name="body" value="/jsp/produit/creerProduit.jsp" />
+	</definition>
+
 	<!-- Equipe Commande -->
 
 
 	<!-- Equipe Panier -->
+	<definition name="afficherPanier" extends="template">
+		<put name="body" value="/jsp/panier/panier.jsp" />
+	</definition>
 
 </tiles-definitions>
