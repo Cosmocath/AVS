@@ -18,7 +18,7 @@ import util.tools.Tools;
 public class ToolsTest {
 
     /**
-     * Test method for {@link persistance.Tools#verifDate(java.lang.String)}.
+     * Test method for {@link util.tools.Tools#verifDate(java.lang.String)}.
      */
     @Test
     void testVerifDate() {
@@ -36,7 +36,7 @@ public class ToolsTest {
     }
 
     /**
-     * Test method for {@link persistance.Tools#verifMail(java.lang.String)}.
+     * Test method for {@link util.tools.Tools#verifMail(java.lang.String)}.
      */
     @Test
     void testVerifMail() {
@@ -50,10 +50,10 @@ public class ToolsTest {
     }
 
     /**
-     * Test method for {@link persistance.Tools#verifNombre(java.lang.String)}.
+     * Test method for {@link util.tools.Tools#verifNombre(java.lang.String)}.
      */
     @Test
-    void testverifNombre() {
+    void testVerifNombre() {
         Assert.assertTrue(Tools.verifNombre("123456"));
 
         Assert.assertFalse(Tools.verifNombre("12aa56"));
@@ -62,7 +62,7 @@ public class ToolsTest {
     }
 
     /**
-     * Test method for {@link persistance.Tools#verifPrix(java.lang.String)}.
+     * Test method for {@link util.tools.Tools#verifPrix(java.lang.String)}.
      */
     @Test
     void testVerifPrix() {
@@ -88,7 +88,7 @@ public class ToolsTest {
     }
 
     /**
-     * Test method for {@link persistance.Tools#isEmpty(java.lang.String)}.
+     * Test method for {@link util.tools.Tools#isEmpty(java.lang.String)}.
      */
     @Test
     void testIsEmpty() {
