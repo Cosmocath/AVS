@@ -21,7 +21,7 @@ public enum TypeDeProfil {
 
     /**
      * retourne le TypeDeProfil associé au String passé en param
-     * 
+     * .
      * @param nomBD : le nom de type de profilassocié en BD
      * @return le type de profil
      */
