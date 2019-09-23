@@ -2,11 +2,19 @@
 
 <div style="background-color: #4B70D3; height: 100%;">
 	<div>
-		<div style="display: inline;">
+		<div style="display: inline-block; float: left;">
 			<img alt="logo" src="img/logo_AVS.png">
 		</div>
-
-		<div style="float: right;">
+		<div style="display: inline-block;">
+			<logic:notPresent name="userConnected" scope="session">
+				<bean:message key="HEADER.bonjourVisiteur"/>
+			</logic:notPresent>
+			<logic:present name="userConnected" scope="session">
+					<bean:message key="HEADER.bonjour"/>
+					<bean:write name="userConnected" property="nom" />
+			</logic:present>
+		</div>
+		<div style="display: inline-block; float: right;">
 			<logic:present name="userConnected" scope="session">
 				<html:link href="deconnecterUser.do" title="logout">
 					<img alt="logo" src="img/icone_logout.png">
