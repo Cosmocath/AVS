@@ -24,7 +24,6 @@ public class DroitService implements IDroitService {
     private final IDroitDao                  iDroitAccesUrl  = Factory.getInstance(IDroitDao.class);
     private static final IDroitService       I_DROIT_SERVICE = Factory.getInstance(IDroitService.class);
 
-
     /**
      * Constructeur privé
      */
