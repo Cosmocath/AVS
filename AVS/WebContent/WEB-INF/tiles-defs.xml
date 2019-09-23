@@ -32,6 +32,11 @@
 	<definition name="listerProduitClient" extends="template">
 		<put name="body" value="/jsp/produit/listerProduitClient.jsp" />
 	</definition>
+
+	<definition name="listerProduitAdmin" extends="template">
+		<put name="body" value="/jsp/produit/listerProduitAdmin.jsp" />
+	</definition>
+
 	<definition name="consulterProduit" extends="template">
 		<put name="body" value="/jsp/produit/consulterProduit.jsp" />
 	</definition>
@@ -48,5 +53,8 @@
 
 
 	<!-- Equipe Panier -->
+	<definition name="afficherPanier" extends="template">
+		<put name="body" value="/jsp/panier/panier.jsp" />
+	</definition>
 
 </tiles-definitions>

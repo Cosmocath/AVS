@@ -27,6 +27,13 @@
 				redirect="false"></forward>
 		</action>
 
+		<action path="/listerProduitAdmin" scope="request" input=""
+			parameter=""
+			type="presentation.produit.action.ListerProduitAdminAction">
+			<forward name="success" path="listerProduitAdmin"
+				redirect="false"></forward>
+		</action>
+
 		<action path="/consulterProduit" scope="request" input=""
 			parameter=""
 			type="presentation.produit.action.ConsulterProduitAction">
@@ -92,6 +99,12 @@
 
 		<!-- Action de l'équipe Panier -->
 
+		<action path="/afficherPanier" scope="session"
+			input="afficherPanier" parameter="" name="afficherPanier"
+			type="presentation.panier.action.VoirPanierAction">
+			<forward name="success" path="afficherPanier"
+				redirect="false" />
+		</action>
 
 		<!-- Action de l'équipe Commande -->
 

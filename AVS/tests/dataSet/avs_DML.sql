@@ -79,7 +79,6 @@ INSERT INTO `commandeproduit` (`id_CommandeProduit`, `idCommande`, `id_ProduitVe
 --
 
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(2, 'voirConnecterUser.do', 'droit_de_connexion');
-INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(3, 'TestHello.do', 'droit_d_ajout_de_produit');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(4, 'connecterUser.do', 'connexion au site');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(5, 'listerProduitClient.do', 'liste de produits appartenant à un client');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(6, 'consulterProduit.do', 'consulter le détail du produit');
@@ -90,13 +89,13 @@ INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(10, 'creerProduit.
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(11, 'listerUser.do', 'permet de voir la liste des users');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(12, 'listerProduitAdmin.do', 'permet de voir la liste des produits Admin');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(13, 'deconnecterUser.do', 'permet la deconnection');
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(14, 'afficherPanier.do', 'permet d''afficher le panier');
 
 --
 -- Déchargement des données de la table `profildroit`
 --
 
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(4, 1, 2);
-INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(5, 2, 3);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(6, 2, 2);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(7, 3, 2);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(8, 3, 4);
@@ -119,6 +118,8 @@ INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(24,
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(25, 3, 12);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(26, 3, 13);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(27, 2, 13);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(28, 3, 14);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(29, 2, 14);
 
 --
 -- Déchargement des données de la table `produit`
