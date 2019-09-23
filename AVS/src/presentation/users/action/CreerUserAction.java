@@ -39,12 +39,7 @@ public class CreerUserAction extends Action {
         final UserDto userDto = new UserDto();
         userDto.setNom(userForm.getNom());
         userDto.setPrenom(userForm.getPrenom());
-        try {
-            userDto.setDateNaissance(FormatUtil.convertirStringToDate(userForm.getDateNaissance()));
-        } catch (final ParseException e) {
-            e.printStackTrace();
-            System.err.println("conversion du string en date impossible");
-        }
+        userDto.setDateNaissance(FormatUtil.convertirStringToDate(userForm.getDateNaissance()));
         userDto.setAdresse(userForm.getAdresse());
         userDto.setPassword(userForm.getPassword());
         userDto.setMail(userForm.getMail());

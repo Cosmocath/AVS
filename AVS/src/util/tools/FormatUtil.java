@@ -49,10 +49,14 @@ public class FormatUtil {
      * 
      * @param date
      * @return la date au format Date
-     * @throws ParseException
      */
-    public static Date convertirStringToDate(final String date) throws ParseException {
-        final Date date1 = new SimpleDateFormat(FORMAT_DATE).parse(date);
-        return date1;
+    public static Date convertirStringToDate(final String date) {
+        try {
+            final Date date1 = new SimpleDateFormat(FORMAT_DATE).parse(date);
+            return date1;
+        } catch (final ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

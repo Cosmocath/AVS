@@ -1,11 +1,12 @@
 package util.tools;
 
+import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.Calendar;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
-
-import util.tools.FormatUtil;
 
 /**
  * @author Administrateur
@@ -49,5 +50,26 @@ class FormatUtilTest {
         Assert.assertNotEquals(Calendar.AUGUST, FormatUtil.convertirDateToString(calendar2.getTime()));
         Assert.assertNotEquals(Calendar.AUGUST, FormatUtil.convertirDateToString(calendar1.getTime()));
 
+    }
+
+    /**
+     * Le mois dans le calendar est compté à partir de zero c'est-à-dire que le mois de janvier est le mois 0 et le mois de décembre est le mois 11. <br/>
+     * Important pour la saisie du test. <br/>
+     * 
+     * Test method for {@link util.tools.FormatUtil#convertirStringToDate(java.util.String)}.
+     */
+    @Test
+    void testConvertionStringToDate() {
+        final String date1 = "23/08/2017";
+        final String date2 = "23-08-2017";
+
+        final Calendar calendar = Calendar.getInstance();
+        calendar.setTime(FormatUtil.convertirStringToDate(date1));
+
+        assertEquals(Calendar.AUGUST, calendar.get(Calendar.MONTH));
+        assertEquals(23, calendar.get(Calendar.DAY_OF_MONTH));
+        assertEquals(2017, calendar.get(Calendar.YEAR));
+
+        assertNull(FormatUtil.convertirStringToDate(date2));
     }
 }

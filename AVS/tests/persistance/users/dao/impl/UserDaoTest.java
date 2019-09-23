@@ -1,6 +1,8 @@
 package persistance.users.dao.impl;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Date;
 import static org.junit.Assert.assertEquals;
@@ -79,15 +81,19 @@ class UserDaoTest {
     void testFindUserByMail() {
         final IUserDao iUserDao = Factory.getInstance(IUserDao.class);
         final UserDo userDo = iUserDao.findUserByMail("utili.sateur@outlook.com");
-        Assert.assertNotNull(userDo);
-        Assert.assertEquals("ad", userDo.getNom());
-        Assert.assertEquals(userDo.getProfilDo().getNom(), "admin");
-        Assert.assertEquals(userDo.getAdresse(), "19_rue_montebello");
-        Assert.assertEquals(userDo.getMail(), "utili.sateur@outlook.com");
-        Assert.assertEquals(FormatUtil.convertirDateToString(userDo.getDateNaissance()), "11/05/1987");
-        Assert.assertEquals(userDo.getPrenom(), "min");
-        Assert.assertEquals(userDo.getId(), (Integer) 7);
-        Assert.assertTrue(userDo.isActif());
+        assertNotNull(userDo);
+        assertEquals("ad", userDo.getNom());
+        assertEquals("admin", userDo.getProfilDo().getNom());
+        assertEquals("19_rue_montebello", userDo.getAdresse());
+        assertEquals("utili.sateur@outlook.com", userDo.getMail());
+        assertEquals("11/05/1987", FormatUtil.convertirDateToString(userDo.getDateNaissance()));
+        assertEquals("min", userDo.getPrenom());
+        assertEquals((Integer) 7, userDo.getId());
+        assertTrue(userDo.isActif());
+
+        // Non null pour un user désactivé car la méthode n'a pas pour but d'enlever les users désactivés
+        assertNotNull(iUserDao.findUserByMail("test.user@gmail.com"));
+        assertNull(iUserDao.findUserByMail("toto@toto.com"));
     }
 
     /**
