@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="persistance.commande.beanDo.CommandeDo"
+		table="commande">
+		<!-- la clé primaire -->
+		<id name="idCommande" column="id_Commande" type="int">
+			<generator class="identity"></generator>
+		</id>
+		<!-- les propriétés simples -->
+		<property name="idUtilisateur" column="id_Utilisateur"
+			type="int"></property>
+		<property name="numeroCommande" column="numero_Commande"></property>
+		<property name="dateCommande" column="date_Commande"
+			type="date"></property>
+
+		<property name="montantSansRemise" type="double">
+			<column name="montant_Sans_Remise" sql-type="float" />
+		</property>
+	</class>
+</hibernate-mapping>

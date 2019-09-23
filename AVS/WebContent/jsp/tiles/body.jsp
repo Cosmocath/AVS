@@ -1,6 +1,6 @@
 <%@include file="/jsp/tiles/taglib.jsp" %>
 
-<div style="background-color: #D65858; height: 100%; padding: 10px">
+<div style="background-color: #D65858; height: 100%">
 	<p>Example de jsp</p>
 	<br />
 	<br />

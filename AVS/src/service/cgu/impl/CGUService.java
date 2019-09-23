@@ -4,6 +4,7 @@
 package service.cgu.impl;
 
 import persistance.cgu.dao.ICGUDao;
+import util.factory.Factory;
 
 /**
  * implémentation de ICGUService
@@ -22,7 +23,7 @@ public class CGUService implements ICGUService {
 
     @Override
     public String afficherCGU() {
-        final ICGUDao iCGUDao = util.Factory.getInstance(ICGUDao.class);
+        final ICGUDao iCGUDao = Factory.getInstance(ICGUDao.class);
         return iCGUDao.lireCGUDao();
     }
 

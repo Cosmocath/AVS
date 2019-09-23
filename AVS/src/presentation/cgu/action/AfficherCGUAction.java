@@ -12,7 +12,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import service.cgu.impl.ICGUService;
-import util.Factory;
+import util.factory.Factory;
 
 /**
  * @author Administrateur

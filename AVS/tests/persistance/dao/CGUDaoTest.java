@@ -6,7 +6,8 @@ package persistance.dao;
 import org.junit.jupiter.api.Test;
 
 import persistance.cgu.dao.ICGUDao;
-import util.Factory;
+import util.factory.Factory;
+
 
 /**
  * @author Administrateur
