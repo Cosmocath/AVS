@@ -1,7 +1,7 @@
 <%@include file="/jsp/tiles/taglib.jsp"%>
 <title><bean:message key="USR_02.titre" /></title>
 
-<div style="background-color: white; height: 100%; padding: 10px">
+<div style="height: 100%">
 
 	<div>
 		<h1>
