@@ -24,17 +24,10 @@ public class ChangerLangueAction extends Action {
     public ActionForward execute(final ActionMapping mapping, ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         // récupération du paramètre de requête "langue"
         final String langue = request.getParameter("langue");
-        // on fait la locale avec le paramètre
-        final Locale locale = new Locale(langue);
-        // pour ensuite recupérer le code la langue
-        switch (locale.getLanguage()) {
-            case "fr":
-                request.getSession().setAttribute(Globals.LOCALE_KEY, Locale.FRENCH);
-                break;
-            case "en" :
-                request.getSession().setAttribute(Globals.LOCALE_KEY, Locale.ENGLISH);
-                break;               
-        }
+        // on retourne la langue locale avec le parametre
+        final Locale locale = Locale.forLanguageTag(langue);
+        
+        request.getSession().setAttribute(Globals.LOCALE_KEY, locale);
 
         // récupère l'url d'ou l'on provient
         final String urlArrivee = request.getHeader("referer");
