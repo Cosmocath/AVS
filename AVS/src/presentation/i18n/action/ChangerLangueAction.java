@@ -24,19 +24,10 @@ public class ChangerLangueAction extends Action {
     public ActionForward execute(final ActionMapping mapping, ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         // récupération du paramètre de requête "langue"
         final String langue = request.getParameter("langue");
-        // conversion dans notre enum 
-        final Langue enumLangue = Langue.valueOf(langue);
-        switch (enumLangue) {
-            case FR :
-                request.getSession().setAttribute(Globals.LOCALE_KEY, Locale.FRENCH);
-                break;
-            case EN :
-                request.getSession().setAttribute(Globals.LOCALE_KEY, Locale.ENGLISH);
-                break;
-            default :
-                request.getSession().setAttribute(Globals.LOCALE_KEY, Locale.FRENCH);
-                break;
-        }
+        // on retourne la langue locale avec le parametre
+        final Locale locale = Locale.forLanguageTag(langue);
+        
+        request.getSession().setAttribute(Globals.LOCALE_KEY, locale);
 
         // récupère l'url d'ou l'on provient
         final String urlArrivee = request.getHeader("referer");

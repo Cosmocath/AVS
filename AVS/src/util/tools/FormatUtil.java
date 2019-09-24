@@ -2,6 +2,7 @@ package util.tools;
 
 import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -21,7 +22,6 @@ public class FormatUtil {
 
     /**
      * Permet de convertir un entier en String
-     * 
      * 
      * @param entier
      * @return
@@ -44,6 +44,8 @@ public class FormatUtil {
     }
 
     /**
+     * Permet de convertir un string en double
+     * 
      * @param mot
      * @return
      */
@@ -52,12 +54,34 @@ public class FormatUtil {
     }
 
     /**
+     * Permet de convertir un Double en String
+     * 
      * @param nombre
      * @return
      */
     public static String convertirDoubleToString(final Double nombre) {
         final DecimalFormat df = new DecimalFormat("0.00");
         return df.format(nombre);
+    }
+
+    /**
+     * Permet de convertir une String en Date
+     * 
+     * @param date
+     * @return
+     */
+    public static Date convertirStringToDate(final String date) {
+        if (!Tools.verifDate(date)) {
+            return null;
+        }
+
+        try {
+            final Date date1 = new SimpleDateFormat(FORMAT_DATE).parse(date);
+            return date1;
+        } catch (final ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
 }

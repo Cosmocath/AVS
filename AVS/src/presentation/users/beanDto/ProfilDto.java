@@ -1,7 +1,7 @@
 package presentation.users.beanDto;
 
 /**
- * Bean pour le type de profil
+ * Bean d'un profil
  * 
  * @author Administrateur
  *

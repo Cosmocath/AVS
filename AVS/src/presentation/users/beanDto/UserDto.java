@@ -1,9 +1,5 @@
 package presentation.users.beanDto;
 
-import java.util.Date;
-
-import util.enumeration.TypeDeProfil;
-
 /**
  * Bean d'un utilisateur quelque soit son action
  * 
@@ -14,12 +10,12 @@ public class UserDto {
     private Integer      id;
     private String       nom;
     private String       prenom;
-    private Date         dateNaissance;
+    private String       dateNaissance;
     private String       adresse;
     private String       password;
     private String       mail;
     private boolean      actif;
-    private TypeDeProfil profil;
+    private ProfilDto profilDto;
 
     /**
      * constructeur du user dto
@@ -73,14 +69,14 @@ public class UserDto {
     /**
      * @return the dateNaissance
      */
-    public Date getDateNaissance() {
+    public String getDateNaissance() {
         return dateNaissance;
     }
 
     /**
      * @param dateNaissance the dateNaissance to set
      */
-    public void setDateNaissance(final Date dateNaissance) {
+    public void setDateNaissance(final String dateNaissance) {
         this.dateNaissance = dateNaissance;
     }
 
@@ -141,17 +137,17 @@ public class UserDto {
     }
 
     /**
-     * @return the profil
+     * @return the profilDto
      */
-    public TypeDeProfil getProfil() {
-        return profil;
+    public ProfilDto getProfilDto() {
+        return profilDto;
     }
 
     /**
-     * @param profil the profil to set
+     * @param profilDto the profilDto to set
      */
-    public void setProfil(final TypeDeProfil profil) {
-        this.profil = profil;
+    public void setProfilDto(final ProfilDto profilDto) {
+        this.profilDto = profilDto;
     }
 
 }

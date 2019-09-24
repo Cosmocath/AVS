@@ -1,6 +1,8 @@
 <%@include file="/jsp/tiles/taglib.jsp"%>
 <title><bean:message key="USR_02.titre" /></title>
+
 <div style="height: 100%">
+
 	<div>
 		<h1>
 			<bean:message key="USR_02.titre" />
@@ -28,14 +30,13 @@
 					<td><bean:write name="utilisateur" property="nom" /></td>
 					<td><bean:write name="utilisateur" property="prenom" /></td>
 					<td><bean:write name="utilisateur" property="dateNaissance" /></td>
-					<td><bean:write name="utilisateur" property="profil" /></td>
+					<td><bean:write name="utilisateur" property="profilDto.nom" /></td>
 
-					<td width="30%" align="center"><html:link
-							href="voirEditerChat.do?id=${user.id}">
+					<!-- Les lien sont bloqués en attendant les ecrans correspondant -->
+					<td width="30%" align="center"><html:link href="#">
 							<bean:message key="USR_02.editer" />
 						</html:link></td>
-					<td width="30%" align="center"><html:link
-							href="consulterUser.do?id=${user.id}">
+					<td width="30%" align="center"><html:link href="#">
 							<bean:message key="USR_02.consulter" />
 						</html:link></td>
 				</tr>

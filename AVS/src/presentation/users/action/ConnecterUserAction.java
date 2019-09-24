@@ -44,6 +44,7 @@ public class ConnecterUserAction extends Action {
             return mapping.findForward("notSuccess");
 
         } else {
+            // TODO XSI : supprimer ce message si inutile
             final ActionMessages messages = new ActionMessages();
             messages.add("creationOK", new ActionMessage("creer.ok"));
             saveMessages(request, messages);
