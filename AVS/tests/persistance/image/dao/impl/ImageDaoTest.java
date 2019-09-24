@@ -4,7 +4,6 @@
 package persistance.image.dao.impl;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
 

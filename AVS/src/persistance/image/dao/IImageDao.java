@@ -1,7 +1,5 @@
 package persistance.image.dao;
 
-import java.io.File;
-
 /**
  * Gestion des images
  * 

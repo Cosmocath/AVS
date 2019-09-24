@@ -22,11 +22,9 @@ import util.factory.Factory;
 public class AfficherImageAction extends Action {
 
     @Override
-    public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
-        System.out.println("toto");
+    public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         //on met l'idImageDto  en paramètre
         final String urlImage = request.getParameter("urlImage");
-        System.out.println("image :" + urlImage);
 
         //accès à la couche service
         final IImageService iImageService = Factory.getInstance(IImageService.class);
@@ -43,7 +41,7 @@ public class AfficherImageAction extends Action {
         //j'envoie l'ordre d'instruction de lecture
         os.flush();
 
-        //je fermer le flux
+        //je ferme le flux
         os.close();
 
         //on retourne la redirection
