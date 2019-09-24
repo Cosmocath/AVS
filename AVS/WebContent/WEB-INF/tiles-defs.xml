@@ -29,6 +29,9 @@
 	</definition>
 
 	<!-- Equipe Users -->
+	<definition name="voirCreerUser" extends="template">
+		<put name="body" value="/jsp/users/creerUser.jsp" />
+	</definition>
 	<definition name="listerUser" extends="template">
 		<put name="body" value="/jsp/users/listerUser.jsp" />
 	</definition>

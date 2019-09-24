@@ -39,4 +39,19 @@ public interface IUserService {
      */
     UserDto findUserDto(final Integer id);
 
+    /**
+     * Permet de faire appel à la couche persistance afin de rechercher un user en BDD à partir de son mail**
+     * 
+     * @param mail
+     * @return un UserDto du user rechérché,null si non trouvé
+     */
+    UserDto findUserByMail(final String mail);
+
+    /**
+     * Permet de faire appel à la couche persistance afin de créer un user en BDD
+     * 
+     * @param userDto
+     * @return le UserDto crée
+     */
+    UserDto createUser(final UserDto userDto);
 }

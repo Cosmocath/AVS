@@ -30,7 +30,7 @@
 					<td><bean:write name="utilisateur" property="nom" /></td>
 					<td><bean:write name="utilisateur" property="prenom" /></td>
 					<td><bean:write name="utilisateur" property="dateNaissance" /></td>
-					<td><bean:write name="utilisateur" property="profil" /></td>
+					<td><bean:write name="utilisateur" property="profilDto.nom" /></td>
 
 
 					<!-- Les lien sont bloqués en attendant les ecrans correspondant -->
