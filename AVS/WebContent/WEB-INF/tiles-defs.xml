@@ -17,6 +17,11 @@
 		<put name="body" value="/jsp/commande/listerCommande.jsp" />
 	</definition>
 
+	<!-- CGU -->
+	<definition name="cgu" extends="template">
+		<put name="body" value="/jsp/cgu/CGU.jsp" />
+	</definition>
+
 	<!-- La connection / déconnexion -->
 
 	<definition name="voirConnecterUser" extends="template">
@@ -24,6 +29,9 @@
 	</definition>
 
 	<!-- Equipe Users -->
+	<definition name="voirCreerUser" extends="template">
+		<put name="body" value="/jsp/users/creerUser.jsp" />
+	</definition>
 	<definition name="listerUser" extends="template">
 		<put name="body" value="/jsp/users/listerUser.jsp" />
 	</definition>

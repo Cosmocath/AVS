@@ -1,13 +1,13 @@
 package service.users.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import persistance.users.beanDo.ProfilDo;
 import persistance.users.beanDo.UserDo;
 import presentation.users.beanDto.ConnectedUserDto;
 import presentation.users.beanDto.UserDto;
-import util.enumeration.TypeDeProfil;
 import util.tools.FormatUtil;
 
 /**
@@ -15,7 +15,7 @@ import util.tools.FormatUtil;
  * 
  * @author Administrateur
  *
- */
+ */ 
 public class UserMapper {
 
     /**
@@ -28,7 +28,7 @@ public class UserMapper {
         final ConnectedUserDto connectedUserDto = new ConnectedUserDto();
         connectedUserDto.setId(userDo.getId());
         connectedUserDto.setNom(userDo.getNom());
-        connectedUserDto.setProfil(mapTypeProfilDoToTypeProfil(userDo.getProfilDo()));
+        connectedUserDto.setProfil(ProfilMapper.mapProfilDoToTypeProfil(userDo.getProfilDo()));
         return connectedUserDto;
     }
 
@@ -48,7 +48,7 @@ public class UserMapper {
         userDto.setPassword(userDo.getPassword());
         userDto.setMail(userDo.getMail());
         userDto.setActif(userDo.isActif());
-        userDto.setProfil(mapTypeProfilDoToTypeProfil(userDo.getProfilDo()));
+        userDto.setProfilDto(ProfilMapper.mapProfilDoToProfilDto(userDo.getProfilDo()));
         return userDto;
     }
 
@@ -67,22 +67,18 @@ public class UserMapper {
     }
 
     /**
-     * Permet de mapper un profil en TypeDeProfil
+     * permet de mapper le userDto en userDo
      * 
-     * @param profilDo
-     * @return la valeur de l'enum TypeDeProfil
+     * @param userDto
+     * @return le userDo
      */
-    private static TypeDeProfil mapTypeProfilDoToTypeProfil(final ProfilDo profilDo) {
-        return TypeDeProfil.getValue(profilDo.getNom());
-    }
+    public static UserDo mapToDo(final UserDto userDto) {
+        final Date dateNaissance = FormatUtil.convertirStringToDate(userDto.getDateNaissance());
+        final ProfilDo profilDo = ProfilMapper.mapProfilDtoToProfilDo(userDto.getProfilDto());
 
-    /**
-     * Permet de mapper TypeDeProfil en String
-     * 
-     * @param typeDeProfil
-     * @return le profil
-     */
-    public static String mapTypeProfilToProfil(final TypeDeProfil typeDeProfil) {
-        return typeDeProfil.getNomBD();
+        final UserDo userDo = UserDo.buildUserDo(userDto.getId(), userDto.getNom(), userDto.getPrenom(), dateNaissance, userDto.getAdresse(), userDto.getPassword(), profilDo, userDto.getMail(),
+                        userDto.isActif());
+
+        return userDo;
     }
 }
