@@ -20,8 +20,7 @@
 		<property name="actif" column="actif"></property>
 		<many-to-one name="profilDo" column="id_Profil"
 			lazy="false"></many-to-one>
-		<set name="setCommandeDo" cascade="all, delete-orphan"
-			inverse="true" lazy="false">
+		<set name="setCommandeDo" inverse="true" lazy="false">
 			<key column="id_Utilisateur"></key>
 			<one-to-many
 				class="persistance.commande.beanDo.CommandeDo" />
