@@ -9,6 +9,7 @@ import presentation.users.beanDto.ProfilDto;
 import presentation.users.beanDto.UserDto;
 import service.users.IProfilService;
 import service.users.IUserService;
+import util.cryptage.MD5Encryption;
 import util.enumeration.OrderBy;
 import util.factory.Factory;
 
@@ -28,10 +29,13 @@ public class UserService implements IUserService {
     @Override
     public ConnectedUserDto findUserForConnexion(final String mail, final String password) {
         final IUserDao iUserDao = Factory.getInstance(IUserDao.class);
-        final UserDo userDo = iUserDao.findUserForConnexion(mail, password);
+        // Je crypte le password passé par l utilisateur
+        final String cryptPassword = MD5Encryption.encrypt(password);
+        final UserDo userDo = iUserDao.findUserForConnexion(mail, cryptPassword);
         if (userDo == null || !userDo.isActif()) {
             return null;
         }
+
         return UserMapper.mapToConnectedUserDto(userDo);
     }
 
@@ -63,6 +67,14 @@ public class UserService implements IUserService {
 
         final IProfilService iProfilService = Factory.getInstance(IProfilService.class);
         final ProfilDto profilDto = iProfilService.findProfilById(userDto.getProfilDto().getId());
+
+        // recuperer le password passé dans le formulaire
+        final String password = userDto.getPassword();
+        // le crypter
+        final String cryptPassword = MD5Encryption.encrypt(password);
+        // le lier au userDto
+        userDto.setPassword(cryptPassword);
+
         userDto.setProfilDto(profilDto);
 
         iUserDao.createUser(UserMapper.mapToDo(userDto));

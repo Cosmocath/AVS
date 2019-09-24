@@ -20,6 +20,7 @@ public class PanierService implements IPanierService {
     public PanierDto remisePanier(final PanierDto panierDto) {
         if (panierDto.getQuantiteTotale() > QUANTITE_AVANT_REMISE && panierDto.getTotalAvantRemise() >= SEUIL_REMISE) {
             panierDto.setTotalApresRemise(panierDto.getTotalAvantRemise() * REMISE);
+            panierDto.setRemise(panierDto.getTotalApresRemise() - panierDto.getTotalAvantRemise());
             return panierDto;
         }
 
