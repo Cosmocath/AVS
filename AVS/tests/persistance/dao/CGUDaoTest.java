@@ -1,5 +1,6 @@
 package persistance.dao;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import persistance.cgu.dao.ICGUDao;
@@ -15,10 +16,10 @@ class CGUDaoTest {
      * Test method for {@link persistance.cgu.dao.impl.CGUDao#lireCGUDao()}.
      */
     @Test
-    void LireCGUDaoTest() {
+    void lireCGUDaoTest() {
         final ICGUDao iCGUDao = Factory.getInstance(ICGUDao.class);
         iCGUDao.lireCGUDao();
-        // TODO XSI : compléter le test
+        Assertions.assertNotNull(iCGUDao.lireCGUDao());
     }
 
 }
