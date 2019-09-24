@@ -106,6 +106,12 @@
 				redirect="false" />
 		</action>
 
+		<action path="/ajouterPanier" scope="session"
+			input="ajouterPanier" parameter="" name="ajouterPanier"
+			type="presentation.panier.action.AjouterPanierAction">
+			<forward name="success" path="ajouterPanier" redirect="true" />
+		</action>
+
 		<!-- Action de l'équipe Commande -->
 
 
