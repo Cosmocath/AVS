@@ -99,6 +99,7 @@ INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(17, 'ajouterPanier
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(18, 'voirCGU.do', 'droit de voir le CGU');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(19, 'afficherCGU.do', 'droit pour afficher le CGU');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(20, 'consulterUser.do', 'droit pour consulter le comte');
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(21, 'afficherImage.do', 'droit pour afficher une image');
 
 --
 -- Déchargement des données de la table `profildroit`
@@ -143,14 +144,17 @@ INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(40,
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(41, 3, 19);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(42, 2, 20);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(43, 3, 20);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(44, 1, 21);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(45, 2, 21);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(46, 3, 21);
 
 --
 -- Déchargement des données de la table `produit`
 --
 
-INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(12, 'jardinage', 'AB3456', 'entretien de jardin', 30, 'C:\\\\AVS_Images\\AVS_Produits\\image1.jpg', 1, b'1');
+INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(12, 'jardinage', 'AB3456', 'entretien de jardin', 30, 'C:\\\\AVS_Images\\AVS_Produits\\jardinage.jpg', 1, b'1');
 INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(13, 'menage', 'BC7654', 'entretien d_interieur', 20, 'null', 1, b'0');
-INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(14, 'demenagement', 'DE6789', 'service_au_demenagement', 40, 'null', 1, b'1');
+INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(14, 'demenagement', 'DE6789', 'service_au_demenagement', 40, 'C:\\\\AVS_Images\\AVS_Produits\\demenagement.jpg', 1, b'1');
 INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(15, 'bricolage', 'FG1234', 'petits travaux de reparation', 50, 'null', 1, b'0');
 INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(16, 'assistance informatique', 'HI5678', 'installation de logiciels', 25, 'null', 1, b'0');
 INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(17, 'soutien scolaire', 'JK9123', 'aide aux devoirs', 25, 'null', 1, b'0');
