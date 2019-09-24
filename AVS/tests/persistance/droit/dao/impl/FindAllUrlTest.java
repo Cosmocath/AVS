@@ -50,9 +50,9 @@ class FindAllUrlTest {
     @Test
     void testFindAllDroits() {
         final IDroitDao iDroitAcces = Factory.getInstance(IDroitDao.class);
-        assertEquals(12, iDroitAcces.findAllDroits().size());
-        assertEquals("afficherPanier.do", iDroitAcces.findAllDroits().get(0).getUrl());
-        assertEquals(2, iDroitAcces.findAllDroits().get(0).getSetProfilDroits().size());
+        assertEquals(17, iDroitAcces.findAllDroits().size());
+        assertEquals("afficherCGU.do", iDroitAcces.findAllDroits().get(0).getUrl());
+        assertEquals(3, iDroitAcces.findAllDroits().get(0).getSetProfilDroits().size());
     }
 
 }
