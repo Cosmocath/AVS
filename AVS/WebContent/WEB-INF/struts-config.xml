@@ -42,11 +42,11 @@
 		</action>
 
 		<!-- Action d'affichage des CGU -->
-		<action path="/voirCGU" scope="request" input=""
-			parameter="" type="presentation.cgu.action.VoirCGUAction">
+		<action path="/voirCGU" scope="request" input="" parameter=""
+			type="presentation.cgu.action.VoirCGUAction">
 			<forward name="success" path="cgu" redirect="false"></forward>
 		</action>
-		
+
 		<action path="/afficherCGU" scope="request" input=""
 			parameter="" type="presentation.cgu.action.AfficherCGUAction">
 		</action>
@@ -75,7 +75,7 @@
 
 		<action path="/deconnecterUser" scope="request" input=""
 			parameter="" type="presentation.users.action.DeconnecterUserAction">
-			<forward name="success" path="listerProduitClient"
+			<forward name="success" path="listerProduitClient.do"
 				redirect="true"></forward>
 		</action>
 
