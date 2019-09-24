@@ -17,8 +17,7 @@ class ConversionUtilTest {
      * Test method for {@link util.ConversionUtil#convertDoubleCommaToDot(java.lang.String)}.
      */
     @Test
-    void testConvertDoubleCommaToDot() {
-        // TODO : changer le nom
+    final void testConvertStringCommaToDot() {
         assertEquals("1.75", ConversionUtil.convertStringCommaToDot("1,75"));
         assertEquals("1.75", ConversionUtil.convertStringCommaToDot("1.75"));
         assertEquals("1500", ConversionUtil.convertStringCommaToDot("1500"));

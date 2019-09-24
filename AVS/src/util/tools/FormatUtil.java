@@ -24,7 +24,7 @@ public class FormatUtil {
      * Permet de convertir un entier en String
      * 
      * @param entier
-     * @return
+     * @return String
      */
     public static String convertirEntierToString(final int entier) {
         return Integer.toString(entier);
@@ -36,7 +36,7 @@ public class FormatUtil {
      * 
      * 
      * @param date
-     * @return
+     * @return String
      */
     public static String convertirDateToString(final Date date) {
         final DateFormat dateFormat = new SimpleDateFormat(FORMAT_DATE);
@@ -47,7 +47,7 @@ public class FormatUtil {
      * Permet de convertir un string en double
      * 
      * @param mot
-     * @return
+     * @return Double
      */
     public static Double convertirStringToDouble(final String mot) {
         return Double.parseDouble(mot);
@@ -57,7 +57,7 @@ public class FormatUtil {
      * Permet de convertir un Double en String
      * 
      * @param nombre
-     * @return
+     * @return String
      */
     public static String convertirDoubleToString(final Double nombre) {
         final DecimalFormat df = new DecimalFormat("0.00");
@@ -68,7 +68,7 @@ public class FormatUtil {
      * Permet de convertir une String en Date
      * 
      * @param date
-     * @return
+     * @return Date
      */
     public static Date convertirStringToDate(final String date) {
         if (!Tools.verifDate(date)) {

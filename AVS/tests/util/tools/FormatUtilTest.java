@@ -37,19 +37,19 @@ class FormatUtilTest {
         final Calendar calendar2 = Calendar.getInstance();
         calendar1.set(2015, Calendar.DECEMBER, 04);
         calendar2.set(1981, Calendar.MARCH, 14);
-        Assert.assertEquals("04/12/2015", FormatUtil.convertirDateToString(calendar1.getTime()));
-        Assert.assertEquals("14/03/1981", FormatUtil.convertirDateToString(calendar2.getTime()));
-        Assert.assertNotEquals("04/12/15", FormatUtil.convertirDateToString(calendar2.getTime()));
-        Assert.assertNotEquals("14/81", FormatUtil.convertirDateToString(calendar2.getTime()));
-        Assert.assertNotEquals("2/2015", FormatUtil.convertirDateToString(calendar2.getTime()));
-        Assert.assertNotEquals("2015", FormatUtil.convertirDateToString(calendar2.getTime()));
-        Assert.assertNotEquals("04-12-2015", FormatUtil.convertirDateToString(calendar2.getTime()));
-        Assert.assertNotEquals("14-03-1981", FormatUtil.convertirDateToString(calendar2.getTime()));
-        Assert.assertNotEquals("12-2015", FormatUtil.convertirDateToString(calendar2.getTime()));
-        Assert.assertNotEquals("12-15", FormatUtil.convertirDateToString(calendar2.getTime()));
-        Assert.assertNotEquals("03-81", FormatUtil.convertirDateToString(calendar2.getTime()));
-        Assert.assertNotEquals(Calendar.AUGUST, FormatUtil.convertirDateToString(calendar2.getTime()));
-        Assert.assertNotEquals(Calendar.AUGUST, FormatUtil.convertirDateToString(calendar1.getTime()));
+        Assertions.assertEquals("04/12/2015", FormatUtil.convertirDateToString(calendar1.getTime()));
+        Assertions.assertEquals("14/03/1981", FormatUtil.convertirDateToString(calendar2.getTime()));
+        Assertions.assertNotEquals("04/12/15", FormatUtil.convertirDateToString(calendar2.getTime()));
+        Assertions.assertNotEquals("14/81", FormatUtil.convertirDateToString(calendar2.getTime()));
+        Assertions.assertNotEquals("2/2015", FormatUtil.convertirDateToString(calendar2.getTime()));
+        Assertions.assertNotEquals("2015", FormatUtil.convertirDateToString(calendar2.getTime()));
+        Assertions.assertNotEquals("04-12-2015", FormatUtil.convertirDateToString(calendar2.getTime()));
+        Assertions.assertNotEquals("14-03-1981", FormatUtil.convertirDateToString(calendar2.getTime()));
+        Assertions.assertNotEquals("12-2015", FormatUtil.convertirDateToString(calendar2.getTime()));
+        Assertions.assertNotEquals("12-15", FormatUtil.convertirDateToString(calendar2.getTime()));
+        Assertions.assertNotEquals("03-81", FormatUtil.convertirDateToString(calendar2.getTime()));
+        Assertions.assertNotEquals(Calendar.AUGUST, FormatUtil.convertirDateToString(calendar2.getTime()));
+        Assertions.assertNotEquals(Calendar.AUGUST, FormatUtil.convertirDateToString(calendar1.getTime()));
 
     }
 
@@ -58,8 +58,8 @@ class FormatUtilTest {
      */
     @Test
     final void testConvertirStringToDouble() {
-        Assert.assertEquals(Double.valueOf(123), FormatUtil.convertirStringToDouble("123"));
-        Assert.assertNotEquals(123, FormatUtil.convertirStringToDouble("123"));
+        Assertions.assertEquals(Double.valueOf(123), FormatUtil.convertirStringToDouble("123"));
+        Assertions.assertNotEquals(0123, FormatUtil.convertirStringToDouble("123"));
 
     }
 

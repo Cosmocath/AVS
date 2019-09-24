@@ -14,18 +14,17 @@
 			<th><bean:message key="PAN_00.Modifier.Quantite" /></th>
 			<th><bean:message key="PAN_00.Prix.Total" /></th>
 		</tr>
-		<logic:iterate name="monPanierDto" id="mapPanierQte" scope="session"
+		<logic:iterate id="mapPanierQte" name="monPanierDto" scope="session"
 			property="mapDesProduitsQte">
-			<bean:define name="mapPanierQte" id="produitDto" property="key"></bean:define>
-			<bean:define name="mapPanierQte" id="quantiteProduit"
+			<bean:define id="produitDto" name="mapPanierQte" property="key"></bean:define>
+			<bean:define id="quantiteProduit" name="mapPanierQte"
 				property="value"></bean:define>
 
 			<tr>
 				<td>${produitDto.designation}</td>
 				<td>${produitDto.reference}</td>
 				<td>${quantiteProduit}</td>
-				<td><bean:write name="produitDto" property="prix" /> <bean:message
-						key="Global.euro" /></td>
+				<td>${produitDto.prix} <bean:message key="Global.euro" /></td>
 				<td>
 					<button type="button" onclick="ajouterQuantite">+</button>
 					<button type="button" onclick="diminuerQuantite">-</button>
