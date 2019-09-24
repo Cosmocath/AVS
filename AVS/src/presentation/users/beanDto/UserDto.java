@@ -7,14 +7,14 @@ package presentation.users.beanDto;
  *
  */
 public class UserDto {
-    private Integer      id;
-    private String       nom;
-    private String       prenom;
-    private String       dateNaissance;
-    private String       adresse;
-    private String       password;
-    private String       mail;
-    private boolean      actif;
+    private Integer   id;
+    private String    nom;
+    private String    prenom;
+    private String    dateNaissance;
+    private String    adresse;
+    private String    password;
+    private String    mail;
+    private boolean   actif;
     private ProfilDto profilDto;
 
     /**
