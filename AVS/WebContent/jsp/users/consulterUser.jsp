@@ -17,7 +17,7 @@
 			<br />
 			<bean:message key="USR_03.mail" />${user.mail}
 			<br />
-			<bean:message key="USR_03.profil" />${user.profil}
+			<bean:message key="USR_03.profil" />${user.profilDto.nom}
 
 			<div>
 				<br />
