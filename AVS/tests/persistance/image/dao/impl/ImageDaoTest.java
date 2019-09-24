@@ -1,9 +1,7 @@
-/**
- * 
- */
 package persistance.image.dao.impl;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 import org.junit.jupiter.api.Test;
 
@@ -22,9 +20,8 @@ class ImageDaoTest {
     @Test
     void testGetImage() {
         final IImageDao iImageDao = Factory.getInstance(IImageDao.class);
-        assertNotNull(iImageDao);
         assertNotNull(iImageDao.getImage("C:\\AVS_Images\\AVS_Produits\\motocyclette.jpg"));
-
+        assertNull(iImageDao.getImage("toto"));
     }
 
 }

@@ -5,6 +5,8 @@ import service.image.IImageService;
 import util.factory.Factory;
 
 /**
+ * Services de gestion des images
+ * 
  * @author Rodolphe
  *
  */
@@ -30,9 +32,12 @@ public class ImageService implements IImageService {
     public byte[] getImage(final String urlImage) {
         // obtention des images : l'image passée en paramètre, sinon l'image par défaut, sinon null
         final IImageDao iImageDao = Factory.getInstance(IImageDao.class);
-        if (iImageDao.getImage(REPERTOIRE_IMAGES + urlImage) != null) {
-            return iImageDao.getImage(REPERTOIRE_IMAGES + urlImage);
-        } else if (iImageDao.getImage(DEFAULT_IMAGE) != null) {
+        byte[] image = iImageDao.getImage(REPERTOIRE_IMAGES + urlImage);
+        if (image != null) {
+            return image;
+        }
+        image = iImageDao.getImage(DEFAULT_IMAGE);
+        if (image != null) {
             return iImageDao.getImage(DEFAULT_IMAGE);
         }
         return null;

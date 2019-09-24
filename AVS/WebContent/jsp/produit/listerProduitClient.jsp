@@ -16,7 +16,7 @@
 
 				<td><html:link
 						href="consulterProduit.do?id=${produit.id}&retour=produitClient">
-						<img height="100px" width="100px"
+						<html:img style="width:100px; height:100px;"
 							src="${pageContext.request.contextPath}/afficherImage.do?urlImage=${produit.image}" />
 					</html:link></td>
 

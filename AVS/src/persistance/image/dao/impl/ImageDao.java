@@ -9,6 +9,8 @@ import java.io.InputStream;
 import persistance.image.dao.IImageDao;
 
 /**
+ * Gestion des images
+ * 
  * @author Rodolphe
  *
  */
@@ -40,14 +42,13 @@ public class ImageDao implements IImageDao {
     @Override
     public byte[] getImage(final String urlImage) {
         //stockage du chemin de l'image dans un file
-        File fileImage = null;
+        final File fileImage =  new File(urlImage);
 
-        fileImage = new File(urlImage);
-        byte[] byteImage = null;
         try (FileInputStream fisImage = new FileInputStream(fileImage)) {
-            byteImage = readStream(fisImage);
+            final byte[] byteImage = readStream(fisImage);
             return byteImage;
-        } catch (IOException e) {
+        } catch (final IOException e) {
+            e.printStackTrace();
             return null;
         }
     }

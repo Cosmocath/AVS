@@ -25,10 +25,8 @@ class ImageServiceTest {
     void testGetImage() {
         final IImageService iImageService = Factory.getInstance(IImageService.class);
         final IImageDao iImageDao = Factory.getInstance(IImageDao.class);
-        assertNotNull(iImageService);
         assertNotNull(iImageService.getImage("tutu"));
         assertArrayEquals(iImageDao.getImage("C:\\AVS_Images\\AVS_Default.jpg"), iImageService.getImage("tutu"));
-        assertNotNull(iImageService.getImage("C:\\AVS_Images\\AVS_Produits\\motocyclette.jpg"));
     }
 
 }
