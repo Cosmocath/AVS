@@ -61,12 +61,15 @@ INSERT INTO `utilisateur` (`id_Utilisateur`, `nom`, `prenom`, `date_naissance`, 
 --
 
 INSERT INTO `commande` (`id_Commande`, `id_Utilisateur`, `nom`, `adresse_livraison`, `adresse_facturation`, `numero_commande`, `date_commande`, `montant_sans_remise`, `remise`) VALUES(1, 8, 'commande_jardin', '19_rue_montebello', '19_rue_montebello', 'jd_1546', '2016-06-17', 60, 0);
+INSERT INTO `commande` (`id_Commande`, `id_Utilisateur`, `nom`, `adresse_livraison`, `adresse_facturation`, `numero_commande`, `date_commande`, `montant_sans_remise`, `remise`) VALUES(2, 9, 'commande_Dupont', '84_rue_JeanBatsite_Leblanc', '84_rue_JeanBatsite_Leblanc', 'da_1515', '2019-08-22', 20, 0);
+INSERT INTO `commande` (`id_Commande`, `id_Utilisateur`, `nom`, `adresse_livraison`, `adresse_facturation`, `numero_commande`, `date_commande`, `montant_sans_remise`, `remise`) VALUES(3, 10, 'commande_Zuti', '11_ave_Nicolas_Lebas', '11_ave_Nicolas_Lebas', 'zm_1516', '2018-05-30', 100, 0);
+INSERT INTO `commande` (`id_Commande`, `id_Utilisateur`, `nom`, `adresse_livraison`, `adresse_facturation`, `numero_commande`, `date_commande`, `montant_sans_remise`, `remise`) VALUES(4, 11, 'commande_Belka', '84_rue_deLommes', '84_rue_deLommes', 'bs_1517', '2017-03-15', 55, 0);
 
 --
 -- Déchargement des données de la table `produitvendu`
 --
 
-INSERT INTO `produitvendu` (`id_ProduitVendu`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `id_Produit_Historise`) VALUES(1, 'jadinage', 'AB3456', 'entretien de jardin', 30, 'null', 1, 12);
+INSERT INTO `produitvendu` (`id_ProduitVendu`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `id_Produit_Historise`) VALUES(1, 'jadinage', 'AB3456', 'entretien de jardin', 30, 'C:\\\\AVS_Images\\AVS_Produits\\image1.jpg', 1, 12);
 
 --
 -- Déchargement des données de la table `commandeproduit`
@@ -95,6 +98,7 @@ INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(16, 'creerUser.do'
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(17, 'ajouterPanier.do', 'permet d ajouter au panier');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(18, 'voirCGU.do', 'droit de voir le CGU');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(19, 'afficherCGU.do', 'droit pour afficher le CGU');
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(20, 'consulterUser.do', 'droit pour consulter le comte');
 
 --
 -- Déchargement des données de la table `profildroit`
@@ -137,12 +141,14 @@ INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(38,
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(39, 1, 19);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(40, 2, 19);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(41, 3, 19);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(42, 2, 20);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(43, 3, 20);
 
 --
 -- Déchargement des données de la table `produit`
 --
 
-INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(12, 'jardinage', 'AB3456', 'entretien de jardin', 30, 'null', 1, b'1');
+INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(12, 'jardinage', 'AB3456', 'entretien de jardin', 30, 'C:\\\\AVS_Images\\AVS_Produits\\image1.jpg', 1, b'1');
 INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(13, 'menage', 'BC7654', 'entretien d_interieur', 20, 'null', 1, b'0');
 INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(14, 'demenagement', 'DE6789', 'service_au_demenagement', 40, 'null', 1, b'1');
 INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(15, 'bricolage', 'FG1234', 'petits travaux de reparation', 50, 'null', 1, b'0');
