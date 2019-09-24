@@ -21,15 +21,18 @@ public class PanierService implements IPanierService {
 
     @Override
     public PanierDto addProduitPanier(final PanierDto panierDto, final int idProduit) {
-
         final IProduitService iProduitService = Factory.getInstance(IProduitService.class);
         final ProduitDto produitDto = iProduitService.getProduitById(idProduit);
-        if (produitDto == null) {
+
+        if (panierDto.getMapDesProduitsQte().containsKey(produitDto)) {
+            int quantite = panierDto.getMapDesProduitsQte().get(produitDto);
+            panierDto.getMapDesProduitsQte().put(produitDto, quantite++);
+        } else {
             panierDto.getMapDesProduitsQte().put(produitDto, 1);
-            panierDto.setQuantiteTotale(panierDto.getQuantiteTotale() + 1);
         }
-        panierDto.getMapDesProduitsQte().values().add(1);
+        panierDto.setQuantiteTotale(panierDto.getMapDesProduitsQte().size());
         panierDto.setTotalAvantRemise(panierDto.getTotalAvantRemise() + produitDto.getPrix());
+        remisePanier(panierDto);
 
         return panierDto;
     }

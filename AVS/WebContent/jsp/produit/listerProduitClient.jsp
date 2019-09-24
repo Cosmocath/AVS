@@ -43,7 +43,7 @@
 
 			</tr>
 			<div align="right" style="float: right">
-				<html:link href="${urlPanier}">
+				<html:link href="ajouterPanier.do?id=${produit.id}&panier=listeProduitClient">
 					<bean:message key="PDT_00.bouton.ajouterPanier" />
 				</html:link>
 			</div>

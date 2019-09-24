@@ -128,10 +128,11 @@
 				redirect="false" />
 		</action>
 
-		<action path="/ajouterPanier" scope="session"
-			input="ajouterPanier" parameter="" name="ajouterPanier"
+		<action path="/ajouterPanier" scope="request" input=""
+			parameter="" name=""
 			type="presentation.panier.action.AjouterPanierAction">
-			<forward name="success" path="ajouterPanier" redirect="true" />
+			<forward name="success" path="ajouterPanier" redirect="false" />
+			
 		</action>
 
 		<!-- Action de l'équipe Commande -->

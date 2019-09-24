@@ -35,9 +35,9 @@ public class AjouterPanierAction extends Action {
         iPanierService.addProduitPanier(panierDto, idProduit);
 
         String urlPanier = request.getContextPath();
-        final String retour = request.getParameter("retour");
+        final String panier = request.getParameter("panier");
         // je convertis ma chaine retour en une valeur de l enum
-        final ParamPanier valeurEnum = ParamPanier.getValue(retour);
+        final ParamPanier valeurEnum = ParamPanier.getValue(panier);
 
         //on teste la valeur de l'enum pour les 4 écrans qu'on veut attendre en cliquant retour
         switch (valeurEnum) {

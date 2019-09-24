@@ -21,11 +21,11 @@ public class PanierDto implements Serializable {
 
     //pas d'idPanier car Objet non persisté
 
-    private Integer                  quantiteTotale;
-    private Double                   prixTotal;
-    private Double                   totalAvantRemise;
-    private Double                   remise;
-    private Double                   totalApresRemise;
+    private Integer                  quantiteTotale    = 0;
+    private Double                   prixTotal         = 0.0;
+    private Double                   totalAvantRemise  = 0.0;
+    private Double                   remise            = 0.0;
+    private Double                   totalApresRemise  = 0.0;
 
     //map de produit par rapport à leur qté 
     private Map<ProduitDto, Integer> mapDesProduitsQte = new HashMap<>();
@@ -37,7 +37,8 @@ public class PanierDto implements Serializable {
         //Empty method
     }
 
-    public static PanierDto build (final Integer quantiteTotale, final Double prixTotal, final Double totalAvantRemise, final Double remise, final Double totalApresRemise, final Map<ProduitDto, Integer> mapDesProduitsQte ) {
+    public static PanierDto build(final Integer quantiteTotale, final Double prixTotal, final Double totalAvantRemise, final Double remise, final Double totalApresRemise,
+                    final Map<ProduitDto, Integer> mapDesProduitsQte) {
         final PanierDto panierDto = new PanierDto();
         panierDto.setQuantiteTotale(quantiteTotale);
         panierDto.setPrixTotal(prixTotal);
@@ -45,8 +46,9 @@ public class PanierDto implements Serializable {
         panierDto.setRemise(remise);
         panierDto.setTotalApresRemise(totalApresRemise);
         panierDto.setMapDesProduitsQte(mapDesProduitsQte);
-        return panierDto; 
+        return panierDto;
     }
+
     /**
      * @return the quantiteTotale
      */

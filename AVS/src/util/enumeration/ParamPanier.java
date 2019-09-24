@@ -22,8 +22,8 @@ public enum ParamPanier {
     /**
      * retourne le type de parametreRetour associe au String passé en parametre
      * 
-     * @param paramRetour
-     * @return un element de l'enum de type ParamRetour ou null si pas trouvé
+     * @param ParamPanier
+     * @return un element de l'enum de type ParamPanier ou null si pas trouvé
      */
     public static ParamPanier getValue(final String paramPanier) {
         for (final ParamPanier type : ParamPanier.values()) {
