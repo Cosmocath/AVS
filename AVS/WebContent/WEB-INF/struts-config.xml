@@ -8,6 +8,8 @@
 	<form-beans type="org.apache.struts.action.ActionFormBean">
 		<form-bean name="connecterUserForm"
 			type="presentation.users.form.ConnecterUserForm" />
+		<form-bean name="userForm"
+			type="presentation.users.form.UserForm" />
 		<form-bean name="produitForm"
 			type="presentation.produit.form.ProduitForm" />
 	</form-beans>
@@ -42,11 +44,11 @@
 		</action>
 
 		<!-- Action d'affichage des CGU -->
-		<action path="/voirCGU" scope="request" input=""
-			parameter="" type="presentation.cgu.action.VoirCGUAction">
+		<action path="/voirCGU" scope="request" input="" parameter=""
+			type="presentation.cgu.action.VoirCGUAction">
 			<forward name="success" path="cgu" redirect="false"></forward>
 		</action>
-		
+
 		<action path="/afficherCGU" scope="request" input=""
 			parameter="" type="presentation.cgu.action.AfficherCGUAction">
 		</action>
@@ -75,7 +77,7 @@
 
 		<action path="/deconnecterUser" scope="request" input=""
 			parameter="" type="presentation.users.action.DeconnecterUserAction">
-			<forward name="success" path="listerProduitClient"
+			<forward name="success" path="listerProduitClient.do"
 				redirect="true"></forward>
 		</action>
 
@@ -100,12 +102,22 @@
 		</action>
 
 		<!-- Action de l'équipe User -->
+		<action path="/voirCreerUser" scope="request" input=""
+			parameter="" type="presentation.users.action.VoirCreerUserAction">
+			<forward name="success" path="voirCreerUser" redirect="false" />
+		</action>
 
+		<action path="/creerUser" scope="request" input="voirCreerUser"
+			parameter="" name="userForm"
+			type="presentation.users.action.CreerUserAction">
+			<forward name="success" path="template" redirect="true"></forward>
+			<forward name="notSuccess" path="voirCreerUser"
+				redirect="false" />
+		</action>
 		<action path="/listerUser" scope="request" input=""
 			parameter="" type="presentation.users.action.ListerUserAction">
 			<forward name="success" path="listerUser" redirect="true"></forward>
 		</action>
-
 
 		<!-- Action de l'équipe Panier -->
 

@@ -5,7 +5,9 @@ import java.util.List;
 import persistance.users.beanDo.UserDo;
 import persistance.users.dao.IUserDao;
 import presentation.users.beanDto.ConnectedUserDto;
+import presentation.users.beanDto.ProfilDto;
 import presentation.users.beanDto.UserDto;
+import service.users.IProfilService;
 import service.users.IUserService;
 import util.enumeration.OrderBy;
 import util.factory.Factory;
@@ -38,5 +40,33 @@ public class UserService implements IUserService {
         final IUserDao iUserDao = Factory.getInstance(IUserDao.class);
         final List<UserDo> listeUserDo = iUserDao.findAllUserOrderBy(orderBy);
         return UserMapper.mapToListDto(listeUserDo);
+    }
+
+    @Override
+    public UserDto findUserByMail(final String mail) {
+        final IUserDao iUserDao = Factory.getInstance(IUserDao.class);
+        final UserDo userDo = iUserDao.findUserByMail(mail);
+
+        if (userDo == null) {
+            return null;
+        }
+
+        return UserMapper.mapToDto(userDo);
+    }
+
+    @Override
+    public UserDto createUser(final UserDto userDto) {
+        final IUserDao iUserDao = Factory.getInstance(IUserDao.class);
+        if (this.findUserByMail(userDto.getMail()) != null) {
+            return null;
+        }
+
+        final IProfilService iProfilService = Factory.getInstance(IProfilService.class);
+        final ProfilDto profilDto = iProfilService.findProfilById(userDto.getProfilDto().getId());
+        userDto.setProfilDto(profilDto);
+
+        iUserDao.createUser(UserMapper.mapToDo(userDto));
+        return userDto;
+
     }
 }

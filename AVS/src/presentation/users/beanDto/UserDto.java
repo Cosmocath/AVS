@@ -1,7 +1,5 @@
 package presentation.users.beanDto;
 
-import util.enumeration.TypeDeProfil;
-
 /**
  * Bean d'un utilisateur quelque soit son action
  * 
@@ -17,7 +15,7 @@ public class UserDto {
     private String       password;
     private String       mail;
     private boolean      actif;
-    private TypeDeProfil profil;
+    private ProfilDto profilDto;
 
     /**
      * constructeur du user dto
@@ -139,17 +137,17 @@ public class UserDto {
     }
 
     /**
-     * @return the profil
+     * @return the profilDto
      */
-    public TypeDeProfil getProfil() {
-        return profil;
+    public ProfilDto getProfilDto() {
+        return profilDto;
     }
 
     /**
-     * @param profil the profil to set
+     * @param profilDto the profilDto to set
      */
-    public void setProfil(final TypeDeProfil profil) {
-        this.profil = profil;
+    public void setProfilDto(final ProfilDto profilDto) {
+        this.profilDto = profilDto;
     }
 
 }
