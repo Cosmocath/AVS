@@ -18,12 +18,16 @@ public class PanierService implements IPanierService {
 
     @Override
     public PanierDto addProduitPanier(final PanierDto panierDto, final int idProduit) {
+
         final IProduitService iProduitService = Factory.getInstance(IProduitService.class);
         final ProduitDto produitDto = iProduitService.getProduitById(idProduit);
-        panierDto.getMapDesProduitsQte().put(produitDto, panierDto.getQuantiteTotale());
-        panierDto.setTotalAvantRemise(produitDto.getPrix());
-        //panierDto.setRemise();
-        //panierDto.setTotalApresRemise();
+        if (produitDto == null) {
+            panierDto.getMapDesProduitsQte().put(produitDto, 1);
+            panierDto.setQuantiteTotale(panierDto.getQuantiteTotale()+ 1);
+        }
+        panierDto.getMapDesProduitsQte().values().add(1);
+        panierDto.setTotalAvantRemise(panierDto.getTotalAvantRemise() + produitDto.getPrix());
+
         return panierDto;
     }
 }
