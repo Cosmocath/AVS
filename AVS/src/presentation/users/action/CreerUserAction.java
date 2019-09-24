@@ -18,7 +18,6 @@ import presentation.users.beanDto.UserDto;
 import presentation.users.form.UserForm;
 import service.users.IUserService;
 import util.factory.Factory;
-import util.tools.FormatUtil;
 
 /**
  * Action permettant de connecter un user
@@ -39,7 +38,7 @@ public class CreerUserAction extends Action {
         final UserDto userDto = new UserDto();
         userDto.setNom(userForm.getNom());
         userDto.setPrenom(userForm.getPrenom());
-        userDto.setDateNaissance(FormatUtil.convertirStringToDate(userForm.getDateNaissance()));
+        userDto.setDateNaissance(userForm.getDateNaissance());
         userDto.setAdresse(userForm.getAdresse());
         userDto.setPassword(userForm.getPassword());
         userDto.setMail(userForm.getMail());

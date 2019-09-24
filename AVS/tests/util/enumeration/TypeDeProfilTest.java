@@ -13,7 +13,9 @@ import util.enumeration.TypeDeProfil;
  */
 class TypeDeProfilTest {
 
-    // TODO XSI : Javadoc
+    /**
+     * Test method for {@link util.enumeration.TypeDeProfil#getValue(java.lang.String)}.
+     */
     @Test
     void test() {
         assertEquals(TypeDeProfil.ADMINISTRATEUR, TypeDeProfil.getValue("admin"));

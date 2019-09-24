@@ -19,17 +19,32 @@ public class UserDo {
     private String   mail;
     private boolean  actif;
 
-    public void initialiserUser(final Integer id, final String nom, final String prenom, final Date dateNaissance, final String adresse, final String password, final ProfilDo profilDo,
+    /**
+     * @param id
+     * @param nom
+     * @param prenom
+     * @param dateNaissance
+     * @param adresse
+     * @param password
+     * @param profilDo
+     * @param mail
+     * @param actif
+     * @return le user initialiser
+     */
+    public static UserDo initialiserUser(final Integer id, final String nom, final String prenom, final Date dateNaissance, final String adresse, final String password, final ProfilDo profilDo,
                     final String mail, final boolean actif) {
-        this.id = id;
-        this.nom = nom;
-        this.prenom = prenom;
-        this.dateNaissance = dateNaissance;
-        this.adresse = adresse;
-        this.password = password;
-        this.profilDo = profilDo;
-        this.mail = mail;
-        this.actif = actif;
+        final UserDo userDo = new UserDo();
+        userDo.id = id;
+        userDo.nom = nom;
+        userDo.prenom = prenom;
+        userDo.dateNaissance = dateNaissance;
+        userDo.adresse = adresse;
+        userDo.password = password;
+        userDo.profilDo = profilDo;
+        userDo.mail = mail;
+        userDo.actif = actif;
+
+        return userDo;
     }
 
     /**

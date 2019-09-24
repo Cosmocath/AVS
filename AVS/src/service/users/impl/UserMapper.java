@@ -6,6 +6,7 @@ import java.util.List;
 import persistance.users.beanDo.UserDo;
 import presentation.users.beanDto.ConnectedUserDto;
 import presentation.users.beanDto.UserDto;
+import util.tools.FormatUtil;
 
 /**
  * Mapper Dto/Do bidirectionnel pour un User
@@ -40,7 +41,7 @@ public class UserMapper {
         userDto.setId(userDo.getId());
         userDto.setNom(userDo.getNom());
         userDto.setPrenom(userDo.getPrenom());
-        userDto.setDateNaissance(userDo.getDateNaissance());
+        userDto.setDateNaissance(FormatUtil.convertirDateToString(userDo.getDateNaissance()));
         userDto.setAdresse(userDo.getAdresse());
         userDto.setPassword(userDo.getPassword());
         userDto.setMail(userDo.getMail());
@@ -74,7 +75,7 @@ public class UserMapper {
         userDo.setId(userDto.getId());
         userDo.setNom(userDto.getNom());
         userDo.setPrenom(userDto.getPrenom());
-        userDo.setDateNaissance(userDto.getDateNaissance());
+        userDo.setDateNaissance(FormatUtil.convertirStringToDate(userDto.getDateNaissance()));
         userDo.setAdresse(userDto.getAdresse());
         userDo.setPassword(userDto.getPassword());
         userDo.setMail(userDto.getMail());

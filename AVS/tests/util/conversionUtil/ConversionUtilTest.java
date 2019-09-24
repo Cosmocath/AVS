@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 import org.junit.jupiter.api.Test;
 
-import util.ConversionUtil;
+import util.tools.ConversionUtil;
 
 /**
  * @author Rodolphe
@@ -20,7 +20,9 @@ class ConversionUtilTest {
     void testConvertDoubleCommaToDot() {
         assertEquals(1.75, ConversionUtil.convertDoubleCommaToDot("1,75"));
         assertEquals(1.75, ConversionUtil.convertDoubleCommaToDot("1.75"));
-        // TODO XSI : ajouter des tests > 1000
+        assertEquals(1500, ConversionUtil.convertDoubleCommaToDot("1500"));
+        assertEquals(12000, ConversionUtil.convertDoubleCommaToDot("12000"));
+        assertEquals(15000.19, ConversionUtil.convertDoubleCommaToDot("15000.19"));
         assertNull(ConversionUtil.convertDoubleCommaToDot(""));
         assertNull(ConversionUtil.convertDoubleCommaToDot(null));
     }

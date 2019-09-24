@@ -1,6 +1,5 @@
 package presentation.users.beanDto;
 
-import java.util.Date;
 /**
  * Bean d'un utilisateur quelque soit son action
  * 
@@ -11,7 +10,7 @@ public class UserDto {
     private Integer      id;
     private String       nom;
     private String       prenom;
-    private Date         dateNaissance;
+    private String       dateNaissance;
     private String       adresse;
     private String       password;
     private String       mail;
@@ -70,14 +69,14 @@ public class UserDto {
     /**
      * @return the dateNaissance
      */
-    public Date getDateNaissance() {
+    public String getDateNaissance() {
         return dateNaissance;
     }
 
     /**
      * @param dateNaissance the dateNaissance to set
      */
-    public void setDateNaissance(final Date dateNaissance) {
+    public void setDateNaissance(final String dateNaissance) {
         this.dateNaissance = dateNaissance;
     }
 
