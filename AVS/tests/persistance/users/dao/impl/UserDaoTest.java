@@ -106,8 +106,7 @@ class UserDaoTest {
         profilDo.setId(2);
         profilDo.setNom("client");
 
-        final UserDo userDo = new UserDo();
-        userDo.initialiserUser(2, "testNomCreation", "testPrenomCreation", new Date(), "rue test", "acvc", profilDo, "r@t.fr", true);
+        final UserDo userDo = UserDo.initialiserUser(2, "testNomCreation", "testPrenomCreation", new Date(), "rue test", "acvc", profilDo, "r@t.fr", true);
 
         final UserDo userDoRetour = iUserDao.createUser(userDo);
         assertEquals("rue test", userDoRetour.getAdresse());
