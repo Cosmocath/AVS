@@ -20,6 +20,36 @@ public class UserDo {
     private boolean  actif;
 
     /**
+     * Instancie un UserDo
+     * 
+     * @param id
+     * @param nom
+     * @param prenom
+     * @param dateNaissance
+     * @param adresse
+     * @param password
+     * @param profilDo
+     * @param mail
+     * @param actif
+     * @return le user initialiser
+     */
+    public static UserDo buildUserDo(final Integer id, final String nom, final String prenom, final Date dateNaissance, final String adresse, final String password, final ProfilDo profilDo,
+                    final String mail, final boolean actif) {
+        final UserDo userDo = new UserDo();
+        userDo.id = id;
+        userDo.nom = nom;
+        userDo.prenom = prenom;
+        userDo.dateNaissance = dateNaissance;
+        userDo.adresse = adresse;
+        userDo.password = password;
+        userDo.profilDo = profilDo;
+        userDo.mail = mail;
+        userDo.actif = actif;
+
+        return userDo;
+    }
+
+    /**
      * @return the actif
      */
     public boolean isActif() {
