@@ -51,6 +51,10 @@ public class FormatUtil {
      * @return la date au format Date
      */
     public static Date convertirStringToDate(final String date) {
+        if (!Tools.verifDate(date)) {
+            return null;
+        }
+
         try {
             final Date date1 = new SimpleDateFormat(FORMAT_DATE).parse(date);
             return date1;

@@ -20,6 +20,8 @@ public class UserDo {
     private boolean  actif;
 
     /**
+     * Instancie un UserDo
+     * 
      * @param id
      * @param nom
      * @param prenom
@@ -31,7 +33,7 @@ public class UserDo {
      * @param actif
      * @return le user initialiser
      */
-    public static UserDo initialiserUser(final Integer id, final String nom, final String prenom, final Date dateNaissance, final String adresse, final String password, final ProfilDo profilDo,
+    public static UserDo buildUserDo(final Integer id, final String nom, final String prenom, final Date dateNaissance, final String adresse, final String password, final ProfilDo profilDo,
                     final String mail, final boolean actif) {
         final UserDo userDo = new UserDo();
         userDo.id = id;

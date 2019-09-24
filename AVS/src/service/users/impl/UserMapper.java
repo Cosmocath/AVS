@@ -1,8 +1,10 @@
 package service.users.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
+import persistance.users.beanDo.ProfilDo;
 import persistance.users.beanDo.UserDo;
 import presentation.users.beanDto.ConnectedUserDto;
 import presentation.users.beanDto.UserDto;
@@ -71,16 +73,12 @@ public class UserMapper {
      * @return le userDo
      */
     public static UserDo mapToDo(final UserDto userDto) {
-        final UserDo userDo = new UserDo();
-        userDo.setId(userDto.getId());
-        userDo.setNom(userDto.getNom());
-        userDo.setPrenom(userDto.getPrenom());
-        userDo.setDateNaissance(FormatUtil.convertirStringToDate(userDto.getDateNaissance()));
-        userDo.setAdresse(userDto.getAdresse());
-        userDo.setPassword(userDto.getPassword());
-        userDo.setMail(userDto.getMail());
-        userDo.setActif(userDto.isActif());
-        userDo.setProfilDo(ProfilMapper.mapProfilDtoToProfilDo(userDto.getProfilDto()));
+        final Date dateNaissance = FormatUtil.convertirStringToDate(userDto.getDateNaissance());
+        final ProfilDo profilDo = ProfilMapper.mapProfilDtoToProfilDo(userDto.getProfilDto());
+
+        final UserDo userDo = UserDo.buildUserDo(userDto.getId(), userDto.getNom(), userDto.getPrenom(), dateNaissance, userDto.getAdresse(), userDto.getPassword(), profilDo, userDto.getMail(),
+                        userDto.isActif());
+
         return userDo;
     }
 }

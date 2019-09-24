@@ -1,7 +1,7 @@
 package util.tools;
 
-import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.util.Calendar;
 
@@ -62,6 +62,12 @@ class FormatUtilTest {
     void testConvertionStringToDate() {
         final String date1 = "23/08/2017";
         final String date2 = "23-08-2017";
+        final String date3 = "23/08/17";
+        final String date4 = "35/08/2017";
+        final String date5 = "23/13/2017";
+        final String date6 = "23/08/20178";
+        final String date7 = "5/08/2017";
+        final String date8 = "05/9/2017";
 
         final Calendar calendar = Calendar.getInstance();
         calendar.setTime(FormatUtil.convertirStringToDate(date1));
@@ -71,5 +77,11 @@ class FormatUtilTest {
         assertEquals(2017, calendar.get(Calendar.YEAR));
 
         assertNull(FormatUtil.convertirStringToDate(date2));
+        assertNull(FormatUtil.convertirStringToDate(date3));
+        assertNull(FormatUtil.convertirStringToDate(date4));
+        assertNull(FormatUtil.convertirStringToDate(date5));
+        assertNull(FormatUtil.convertirStringToDate(date6));
+        assertNull(FormatUtil.convertirStringToDate(date7));
+        assertNull(FormatUtil.convertirStringToDate(date8));
     }
 }

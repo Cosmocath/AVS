@@ -36,7 +36,7 @@ public class ProfilMapper {
      * Permet de mapper ProfilDo en ProfilDto
      * 
      * @param profilDo
-     * @return
+     * @return le profilDto
      */
     public static ProfilDto mapProfilDoToProfilDto(final ProfilDo profilDo) {
         final ProfilDto profilDto = new ProfilDto();

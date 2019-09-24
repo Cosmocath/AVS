@@ -1,7 +1,5 @@
 package presentation.users.action;
 
-import java.text.ParseException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -32,9 +30,8 @@ public class CreerUserAction extends Action {
      * 
      * @param userForm
      * @return le UserDto
-     * @throws ParseException
      */
-    private static UserDto mapFormToDto(final UserForm userForm) {
+    private UserDto mapFormToDto(final UserForm userForm) {
         final UserDto userDto = new UserDto();
         userDto.setNom(userForm.getNom());
         userDto.setPrenom(userForm.getPrenom());
