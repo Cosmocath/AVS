@@ -8,22 +8,21 @@ import service.panier.IPanierService;
  *
  */
 public class PanierService implements IPanierService {
+    private static final double REMISE                = 0.9;
+    private static final double QUANTITE_AVANT_REMISE = 5.0;
+    private static final double SEUIL_REMISE          = 100.0;
 
     private PanierService() {
         //Empty Constructeur
     }
 
-    /**
-     *
-     */
     @Override
-    public PanierDto remisePanier(PanierDto panierDto) {
-        final double remise = 0.9;
-        if (panierDto.getQuantiteTotale() > 5 && panierDto.getTotalAvantRemise() >= 100) {
-            panierDto.setTotalApresRemise(panierDto.getTotalAvantRemise() * remise);
+    public PanierDto remisePanier(final PanierDto panierDto) {
+        if (panierDto.getQuantiteTotale() > QUANTITE_AVANT_REMISE && panierDto.getTotalAvantRemise() >= SEUIL_REMISE) {
+            panierDto.setTotalApresRemise(panierDto.getTotalAvantRemise() * REMISE);
             return panierDto;
         }
 
-        return null;
+        return panierDto;
     }
 }
