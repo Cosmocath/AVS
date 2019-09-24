@@ -32,15 +32,11 @@ public class ImageService implements IImageService {
     public byte[] getImage(final String urlImage) {
         // obtention des images : l'image passée en paramètre, sinon l'image par défaut, sinon null
         final IImageDao iImageDao = Factory.getInstance(IImageDao.class);
-        byte[] image = iImageDao.getImage(REPERTOIRE_IMAGES + urlImage);
-        if (image != null) {
-            return image;
-        }
-        image = iImageDao.getImage(DEFAULT_IMAGE);
-        if (image != null) {
+        final byte[] image = iImageDao.getImage(REPERTOIRE_IMAGES + urlImage);
+        if (image == null) {
             return iImageDao.getImage(DEFAULT_IMAGE);
         }
-        return null;
+        return image;
     }
 
 }
