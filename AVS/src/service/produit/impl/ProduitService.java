@@ -59,7 +59,7 @@ public class ProduitService implements IProduitService {
         return null;
     }
 
-    // TODO XSI : @Override
+    @Override
     public ProduitDto getProduitById(final int idProduit) {
         final IProduitDao iProduitDao = Factory.getInstance(IProduitDao.class);
         // on pourrait ne pas utiliser cette variable

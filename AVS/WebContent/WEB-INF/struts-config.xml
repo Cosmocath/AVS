@@ -41,6 +41,16 @@
 				redirect="false"></forward>
 		</action>
 
+		<!-- Action d'affichage des CGU -->
+		<action path="/voirCGU" scope="request" input=""
+			parameter="" type="presentation.cgu.action.VoirCGUAction">
+			<forward name="success" path="cgu" redirect="false"></forward>
+		</action>
+		
+		<action path="/afficherCGU" scope="request" input=""
+			parameter="" type="presentation.cgu.action.AfficherCGUAction">
+		</action>
+
 		<!-- Le language -->
 
 		<action path="/changerLangue" scope="request" input=""

@@ -1,6 +1,8 @@
 <%@include file="/jsp/tiles/taglib.jsp"%>
 <title><bean:message key="USR_02.titre" /></title>
+
 <div style="height: 100%">
+
 	<div>
 		<h1>
 			<bean:message key="USR_02.titre" />
@@ -30,8 +32,9 @@
 					<td><bean:write name="utilisateur" property="dateNaissance" /></td>
 					<td><bean:write name="utilisateur" property="profil" /></td>
 
-					<td width="30%" align="center"><html:link
-							href="consulterUser.do?id=${utilisateur.id}">
+
+					<!-- Les lien sont bloqués en attendant les ecrans correspondant -->
+					<td width="30%" align="center"><html:link href="#">
 							<bean:message key="USR_02.editer" />
 						</html:link></td>
 					<td width="30%" align="center"><html:link
