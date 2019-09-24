@@ -4,7 +4,7 @@
 
 	<html:link href="#" style="color: white; text-align: center; position: relative; left: 450px">CGV</html:link>
 	<br />
-	<html:link href="#" style="color: white; text-align: center; position: relative; left: 450px">CGU</html:link>
+	<html:link href="voirCGU.do" style="color: white; text-align: center; position: relative; left: 450px">CGU</html:link>
 
 
 	<bean:define id="contextPath" value="<%=request.getContextPath()%>" />
