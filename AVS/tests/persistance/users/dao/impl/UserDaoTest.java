@@ -65,7 +65,7 @@ class UserDaoTest {
     @Test
     void testFindUserForConnexion() {
         final IUserDao iUserDao = Factory.getInstance(IUserDao.class);
-        final UserDo userDo = iUserDao.findUserForConnexion("utili.sateur@outlook.com", "pass");
+        final UserDo userDo = iUserDao.findUserForConnexion("utili.sateur@outlook.com", "1a1dc91c907325c69271ddf0c944bc72");
         Assert.assertNotNull(userDo);
         Assert.assertEquals("ad", userDo.getNom());
         Assert.assertEquals(userDo.getProfilDo().getNom(), "admin");
