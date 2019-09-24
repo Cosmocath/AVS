@@ -31,7 +31,7 @@
 				</html:link>
 			</logic:notPresent>
 			<logic:notPresent name="userConnected" scope="session">
-				<html:link href="#" title="Inscription">
+				<html:link href="voirCreerUser.do" title="Inscription">
 					<img alt="logo" src="img/signup.png">
 				</html:link>
 			</logic:notPresent>
