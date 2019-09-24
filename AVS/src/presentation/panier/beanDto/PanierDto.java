@@ -37,6 +37,16 @@ public class PanierDto implements Serializable {
         //Empty method
     }
 
+    public static PanierDto build (final Integer quantiteTotale, final Double prixTotal, final Double totalAvantRemise, final Double remise, final Double totalApresRemise, final Map<ProduitDto, Integer> mapDesProduitsQte ) {
+        final PanierDto panierDto = new PanierDto();
+        panierDto.setQuantiteTotale(quantiteTotale);
+        panierDto.setPrixTotal(prixTotal);
+        panierDto.setTotalAvantRemise(totalAvantRemise);
+        panierDto.setRemise(remise);
+        panierDto.setTotalApresRemise(totalApresRemise);
+        panierDto.setMapDesProduitsQte(mapDesProduitsQte);
+        return panierDto; 
+    }
     /**
      * @return the quantiteTotale
      */
