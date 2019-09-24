@@ -1,5 +1,7 @@
 package service.panier;
 
+import presentation.panier.beanDto.PanierDto;
+
 /**
  * @author Nora LIFERKI
  *
@@ -7,4 +9,9 @@ package service.panier;
  */
 public interface IPanierService {
 
+    /**
+     * @param panierDto
+     * @return
+     */
+    PanierDto remisePanier(final PanierDto panierDto);
 }
