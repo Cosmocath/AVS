@@ -16,4 +16,10 @@ public interface IPanierService {
      * @return un panierDto si ajout OK, sinon null
      */
     PanierDto addProduitPanier(final PanierDto panierDto, final int idProduit);
+
+    /**
+     * @param panierDto
+     * @return permet de calculer la remise sur le panier quand le seuil de 6 articles à 100 euros est atteint
+     */
+    PanierDto remisePanier(final PanierDto panierDto);
 }
