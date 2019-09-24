@@ -5,6 +5,7 @@ import java.util.List;
 
 import persistance.produit.beanDo.ProduitDo;
 import presentation.produit.beanDto.ProduitDto;
+import util.tools.FormatUtil;
 
 /**
  * Mapper un produitDo en produitDto
@@ -22,7 +23,8 @@ public class ProduitMapper {
      */
     public static ProduitDto mapToDto(final ProduitDo produitDo) {
         final ProduitDto produitDto = new ProduitDto();
-        return produitDto.buildProduitDto(produitDo.getId(), produitDo.getDesignation(), produitDo.getReference(), produitDo.getDescription(), produitDo.getPrix(), produitDo.getImage(),
+        final String prixDto = FormatUtil.convertirDoubleToString(produitDo.getPrix());
+        return produitDto.buildProduitDto(produitDo.getId(), produitDo.getDesignation(), produitDo.getReference(), produitDo.getDescription(), prixDto, produitDo.getImage(),
                         produitDo.getNumeroVersion(), produitDo.getActif());
     }
 
@@ -34,7 +36,8 @@ public class ProduitMapper {
      */
     public static ProduitDo mapToDo(final ProduitDto produitDto) {
         final ProduitDo produitDo = new ProduitDo();
-        return produitDo.buildProduitDo(produitDto.getId(), produitDto.getDesignation(), produitDto.getReference(), produitDto.getDescription(), produitDto.getPrix(), produitDto.getImage(),
+        final Double prixDo = FormatUtil.convertirStringToDouble(produitDto.getPrix());
+        return produitDo.buildProduitDo(produitDto.getId(), produitDto.getDesignation(), produitDto.getReference(), produitDto.getDescription(), prixDo, produitDto.getImage(),
                         produitDto.getNoVersion(), produitDto.isActif());
     }
 
@@ -64,8 +67,8 @@ public class ProduitMapper {
         produitDo.setDesignation(produitDto.getDesignation());
         produitDo.setReference(produitDto.getReference());
         produitDo.setDescription(produitDto.getDescription());;
-        produitDo.setPrix(produitDto.getPrix());
-        // TODO RKU : gérer l'image
+        produitDo.setPrix(FormatUtil.convertirStringToDouble(produitDto.getPrix()));
+        // TODO RKU : gérer l'ima
         //produitDo.setImage(produitDto.getImage());
         produitDo.setImage("null");
         produitDo.setNumeroVersion(produitDto.getNoVersion());

@@ -3,9 +3,8 @@ package util.tools;
 import java.util.Calendar;
 
 import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import util.tools.FormatUtil;
 
 /**
  * @author Administrateur
@@ -49,5 +48,28 @@ class FormatUtilTest {
         Assert.assertNotEquals(Calendar.AUGUST, FormatUtil.convertirDateToString(calendar2.getTime()));
         Assert.assertNotEquals(Calendar.AUGUST, FormatUtil.convertirDateToString(calendar1.getTime()));
 
+    }
+
+    /**
+     * Test method for {@link util.tools.FormatUtil#convertirStringToDouble(java.lang.String)}.
+     */
+    @Test
+    final void testConvertirStringToDouble() {
+        Assert.assertEquals(Double.valueOf(123), FormatUtil.convertirStringToDouble("123"));
+        Assert.assertNotEquals(123, FormatUtil.convertirStringToDouble("123"));
+
+    }
+
+    /**
+     * Test method for {@link util.tools.FormatUtil#convertirDoubleToString(java.lang.Double)}.
+     */
+    @Test
+    final void testConvertirDoubleToString() {
+        Assertions.assertEquals("123,00", FormatUtil.convertirDoubleToString(Double.valueOf(123.00)));
+        Assertions.assertEquals("123,00", FormatUtil.convertirDoubleToString(Double.valueOf(123.0)));
+        Assertions.assertEquals("3,00", FormatUtil.convertirDoubleToString(Double.valueOf(3)));
+        // TODO XSI : à revoir
+        //Assertions.assertEquals("1 123,05", FormatUtil.convertirDoubleToString(Double.valueOf(1123.05)));
+        Assertions.assertEquals("123,00", FormatUtil.convertirDoubleToString(Double.valueOf(123.002)));
     }
 }

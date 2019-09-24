@@ -1,6 +1,7 @@
 package util.tools;
 
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -40,6 +41,23 @@ public class FormatUtil {
     public static String convertirDateToString(final Date date) {
         final DateFormat dateFormat = new SimpleDateFormat(FORMAT_DATE);
         return dateFormat.format(date);
+    }
+
+    /**
+     * @param mot
+     * @return
+     */
+    public static Double convertirStringToDouble(final String mot) {
+        return Double.parseDouble(mot);
+    }
+
+    /**
+     * @param nombre
+     * @return
+     */
+    public static String convertirDoubleToString(final Double nombre) {
+        final DecimalFormat df = new DecimalFormat("0.00");
+        return df.format(nombre);
     }
 
 }

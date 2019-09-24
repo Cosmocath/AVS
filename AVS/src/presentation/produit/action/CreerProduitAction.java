@@ -15,6 +15,7 @@ import presentation.produit.beanDto.ProduitDto;
 import presentation.produit.form.ProduitForm;
 import service.produit.IProduitService;
 import util.tools.ConversionUtil;
+import util.tools.FormatUtil;
 import util.factory.Factory;
 
 /**
@@ -31,7 +32,7 @@ public class CreerProduitAction extends Action {
      * @return
      */
     private ProduitDto mapToDto(final ProduitForm produitForm) {
-        return ProduitDto.build(produitForm.getDesignation(), produitForm.getReference(), produitForm.getDescription(), ConversionUtil.convertDoubleCommaToDot(produitForm.getPrix()),
+        return ProduitDto.build(produitForm.getDesignation(), produitForm.getReference(), produitForm.getDescription(), ConversionUtil.convertStringCommaToDot(produitForm.getPrix()),
                         produitForm.getImage(), 1);
     }
 
