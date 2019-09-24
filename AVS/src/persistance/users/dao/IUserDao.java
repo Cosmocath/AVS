@@ -29,4 +29,13 @@ public interface IUserDao {
      * @return une liste de user
      */
     List<UserDo> findAllUserOrderBy(final OrderBy orderBy);
+
+    /**
+     * permet d'afficher les détails d'un utilisateur
+     * 
+     * @param id
+     * @return un user
+     */
+    UserDo findUserDo(final Integer id);
+
 }

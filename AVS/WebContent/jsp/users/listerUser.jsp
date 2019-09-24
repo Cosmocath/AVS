@@ -31,11 +31,11 @@
 					<td><bean:write name="utilisateur" property="profil" /></td>
 
 					<td width="30%" align="center"><html:link
-							href="voirEditerChat.do?id=${user.id}">
+							href="consulterUser.do?id=${utilisateur.id}">
 							<bean:message key="USR_02.editer" />
 						</html:link></td>
 					<td width="30%" align="center"><html:link
-							href="consulterUser.do?id=${user.id}">
+							href="consulterUser.do?id=${utilisateur.id}">
 							<bean:message key="USR_02.consulter" />
 						</html:link></td>
 				</tr>

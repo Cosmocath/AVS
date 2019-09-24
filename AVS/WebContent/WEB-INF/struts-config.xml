@@ -96,6 +96,10 @@
 			<forward name="success" path="listerUser" redirect="true"></forward>
 		</action>
 
+		<action path="/consulterUser" scope="request" input=""
+			parameter="" type="presentation.users.action.ConsulterUserAction">
+			<forward name="success" path="consulterUser" redirect="true"></forward>
+		</action>
 
 		<!-- Action de l'équipe Panier -->
 

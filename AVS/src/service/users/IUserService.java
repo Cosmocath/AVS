@@ -31,4 +31,12 @@ public interface IUserService {
      */
     List<UserDto> findAllUserOrderBy(final OrderBy orderBy);
 
+    /**
+     * Permet de faire appel à la couche persistance afin de rechercher un user en BDD à partir de son id
+     * 
+     * @param id
+     * @return un userDto
+     */
+    UserDto findUserDto(final Integer id);
+
 }

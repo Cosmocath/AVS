@@ -28,6 +28,10 @@
 		<put name="body" value="/jsp/users/listerUser.jsp" />
 	</definition>
 
+	<definition name="consulterUser" extends="template">
+		<put name="body" value="/jsp/users/consulterUser.jsp" />
+	</definition>
+
 	<!-- Equipe Produit -->
 	<definition name="listerProduitClient" extends="template">
 		<put name="body" value="/jsp/produit/listerProduitClient.jsp" />

@@ -39,4 +39,11 @@ public class UserService implements IUserService {
         final List<UserDo> listeUserDo = iUserDao.findAllUserOrderBy(orderBy);
         return UserMapper.mapToListDto(listeUserDo);
     }
+
+    @Override
+    public UserDto findUserDto(Integer id) {
+        final IUserDao iUserDao = Factory.getInstance(IUserDao.class);
+        final UserDo chatDo = iUserDao.findUserDo(id);
+        return UserMapper.mapToDto(chatDo);
+    }
 }
