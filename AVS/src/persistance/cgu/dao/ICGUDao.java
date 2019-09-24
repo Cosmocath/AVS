@@ -7,5 +7,8 @@ package persistance.cgu.dao;
  *
  */
 public interface ICGUDao {
+    /**
+     * @return une chaîne de caractère : texte des CGU
+     */
     String lireCGUDao();
 }
