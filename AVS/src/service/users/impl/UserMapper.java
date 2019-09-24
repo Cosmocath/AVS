@@ -8,13 +8,14 @@ import persistance.users.beanDo.UserDo;
 import presentation.users.beanDto.ConnectedUserDto;
 import presentation.users.beanDto.UserDto;
 import util.enumeration.TypeDeProfil;
+import util.tools.FormatUtil;
 
 /**
  * Mapper Dto/Do bidirectionnel pour un User
  * 
  * @author Administrateur
  *
- */
+ */ 
 public class UserMapper {
 
     /**
@@ -42,7 +43,7 @@ public class UserMapper {
         userDto.setId(userDo.getId());
         userDto.setNom(userDo.getNom());
         userDto.setPrenom(userDo.getPrenom());
-        userDto.setDateNaissance(userDo.getDateNaissance());
+        userDto.setDateNaissance(FormatUtil.convertirDateToString(userDo.getDateNaissance()));
         userDto.setAdresse(userDo.getAdresse());
         userDto.setPassword(userDo.getPassword());
         userDto.setMail(userDo.getMail());
