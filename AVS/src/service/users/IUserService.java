@@ -35,7 +35,7 @@ public interface IUserService {
      * Permet de faire appel à la couche persistance afin de rechercher un user en BDD à partir de son id
      * 
      * @param id
-     * @return un userDto
+     * @return un userDto s'il existe sinon null
      */
     UserDto findUserDto(final Integer id);
 

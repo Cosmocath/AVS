@@ -91,7 +91,7 @@ class UserDaoTest {
         Assertions.assertNull(iUserDao.findUserDo(2));
         Assertions.assertEquals("Dupont", iUserDao.findUserDo(9).getNom());
         Assertions.assertEquals("19_rue_montebello", iUserDao.findUserDo(7).getAdresse());
-        Assertions.assertEquals(1, iCommandeDao.findAllCommandeDo(8).size());
+        Assertions.assertEquals(2, iCommandeDao.findAllCommandeDo(9).size());
     }
 
 }

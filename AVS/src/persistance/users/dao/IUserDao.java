@@ -34,7 +34,7 @@ public interface IUserDao {
      * permet d'afficher les détails d'un utilisateur
      * 
      * @param id
-     * @return un user
+     * @return un user s'il existe sinon null
      */
     UserDo findUserDo(final Integer id);
 

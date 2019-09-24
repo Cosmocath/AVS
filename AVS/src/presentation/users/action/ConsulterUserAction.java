@@ -13,6 +13,8 @@ import service.users.IUserService;
 import util.factory.Factory;
 
 /**
+ * Action permettant de consulter, d'afficher tout les détails d'un utilisateur.
+ * 
  * @author Administrateur
  *
  */

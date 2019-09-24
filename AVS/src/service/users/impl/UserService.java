@@ -41,9 +41,9 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public UserDto findUserDto(Integer id) {
+    public UserDto findUserDto(final Integer id) {
         final IUserDao iUserDao = Factory.getInstance(IUserDao.class);
-        final UserDo chatDo = iUserDao.findUserDo(id);
-        return UserMapper.mapToDto(chatDo);
+        final UserDo userDo = iUserDao.findUserDo(id);
+        return UserMapper.mapToDto(userDo);
     }
 }
