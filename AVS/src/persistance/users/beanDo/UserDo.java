@@ -1,6 +1,10 @@
 package persistance.users.beanDo;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
+import persistance.commande.beanDo.CommandeDo;
 
 /**
  * Representation du user pour la bd
@@ -9,15 +13,30 @@ import java.util.Date;
  *
  */
 public class UserDo {
-    private Integer  id;
-    private String   nom;
-    private String   prenom;
-    private Date     dateNaissance;
-    private String   adresse;
-    private String   password;
-    private ProfilDo profilDo;
-    private String   mail;
-    private boolean  actif;
+    private Integer         id;
+    private String          nom;
+    private String          prenom;
+    private Date            dateNaissance;
+    private String          adresse;
+    private String          password;
+    private ProfilDo        profilDo;
+    private String          mail;
+    private boolean         actif;
+    private Set<CommandeDo> setCommandeDo = new HashSet<>();
+
+    /**
+     * @return the setCommandeDo
+     */
+    public Set<CommandeDo> getSetCommandeDo() {
+        return setCommandeDo;
+    }
+
+    /**
+     * @param setCommandeDo the setCommandeDo to set
+     */
+    public void setSetCommandeDo(final Set<CommandeDo> setCommandeDo) {
+        this.setCommandeDo = setCommandeDo;
+    }
 
     /**
      * @return the actif

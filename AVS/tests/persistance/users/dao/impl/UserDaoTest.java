@@ -15,7 +15,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import persistance.commande.dao.ICommandeDao;
 import persistance.factory.HibernateFactory;
 import persistance.users.beanDo.UserDo;
 import persistance.users.dao.IUserDao;
@@ -86,12 +85,12 @@ class UserDaoTest {
     @Test
     void testFindUserDo() {
         final IUserDao iUserDao = Factory.getInstance(IUserDao.class);
-        final ICommandeDao iCommandeDao = Factory.getInstance(ICommandeDao.class);
-        Assertions.assertNotNull(iUserDao.findUserDo(9));
+        final UserDo userDo = iUserDao.findUserDo(9);
+        Assertions.assertNotNull(userDo);
         Assertions.assertNull(iUserDao.findUserDo(2));
-        Assertions.assertEquals("Dupont", iUserDao.findUserDo(9).getNom());
+        Assertions.assertEquals("Dupont", userDo.getNom());
         Assertions.assertEquals("19_rue_montebello", iUserDao.findUserDo(7).getAdresse());
-        Assertions.assertEquals(2, iCommandeDao.findAllCommandeDo(9).size());
+        Assertions.assertEquals(2, userDo.getSetCommandeDo().size());
     }
 
 }
