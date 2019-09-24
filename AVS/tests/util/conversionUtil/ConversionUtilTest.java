@@ -17,14 +17,14 @@ class ConversionUtilTest {
      * Test method for {@link util.ConversionUtil#convertDoubleCommaToDot(java.lang.String)}.
      */
     @Test
-    void testConvertDoubleCommaToDot() {
-        assertEquals(1.75, ConversionUtil.convertDoubleCommaToDot("1,75"));
-        assertEquals(1.75, ConversionUtil.convertDoubleCommaToDot("1.75"));
-        assertEquals(1500, ConversionUtil.convertDoubleCommaToDot("1500"));
-        assertEquals(12000, ConversionUtil.convertDoubleCommaToDot("12000"));
-        assertEquals(15000.19, ConversionUtil.convertDoubleCommaToDot("15000.19"));
-        assertNull(ConversionUtil.convertDoubleCommaToDot(""));
-        assertNull(ConversionUtil.convertDoubleCommaToDot(null));
+    final void testConvertStringCommaToDot() {
+        assertEquals("1.75", ConversionUtil.convertStringCommaToDot("1,75"));
+        assertEquals("1.75", ConversionUtil.convertStringCommaToDot("1.75"));
+        assertEquals("1500", ConversionUtil.convertStringCommaToDot("1500"));
+        assertEquals("12000", ConversionUtil.convertStringCommaToDot("12000"));
+        assertEquals("15000.19", ConversionUtil.convertStringCommaToDot("15000.19"));
+        assertNull(ConversionUtil.convertStringCommaToDot(""));
+        assertNull(ConversionUtil.convertStringCommaToDot(null));
     }
 
 }

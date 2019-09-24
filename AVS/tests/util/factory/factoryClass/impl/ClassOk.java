@@ -18,5 +18,5 @@ public class ClassOk implements IClassOk {
     private ClassOk(final int i) {
         // empty constructor
     }
-    
+
 }

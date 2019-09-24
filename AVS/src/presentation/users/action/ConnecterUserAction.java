@@ -26,7 +26,7 @@ import util.factory.Factory;
  */
 public class ConnecterUserAction extends Action {
     public static final String USER_CONNECTED = "userConnected";
-    public static final String MON_PANIER = "monPanierDto";
+    public static final String MON_PANIER     = "monPanierDto";
 
     @Override
     public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
