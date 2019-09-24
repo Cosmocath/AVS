@@ -8,7 +8,7 @@ import util.factory.Factory;
 
 /**
  * Implémentation du profil pour gérer les profils
- *  
+ * 
  * @author Administrateur
  *
  */
