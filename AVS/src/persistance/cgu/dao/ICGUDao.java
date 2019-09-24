@@ -1,7 +1,7 @@
 package persistance.cgu.dao;
 
 /**
- * permet de récupérer et lire le contenu d'un fichier texte contenant les CGU
+ * interface de CGUDao
  * 
  * @author Administrateur
  *
