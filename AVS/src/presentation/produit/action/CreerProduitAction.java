@@ -14,9 +14,8 @@ import org.apache.struts.action.ActionMessages;
 import presentation.produit.beanDto.ProduitDto;
 import presentation.produit.form.ProduitForm;
 import service.produit.IProduitService;
-import util.tools.ConversionUtil;
-import util.tools.FormatUtil;
 import util.factory.Factory;
+import util.tools.ConversionUtil;
 
 /**
  * Action permettant de créer un produit
