@@ -42,7 +42,7 @@ public class ImageDao implements IImageDao {
     @Override
     public byte[] getImage(final String urlImage) {
         //stockage du chemin de l'image dans un file
-        final File fileImage =  new File(urlImage);
+        final File fileImage = new File(urlImage);
 
         try (FileInputStream fisImage = new FileInputStream(fileImage)) {
             final byte[] byteImage = readStream(fisImage);

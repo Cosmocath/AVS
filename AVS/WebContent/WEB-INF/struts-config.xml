@@ -133,9 +133,9 @@
 		<!-- Action de gestion image -->
 		<action path="/afficherImage" parameter=""
 			type="presentation.image.action.AfficherImageAction">
-			
+
 		</action>
-		
+
 	</action-mappings>
 
 	<message-resources parameter="messages/application"></message-resources>

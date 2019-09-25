@@ -7,7 +7,7 @@ package persistance.image.dao;
  *
  */
 public interface IImageDao {
-    
+
     /**
      * Récupère une image stockée sur disque en chemin absolu
      * 
