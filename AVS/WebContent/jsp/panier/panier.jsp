@@ -41,14 +41,11 @@
 					<button type="button" onclick="diminuerQuantite">-</button>
 
 					<div style="float: right">
-						<html:link href="${urlPanier}">
+						<html:link href="ajouterPanier.do?id=${produitDto.id}&retour=panier">
 							<bean:message key="PAN_00.bouton.ajouterPanier" />
 						</html:link>
 					</div>
 				</td>
-
-
-				<td>${quantiteProduit*produitDto.prix}</td>
 				<td>Prix à calculer !</td>
 				<td>
 					<button type="button" onclick="supprimerProduit">

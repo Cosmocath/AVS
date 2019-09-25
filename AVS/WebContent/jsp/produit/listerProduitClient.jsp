@@ -35,19 +35,10 @@
 						name="produit" property="prix" /> <bean:message key="Global.euro" />
 					<bean:message key="PDT_00.produit.labelPrix" /></td>
 
-				<td align="right"><html:button property="ajout"
-						onclick="RedirectionJavascript()">
-						<bean:message key="PDT_00.bouton.ajouterPanier" />
-					</html:button></td>
-
-
-			</tr>
-			<div align="right" style="float: right">
-<!-- 			//TODO gérer le retour / forward -->
-				<html:link href="ajouterPanier.do?id=${produit.id}&retour=pdt_00">
+				<td align="right"><html:link href="ajouterPanier.do?id=${produit.id}&retour=listeProduitClient">
 					<bean:message key="PDT_00.bouton.ajouterPanier" />
-				</html:link>
-			</div>
+				</html:link></td>
+			</tr>
 		</logic:iterate>
 	</table>
 </div>
