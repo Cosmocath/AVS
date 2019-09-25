@@ -135,6 +135,11 @@
 
 		<!-- Action de l'équipe Commande -->
 
+		<!-- Action de gestion image -->
+		<action path="/afficherImage" parameter=""
+			type="presentation.image.action.AfficherImageAction">
+
+		</action>
 
 	</action-mappings>
 
