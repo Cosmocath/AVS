@@ -134,4 +134,35 @@ public class ProduitDao implements IProduitDao {
         }
         return null;
     }
+
+    @Override
+    public ProduitDo updateProduit(final Integer idProduit, final ProduitDo produitDo) {
+        try (final Session session = sessionFactory.openSession()) {
+
+            final Transaction transaction = session.beginTransaction();
+            final StringBuilder hqlQuery = new StringBuilder();
+            hqlQuery.append("update ProduitDo set designation = :designation, description = :description, prix = :prix where id = :idProduit");
+            //TODO peut-on laisser hqlQuery.append? quid du produitDo.class?
+            final Query<?> query = session.createQuery(hqlQuery.toString());
+            // intialisation des paramètres
+            query.setParameter("designation", produitDo.getDesignation());
+            query.setParameter("reference", produitDo.getReference());
+            query.setParameter("description", produitDo.getDescription());
+            query.setParameter("prix", produitDo.getPrix());
+            query.setParameter("idProduit", idProduit);
+            query.executeUpdate();
+
+            // on "complète" le Do à retourner
+            produitDo.setId(idProduit);
+
+            session.flush();
+            transaction.commit();
+            return produitDo;
+        } catch (final HibernateException hibernateException) {
+            // on peut catcher des HibernateException
+            hibernateException.printStackTrace();
+        }
+        return null;
+    }
+
 }
