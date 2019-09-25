@@ -6,7 +6,7 @@
 -- Généré le :  lun. 02 sep. 2019 Ã  14:16
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.2.14
--- Version : 1.2
+-- Version : 1.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -93,13 +93,16 @@ INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(11, 'listerUser.do
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(12, 'listerProduitAdmin.do', 'permet de voir la liste des produits Admin');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(13, 'deconnecterUser.do', 'permet la deconnection');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(14, 'afficherPanier.do', 'permet d''afficher le panier');
-INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(15, 'voirCreerUser.do', 'droit de voir le formulaire de création d\'un utilisateur');
-INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(16, 'creerUser.do', 'droit de voir création d\'un utilisateur');
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(15, 'voirCreerUser.do', 'droit de voir le formulaire de création d_un utilisateur');
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(16, 'creerUser.do', 'droit de voir création d_un utilisateur');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(17, 'ajouterPanier.do', 'permet d ajouter au panier');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(18, 'voirCGU.do', 'droit de voir le CGU');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(19, 'afficherCGU.do', 'droit pour afficher le CGU');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(20, 'consulterUser.do', 'droit pour consulter le comte');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(21, 'afficherImage.do', 'droit pour afficher une image');
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(22, 'editerUser.do', 'permet d_editer le compte de l_uilisateur');
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(31, 'panierAdresseClient.do', 'permet de  mettre l_adresse client en request');
+
 
 --
 -- Déchargement des données de la table `profildroit`
@@ -147,6 +150,11 @@ INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(43,
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(44, 1, 21);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(45, 2, 21);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(46, 3, 21);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(47, 2, 22);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(48, 3, 22);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(54, 2, 31);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(55, 3, 31);
+
 
 --
 -- Déchargement des données de la table `produit`
