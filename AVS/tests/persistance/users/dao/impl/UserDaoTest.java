@@ -125,4 +125,18 @@ class UserDaoTest {
         assertEquals("bel.sab@outlook.com", listeUserDo.get(0).getMail());
     }
 
+    /**
+     * Test method for {@link persistance.user.dao.impl.UserDao#findAllUserDo()}.
+     */
+    @Test
+    void testFindUserDo() {
+        final IUserDao iUserDao = Factory.getInstance(IUserDao.class);
+        final UserDo userDo = iUserDao.findUserDo(9);
+        Assertions.assertNotNull(userDo);
+        Assertions.assertNull(iUserDao.findUserDo(2));
+        Assertions.assertEquals("Dupont", userDo.getNom());
+        Assertions.assertEquals("19_rue_montebello", iUserDao.findUserDo(7).getAdresse());
+        Assertions.assertEquals(2, userDo.getSetCommandeDo().size());
+    }
+
 }
