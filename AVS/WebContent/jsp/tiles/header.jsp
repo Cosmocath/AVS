@@ -1,6 +1,6 @@
 <%@include file="/jsp/tiles/taglib.jsp"%>
 
-<div style="background-color: #4B70D3; height: 100%;">
+<div style="background-color: #FFFFFF; height: 100%;">
 	<div>
 		<div style="display: inline-block; float: left;">
 			<html:link href="listerProduitClient.do" title="logo">

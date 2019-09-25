@@ -44,10 +44,6 @@ public class VoirPanierAction extends Action {
 
     }
 
-    public int afficherProduit(final PanierDto panierDto) {
-        return panierDto.getQuantiteTotale();
-    }
-
     @Override
     public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         //je recupère la session
@@ -57,8 +53,6 @@ public class VoirPanierAction extends Action {
         //j'initialise le panierDto
         initPanierDto(panierDto);
         //j'initialise l'affichage du nombre de produit
-        //  afficherProduit(panierDto);
-
         return mapping.findForward("success");
     }
 

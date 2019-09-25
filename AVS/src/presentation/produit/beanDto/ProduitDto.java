@@ -45,7 +45,7 @@ public class ProduitDto implements Serializable {
      * @param actif
      * @return le produitDto initialisé
      */
-    public ProduitDto buildProduitDto(final Integer id, final String designation, final String reference, final String description, final String prix, final String image, final Integer noVersion,
+    public static ProduitDto buildProduitDto(final Integer id, final String designation, final String reference, final String description, final String prix, final String image, final Integer noVersion,
                     final Boolean actif) {
         final ProduitDto produitDto = new ProduitDto();
         produitDto.setId(id);
@@ -72,7 +72,7 @@ public class ProduitDto implements Serializable {
      * @return le Produit Dto créé
      */
     public static ProduitDto build(final String designation, final String reference, final String description, final String prix, final String image, final int noVersion) {
-        return new ProduitDto().buildProduitDto(null, designation, reference, description, prix, image, noVersion, true);
+        return buildProduitDto(null, designation, reference, description, prix, image, noVersion, true);
     }
 
     /**

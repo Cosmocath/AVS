@@ -110,13 +110,18 @@
 		<action path="/creerUser" scope="request" input="voirCreerUser"
 			parameter="" name="userForm"
 			type="presentation.users.action.CreerUserAction">
-			<forward name="success" path="template" redirect="true"></forward>
+			<forward name="success" path="listerProduitClient.do" redirect="true"></forward>
 			<forward name="notSuccess" path="voirCreerUser"
 				redirect="false" />
 		</action>
 		<action path="/listerUser" scope="request" input=""
 			parameter="" type="presentation.users.action.ListerUserAction">
 			<forward name="success" path="listerUser" redirect="true"></forward>
+		</action>
+
+		<action path="/consulterUser" scope="request" input=""
+			parameter="" type="presentation.users.action.ConsulterUserAction">
+			<forward name="success" path="consulterUser" redirect="true"></forward>
 		</action>
 
 		<!-- Action de l'équipe Panier -->
@@ -128,8 +133,25 @@
 				redirect="false" />
 		</action>
 
+		<action path="/ajouterPanier" scope="request" input=""
+			parameter="" name=""
+			type="presentation.panier.action.AjouterPanierAction">
+			<forward name="pdt_00" path="listeProduitClient.do"
+				redirect="true" />
+			<forward name="pdt_01" path="listeProduitClient.do"
+				redirect="true" />
+			<forward name="pan_00" path="afficherPanier.do"
+				redirect="true" />
+
+		</action>
+
 		<!-- Action de l'équipe Commande -->
 
+		<!-- Action de gestion image -->
+		<action path="/afficherImage" parameter=""
+			type="presentation.image.action.AfficherImageAction">
+
+		</action>
 
 	</action-mappings>
 
