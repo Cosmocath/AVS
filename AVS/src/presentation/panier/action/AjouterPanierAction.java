@@ -35,24 +35,23 @@ public class AjouterPanierAction extends Action {
         iPanierService.addProduitPanier(panierDto, idProduit);
 
         String urlPanier = request.getContextPath();
-        final String panier = request.getParameter("panier");
+        final String retour = request.getParameter("retour");
         // je convertis ma chaine retour en une valeur de l enum
-        final ParamPanier valeurEnum = ParamPanier.getValue(panier);
+        final ParamPanier valeurEnum = ParamPanier.getValue(retour);
 
         //on teste la valeur de l'enum pour les 4 écrans qu'on veut attendre en cliquant retour
         switch (valeurEnum) {
             case LISTE_PRODUIT_CLIENT :
-                // on récupère l'url de la page d'ou on provient
-                urlPanier = urlPanier + "/listerProduitClient.do";
-                break;
+                urlPanier = urlPanier + retour;
+                return mapping.findForward("pdt_00");
 
             case PANIER :
-                urlPanier = "/consulterPanier.do";
-                break;
+                urlPanier = urlPanier + retour;
+                return mapping.findForward("pdt_01");
 
             case CONSULTER_PRODUIT :
-                urlPanier = urlPanier + "/consulterProduit.do";
-                break;
+                urlPanier = urlPanier + retour;
+                return mapping.findForward("pan_00");
         }
 
         // on passe le parametre de l'url en request 

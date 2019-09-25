@@ -43,7 +43,8 @@
 
 			</tr>
 			<div align="right" style="float: right">
-				<html:link href="ajouterPanier.do?id=${produit.id}&panier=listeProduitClient">
+<!-- 			//TODO gérer le retour / forward -->
+				<html:link href="ajouterPanier.do?id=${produit.id}&retour=pdt_00">
 					<bean:message key="PDT_00.bouton.ajouterPanier" />
 				</html:link>
 			</div>

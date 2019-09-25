@@ -26,7 +26,7 @@ public class ChangerLangueAction extends Action {
         final String langue = request.getParameter("langue");
         // on retourne la langue locale avec le parametre
         final Locale locale = Locale.forLanguageTag(langue);
-        
+
         request.getSession().setAttribute(Globals.LOCALE_KEY, locale);
 
         // récupère l'url d'ou l'on provient

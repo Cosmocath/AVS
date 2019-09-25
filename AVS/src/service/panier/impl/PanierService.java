@@ -5,6 +5,7 @@ import presentation.produit.beanDto.ProduitDto;
 import service.panier.IPanierService;
 import service.produit.IProduitService;
 import util.factory.Factory;
+import util.tools.ConversionUtil;
 
 /**
  * @author Nora LIFERKI
@@ -31,7 +32,9 @@ public class PanierService implements IPanierService {
             panierDto.getMapDesProduitsQte().put(produitDto, 1);
         }
         panierDto.setQuantiteTotale(panierDto.getMapDesProduitsQte().size());
-        panierDto.setTotalAvantRemise(panierDto.getTotalAvantRemise() + produitDto.getPrix());
+        // TODO pour XSI gérer la conversion : resultats du test =>  "30,00" au lieu de "30.00"
+        final double total = Double.valueOf(ConversionUtil.convertStringCommaToDot(produitDto.getPrix()));
+        panierDto.setTotalAvantRemise(panierDto.getTotalAvantRemise() + total);
         remisePanier(panierDto);
 
         return panierDto;
@@ -41,6 +44,7 @@ public class PanierService implements IPanierService {
     public PanierDto remisePanier(final PanierDto panierDto) {
         if (panierDto.getQuantiteTotale() > QUANTITE_AVANT_REMISE && panierDto.getTotalAvantRemise() >= SEUIL_REMISE) {
             panierDto.setTotalApresRemise(panierDto.getTotalAvantRemise() * REMISE);
+            panierDto.setRemise(panierDto.getTotalApresRemise() - panierDto.getTotalAvantRemise());
             return panierDto;
         }
 

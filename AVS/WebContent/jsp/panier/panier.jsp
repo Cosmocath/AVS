@@ -2,28 +2,28 @@
 <%@include file="/jsp/tiles/taglib.jsp"%>
 
 <div style="background-color: white; height: 100%">
-	<h1>Panier</h1>
 
-<%-- 	<%-- JS nécessaire pour le bouton supprimer --%> 
-<!-- 	<script type="text/javascript"> -->
-<!-- // 		function RedirectionJavascript() { -->
-<!-- // 			document.location.href = "ajouterPanier.do?id=" -->
-<!-- // 					+ document.getElementById("id").value -->
-<!-- // 			"&retour=panier"; -->
-<!-- // 		} -->
-<!-- 	</script> -->
 
+	<%-- 	<%-- JS nécessaire pour le bouton supprimer --%>
+	<!-- 	<script type="text/javascript"> -->
+	<!-- // 		function RedirectionJavascript() { -->
+	<!-- // 			document.location.href = "ajouterPanier.do?id=" -->
+	<!-- // 					+ document.getElementById("id").value -->
+	<!-- // 			"&retour=panier"; -->
+	<!-- // 		} -->
+	<!-- 	</script> -->
+
+	<h1>
+		<bean:message key="PAN_00.Panier" />
+	</h1>
 	<table style="width: 100%; text-align: center">
 		<tr>
-			<th>Designation</th>
-			<!-- produitDto -->
-			<th>Référence</th>
-			<!-- produitDto -->
-			<th>Quantite</th>
-			<th>Prix unitaire</th>
-			<th>Modifier Quantité</th>
-			<th>Prix total</th>
-			<th></th>
+			<th><bean:message key="PAN_00.Designation" /></th>
+			<th><bean:message key="PAN_00.Reference" /></th>
+			<th><bean:message key="PAN_00.Quantite" /></th>
+			<th><bean:message key="PAN_00.Prix.Unitaire" /></th>
+			<th><bean:message key="PAN_00.Modifier.Quantite" /></th>
+			<th><bean:message key="PAN_00.Prix.Total" /></th>
 		</tr>
 		<logic:iterate id="mapPanierQte" name="monPanierDto" scope="session"
 			property="mapDesProduitsQte">
@@ -35,7 +35,7 @@
 				<td>${produitDto.designation}</td>
 				<td>${produitDto.reference}</td>
 				<td>${quantiteProduit}</td>
-				<td>${produitDto.prix}</td>
+				<td>${produitDto.prix}<bean:message key="Global.euro" /></td>
 				<td>
 					<button type="button" onclick="RedirectionJavascript()">+</button>
 					<button type="button" onclick="diminuerQuantite">-</button>
@@ -49,8 +49,11 @@
 
 
 				<td>${quantiteProduit*produitDto.prix}</td>
+				<td>Prix à calculer !</td>
 				<td>
-					<button type="button" onclick="supprimerProduit">Supprimer</button>
+					<button type="button" onclick="supprimerProduit">
+						<bean:message key="PAN_00.Supprimer" />
+					</button>
 				</td>
 			</tr>
 		</logic:iterate>
@@ -74,8 +77,12 @@
 	</table>
 	<br />
 	<div align="right">
-		<button type="button" onclick="viderPanier">Vider</button>
-		<button type="button" onclick="validerPanier">Valider</button>
+		<button type="button" onclick="viderPanier">
+			<bean:message key="PAN_00.Vider" />
+		</button>
+		<button type="button" onclick="validerPanier">
+			<bean:message key="PAN_00.Valider" />
+		</button>
 	</div>
 	<br /> <br />
 </div>
