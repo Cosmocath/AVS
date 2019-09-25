@@ -36,13 +36,16 @@ public class VoirPanierAction extends Action {
         final ProduitDto produitDto1 = iProduitService.getProduitById(14);
         panierDto.getMapDesProduitsQte().put(produitDto1, 22);
 
-        panierDto.setQuantiteTotale(2);
         panierDto.setTotalAvantRemise(210.00);
         panierDto.setRemise(42.00);
         panierDto.setTotalApresRemise(251.00);
-
+        panierDto.setQuantiteTotale(200);
         return panierDto;
 
+    }
+
+    public int afficherProduit(final PanierDto panierDto) {
+        return panierDto.getQuantiteTotale();
     }
 
     @Override
@@ -53,6 +56,8 @@ public class VoirPanierAction extends Action {
         final PanierDto panierDto = (PanierDto) session.getAttribute(ConnecterUserAction.MON_PANIER);
         //j'initialise le panierDto
         initPanierDto(panierDto);
+        //j'initialise l'affichage du nombre de produit
+        //  afficherProduit(panierDto);
 
         return mapping.findForward("success");
     }
