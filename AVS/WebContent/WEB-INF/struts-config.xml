@@ -133,6 +133,18 @@
 				redirect="false" />
 		</action>
 
+		<action path="/ajouterPanier" scope="request" input=""
+			parameter="" name=""
+			type="presentation.panier.action.AjouterPanierAction">
+			<forward name="pdt_00" path="listeProduitClient.do"
+				redirect="true" />
+			<forward name="pdt_01" path="listeProduitClient.do"
+				redirect="true" />
+			<forward name="pan_00" path="afficherPanier.do"
+				redirect="true" />
+
+		</action>
+
 		<!-- Action de l'équipe Commande -->
 
 		<!-- Action de gestion image -->
