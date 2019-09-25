@@ -3,10 +3,12 @@ package persistance.image.dao.impl;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
 import persistance.image.dao.IImageDao;
+import service.image.impl.ImageService;
 
 /**
  * Gestion des images
@@ -42,7 +44,7 @@ public class ImageDao implements IImageDao {
     @Override
     public byte[] getImage(final String urlImage) {
         //stockage du chemin de l'image dans un file
-        final File fileImage =  new File(urlImage);
+        final File fileImage = new File(urlImage);
 
         try (FileInputStream fisImage = new FileInputStream(fileImage)) {
             final byte[] byteImage = readStream(fisImage);
@@ -51,6 +53,22 @@ public class ImageDao implements IImageDao {
             e.printStackTrace();
             return null;
         }
+    }
+
+    @Override
+    public String uploadImage(final byte[] file, final String fileName) {
+        if (!("").equals(fileName)) {
+            final File newFile = new File(ImageService.REPERTOIRE_IMAGES, fileName);
+            if (!newFile.exists()) {
+                try (final FileOutputStream fos = new FileOutputStream(newFile);) {
+                    fos.write(file);
+                    fos.flush();
+                } catch (final IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return ImageService.REPERTOIRE_IMAGES + fileName;
     }
 
 }

@@ -7,7 +7,7 @@ package persistance.image.dao;
  *
  */
 public interface IImageDao {
-    
+
     /**
      * Récupère une image stockée sur disque en chemin absolu
      * 
@@ -15,4 +15,12 @@ public interface IImageDao {
      * @return le tableau d'octets de l'image
      */
     byte[] getImage(final String urlImage);
+
+    /**
+     * Récupère un tableau de byte et écrit le fichier dans un répertoire
+     * 
+     * @param file : le fichier sous la forme bye
+     * @return le chemin ou est stocké l'image
+     */
+    String uploadImage(final byte[] file, final String fileName);
 }

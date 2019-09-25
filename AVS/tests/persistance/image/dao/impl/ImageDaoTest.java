@@ -24,4 +24,13 @@ class ImageDaoTest {
         assertNull(iImageDao.getImage("toto"));
     }
 
+    /**
+     * Test method for {@link persistance.image.dao.impl.ImageDao#uploadImage(java.lang.byte[], java.lang.String)}.
+     */
+    @Test
+    void testUploadImage() {
+        final IImageDao iImageDao = Factory.getInstance(IImageDao.class);
+        assertNotNull(iImageDao.uploadImage(iImageDao.getImage("C:\\IMG\\téléchargement.jpg"), "téléchargement.jpg"));
+        //        assertNull(iImageDao.getImage("toto"));
+    }
 }
