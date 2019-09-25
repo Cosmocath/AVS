@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Représentation de la commande dans la base de donnée
  * 
- * @author Administrateur
+ * @author Administrateur / Valentin
  *
  */
 public class CommandeDo {
@@ -14,7 +14,9 @@ public class CommandeDo {
     private String numeroCommande;
     private Date   dateCommande;
     private double montantSansRemise;
-    private double montantAvecRemise;
+    private double remise;
+    private String adresseLivraison;
+    private String adresseFacturation;
 
     /**
      * Constructeur
@@ -95,17 +97,45 @@ public class CommandeDo {
     }
 
     /**
-     * @return the montantAvecRemise
+     * @return the remise
      */
-    public double getMontantAvecRemise() {
-        return montantAvecRemise;
+    public double getRemise() {
+        return remise;
     }
 
     /**
-     * @param montantAvecRemise the montantAvecRemise to set
+     * @param remise the remise to set
      */
-    public void setMontantAvecRemise(final double montantAvecRemise) {
-        this.montantAvecRemise = montantAvecRemise;
+    public void setRemise(final double remise) {
+        this.remise = remise;
+    }
+
+    /**
+     * @return the adresseLivraison
+     */
+    public String getAdresseLivraison() {
+        return adresseLivraison;
+    }
+
+    /**
+     * @param adresseLivraison the adresseLivraison to set
+     */
+    public void setAdresseLivraison(final String adresseLivraison) {
+        this.adresseLivraison = adresseLivraison;
+    }
+
+    /**
+     * @return the adresseFacturation
+     */
+    public String getAdresseFacturation() {
+        return adresseFacturation;
+    }
+
+    /**
+     * @param adresseFacturation the adresseFacturation to set
+     */
+    public void setAdresseFacturation(final String adresseFacturation) {
+        this.adresseFacturation = adresseFacturation;
     }
 
 }
