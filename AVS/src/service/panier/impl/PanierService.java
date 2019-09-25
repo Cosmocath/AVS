@@ -70,4 +70,14 @@ public class PanierService implements IPanierService {
 
         return panierDto;
     }
+
+    @Override
+    public PanierDto deleteProduitPanier(final PanierDto panierDto, final int idProduit) {
+        final IProduitService iProduitService = Factory.getInstance(IProduitService.class);
+        final ProduitDto produitDto = iProduitService.getProduitById(idProduit);
+        PanierDto.QuantitePrix quantitePrix = panierDto.getMapDesProduitsQte().get(produitDto);
+        panierDto.getMapDesProduitsQte().remove(produitDto, quantitePrix);
+        return panierDto;
+    }
+
 }

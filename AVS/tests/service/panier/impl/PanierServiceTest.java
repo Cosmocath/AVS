@@ -60,4 +60,18 @@ class PanierServiceTest {
 
     }
 
+    /**
+     * Test method for {@link service.panier.impl.PanierService#deleteProduitPanier(presentation.panier.beanDto.PanierDto, int)}.
+     */
+    @Test
+    void testDeleteProduitPanier() {
+        final IPanierService iPanierService = Factory.getInstance(IPanierService.class);
+        assertNotNull(iPanierService);
+        PanierDto panierDto = new PanierDto();
+        panierDto.setQuantiteTotale(2);
+        panierDto.setTotalAvantRemise("60,00");
+        panierDto = iPanierService.deleteProduitPanier(panierDto, 12);
+        assertEquals("30,00", panierDto.getTotalAvantRemise());
+        assertEquals(1, panierDto.getMapDesProduitsQte().size());
+    }
 }
