@@ -1,5 +1,7 @@
 package persistance.image.dao;
 
+import java.io.File;
+
 /**
  * Gestion des images
  * 
@@ -22,5 +24,5 @@ public interface IImageDao {
      * @param file : le fichier sous la forme bye
      * @return le chemin ou est stocké l'image
      */
-    String uploadImage(final byte[] file, final String fileName);
+    String uploadImage(final byte[] file, final File newFile);
 }

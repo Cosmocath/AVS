@@ -13,6 +13,7 @@ import org.apache.struts.action.ActionMessages;
 
 import presentation.produit.beanDto.ProduitDto;
 import presentation.produit.form.ProduitForm;
+import service.image.IImageService;
 import service.produit.IProduitService;
 import util.factory.Factory;
 import util.tools.ConversionUtil;
@@ -31,17 +32,25 @@ public class CreerProduitAction extends Action {
      * @return
      */
     private ProduitDto mapToDto(final ProduitForm produitForm) {
-        return ProduitDto.build(produitForm.getDesignation(), produitForm.getReference(), produitForm.getDescription(), ConversionUtil.convertStringCommaToDot(produitForm.getPrix()),
-                        produitForm.getImage(), 1);
+        // Image initialisée a "" car changé après dans l'action
+        return ProduitDto.build(produitForm.getDesignation(), produitForm.getReference(), produitForm.getDescription(), ConversionUtil.convertStringCommaToDot(produitForm.getPrix()), "", 1);
     }
 
     @Override
     public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         // on récupère les infos
         final ProduitForm produitForm = (ProduitForm) form;
+
+        final IImageService iImageService = Factory.getInstance(IImageService.class);
+        final String cheminImage = iImageService.uploadImage(produitForm.getImage().getFileData(), produitForm.getImage().getFileName());
+
         // on récupère les données du Service
         final IProduitService iProduitService = Factory.getInstance(IProduitService.class);
-        final ProduitDto produitDto = iProduitService.create(mapToDto(produitForm));
+
+        final ProduitDto produitDtoMapper = mapToDto(produitForm);
+        produitDtoMapper.setImage(cheminImage);
+
+        final ProduitDto produitDto = iProduitService.create(produitDtoMapper);
         // on teste le retour du service
         if (produitDto == null) {
             final ActionErrors errors = new ActionErrors();

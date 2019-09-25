@@ -56,19 +56,15 @@ public class ImageDao implements IImageDao {
     }
 
     @Override
-    public String uploadImage(final byte[] file, final String fileName) {
-        if (!("").equals(fileName)) {
-            final File newFile = new File(ImageService.REPERTOIRE_IMAGES, fileName);
-            if (!newFile.exists()) {
-                try (final FileOutputStream fos = new FileOutputStream(newFile);) {
-                    fos.write(file);
-                    fos.flush();
-                } catch (final IOException e) {
-                    e.printStackTrace();
-                }
-            }
+    public String uploadImage(final byte[] image, final File newFile) {
+        try (final FileOutputStream fos = new FileOutputStream(newFile);) {
+            fos.write(image);
+            fos.flush();
+        } catch (final IOException e) {
+            e.printStackTrace();
         }
-        return ImageService.REPERTOIRE_IMAGES + fileName;
+
+        return ImageService.REPERTOIRE_IMAGES + newFile.getName();
     }
 
 }

@@ -16,7 +16,8 @@
 	<html:errors header="errors.global.header" property="error" />
 	<br />
 
-	<html:form action="/creerProduit.do" focus="designation">
+	<html:form action="/creerProduit.do" focus="designation"
+		enctype="multipart/form-data">
 		<table>
 			<tr>
 				<td align="right"><bean:message key="PDT_02.designation" /></td>
@@ -44,6 +45,12 @@
 				<td align="left"><html:text property="prix" size="25"
 						maxlength="25" /></td>
 				<td><html:errors property="prix" header="errors.field.header"
+						footer="errors.field.footer" /></td>
+			</tr>
+			<tr>
+				<td align="right"><bean:message key="PDT_02.image" /></td>
+				<td align="left"><html:file property="image" /></td>
+				<td><html:errors property="image" header="errors.field.header"
 						footer="errors.field.footer" /></td>
 			</tr>
 			<tr>

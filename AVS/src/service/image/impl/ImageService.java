@@ -1,5 +1,7 @@
 package service.image.impl;
 
+import java.io.File;
+
 import persistance.image.dao.IImageDao;
 import service.image.IImageService;
 import util.factory.Factory;
@@ -37,6 +39,19 @@ public class ImageService implements IImageService {
             return iImageDao.getImage(DEFAULT_IMAGE);
         }
         return image;
+    }
+
+    @Override
+    public String uploadImage(final byte[] file, final String fileName) {
+        final IImageDao iImageDao = Factory.getInstance(IImageDao.class);
+
+        if (!("").equals(fileName)) {
+            final File newFile = new File(ImageService.REPERTOIRE_IMAGES, fileName);
+            if (!newFile.exists()) {
+                iImageDao.uploadImage(file, newFile);
+            }
+        }
+        return null;
     }
 
 }

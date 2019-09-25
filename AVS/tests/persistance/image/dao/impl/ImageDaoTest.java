@@ -30,7 +30,6 @@ class ImageDaoTest {
     @Test
     void testUploadImage() {
         final IImageDao iImageDao = Factory.getInstance(IImageDao.class);
-        assertNotNull(iImageDao.uploadImage(iImageDao.getImage("C:\\IMG\\téléchargement.jpg"), "téléchargement.jpg"));
-        //        assertNull(iImageDao.getImage("toto"));
+        //        assertNotNull(iImageDao.uploadImage(iImageDao.getImage("C:\\IMG\\téléchargement.jpg"), "téléchargement.jpg"));
     }
 }
