@@ -51,6 +51,10 @@
 				<bean:message key="MENU.ListerUser" />
 			</html:link>
 			<br />
+			<html:link href="voirCreerUser.do">
+				<bean:message key="MENU.CreerUser" />
+			</html:link>
+			<br />
 			<br />
 			<html:link href="deconnecterUser.do">
 				<bean:message key="MENU.Deconnecter" />

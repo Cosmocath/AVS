@@ -3,15 +3,17 @@
 <div style="background-color: #4B70D3; height: 100%;">
 	<div>
 		<div style="display: inline-block; float: left;">
-			<img alt="logo" src="img/logo_AVS.png">
+			<html:link href="listerProduitClient.do" title="logo">
+				<img alt="logo" src="img/logo_AVS.png">
+			</html:link>
 		</div>
 		<div style="display: inline-block;">
 			<logic:notPresent name="userConnected" scope="session">
-				<bean:message key="HEADER.bonjourVisiteur"/>
+				<bean:message key="HEADER.bonjourVisiteur" />
 			</logic:notPresent>
 			<logic:present name="userConnected" scope="session">
-					<bean:message key="HEADER.bonjour"/>
-					<bean:write name="userConnected" property="nom" />
+				<bean:message key="HEADER.bonjour" />
+				<bean:write name="userConnected" property="nom" />
 			</logic:present>
 		</div>
 		<div style="display: inline-block; float: right;">
@@ -31,7 +33,7 @@
 				</html:link>
 			</logic:notPresent>
 			<logic:notPresent name="userConnected" scope="session">
-				<html:link href="#" title="Inscription">
+				<html:link href="voirCreerUser.do" title="Inscription">
 					<img alt="logo" src="img/signup.png">
 				</html:link>
 			</logic:notPresent>

@@ -19,8 +19,7 @@ public class ProduitDto implements Serializable {
     private String            designation;
     private String            reference;
     private String            description;
-    // TODO XSI : ok pour affichage ?
-    private double            prix;
+    private String            prix;
     private String            image;
     private int               noVersion;
     private boolean           actif;
@@ -46,7 +45,7 @@ public class ProduitDto implements Serializable {
      * @param actif
      * @return le produitDto initialisé
      */
-    public ProduitDto buildProduitDto(final Integer id, final String designation, final String reference, final String description, final double prix, final String image, final Integer noVersion,
+    public ProduitDto buildProduitDto(final Integer id, final String designation, final String reference, final String description, final String prix, final String image, final Integer noVersion,
                     final Boolean actif) {
         final ProduitDto produitDto = new ProduitDto();
         produitDto.setId(id);
@@ -72,7 +71,7 @@ public class ProduitDto implements Serializable {
      * @param noVersion
      * @return le Produit Dto créé
      */
-    public static ProduitDto build(final String designation, final String reference, final String description, final double prix, final String image, final int noVersion) {
+    public static ProduitDto build(final String designation, final String reference, final String description, final String prix, final String image, final int noVersion) {
         return new ProduitDto().buildProduitDto(null, designation, reference, description, prix, image, noVersion, true);
     }
 
@@ -135,14 +134,14 @@ public class ProduitDto implements Serializable {
     /**
      * @return the prix
      */
-    public double getPrix() {
+    public String getPrix() {
         return prix;
     }
 
     /**
      * @param prix the prix to set
      */
-    public void setPrix(final double prix) {
+    public void setPrix(final String prix) {
         this.prix = prix;
     }
 

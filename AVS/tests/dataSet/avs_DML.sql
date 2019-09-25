@@ -49,12 +49,12 @@ INSERT INTO `profil` (`id_Profil`, `nom`) VALUES(3, 'admin');
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`id_Utilisateur`, `nom`, `prenom`, `date_naissance`, `adresse`, `mail`, `password`, `actif`, `id_Profil`) VALUES(7, 'ad', 'min', '1987-05-11', '19_rue_montebello', 'utili.sateur@outlook.com', 'pass', b'1', 3);
-INSERT INTO `utilisateur` (`id_Utilisateur`, `nom`, `prenom`, `date_naissance`, `adresse`, `mail`, `password`, `actif`, `id_Profil`) VALUES(8, 'cli', 'ent', '2000-09-25', '112_ave_republique', 'test.user@gmail.com', 'mdp', b'0', 2);
-INSERT INTO `utilisateur` (`id_Utilisateur`, `nom`, `prenom`, `date_naissance`, `adresse`, `mail`, `password`, `actif`, `id_Profil`) VALUES(9, 'Dupont', 'alfred', '1991-02-15', '84_rue_JeanBatsite_Leblanc', 'dup.al@outlook.com', 'mot', b'1', 2);
-INSERT INTO `utilisateur` (`id_Utilisateur`, `nom`, `prenom`, `date_naissance`, `adresse`, `mail`, `password`, `actif`, `id_Profil`) VALUES(10, 'Zuti', 'maria', '2004-01-02', '11_ave_Nicolas_Lebas', 'zut.ma@gmail.com', 'pwd', b'0', 2);
-INSERT INTO `utilisateur` (`id_Utilisateur`, `nom`, `prenom`, `date_naissance`, `adresse`, `mail`, `password`, `actif`, `id_Profil`) VALUES(11, 'Belka', 'sab', '1992-01-05', '84_rue_deLommes', 'bel.sab@outlook.com', 'secret', b'1', 3);
-INSERT INTO `utilisateur` (`id_Utilisateur`, `nom`, `prenom`, `date_naissance`, `adresse`, `mail`, `password`, `actif`, `id_Profil`) VALUES(12, 'Eg', 'emple', '1988-05-22', '11_ave_Bousbecque', 'eg.em@gmail.com', 'test', b'1', 2);
+INSERT INTO `utilisateur` (`id_Utilisateur`, `nom`, `prenom`, `date_naissance`, `adresse`, `mail`, `password`, `actif`, `id_Profil`) VALUES(7, 'ad', 'min', '1987-05-11', '19_rue_montebello', 'utili.sateur@outlook.com', '1a1dc91c907325c69271ddf0c944bc72', b'1', 3);
+INSERT INTO `utilisateur` (`id_Utilisateur`, `nom`, `prenom`, `date_naissance`, `adresse`, `mail`, `password`, `actif`, `id_Profil`) VALUES(8, 'cli', 'ent', '2000-09-25', '112_ave_republique', 'test.user@gmail.com', 'aa36dc6e81e2ac7ad03e12fedcb6a2c0', b'0', 2);
+INSERT INTO `utilisateur` (`id_Utilisateur`, `nom`, `prenom`, `date_naissance`, `adresse`, `mail`, `password`, `actif`, `id_Profil`) VALUES(9, 'Dupont', 'alfred', '1991-02-15', '84_rue_JeanBatsite_Leblanc', 'dup.al@outlook.com', 'de81459305398c88048a05a620fb4717', b'1', 2);
+INSERT INTO `utilisateur` (`id_Utilisateur`, `nom`, `prenom`, `date_naissance`, `adresse`, `mail`, `password`, `actif`, `id_Profil`) VALUES(10, 'Zuti', 'maria', '2004-01-02', '11_ave_Nicolas_Lebas', 'zut.ma@gmail.com', '9003d1df22eb4d3820015070385194c8', b'0', 2);
+INSERT INTO `utilisateur` (`id_Utilisateur`, `nom`, `prenom`, `date_naissance`, `adresse`, `mail`, `password`, `actif`, `id_Profil`) VALUES(11, 'Belka', 'sab', '1992-01-05', '84_rue_deLommes', 'bel.sab@outlook.com', '5ebe2294ecd0e0f08eab7690d2a6ee69', b'1', 3);
+INSERT INTO `utilisateur` (`id_Utilisateur`, `nom`, `prenom`, `date_naissance`, `adresse`, `mail`, `password`, `actif`, `id_Profil`) VALUES(12, 'Eg', 'emple', '1988-05-22', '11_ave_Bousbecque', 'eg.em@gmail.com', '098f6bcd4621d373cade4e832627b4f6', b'1', 2);
 
 --
 -- Déchargement des données de la table `commande`
@@ -69,7 +69,7 @@ INSERT INTO `commande` (`id_Commande`, `id_Utilisateur`, `nom`, `adresse_livrais
 -- Déchargement des données de la table `produitvendu`
 --
 
-INSERT INTO `produitvendu` (`id_ProduitVendu`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `id_Produit_Historise`) VALUES(1, 'jadinage', 'AB3456', 'entretien de jardin', 30, 'C:\\\\AVS_Images\\AVS_Produits\\image1.jpg', 1, 12);
+INSERT INTO `produitvendu` (`id_ProduitVendu`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `id_Produit_Historise`) VALUES(1, 'jadinage', 'AB3456', 'entretien de jardin', 30, 'C:\\\\AVS_Images\\AVS_Produits\\jardinage.jpg', 1, 12);
 
 --
 -- Déchargement des données de la table `commandeproduit`
@@ -99,6 +99,7 @@ INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(17, 'ajouterPanier
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(18, 'voirCGU.do', 'droit de voir le CGU');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(19, 'afficherCGU.do', 'droit pour afficher le CGU');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(20, 'consulterUser.do', 'droit pour consulter le comte');
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(21, 'afficherImage.do', 'droit pour afficher une image');
 
 --
 -- Déchargement des données de la table `profildroit`
@@ -143,14 +144,17 @@ INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(40,
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(41, 3, 19);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(42, 2, 20);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(43, 3, 20);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(44, 1, 21);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(45, 2, 21);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(46, 3, 21);
 
 --
 -- Déchargement des données de la table `produit`
 --
 
-INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(12, 'jardinage', 'AB3456', 'entretien de jardin', 30, 'C:\\\\AVS_Images\\AVS_Produits\\image1.jpg', 1, b'1');
+INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(12, 'jardinage', 'AB3456', 'entretien de jardin', 30, 'C:\\\\AVS_Images\\AVS_Produits\\jardinage.jpg', 1, b'1');
 INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(13, 'menage', 'BC7654', 'entretien d_interieur', 20, 'null', 1, b'0');
-INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(14, 'demenagement', 'DE6789', 'service_au_demenagement', 40, 'null', 1, b'1');
+INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(14, 'demenagement', 'DE6789', 'service_au_demenagement', 40, 'C:\\\\AVS_Images\\AVS_Produits\\demenagement.jpg', 1, b'1');
 INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(15, 'bricolage', 'FG1234', 'petits travaux de reparation', 50, 'null', 1, b'0');
 INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(16, 'assistance informatique', 'HI5678', 'installation de logiciels', 25, 'null', 1, b'0');
 INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(17, 'soutien scolaire', 'JK9123', 'aide aux devoirs', 25, 'null', 1, b'0');

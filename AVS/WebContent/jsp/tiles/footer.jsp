@@ -1,10 +1,10 @@
 <%@include file="/jsp/tiles/taglib.jsp"%>
 
-<div style="background-color: #4B70D3FF; height: 100%">
+<div style="background-color: #FFFFFF; height: 100%">
 
-	<html:link href="#" style="color: white; text-align: center; position: relative; left: 450px">CGV</html:link>
+	<html:link href="#" style="color: black; text-align: center; position: relative; left: 450px">CGV</html:link>
 	<br />
-	<html:link href="voirCGU.do" style="color: white; text-align: center; position: relative; left: 450px">CGU</html:link>
+	<html:link href="voirCGU.do" style="color: black; text-align: center; position: relative; left: 450px">CGU</html:link>
 
 
 	<bean:define id="contextPath" value="<%=request.getContextPath()%>" />
