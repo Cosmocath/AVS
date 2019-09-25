@@ -27,7 +27,7 @@
 	<table>
 		<tr>
 			<td>Image</td>
-			<td width="100%" style="padding-left: 80px"><bean:write
+			<td width="80%" style="padding-left: 80px"><bean:write
 					name="produit" property="description" /><br /> <bean:write
 					name="produit" property="prix" /> <bean:message key="Global.euro" />
 				<bean:message key="PDT_01.produit.labelPrix" /></td>
