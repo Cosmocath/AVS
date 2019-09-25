@@ -12,6 +12,7 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 
+import presentation.panier.beanDto.PanierDto;
 import presentation.users.beanDto.ConnectedUserDto;
 import presentation.users.beanDto.ProfilDto;
 import presentation.users.beanDto.UserDto;
@@ -71,6 +72,8 @@ public class CreerUserAction extends Action {
             saveMessages(request.getSession(), messages);
             final ConnectedUserDto connectedUserDto = iUserService.findUserForConnexion(userForm.getMail(), userForm.getPassword());
             session.setAttribute(ConnecterUserAction.USER_CONNECTED, connectedUserDto);
+            final PanierDto panierDto = new PanierDto();
+            session.setAttribute(ConnecterUserAction.MON_PANIER, panierDto);
             return mapping.findForward("success");
         }
     }
