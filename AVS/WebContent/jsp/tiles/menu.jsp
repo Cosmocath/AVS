@@ -42,7 +42,7 @@
 			</html:link>
 			<br />
 			<br />
-			<html:link href="listerCommande.do">
+			<html:link href="listerCommande.do" paramName="userConnected" paramProperty="id" paramId="id">
 				<bean:message key="MENU.ListeDesCommandes" />
 			</html:link>
 			<br />
