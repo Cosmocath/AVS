@@ -30,19 +30,16 @@ public class AfficherImageAction extends Action {
         final IImageService iImageService = Factory.getInstance(IImageService.class);
 
         response.setContentType("image/jpg");
-        OutputStream os = response.getOutputStream();
+        try (final OutputStream os = response.getOutputStream()) {
 
-        //je stocke le flux d'octet  
-        byte[] btImg = iImageService.getImage(urlImage);
+            //je stocke le flux d'octet  
+            final byte[] btImg = iImageService.getImage(urlImage);
 
-        //dans le flux de sortie de response j'ecris le tableau de byte
-        os.write(btImg);
-
-        //j'envoie l'ordre d'instruction de lecture
-        os.flush();
-
-        //je ferme le flux
-        os.close();
+            //dans le flux de sortie de response j'ecris le tableau de byte
+            os.write(btImg);
+            //j'envoie l'ordre d'instruction de lecture
+            os.flush();
+        }
 
         //on retourne la redirection
         return mapping.findForward("success");

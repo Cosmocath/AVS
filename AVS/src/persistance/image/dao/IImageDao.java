@@ -12,7 +12,7 @@ public interface IImageDao {
      * Récupère une image stockée sur disque en chemin absolu
      * 
      * @param urlImage : le chemin absolu sur disque
-     * @return le File de l'image
+     * @return le tableau d'octets de l'image
      */
     byte[] getImage(final String urlImage);
 }

@@ -1,6 +1,3 @@
-/**
- * 
- */
 package service.image.impl;
 
 import static org.junit.Assert.assertArrayEquals;

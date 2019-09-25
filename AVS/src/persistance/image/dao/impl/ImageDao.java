@@ -31,7 +31,7 @@ public class ImageDao implements IImageDao {
      * @throws IOException
      */
     private byte[] readStream(final InputStream inStream) throws IOException {
-        ByteArrayOutputStream bops = new ByteArrayOutputStream();
+        final ByteArrayOutputStream bops = new ByteArrayOutputStream();
         int data = -1;
         while ((data = inStream.read()) != -1) {
             bops.write(data);
