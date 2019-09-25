@@ -12,6 +12,8 @@
 			type="presentation.users.form.UserForm" />
 		<form-bean name="produitForm"
 			type="presentation.produit.form.ProduitForm" />
+		<form-bean name="panierForm"
+			type="presentation.panier.form.PanierForm" />
 	</form-beans>
 
 	<action-mappings
@@ -110,7 +112,8 @@
 		<action path="/creerUser" scope="request" input="voirCreerUser"
 			parameter="" name="userForm"
 			type="presentation.users.action.CreerUserAction">
-			<forward name="success" path="listerProduitClient.do" redirect="true"></forward>
+			<forward name="success" path="listerProduitClient.do"
+				redirect="true"></forward>
 			<forward name="notSuccess" path="voirCreerUser"
 				redirect="false" />
 		</action>
@@ -144,6 +147,18 @@
 				redirect="true" />
 
 		</action>
+		<action path="/voirValiderPanier" scope="request" input=""
+			parameter=""
+			type="presentation.panier.action.VoirValiderPanierAction">
+			<forward name="success" path="panierAdresseClient"
+				redirect="false" />
+		</action>
+		<action path="/validerPanier" scope="request"
+			input="voirValiderPanier" parameter="" name="panierForm"
+			type="presentation.panier.action.ValiderPanierAction">
+			<forward name="success" path="validerPanier" redirect="false"></forward>
+		</action>
+
 
 		<!-- Action de l'équipe Commande -->
 
