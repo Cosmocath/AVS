@@ -3,12 +3,14 @@
 
 <div style="height: 100%;">
 	<div>
-		<bean:message key="USR_01.titre" />
+		<h1>
+			<bean:message key="USR_01.titre" />
+		</h1>
 		<html:form action="/creerUser.do" focus="mail">
 
 			<table style="border: none;">
 				<%-- permet d'afficher les erreurs "globales" --%>
-				<html:errors property="error" />
+				<html:errors property="error"/>
 				<tr>
 					<td align="right"><bean:message key="USR_01.mail"></bean:message></td>
 					<td align="left"><html:text property="mail" size="25"
@@ -50,8 +52,8 @@
 				</tr>
 				<tr>
 					<td align="right"><bean:message key="USR_01.adresse"></bean:message></td>
-					<td align="left"><html:text property="adresse" size="25"
-							maxlength="25"></html:text></td>
+					<td align="left"><html:textarea property="adresse" rows="3"
+							cols="50"></html:textarea></td>
 					<td><html:errors property="adresse" /></td>
 				</tr>
 
