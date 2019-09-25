@@ -5,16 +5,16 @@ import presentation.produit.beanDto.ProduitDto;
 import service.panier.IPanierService;
 import service.produit.IProduitService;
 import util.factory.Factory;
-import util.tools.ConversionUtil;
+import util.tools.FormatUtil;
 
 /**
  * @author Nora LIFERKI
  *
  */
 public class PanierService implements IPanierService {
-    private static final double REMISE                = 0.9;
-    private static final double QUANTITE_AVANT_REMISE = 5.0;
-    private static final double SEUIL_REMISE          = 100.0;
+    private static final double  REMISE                = 0.9;
+    private static final Integer QUANTITE_AVANT_REMISE = 5;
+    private static final double  SEUIL_REMISE          = 100.0;
 
     private PanierService() {
         //Empty Constructeur
@@ -25,16 +25,31 @@ public class PanierService implements IPanierService {
         final IProduitService iProduitService = Factory.getInstance(IProduitService.class);
         final ProduitDto produitDto = iProduitService.getProduitById(idProduit);
 
-        if (panierDto.getMapDesProduitsQte().containsKey(produitDto)) {
-            int quantite = panierDto.getMapDesProduitsQte().get(produitDto);
-            panierDto.getMapDesProduitsQte().put(produitDto, quantite++);
+        // on met à jour la map
+        // on récupère la quantité et le prix pour 1 produit dans le panier
+        PanierDto.QuantitePrix quantitePrix = panierDto.getMapDesProduitsQte().get(produitDto);
+        if (quantitePrix == null) {
+            // le produit n'est pas dans le panier
+            quantitePrix = new PanierDto.QuantitePrix().ajouterQuantite(1).updatePrix(produitDto.getPrix());
+            panierDto.getMapDesProduitsQte().put(produitDto, quantitePrix);
         } else {
-            panierDto.getMapDesProduitsQte().put(produitDto, 1);
+            // on convertit en double pour faire les calculs
+            final double prixProduit = FormatUtil.convertirStringToDouble(produitDto.getPrix());
+            final double prixCourant = FormatUtil.convertirStringToDouble(quantitePrix.getPrixParProduit());
+            // on calcule le nouveau prix
+            final double prixTotal = prixCourant + prixProduit;
+            // on met à jour la map en ajoutant 1 à la quantité et le nouveau prix en String
+            panierDto.getMapDesProduitsQte().put(produitDto, quantitePrix.ajouterQuantite(1).updatePrix(FormatUtil.convertirDoubleToString(prixTotal)));
         }
+
+        // on met à jour les autres attributs du panier
         panierDto.setQuantiteTotale(panierDto.getMapDesProduitsQte().size());
-        // TODO pour XSI gérer la conversion : resultats du test =>  "30,00" au lieu de "30.00"
-        final double total = Double.valueOf(ConversionUtil.convertStringCommaToDot(produitDto.getPrix()));
-        panierDto.setTotalAvantRemise(panierDto.getTotalAvantRemise() + total);
+        // on convertit pour les calculs
+        final double total = FormatUtil.convertirStringToDouble(produitDto.getPrix());
+        final double totalAvtRemise = FormatUtil.convertirStringToDouble(panierDto.getTotalAvantRemise());
+        // on met à jour
+        panierDto.setTotalAvantRemise(FormatUtil.convertirDoubleToString(totalAvtRemise + total));
+        // on calcule la remise
         remisePanier(panierDto);
 
         return panierDto;
@@ -42,9 +57,14 @@ public class PanierService implements IPanierService {
 
     @Override
     public PanierDto remisePanier(final PanierDto panierDto) {
-        if (panierDto.getQuantiteTotale() > QUANTITE_AVANT_REMISE && panierDto.getTotalAvantRemise() >= SEUIL_REMISE) {
-            panierDto.setTotalApresRemise(panierDto.getTotalAvantRemise() * REMISE);
-            panierDto.setRemise(panierDto.getTotalApresRemise() - panierDto.getTotalAvantRemise());
+        // on convertit
+        final double totalAvtRemise = FormatUtil.convertirStringToDouble(panierDto.getTotalAvantRemise());
+        if (panierDto.getQuantiteTotale() > QUANTITE_AVANT_REMISE && totalAvtRemise >= SEUIL_REMISE) {
+            // on calcule le total après la remise
+            panierDto.setTotalApresRemise(FormatUtil.convertirDoubleToString(totalAvtRemise * REMISE));
+            // on calcule la remise
+            final double totalApresRemise = FormatUtil.convertirStringToDouble(panierDto.getTotalApresRemise());
+            panierDto.setRemise(FormatUtil.convertirDoubleToString(totalAvtRemise - totalApresRemise));
             return panierDto;
         }
 
