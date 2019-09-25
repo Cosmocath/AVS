@@ -12,12 +12,18 @@
 		<!-- les propriétés simples -->
 		<property name="nom" column="nom"></property>
 		<property name="prenom" column="prenom"></property>
-		<property name="dateNaissance" column="date_naissance" type="date"></property>
+		<property name="dateNaissance" column="date_naissance"
+			type="date"></property>
 		<property name="adresse" column="adresse"></property>
 		<property name="mail" column=""></property>
 		<property name="password" column="password"></property>
 		<property name="actif" column="actif"></property>
 		<many-to-one name="profilDo" column="id_Profil"
 			lazy="false"></many-to-one>
+		<set name="setCommandeDo" inverse="true" lazy="false">
+			<key column="id_Utilisateur"></key>
+			<one-to-many
+				class="persistance.commande.beanDo.CommandeDo" />
+		</set>
 	</class>
 </hibernate-mapping>

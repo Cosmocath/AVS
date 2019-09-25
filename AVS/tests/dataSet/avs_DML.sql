@@ -64,7 +64,7 @@ INSERT INTO `commande` (`id_Commande`, `id_Utilisateur`, `nom`, `adresse_livrais
 INSERT INTO `commande` (`id_Commande`, `id_Utilisateur`, `nom`, `adresse_livraison`, `adresse_facturation`, `numero_commande`, `date_commande`, `montant_sans_remise`, `remise`) VALUES(2, 9, 'commande_Dupont', '84_rue_JeanBatsite_Leblanc', '84_rue_JeanBatsite_Leblanc', 'da_1515', '2019-08-22', 20, 0);
 INSERT INTO `commande` (`id_Commande`, `id_Utilisateur`, `nom`, `adresse_livraison`, `adresse_facturation`, `numero_commande`, `date_commande`, `montant_sans_remise`, `remise`) VALUES(3, 10, 'commande_Zuti', '11_ave_Nicolas_Lebas', '11_ave_Nicolas_Lebas', 'zm_1516', '2018-05-30', 100, 0);
 INSERT INTO `commande` (`id_Commande`, `id_Utilisateur`, `nom`, `adresse_livraison`, `adresse_facturation`, `numero_commande`, `date_commande`, `montant_sans_remise`, `remise`) VALUES(4, 11, 'commande_Belka', '84_rue_deLommes', '84_rue_deLommes', 'bs_1517', '2017-03-15', 55, 0);
-
+INSERT INTO `commande`(`id_Commande`, `id_Utilisateur`, `nom`, `adresse_livraison`, `adresse_facturation`, `numero_commande`, `date_commande`, `montant_sans_remise`, `remise`) VALUES (6, 9, 'commande_Dupont','84_rue_JeanBatsite_Leblanc','84_rue_JeanBatsite_Leblanc','da_1520','2016-09-30',80,0);
 --
 -- Déchargement des données de la table `produitvendu`
 --

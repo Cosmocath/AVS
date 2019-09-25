@@ -1,6 +1,4 @@
-package presentation.commande.action;
-
-import java.util.List;
+package presentation.users.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,25 +8,25 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import presentation.commande.beanDto.CommandeDto;
-import service.commande.ICommandeService;
+import presentation.users.beanDto.UserDto;
+import service.users.IUserService;
 import util.factory.Factory;
 
 /**
- * Action permettant de visualiser la liste des commandes
+ * Action permettant de consulter, d'afficher tout les détails d'un utilisateur.
  * 
  * @author Administrateur
  *
  */
-public class ListerCommandeAction extends Action {
+public class ConsulterUserAction extends Action {
 
     @Override
     public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
-        final ICommandeService iCommandeService = Factory.getInstance(ICommandeService.class);
-        //TODO revvenir pour paramètre de méthode findAll
         final String id = request.getParameter("id");
-        final List<CommandeDto> listeCommandeDto = iCommandeService.findAllCommande(Integer.valueOf(id));
-        request.setAttribute("listeCommande", listeCommandeDto);
+        final IUserService iUserService = Factory.getInstance(IUserService.class);
+        final UserDto userDto = iUserService.findUserDto(Integer.valueOf(id));
+        request.setAttribute("user", userDto);
         return mapping.findForward("success");
     }
+
 }
