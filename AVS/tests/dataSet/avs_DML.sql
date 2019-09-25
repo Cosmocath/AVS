@@ -69,7 +69,7 @@ INSERT INTO `commande`(`id_Commande`, `id_Utilisateur`, `nom`, `adresse_livraiso
 -- Déchargement des données de la table `produitvendu`
 --
 
-INSERT INTO `produitvendu` (`id_ProduitVendu`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `id_Produit_Historise`) VALUES(1, 'jadinage', 'AB3456', 'entretien de jardin', 30, 'C:\\\\AVS_Images\\AVS_Produits\\jardinage.jpg', 1, 12);
+INSERT INTO `produitvendu` (`id_ProduitVendu`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `id_Produit_Historise`) VALUES(1, 'jardinage', 'AB3456', 'entretien de jardin', 30, 'jardinage.jpg', 1, 12);
 
 --
 -- Déchargement des données de la table `commandeproduit`
