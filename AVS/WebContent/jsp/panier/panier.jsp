@@ -2,6 +2,17 @@
 <%@include file="/jsp/tiles/taglib.jsp"%>
 
 <div style="background-color: white; height: 100%">
+
+
+	<%-- 	<%-- JS nécessaire pour le bouton supprimer --%>
+	<!-- 	<script type="text/javascript"> -->
+	<!-- // 		function RedirectionJavascript() { -->
+	<!-- // 			document.location.href = "ajouterPanier.do?id=" -->
+	<!-- // 					+ document.getElementById("id").value -->
+	<!-- // 			"&retour=panier"; -->
+	<!-- // 		} -->
+	<!-- 	</script> -->
+
 	<h1>
 		<bean:message key="PAN_00.Panier" />
 	</h1>
@@ -23,13 +34,21 @@
 			<tr>
 				<td>${produitDto.designation}</td>
 				<td>${produitDto.reference}</td>
-				<td>${quantiteProduit}</td>
-				<td>${produitDto.prix} <bean:message key="Global.euro" /></td>
+				<td>${quantiteProduit.quantite}</td>
+				<td>${produitDto.prix}<bean:message key="Global.euro" /></td>
 				<td>
-					<button type="button" onclick="ajouterQuantite">+</button>
+					<button type="button" onclick="RedirectionJavascript()">+</button>
 					<button type="button" onclick="diminuerQuantite">-</button>
+
+					<div style="float: right">
+						<html:link
+							href="ajouterPanier.do?id=${produitDto.id}&retour=panier">
+							<bean:message key="PAN_00.bouton.ajouterPanier" />
+						</html:link>
+					</div>
 				</td>
-				<td>Prix à calculer !</td>
+				<td>${quantiteProduit.prixParProduit}<bean:message
+						key="Global.euro" /></td>
 				<td>
 					<button type="button" onclick="supprimerProduit">
 						<bean:message key="PAN_00.Supprimer" />
@@ -44,15 +63,18 @@
 		style="border-top: 2px solid black; align: right; text-align: right;">
 		<tr>
 			<th>Total avant remise</th>
-			<td>${sessionScope.monPanierDto.totalAvantRemise}</td>
+			<td>${sessionScope.monPanierDto.totalAvantRemise}<bean:message
+					key="Global.euro" /></td>
 		</tr>
 		<tr>
 			<th>Remise</th>
-			<td>${sessionScope.monPanierDto.remise}</td>
+			<td>${sessionScope.monPanierDto.remise}<bean:message
+					key="Global.euro" /></td>
 		</tr>
 		<tr>
 			<th>Total après remise</th>
-			<td>${sessionScope.monPanierDto.totalApresRemise}</td>
+			<td>${sessionScope.monPanierDto.totalApresRemise}<bean:message
+					key="Global.euro" /></td>
 		</tr>
 	</table>
 	<br />

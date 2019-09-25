@@ -22,9 +22,8 @@ public class ProduitMapper {
      * @return produitDto
      */
     public static ProduitDto mapToDto(final ProduitDo produitDo) {
-        final ProduitDto produitDto = new ProduitDto();
         final String prixDto = FormatUtil.convertirDoubleToString(produitDo.getPrix());
-        return produitDto.buildProduitDto(produitDo.getId(), produitDo.getDesignation(), produitDo.getReference(), produitDo.getDescription(), prixDto, produitDo.getImage(),
+        return ProduitDto.buildProduitDto(produitDo.getId(), produitDo.getDesignation(), produitDo.getReference(), produitDo.getDescription(), prixDto, produitDo.getImage(),
                         produitDo.getNumeroVersion(), produitDo.getActif());
     }
 
