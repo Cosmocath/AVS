@@ -50,7 +50,7 @@ public class FormatUtil {
      * @return Double
      */
     public static Double convertirStringToDouble(final String mot) {
-        return Double.parseDouble(mot);
+        return Double.parseDouble(ConversionUtil.convertStringCommaToDot(mot));
     }
 
     /**
