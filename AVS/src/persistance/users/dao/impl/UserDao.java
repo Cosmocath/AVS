@@ -95,6 +95,25 @@ public class UserDao implements IUserDao {
     }
 
     @Override
+    public UserDo findUserDo(final Integer id) {
+        try (final Session session = sessionFactory.openSession()) {
+            final Transaction transaction = session.beginTransaction();
+            final Query<UserDo> query = session.createQuery("From UserDo where id = :id", UserDo.class);
+            // on initialise le paramètre
+            query.setParameter("id", id);
+            // regarder la Javadoc de Optional
+            final Optional<UserDo> userDo = query.uniqueResultOptional();
+            session.flush();
+            transaction.commit();
+            // suite de la feature Optional de Java 8
+            return userDo.orElse(null);
+        } catch (final HibernateException hibernateException) {
+            hibernateException.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
     public UserDo createUser(final UserDo userDo) {
         try (final Session session = sessionFactory.openSession()) {
             final Transaction transaction = session.beginTransaction();

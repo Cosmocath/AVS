@@ -119,6 +119,11 @@
 			<forward name="success" path="listerUser" redirect="true"></forward>
 		</action>
 
+		<action path="/consulterUser" scope="request" input=""
+			parameter="" type="presentation.users.action.ConsulterUserAction">
+			<forward name="success" path="consulterUser" redirect="true"></forward>
+		</action>
+
 		<!-- Action de l'équipe Panier -->
 
 		<action path="/afficherPanier" scope="session"
@@ -142,6 +147,11 @@
 
 		<!-- Action de l'équipe Commande -->
 
+		<!-- Action de gestion image -->
+		<action path="/afficherImage" parameter=""
+			type="presentation.image.action.AfficherImageAction">
+
+		</action>
 
 	</action-mappings>
 

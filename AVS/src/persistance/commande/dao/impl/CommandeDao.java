@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+
 import persistance.commande.beanDo.CommandeDo;
 import persistance.commande.dao.ICommandeDao;
 import persistance.factory.HibernateFactory;

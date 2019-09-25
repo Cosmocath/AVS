@@ -25,8 +25,9 @@
 
 				<td><html:link
 						href="consulterProduit.do?id=${produit.id}&retour=produitClient">
-					Image
-				</html:link></td>
+						<html:img style="width:100px; height:100px;"
+							src="${pageContext.request.contextPath}/afficherImage.do?urlImage=${produit.image}" />
+					</html:link></td>
 
 				<td width="60%" style="padding-left: 100px"><bean:write
 						name="produit" property="designation" /> /<bean:write
