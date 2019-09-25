@@ -13,14 +13,14 @@
 		<!-- les propriétés simples -->
 		<property name="designation" column="designation"></property>
 		<property name="reference" column="reference"></property>
-
-		<property name="prixUnitaire" type="double">
+	<property name="description" column="description"></property>
+		<property name="prix" type="double">
 			<column name="prix" sql-type="float" />
 		</property>
 		<property name="image" column="image"></property>
+		<property name="numeroVersion" column="numero_version"></property>
 		<property name="idProduitHistorise"
 			column="id_Produit_Historise" type="integer"></property>
-
 	</class>
 
 </hibernate-mapping>

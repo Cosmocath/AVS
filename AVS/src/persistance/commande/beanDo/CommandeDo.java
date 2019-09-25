@@ -1,6 +1,7 @@
 package persistance.commande.beanDo;
 
 import java.util.Date;
+import java.util.Set;
 
 /**
  * Représentation de la commande dans la base de donnée
@@ -9,14 +10,15 @@ import java.util.Date;
  *
  */
 public class CommandeDo {
-    private int    idCommande;
-    private int    idUtilisateur;
-    private String numeroCommande;
-    private Date   dateCommande;
-    private double montantSansRemise;
-    private double remise;
-    private String adresseLivraison;
-    private String adresseFacturation;
+    private int                    idCommande;
+    private int                    idUtilisateur;
+    private String                 numeroCommande;
+    private Date                   dateCommande;
+    private double                 montantSansRemise;
+    private double                 remise;
+    private String                 adresseLivraison;
+    private String                 adresseFacturation;
+    private Set<CommandeProduitDo> commandeProduitSet;
 
     /**
      * Constructeur
@@ -138,4 +140,19 @@ public class CommandeDo {
         this.adresseFacturation = adresseFacturation;
     }
 
+    /**
+     * @return the commandeProduitSet
+     */
+    public Set<CommandeProduitDo> getCommandeProduitSet() {
+        return commandeProduitSet;
+    }
+
+    /**
+     * @param commandeProduitSet the commandeProduitSet to set
+     */
+    public void setCommandeProduitSet(final Set<CommandeProduitDo> commandeProduitSet) {
+        this.commandeProduitSet = commandeProduitSet;
+    }
+
+    
 }

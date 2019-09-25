@@ -14,8 +14,10 @@ public class ProduitVenduDo {
     private Integer idProduitVendu;
     private String  designation;
     private String  reference;
-    private double  prixUnitaire;
+    private String  description;
+    private double  prix;
     private String  image;
+    private Integer numeroVersion;
     private Integer idProduitHistorise;
 
     /**
@@ -70,15 +72,15 @@ public class ProduitVenduDo {
     /**
      * @return the prixUnitaire
      */
-    public double getPrixUnitaire() {
-        return prixUnitaire;
+    public double getPrix() {
+        return prix;
     }
 
     /**
      * @param prixUnitaire the prixUnitaire to set
      */
-    public void setPrixUnitaire(final double prixUnitaire) {
-        this.prixUnitaire = prixUnitaire;
+    public void setPrix(final double prix) {
+        this.prix = prix;
     }
 
     /**
@@ -109,4 +111,33 @@ public class ProduitVenduDo {
         this.idProduitHistorise = idProduitHistorise;
     }
 
+    /**
+     * @return the description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * @param description the description to set
+     */
+    public void setDescription(final String description) {
+        this.description = description;
+    }
+
+    /**
+     * @return the numeroVersion
+     */
+    public Integer getNumeroVersion() {
+        return numeroVersion;
+    }
+
+    /**
+     * @param numeroVersion the numeroVersion to set
+     */
+    public void setNumeroVersion(final Integer numeroVersion) {
+        this.numeroVersion = numeroVersion;
+    }
+
+    
 }

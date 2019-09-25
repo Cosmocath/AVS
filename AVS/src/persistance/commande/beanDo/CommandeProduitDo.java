@@ -12,8 +12,8 @@ package persistance.commande.beanDo;
 public class CommandeProduitDo {
 
     private Integer        idCommandeProduit;
-    private Integer        idCommande;
-    private ProduitVenduDo produitVendu;
+    private CommandeDo     commandeDo;
+    private ProduitVenduDo produitVenduDo;
     private Integer        quantite;
 
     /**
@@ -37,32 +37,34 @@ public class CommandeProduitDo {
         this.idCommandeProduit = idCommandeProduit;
     }
 
+
+
     /**
-     * @return the idCommande
+     * @return the commandeDo
      */
-    public Integer getIdCommande() {
-        return idCommande;
+    public CommandeDo getCommandeDo() {
+        return commandeDo;
     }
 
     /**
-     * @param idCommande the idCommande to set
+     * @param commandeDo the commandeDo to set
      */
-    public void setIdCommande(final Integer idCommande) {
-        this.idCommande = idCommande;
+    public void setCommandeDo(final CommandeDo commandeDo) {
+        this.commandeDo = commandeDo;
     }
 
     /**
      * @return the produitVendu
      */
-    public ProduitVenduDo getProduitVendu() {
-        return produitVendu;
+    public ProduitVenduDo getProduitVenduDo() {
+        return produitVenduDo;
     }
 
     /**
      * @param produitVendu the produitVendu to set
      */
-    public void setProduitVendu(final ProduitVenduDo produitVendu) {
-        this.produitVendu = produitVendu;
+    public void setProduitVenduDo(final ProduitVenduDo produitVenduDo) {
+        this.produitVenduDo = produitVenduDo;
     }
 
     /**
