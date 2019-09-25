@@ -36,9 +36,10 @@
 						name="produit" property="prix" /> <bean:message key="Global.euro" />
 					<bean:message key="PDT_00.produit.labelPrix" /></td>
 
-				<td align="right"><html:link href="ajouterPanier.do?id=${produit.id}&retour=listeProduitClient">
-					<bean:message key="PDT_00.bouton.ajouterPanier" />
-				</html:link></td>
+				<td align="right"><html:link
+						href="ajouterPanier.do?id=${produit.id}&retour=listeProduitClient">
+						<bean:message key="PDT_00.bouton.ajouterPanier" />
+					</html:link></td>
 			</tr>
 		</logic:iterate>
 	</table>

@@ -8,7 +8,7 @@
 	</h1>
 
 	<%-- 	<%-- JS nécessaire pour le bouton supprimer --%>
-	
+
 	<!-- 	<script type="text/javascript"> -->
 	<!-- // 		function RedirectionJavascript() { -->
 	<!-- // 			document.location.href = "ajouterPanier.do?id=" -->
@@ -29,8 +29,8 @@
 			<td>Image</td>
 			<td width="100%" style="padding-left: 80px"><bean:write
 					name="produit" property="description" /><br /> <bean:write
-					name="produit" property="prix" /> <bean:message key="Global.euro" /><bean:message
-					key="PDT_01.produit.labelPrix" /></td>
+					name="produit" property="prix" /> <bean:message key="Global.euro" />
+				<bean:message key="PDT_01.produit.labelPrix" /></td>
 
 			<td><html:link
 					href="ajouterPanier.do?id=${produit.id}&retour=consulterProduit">

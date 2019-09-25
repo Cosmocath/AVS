@@ -41,7 +41,8 @@
 					<button type="button" onclick="diminuerQuantite">-</button>
 
 					<div style="float: right">
-						<html:link href="ajouterPanier.do?id=${produitDto.id}&retour=panier">
+						<html:link
+							href="ajouterPanier.do?id=${produitDto.id}&retour=panier">
 							<bean:message key="PAN_00.bouton.ajouterPanier" />
 						</html:link>
 					</div>
