@@ -32,11 +32,13 @@
 					<td><bean:write name="utilisateur" property="dateNaissance" /></td>
 					<td><bean:write name="utilisateur" property="profilDto.nom" /></td>
 
+
 					<!-- Les lien sont bloqués en attendant les ecrans correspondant -->
 					<td width="30%" align="center"><html:link href="#">
 							<bean:message key="USR_02.editer" />
 						</html:link></td>
-					<td width="30%" align="center"><html:link href="#">
+					<td width="30%" align="center"><html:link
+							href="consulterUser.do?id=${utilisateur.id}">
 							<bean:message key="USR_02.consulter" />
 						</html:link></td>
 				</tr>

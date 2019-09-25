@@ -19,8 +19,8 @@
 
 				<tr>
 					<td align="right"><bean:message key="USR_00.password"></bean:message></td>
-					<td align="left"><html:text property="password" size="25"
-							maxlength="25"></html:text></td>
+					<td align="left"><html:password property="password" size="25"
+							maxlength="25"></html:password></td>
 					<td><html:errors property="password" /></td>
 				</tr>
 				<tr>

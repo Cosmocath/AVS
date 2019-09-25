@@ -47,6 +47,13 @@ public class UserService implements IUserService {
     }
 
     @Override
+    public UserDto findUserDto(final Integer id) {
+        final IUserDao iUserDao = Factory.getInstance(IUserDao.class);
+        final UserDo userDo = iUserDao.findUserDo(id);
+        return UserMapper.mapToDto(userDo);
+    }
+
+    @Override
     public UserDto findUserByMail(final String mail) {
         final IUserDao iUserDao = Factory.getInstance(IUserDao.class);
         final UserDo userDo = iUserDao.findUserByMail(mail);
