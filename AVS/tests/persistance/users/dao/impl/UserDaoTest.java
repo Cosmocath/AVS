@@ -109,6 +109,7 @@ class UserDaoTest {
         final UserDo userDo = UserDo.buildUserDo(2, "testNomCreation", "testPrenomCreation", new Date(), "rue test", "acvc", profilDo, "r@t.fr", true);
 
         final UserDo userDoRetour = iUserDao.createUser(userDo);
+        Assert.assertNotNull(iUserDao.findUserDo(userDo.getId()));
         assertEquals("rue test", userDoRetour.getAdresse());
         assertTrue(userDoRetour.isActif());
     }
