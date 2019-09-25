@@ -1,6 +1,13 @@
 <%@include file="/jsp/tiles/taglib.jsp"%>
 
 <div style="background-color: white; height: 100%">
+	<%-- Permet d'afficher les messages si present (si un visiteur vient de creer un compte) --%>
+	<logic:messagesPresent message="true">
+		<html:messages id="creationOK" property="creationOK" message="true">
+			<bean:write name="creationOK" />
+		</html:messages>
+	</logic:messagesPresent>
+
 	<h1>
 		<bean:message key="PDT_00.listerProduits.titre" />
 	</h1>
