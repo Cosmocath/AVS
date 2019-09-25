@@ -1,7 +1,11 @@
 package service.panier.impl;
 
 import presentation.panier.beanDto.PanierDto;
+import presentation.produit.beanDto.ProduitDto;
 import service.panier.IPanierService;
+import service.produit.IProduitService;
+import util.factory.Factory;
+import util.tools.ConversionUtil;
 
 /**
  * @author Nora LIFERKI
@@ -14,6 +18,26 @@ public class PanierService implements IPanierService {
 
     private PanierService() {
         //Empty Constructeur
+    }
+
+    @Override
+    public PanierDto addProduitPanier(final PanierDto panierDto, final int idProduit) {
+        final IProduitService iProduitService = Factory.getInstance(IProduitService.class);
+        final ProduitDto produitDto = iProduitService.getProduitById(idProduit);
+
+        if (panierDto.getMapDesProduitsQte().containsKey(produitDto)) {
+            int quantite = panierDto.getMapDesProduitsQte().get(produitDto);
+            panierDto.getMapDesProduitsQte().put(produitDto, quantite++);
+        } else {
+            panierDto.getMapDesProduitsQte().put(produitDto, 1);
+        }
+        panierDto.setQuantiteTotale(panierDto.getMapDesProduitsQte().size());
+        // TODO pour XSI gérer la conversion : resultats du test =>  "30,00" au lieu de "30.00"
+        final double total = Double.valueOf(ConversionUtil.convertStringCommaToDot(produitDto.getPrix()));
+        panierDto.setTotalAvantRemise(panierDto.getTotalAvantRemise() + total);
+        remisePanier(panierDto);
+
+        return panierDto;
     }
 
     @Override
