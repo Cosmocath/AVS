@@ -15,7 +15,8 @@
 
 	<logic:present name="userConnected" scope="session">
 		<logic:equal name="userConnected" property="profil" value="CLIENT">
-			<html:link href="listerCommande.do">
+			<html:link href="listerCommande.do" paramName="userConnected"
+				paramProperty="id" paramId="id">
 				<bean:message key="MENU.ListeDesCommandes" />
 			</html:link>
 			<br />
@@ -42,7 +43,8 @@
 			</html:link>
 			<br />
 			<br />
-			<html:link href="listerCommande.do" paramName="userConnected" paramProperty="id" paramId="id">
+			<html:link href="listerCommande.do" paramName="userConnected"
+				paramProperty="id" paramId="id">
 				<bean:message key="MENU.ListeDesCommandes" />
 			</html:link>
 			<br />
