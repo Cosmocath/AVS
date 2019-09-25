@@ -101,6 +101,8 @@ INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(19, 'afficherCGU.d
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(20, 'consulterUser.do', 'droit pour consulter le comte');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(21, 'afficherImage.do', 'droit pour afficher une image');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(22, 'editerUser.do', 'permet d_editer le compte de l_uilisateur');
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(23, 'voirEditerProduit.do', 'permet d_aller sur editer produit');
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(24, 'editerProduit.do', 'permet d_editer un produit');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(31, 'panierAdresseClient.do', 'permet de  mettre l_adresse client en request');
 
 
@@ -152,6 +154,8 @@ INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(45,
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(46, 3, 21);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(47, 2, 22);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(48, 3, 22);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(49, 3, 23);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(50, 3, 24);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(54, 2, 31);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(55, 3, 31);
 
