@@ -34,7 +34,7 @@
 			<tr>
 				<td>${produitDto.designation}</td>
 				<td>${produitDto.reference}</td>
-				<td>${quantiteProduit}</td>
+				<td>${quantiteProduit.quantite}</td>
 				<td>${produitDto.prix}<bean:message key="Global.euro" /></td>
 				<td>
 					<button type="button" onclick="RedirectionJavascript()">+</button>
@@ -47,7 +47,8 @@
 						</html:link>
 					</div>
 				</td>
-				<td>Prix à calculer !</td>
+				<td>${quantiteProduit.prixParProduit}<bean:message
+						key="Global.euro" /></td>
 				<td>
 					<button type="button" onclick="supprimerProduit">
 						<bean:message key="PAN_00.Supprimer" />
@@ -62,15 +63,18 @@
 		style="border-top: 2px solid black; align: right; text-align: right;">
 		<tr>
 			<th>Total avant remise</th>
-			<td>${sessionScope.monPanierDto.totalAvantRemise}</td>
+			<td>${sessionScope.monPanierDto.totalAvantRemise}<bean:message
+					key="Global.euro" /></td>
 		</tr>
 		<tr>
 			<th>Remise</th>
-			<td>${sessionScope.monPanierDto.remise}</td>
+			<td>${sessionScope.monPanierDto.remise}<bean:message
+					key="Global.euro" /></td>
 		</tr>
 		<tr>
 			<th>Total après remise</th>
-			<td>${sessionScope.monPanierDto.totalApresRemise}</td>
+			<td>${sessionScope.monPanierDto.totalApresRemise}<bean:message
+					key="Global.euro" /></td>
 		</tr>
 	</table>
 	<br />
