@@ -12,6 +12,8 @@
 			type="presentation.users.form.UserForm" />
 		<form-bean name="produitForm"
 			type="presentation.produit.form.ProduitForm" />
+		<form-bean name="panierForm"
+			type="presentation.panier.form.PanierForm" />
 	</form-beans>
 
 	<action-mappings
@@ -143,6 +145,18 @@
 			<forward name="success" path="supprimerPanier.do"
 				redirect="true" />
 		</action>
+		<action path="/voirValiderPanier" scope="request" input=""
+			parameter=""
+			type="presentation.panier.action.VoirValiderPanierAction">
+			<forward name="success" path="panierAdresseClient"
+				redirect="false" />
+		</action>
+		<action path="/validerPanier" scope="request"
+			input="voirValiderPanier" parameter="" name="panierForm"
+			type="presentation.panier.action.ValiderPanierAction">
+			<forward name="success" path="validerPanier" redirect="false"></forward>
+		</action>
+
 
 		<!-- Action de l'équipe Commande -->
 
