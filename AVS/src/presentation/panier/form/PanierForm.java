@@ -12,13 +12,13 @@ import util.tools.Tools;
 /**
  * permet de recuperer la saisie du formulaire
  * 
- * @author Administrateur
+ * @author Guy-Joel
  *
  */
 public class PanierForm extends ActionForm {
 
     /**
-     * 
+     * Clé de hashage de panierform
      */
     private static final long serialVersionUID = -4179931651944689379L;
 
@@ -26,7 +26,7 @@ public class PanierForm extends ActionForm {
     private String            adresseFacturation;
 
     /**
-     * 
+     * Constructeur par defaut
      */
     public PanierForm() {
         // Empty method
@@ -34,8 +34,7 @@ public class PanierForm extends ActionForm {
 
     @Override
     public void reset(final ActionMapping mapping, final HttpServletRequest request) {
-        // TODO Auto-generated method stub
-        super.reset(mapping, request);
+
     }
 
     @Override

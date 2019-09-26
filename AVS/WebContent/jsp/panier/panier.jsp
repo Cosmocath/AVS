@@ -4,7 +4,7 @@
 <div style="background-color: white; height: 100%">
 
 
-	<%-- JS nécessaire pour le bouton supprimer --%>
+	<%-- JS nécessaire pour le bouton valider --%>
 	<script type="text/javascript">
 		function validerPanier() {
 			document.location.href = "voirValiderPanier.do";
