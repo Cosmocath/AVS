@@ -6,7 +6,7 @@
 -- Généré le :  lun. 02 sep. 2019 Ã  14:16
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.2.14
--- Version : 1.3
+-- Version : 1.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -64,18 +64,27 @@ INSERT INTO `commande` (`id_Commande`, `id_Utilisateur`, `nom`, `adresse_livrais
 INSERT INTO `commande` (`id_Commande`, `id_Utilisateur`, `nom`, `adresse_livraison`, `adresse_facturation`, `numero_commande`, `date_commande`, `montant_sans_remise`, `remise`) VALUES(2, 9, 'commande_Dupont', '84_rue_JeanBatsite_Leblanc', '84_rue_JeanBatsite_Leblanc', 'da_1515', '2019-08-22', 20, 0);
 INSERT INTO `commande` (`id_Commande`, `id_Utilisateur`, `nom`, `adresse_livraison`, `adresse_facturation`, `numero_commande`, `date_commande`, `montant_sans_remise`, `remise`) VALUES(3, 10, 'commande_Zuti', '11_ave_Nicolas_Lebas', '11_ave_Nicolas_Lebas', 'zm_1516', '2018-05-30', 100, 0);
 INSERT INTO `commande` (`id_Commande`, `id_Utilisateur`, `nom`, `adresse_livraison`, `adresse_facturation`, `numero_commande`, `date_commande`, `montant_sans_remise`, `remise`) VALUES(4, 11, 'commande_Belka', '84_rue_deLommes', '84_rue_deLommes', 'bs_1517', '2017-03-15', 55, 0);
-INSERT INTO `commande`(`id_Commande`, `id_Utilisateur`, `nom`, `adresse_livraison`, `adresse_facturation`, `numero_commande`, `date_commande`, `montant_sans_remise`, `remise`) VALUES (6, 9, 'commande_Dupont','84_rue_JeanBatsite_Leblanc','84_rue_JeanBatsite_Leblanc','da_1520','2016-09-30',80,0);
+INSERT INTO `commande` (`id_Commande`, `id_Utilisateur`, `nom`, `adresse_livraison`, `adresse_facturation`, `numero_commande`, `date_commande`, `montant_sans_remise`, `remise`) VALUES(6, 9, 'commande_Dupont','84_rue_JeanBatsite_Leblanc','84_rue_JeanBatsite_Leblanc','da_1520','2016-09-30',80,0);
+INSERT INTO `commande` (`id_Commande`, `id_Utilisateur`, `nom`, `adresse_livraison`, `adresse_facturation`, `numero_commande`, `date_commande`, `montant_sans_remise`, `remise`) VALUES(7, 7, 'commande_add', '19_rue_montebello', '19_rue_montebello', 'add_1570', '2017-09-30', 100, 0);
+
 --
 -- Déchargement des données de la table `produitvendu`
 --
 
 INSERT INTO `produitvendu` (`id_ProduitVendu`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `id_Produit_Historise`) VALUES(1, 'jardinage', 'AB3456', 'entretien de jardin', 30, 'jardinage.jpg', 1, 12);
+INSERT INTO `produitvendu` (`id_ProduitVendu`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `id_Produit_Historise`) VALUES (2, 'demenagement', 'DE6789', 'service_au_demenagement', 40, 'demenagement.jpg', 1, 14);
+INSERT INTO `produitvendu` (`id_ProduitVendu`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `id_Produit_Historise`) VALUES (3, 'demenagement 2', 'DE6789', 'service_au_demenagement', 50, 'demenagement.jpg', 2, 14);
+INSERT INTO `produitvendu` (`id_ProduitVendu`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `id_Produit_Historise`) VALUES (4, 'demenagement 3', 'DE6789', 'service_au_demenagement', 60, 'demenagement.jpg', 3, 14);
+INSERT INTO `produitvendu` (`id_ProduitVendu`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `id_Produit_Historise`) VALUES(10, 'jardinage', 'AB3456', 'entretien de jardin', 30, 'jardinage.jpg', 1, 12);
+INSERT INTO `produitvendu` (`id_ProduitVendu`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `id_Produit_Historise`) VALUES (11, 'demenagement', 'DE6789', 'service_au_demenagement', 40, 'demenagement.jpg', 1, 14);
 
 --
 -- Déchargement des données de la table `commandeproduit`
 --
 
 INSERT INTO `commandeproduit` (`id_CommandeProduit`, `idCommande`, `id_ProduitVendu`, `quantite`) VALUES(1, 1, 1, 2);
+INSERT INTO `commandeproduit` (`id_CommandeProduit`, `idCommande`, `id_ProduitVendu`, `quantite`) VALUES(2, 7, 10, 2);
+INSERT INTO `commandeproduit` (`id_CommandeProduit`, `idCommande`, `id_ProduitVendu`, `quantite`) VALUES(2, 7, 11, 1);
 
 --
 -- Déchargement des données de la table `droit`
@@ -106,6 +115,9 @@ INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(24, 'editerProduit
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(25, 'voirValiderPanier.do', 'permet d_aller sur le panier');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(26, 'validerPanier.do', 'permet de valider le panier');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(27, 'voirEditerUser.do', 'permet d_aller sur la page pour editer un user');
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(28, 'viderPanier.do', 'permet d_aller sur la page pour vider');
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(29, 'supprimerPanier.do', 'permet de supprimer le panier');
+
 --
 -- Déchargement des données de la table `profildroit`
 --
@@ -162,18 +174,22 @@ INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(53,
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(54, 3, 26);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(55, 2, 27);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(56, 3, 27);
-
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(57, 2, 28);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(58, 3, 28);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(59, 2, 29);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(60, 3, 29);
 
 --
 -- Déchargement des données de la table `produit`
 --
 
-INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(12, 'jardinage', 'AB3456', 'entretien de jardin', 30, 'jardinage.jpg', 1, b'1');
+INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(12, 'jardinage 2', 'AB3456', 'entretien de jardin', 40, 'jardinage.jpg', 2, b'1');
 INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(13, 'menage', 'BC7654', 'entretien d_interieur', 20, 'null', 1, b'0');
-INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(14, 'demenagement', 'DE6789', 'service_au_demenagement', 40, 'demenagement.jpg', 1, b'1');
+INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(14, 'demenagement 3', 'DE6789', 'service_au_demenagement', 60, 'demenagement.jpg', 3, b'1');
 INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(15, 'bricolage', 'FG1234', 'petits travaux de reparation', 50, 'null', 1, b'0');
 INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(16, 'assistance informatique', 'HI5678', 'installation de logiciels', 25, 'null', 1, b'0');
 INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(17, 'soutien scolaire', 'JK9123', 'aide aux devoirs', 25, 'null', 1, b'0');
+INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(18, 'mecanique', 'JK9123', 'reparations mecaniques', 75, 'null', 1, b'1');
 
 COMMIT;
 

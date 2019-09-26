@@ -102,14 +102,20 @@ class UserDaoTest {
     void testCreateUser() {
         final IUserDao iUserDao = Factory.getInstance(IUserDao.class);
         final ProfilDo profilDo = new ProfilDo();
+
         profilDo.setId(2);
         profilDo.setNom("client");
 
         final UserDo userDo = UserDo.buildUserDo(2, "testNomCreation", "testPrenomCreation", new Date(), "rue test", "acvc", profilDo, "r@t.fr", true);
 
         final UserDo userDoRetour = iUserDao.createUser(userDo);
-        assertEquals("rue test", userDoRetour.getAdresse());
-        assertTrue(userDoRetour.isActif());
+        Assertions.assertNotNull(userDoRetour);
+        Assertions.assertNotNull(userDoRetour.getId());
+        Assertions.assertNotNull(iUserDao.findUserDo(userDoRetour.getId()));
+        final UserDo userFound = iUserDao.findUserDo(userDoRetour.getId());
+        assertEquals("client", userFound.getProfilDo().getNom());
+        assertTrue(userFound.isActif());
+
     }
 
     /**
