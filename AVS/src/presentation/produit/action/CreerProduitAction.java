@@ -1,5 +1,7 @@
 package presentation.produit.action;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,7 +15,6 @@ import org.apache.struts.action.ActionMessages;
 
 import presentation.produit.beanDto.ProduitDto;
 import presentation.produit.form.ProduitForm;
-import service.image.IImageService;
 import service.produit.IProduitService;
 import util.factory.Factory;
 import util.tools.ConversionUtil;
@@ -32,8 +33,13 @@ public class CreerProduitAction extends Action {
      * @return
      */
     private ProduitDto mapToDto(final ProduitForm produitForm) {
-        return ProduitDto.build(produitForm.getDesignation(), produitForm.getReference(), produitForm.getDescription(), ConversionUtil.convertStringCommaToDot(produitForm.getPrix()),
-                        produitForm.getImage().getFileName(), 1);
+        try {
+            return ProduitDto.build(produitForm.getDesignation(), produitForm.getReference(), produitForm.getDescription(), ConversionUtil.convertStringCommaToDot(produitForm.getPrix()),
+                            produitForm.getImage().getFileName(), 1, produitForm.getImage().getFileData());
+        } catch (final IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
@@ -51,9 +57,6 @@ public class CreerProduitAction extends Action {
             errors.add("error", new ActionMessage("PDT_02.error.creation", new Object[] { produitForm.getReference() }));
             saveErrors(request, errors);
         } else {
-            final IImageService iImageService = Factory.getInstance(IImageService.class);
-            iImageService.uploadImage(produitForm.getImage().getFileData(), produitDto.getImage());
-
             final ActionMessages messages = new ActionMessages();
             messages.add("creationProduitOK", new ActionMessage("PDT_02.valid.ok"));
             saveMessages(request, messages);

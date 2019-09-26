@@ -23,6 +23,7 @@ public class ProduitForm extends ActionForm {
      * 
      */
     private static final long serialVersionUID = -6080826135423756585L;
+    private static final Integer TAILLE_MAX_IMAGE = 1000000;
 
     /**
      * Pour le champ caché de la modif
@@ -69,7 +70,7 @@ public class ProduitForm extends ActionForm {
             return errors;
         }
 
-        if (getImage().getFileSize() > 1000000) {
+        if (getImage().getFileSize() > TAILLE_MAX_IMAGE) {
             //10kb verifier la taille avec des tests
             errors.add("file", new ActionMessage("PDT_02.image.size.limit", 1000000));
             return errors;

@@ -23,6 +23,7 @@ public class ProduitDto implements Serializable {
     private String            image;
     private int               noVersion;
     private boolean           actif;
+    private byte[]            imageByte;
 
     /**
      * Constructeur
@@ -46,7 +47,7 @@ public class ProduitDto implements Serializable {
      * @return le produitDto initialisé
      */
     public static ProduitDto buildProduitDto(final Integer id, final String designation, final String reference, final String description, final String prix, final String image,
-                    final Integer noVersion, final Boolean actif) {
+                    final Integer noVersion, final Boolean actif, final byte[] imageByte) {
         final ProduitDto produitDto = new ProduitDto();
         produitDto.setId(id);
         produitDto.setDesignation(designation);
@@ -56,6 +57,7 @@ public class ProduitDto implements Serializable {
         produitDto.setImage(image);
         produitDto.setNoVersion(noVersion);
         produitDto.setActif(actif);
+        produitDto.setImageByte(imageByte);
 
         return produitDto;
     }
@@ -71,8 +73,8 @@ public class ProduitDto implements Serializable {
      * @param noVersion
      * @return le Produit Dto créé
      */
-    public static ProduitDto build(final String designation, final String reference, final String description, final String prix, final String image, final int noVersion) {
-        return buildProduitDto(null, designation, reference, description, prix, image, noVersion, true);
+    public static ProduitDto build(final String designation, final String reference, final String description, final String prix, final String image, final int noVersion, final byte[] imageByte) {
+        return buildProduitDto(null, designation, reference, description, prix, image, noVersion, true, imageByte);
     }
 
     /**
@@ -185,5 +187,19 @@ public class ProduitDto implements Serializable {
      */
     public void setActif(final boolean actif) {
         this.actif = actif;
+    }
+
+    /**
+     * @return the imageByte
+     */
+    public byte[] getImageByte() {
+        return imageByte;
+    }
+
+    /**
+     * @param imageByte the imageByte to set
+     */
+    public void setImageByte(final byte[] imageByte) {
+        this.imageByte = imageByte;
     }
 }

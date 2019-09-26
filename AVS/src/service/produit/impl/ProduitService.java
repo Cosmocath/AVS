@@ -5,6 +5,7 @@ import java.util.List;
 import persistance.produit.beanDo.ProduitDo;
 import persistance.produit.dao.IProduitDao;
 import presentation.produit.beanDto.ProduitDto;
+import service.image.IImageService;
 import service.produit.IProduitService;
 import service.produit.ProduitMapper;
 import util.enumeration.OrderBy;
@@ -50,6 +51,10 @@ public class ProduitService implements IProduitService {
         if (iProduitDao.findByReference(produitDto.getReference()) != null) {
             return null;
         }
+
+        final IImageService iImageService = Factory.getInstance(IImageService.class);
+        iImageService.uploadImage(produitDto.getImageByte(), produitDto.getImage());
+
         // on peut insérer
         final ProduitDo produitDoNew = iProduitDao.createProduit(ProduitMapper.mapDtoToDo(produitDto));
         // transformation en Dto

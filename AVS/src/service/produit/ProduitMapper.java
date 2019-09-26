@@ -22,9 +22,10 @@ public class ProduitMapper {
      * @return produitDto
      */
     public static ProduitDto mapToDto(final ProduitDo produitDo) {
+        // byte initialisé à vide car image pas traiter à cette endroit pour l'affichage
         final String prixDto = FormatUtil.convertirDoubleToString(produitDo.getPrix());
         return ProduitDto.buildProduitDto(produitDo.getId(), produitDo.getDesignation(), produitDo.getReference(), produitDo.getDescription(), prixDto, produitDo.getImage(),
-                        produitDo.getNumeroVersion(), produitDo.getActif());
+                        produitDo.getNumeroVersion(), produitDo.getActif(), new byte[0]);
     }
 
     /**

@@ -22,6 +22,7 @@ public interface IImageDao {
      * Récupère un tableau de byte et écrit le fichier dans un répertoire
      * 
      * @param file : le fichier sous la forme bye
+     * @param newFile : le nouveau fichier
      * @return true si l'upload à réussi, false sinon
      */
     boolean uploadImage(final byte[] file, final File newFile);
