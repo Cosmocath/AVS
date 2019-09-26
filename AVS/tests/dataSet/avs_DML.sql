@@ -103,8 +103,8 @@ INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(21, 'afficherImage
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(22, 'editerUser.do', 'permet d_editer le compte de l_uilisateur');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(23, 'voirEditerProduit.do', 'permet d_aller sur editer produit');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(24, 'editerProduit.do', 'permet d_editer un produit');
-INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(31, 'panierAdresseClient.do', 'permet de  mettre l_adresse client en request');
-
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(25, 'voirValiderPanier.do', 'permet d_aller sur le panier');
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(26, 'validerPanier.do', 'permet de valider le panier');
 
 --
 -- Déchargement des données de la table `profildroit`
@@ -156,8 +156,10 @@ INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(47,
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(48, 3, 22);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(49, 3, 23);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(50, 3, 24);
-INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(54, 2, 31);
-INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(55, 3, 31);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(51, 2, 25);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(52, 3, 25);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(53, 2, 26);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(54, 3, 26);
 
 
 --
