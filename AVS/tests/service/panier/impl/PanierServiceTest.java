@@ -61,7 +61,7 @@ class PanierServiceTest {
     }
 
     /**
-     * permet de tester la methode viderPanier
+     * Test method for {@link service.panier.impl.PanierService#viderPanierDto(presentation.panier.beanDto.PanierDto)}.
      * 
      */
     @Test
