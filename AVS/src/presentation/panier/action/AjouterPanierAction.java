@@ -33,7 +33,7 @@ public class AjouterPanierAction extends Action {
         //je récupère le panier en session et je le remplis
         final PanierDto panierDto = (PanierDto) session.getAttribute(ConnecterUserAction.MON_PANIER);
         iPanierService.addProduitPanier(panierDto, idProduit);
-
+        
         final String retour = request.getParameter("retour");
         // je convertis ma chaine retour en une valeur de l enum
         final ParamPanier valeurEnum = ParamPanier.getValue(retour);

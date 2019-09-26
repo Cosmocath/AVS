@@ -29,7 +29,7 @@ class PanierServiceTest {
         PanierDto panierDto = new PanierDto();
         panierDto = iPanierService.addProduitPanier(panierDto, 12);
         assertEquals(1, panierDto.getMapDesProduitsQte().size());
-        assertEquals("30,00", panierDto.getTotalAvantRemise());
+        assertEquals("40,00", panierDto.getTotalAvantRemise());
         // TODO XSI : compléter les tests
     }
 

@@ -45,4 +45,10 @@ public class CommandeDao implements ICommandeDao {
 
     }
 
+    @Override
+    public CommandeDo findById(Integer idCommande) {
+        // TODO à coder
+        return null;
+    }
+
 }
