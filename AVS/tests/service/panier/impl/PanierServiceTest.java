@@ -29,7 +29,7 @@ class PanierServiceTest {
         PanierDto panierDto = new PanierDto();
         panierDto = iPanierService.addProduitPanier(panierDto, 12);
         assertEquals(1, panierDto.getMapDesProduitsQte().size());
-        assertEquals(Double.valueOf(30.0), panierDto.getTotalAvantRemise());
+        assertEquals("30,00", panierDto.getTotalAvantRemise());
         // TODO XSI : compléter les tests
     }
 
@@ -40,23 +40,23 @@ class PanierServiceTest {
     void testRemisePanier() {
         final PanierDto panierDto = new PanierDto();
         panierDto.setQuantiteTotale(6);
-        panierDto.setTotalAvantRemise(10.0);
-        panierDto.setTotalApresRemise(10.0);
+        panierDto.setTotalAvantRemise("10,00");
+        panierDto.setTotalApresRemise("10,00");
         final IPanierService iPanierService = Factory.getInstance(IPanierService.class);
         iPanierService.remisePanier(panierDto);
-        Assertions.assertEquals(Double.valueOf(10.0), panierDto.getTotalApresRemise());
+        Assertions.assertEquals("10,00", panierDto.getTotalApresRemise());
 
         panierDto.setQuantiteTotale(4);
-        panierDto.setTotalAvantRemise(100.0);
-        panierDto.setTotalApresRemise(100.0);
+        panierDto.setTotalAvantRemise("100,00");
+        panierDto.setTotalApresRemise("100,00");
         iPanierService.remisePanier(panierDto);
-        Assertions.assertEquals(Double.valueOf(100.0), panierDto.getTotalApresRemise());
+        Assertions.assertEquals("100,00", panierDto.getTotalApresRemise());
 
         panierDto.setQuantiteTotale(6);
-        panierDto.setTotalAvantRemise(200.0);
-        panierDto.setTotalApresRemise(200.0);
+        panierDto.setTotalAvantRemise("200,00");
+        panierDto.setTotalApresRemise("200,00");
         iPanierService.remisePanier(panierDto);
-        Assertions.assertEquals(Double.valueOf(180.0), panierDto.getTotalApresRemise());
+        Assertions.assertEquals("180,00", panierDto.getTotalApresRemise());
 
     }
 

@@ -6,7 +6,7 @@
 -- Généré le :  lun. 02 sep. 2019 Ã  14:16
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.2.14
--- Version : 1.2
+-- Version : 1.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -69,7 +69,7 @@ INSERT INTO `commande`(`id_Commande`, `id_Utilisateur`, `nom`, `adresse_livraiso
 -- Déchargement des données de la table `produitvendu`
 --
 
-INSERT INTO `produitvendu` (`id_ProduitVendu`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `id_Produit_Historise`) VALUES(1, 'jadinage', 'AB3456', 'entretien de jardin', 30, 'C:\\\\AVS_Images\\AVS_Produits\\jardinage.jpg', 1, 12);
+INSERT INTO `produitvendu` (`id_ProduitVendu`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `id_Produit_Historise`) VALUES(1, 'jardinage', 'AB3456', 'entretien de jardin', 30, 'jardinage.jpg', 1, 12);
 
 --
 -- Déchargement des données de la table `commandeproduit`
@@ -93,14 +93,20 @@ INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(11, 'listerUser.do
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(12, 'listerProduitAdmin.do', 'permet de voir la liste des produits Admin');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(13, 'deconnecterUser.do', 'permet la deconnection');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(14, 'afficherPanier.do', 'permet d''afficher le panier');
-INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(15, 'voirCreerUser.do', 'droit de voir le formulaire de création d\'un utilisateur');
-INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(16, 'creerUser.do', 'droit de voir création d\'un utilisateur');
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(15, 'voirCreerUser.do', 'droit de voir le formulaire de création d_un utilisateur');
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(16, 'creerUser.do', 'droit de voir création d_un utilisateur');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(17, 'ajouterPanier.do', 'permet d ajouter au panier');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(18, 'voirCGU.do', 'droit de voir le CGU');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(19, 'afficherCGU.do', 'droit pour afficher le CGU');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(20, 'consulterUser.do', 'droit pour consulter le comte');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(21, 'afficherImage.do', 'droit pour afficher une image');
-
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(22, 'editerUser.do', 'permet d_editer le compte de l_uilisateur');
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(23, 'voirEditerProduit.do', 'permet d_aller sur editer produit');
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(24, 'editerProduit.do', 'permet d_editer un produit');
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(25, 'voirValiderPanier.do', 'permet d_aller sur le panier');
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(26, 'validerPanier.do', 'permet de valider le panier');
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(27, 'voirEditerUser.do', 'permet d_aller sur la page pour editer un user');
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(28, 'viderPanier.do', 'permet d_aller sur la page pour vider');
 --
 -- Déchargement des données de la table `profildroit`
 --
@@ -147,6 +153,19 @@ INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(43,
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(44, 1, 21);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(45, 2, 21);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(46, 3, 21);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(47, 2, 22);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(48, 3, 22);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(49, 3, 23);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(50, 3, 24);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(51, 2, 25);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(52, 3, 25);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(53, 2, 26);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(54, 3, 26);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(55, 2, 27);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(56, 3, 27);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(57, 2, 28);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(58, 3, 28);
+
 
 --
 -- Déchargement des données de la table `produit`

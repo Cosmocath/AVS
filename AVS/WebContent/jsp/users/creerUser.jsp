@@ -13,8 +13,9 @@
 				<html:errors property="error" />
 				<tr>
 					<td align="right"><bean:message key="USR_01.mail"></bean:message></td>
+
 					<td align="left"><html:text property="mail" size="25"
-							maxlength="25"></html:text></td>
+							maxlength="50"></html:text></td>
 					<td><html:errors property="mail" header="errors.global.header"
 							footer="errors.global.footer" /></td>
 				</tr>
@@ -42,6 +43,7 @@
 					<td><html:errors property="dateNaissance"
 							header="errors.global.header" footer="errors.global.footer" /></td>
 				</tr>
+
 				<tr>
 					<td align="right"><bean:message key="USR_01.password"></bean:message></td>
 					<td align="left"><html:text property="password" size="25"
@@ -49,6 +51,7 @@
 					<td><html:errors property="password"
 							header="errors.global.header" footer="errors.global.footer" /></td>
 				</tr>
+
 				<tr>
 					<td align="right"><bean:message key="USR_01.confirmpassword"></bean:message></td>
 					<td align="left"><html:text property="confirmpassword"
@@ -56,6 +59,7 @@
 					<td><html:errors property="confirmpassword"
 							header="errors.global.header" footer="errors.global.footer" /></td>
 				</tr>
+
 				<tr>
 					<td align="right"><bean:message key="USR_01.adresse"></bean:message></td>
 					<td align="left"><html:textarea property="adresse" rows="3"

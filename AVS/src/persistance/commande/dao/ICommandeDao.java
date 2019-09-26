@@ -20,4 +20,12 @@ public interface ICommandeDao {
      */
     List<CommandeDo> findAllCommandeDo(final int idUtilisateur);
 
+    /**
+     * Permet de retrouver une commande
+     * 
+     * @param idCommande
+     * @return une commande
+     */
+    CommandeDo findById(final Integer idCommande);
+
 }
