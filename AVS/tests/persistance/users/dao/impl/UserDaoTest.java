@@ -1,14 +1,13 @@
 package persistance.users.dao.impl;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.Date;
-import static org.junit.Assert.assertEquals;
-
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -20,8 +19,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import persistance.users.beanDo.ProfilDo;
 import persistance.factory.HibernateFactory;
+import persistance.users.beanDo.ProfilDo;
 import persistance.users.beanDo.UserDo;
 import persistance.users.dao.IUserDao;
 import util.enumeration.OrderBy;
@@ -139,4 +138,18 @@ class UserDaoTest {
         Assertions.assertEquals(2, userDo.getSetCommandeDo().size());
     }
 
+    /**
+     * Test method for {@link persistance.user.dao.impl.UserDao#updateUserDo()}.
+     */
+    @Test
+    public final void testUpdateUserDo() {
+        final IUserDao iUserDao = Factory.getInstance(IUserDao.class);
+        final UserDo userDo = iUserDao.findUserDo(11);
+        userDo.setAdresse("Rue_Du_Test_Update");
+        userDo.setMail("r@t.fr");
+
+        Assert.assertNotNull(iUserDao.updateUserDo(11, userDo));
+        Assert.assertTrue("r@t.fr".equals(iUserDao.findUserDo(11).getMail()));
+        Assert.assertTrue("Rue_Du_Test_Update".equals(iUserDao.findUserDo(11).getAdresse()));
+    }
 }

@@ -129,4 +129,38 @@ public class UserDao implements IUserDao {
         }
         return null;
     }
+
+    @Override
+    public UserDo updateUserDo(Integer id, UserDo userDo) {
+        try (final Session session = sessionFactory.openSession()) {
+            // sans auto-commit , on doit créer une transaction
+            final Transaction transaction = session.beginTransaction();
+            final StringBuilder hqlQuery = new StringBuilder();
+            hqlQuery.append("update UserDo set nom = :nom, prenom = :prenom, dateNaissance = :dateNaissance, password = :password, adresse = :adresse, mail = :mail, profilDo = :profilDo where id = :id");
+
+            final Query<?> query = session.createQuery(hqlQuery.toString());
+            // intialisation des paramètres
+            query.setParameter("nom", userDo.getNom());
+            query.setParameter("prenom", userDo.getPrenom());
+            query.setParameter("dateNaissance", userDo.getDateNaissance());
+            query.setParameter("password", userDo.getPassword());
+            query.setParameter("adresse", userDo.getAdresse());
+            query.setParameter("profilDo", userDo.getProfilDo());
+            query.setParameter("id", id);
+            query.setParameter("mail", userDo.getMail());
+            query.executeUpdate();
+
+            session.save(userDo);
+            session.flush();
+
+            transaction.commit();
+            // on "complète" le Do à retourner
+            userDo.setId(id);
+            return userDo;
+        } catch (final HibernateException hibernateException) {
+            // on peut catcher des HibernateException
+            hibernateException.printStackTrace();
+        }
+        return null;
+    }
 }

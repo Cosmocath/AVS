@@ -88,4 +88,17 @@ public class UserService implements IUserService {
         return userDto;
 
     }
+
+    @Override
+    public UserDto updateUser(UserDto userDto) {
+        final IUserDao iUserDao = Factory.getInstance(IUserDao.class);
+        // on recherche d'abord si on a le droit de modifier le numero de puce !
+        UserDo userDo = iUserDao.findUserDo(userDto.getId());
+        // soit il n'y a pas de chat avec ce n° de puce, soit c'est le même chat
+        if (userDo == null || userDo.getId() == userDto.getId()) {
+            userDo = iUserDao.updateUserDo(userDto.getId(), UserMapper.mapToDo(userDto));
+            return UserMapper.mapToDto(userDo);
+        }
+        return null;
+    }
 }
