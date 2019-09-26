@@ -31,6 +31,8 @@
 		<mapping resource="hbm/User.hbm.xml" />
 		<mapping resource="hbm/Profil.hbm.xml" />
 		<mapping resource="hbm/Produit.hbm.xml" />
+		<mapping resource="hbm/CommandeProduit.hbm.xml" />
+		<mapping resource="hbm/ProduitVendu.hbm.xml" />
 
 	</session-factory>
 </hibernate-configuration>
