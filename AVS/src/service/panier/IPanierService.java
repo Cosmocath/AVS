@@ -1,5 +1,6 @@
 package service.panier;
 
+import persistance.commande.beanDo.CommandeDo;
 import presentation.panier.beanDto.PanierDto;
 
 /**
@@ -26,4 +27,12 @@ public interface IPanierService {
      * @return le panierDto
      */
     PanierDto remisePanier(final PanierDto panierDto);
+    
+    /**
+     * Permet de valider le panier et de dréer la commande associée
+     * 
+     * @param panierDto la panier à valider
+     * @return la commande, null sinon
+     */
+    CommandeDo validerPanier(final PanierDto panierDto);
 }

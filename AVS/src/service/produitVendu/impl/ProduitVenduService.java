@@ -2,30 +2,31 @@ package service.produitVendu.impl;
 
 import persistance.produitVendu.beanDo.ProduitVenduDo;
 import presentation.produit.beanDto.ProduitDto;
+import service.produitVendu.IProduitVenduService;
+import util.tools.FormatUtil;
 
 /**
- * @author Guy-Joël
+ * @author Rodolphe
  *
  */
-public class ProduitVenduService {
-
-    private ProduitVenduService() {
-        //Empty Constructeur
-    }
+public class ProduitVenduService implements IProduitVenduService {
+    
 
     /**
-     * permet de mapper un produitDto en produitVenduDo
-     * 
-     * @param produitDto
-     * @return produitVenduDo
+     * Constructeur vide
      */
-    ProduitVenduDo mapProduitDtoToProduitVenduDo(final ProduitDto produitDto) {
+    private ProduitVenduService() {
+        // Empty method
+    }
+
+    @Override
+    public ProduitVenduDo mapProduitDtoToProduitVenduDo(ProduitDto produitDto) {
         final ProduitVenduDo produitVenduDo = new ProduitVenduDo();
         produitVenduDo.setIdProduitHistorise(produitDto.getId());
         produitVenduDo.setDesignation(produitDto.getDesignation());
         produitVenduDo.setReference(produitDto.getReference());
         produitVenduDo.setDescription(produitDto.getDescription());
-        produitVenduDo.setPrix(Double.parseDouble(produitDto.getPrix()));
+        produitVenduDo.setPrix(FormatUtil.convertirStringToDouble(produitDto.getPrix()));
         produitVenduDo.setImage(produitDto.getImage());
         produitVenduDo.setNumeroVersion(produitDto.getNoVersion());
         return produitVenduDo;

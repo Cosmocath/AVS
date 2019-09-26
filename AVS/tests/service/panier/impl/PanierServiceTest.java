@@ -3,10 +3,14 @@ package service.panier.impl;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import java.util.Set;
+
 import org.hibernate.SessionFactory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import persistance.commande.beanDo.CommandeDo;
+import persistance.commande.beanDo.CommandeProduitDo;
 import persistance.factory.HibernateFactory;
 import presentation.panier.beanDto.PanierDto;
 import service.panier.IPanierService;
@@ -60,4 +64,18 @@ class PanierServiceTest {
 
     }
 
+    /**
+     * Test method for {@link service.panier.impl.PanierService#validerPanier(presentation.panier.beanDto.PanierDto)}.
+     */
+    @Test
+    void testValiderPanier() {
+        final IPanierService iPanierService = Factory.getInstance(IPanierService.class);
+        PanierDto panierDto = new PanierDto();
+        panierDto = iPanierService.addProduitPanier(panierDto, 12);
+        panierDto = iPanierService.addProduitPanier(panierDto, 14);
+        CommandeDo commandeDo = iPanierService.validerPanier(panierDto);
+        assertNotNull(commandeDo);
+        Set<CommandeProduitDo> commandeProduitSet = commandeDo.getCommandeProduitSet();
+        assertEquals(2, commandeProduitSet.size());
+    }
 }
