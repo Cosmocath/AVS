@@ -79,7 +79,7 @@ public class PanierService implements IPanierService {
         final ProduitDto produitDto = iProduitService.getProduitById(idProduit);
 
         //Récupération "QuantitéPrix" dans la map 
-        PanierDto.QuantitePrix quantitePrix = panierDto.getMapDesProduitsQte().get(produitDto);
+        final PanierDto.QuantitePrix quantitePrix = panierDto.getMapDesProduitsQte().get(produitDto);
 
         //Récupération de la quantité de produit dans "QuantitéPrix (classe)" 
         final int quantite = quantitePrix.getQuantite();
@@ -95,6 +95,9 @@ public class PanierService implements IPanierService {
         final double total = FormatUtil.convertirStringToDouble(produitDto.getPrix()) * quantite;
 
         panierDto.setTotalAvantRemise(FormatUtil.convertirDoubleToString(totalAvtRemise - total));
+
+        // on calcule la remise
+        remisePanier(panierDto);
 
         return panierDto;
     }

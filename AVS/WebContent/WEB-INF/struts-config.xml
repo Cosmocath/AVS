@@ -142,7 +142,7 @@
 		<action path="/supprimerPanier" scope="request" input=""
 			parameter="" name=""
 			type="presentation.panier.action.SupprimerPanierAction">
-			<forward name="success" path="supprimerPanier.do"
+			<forward name="success" path="afficherPanier.do"
 				redirect="true" />
 		</action>
 		<action path="/voirValiderPanier" scope="request" input=""
