@@ -61,18 +61,18 @@ public class ProduitForm extends ActionForm {
         }
 
         if (getImage().getFileSize() == 0) {
-            errors.add("file", new ActionMessage("PDT_02.image.required"));
+            errors.add("image", new ActionMessage("PDT_02.image.required"));
             return errors;
         }
         // verifie le type du fichier grâce au contentType
         if (!"image/jpeg".equals(getImage().getContentType()) && !"image/png".equals(getImage().getContentType())) {
-            errors.add("file", new ActionMessage("PDT_02.image.only"));
+            errors.add("image", new ActionMessage("PDT_02.image.only"));
             return errors;
         }
 
         if (getImage().getFileSize() > TAILLE_MAX_IMAGE) {
             //10kb verifier la taille avec des tests
-            errors.add("file", new ActionMessage("PDT_02.image.size.limit", 1000000));
+            errors.add("image", new ActionMessage("PDT_02.image.size.limit", TAILLE_MAX_IMAGE));
             return errors;
         }
 
