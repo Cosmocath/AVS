@@ -12,9 +12,27 @@
 		}
 	</script>
 
+	<%-- JS nécessaire pour le bouton vider --%>
+	<script type="text/javascript">
+		function viderPanier() {
+			document.location.href = "viderPanier.do";
+
+		}
+	</script>
+
+
+
 	<h1>
 		<bean:message key="PAN_00.Panier" />
 	</h1>
+
+	<logic:messagesPresent message="true">
+		<html:messages id="panierVide" message="true" header="PAN_00.myForm.header"
+			footer="PAN_00.myForm.footer">
+			<bean:write name="panierVide" />
+		</html:messages>
+	</logic:messagesPresent>
+
 	<table style="width: 100%; text-align: center">
 		<tr>
 			<th><bean:message key="PAN_00.Designation" /></th>
@@ -78,7 +96,7 @@
 	</table>
 	<br />
 	<div align="right">
-		<button type="button" onclick="viderPanier">
+		<button type="button" onclick="viderPanier()">
 			<bean:message key="PAN_00.Vider" />
 		</button>
 		<button type="button" onclick="validerPanier()">
