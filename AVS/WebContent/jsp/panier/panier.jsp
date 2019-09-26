@@ -18,7 +18,7 @@
 
 	<logic:messagesPresent message="true">
 		<html:messages id="panierVide" message="true" header="PAN_00.myForm.header"
-			footer="myForm.footer">
+			footer="PAN_00.myForm.footer">
 			<bean:write name="panierVide" />
 		</html:messages>
 	</logic:messagesPresent>
