@@ -23,28 +23,28 @@
 				<td align="left"><html:text property="designation" size="25"
 						maxlength="25" /></td>
 				<td><html:errors property="designation"
-						header="errors.field.header" footer="errors.field.footer" /></td>
+						header="errors.global.header" footer="errors.global.footer" /></td>
 			</tr>
 			<tr>
 				<td align="right"><bean:message key="PDT_02.reference" /></td>
 				<td align="left"><html:text property="reference" size="25"
 						maxlength="25" /></td>
 				<td><html:errors property="reference"
-						header="errors.field.header" footer="errors.field.footer" /></td>
+						header="errors.global.header" footer="errors.global.footer" /></td>
 			</tr>
 			<tr>
 				<td align="right"><bean:message key="PDT_02.description" /></td>
 				<td align="left"><html:textarea property="description" /></td>
 				<td><html:errors property="description"
-						header="errors.field.header" footer="errors.field.footer" /></td>
+						header="errors.global.header" footer="errors.global.footer" /></td>
 			</tr>
 			<tr>
 
 				<td align="right"><bean:message key="PDT_02.prix" /></td>
 				<td align="left"><html:text property="prix" size="25"
 						maxlength="25" /></td>
-				<td><html:errors property="prix" header="errors.field.header"
-						footer="errors.field.footer" /></td>
+				<td><html:errors property="prix" header="errors.global.header"
+						footer="errors.global.footer" /></td>
 			</tr>
 			<tr>
 				<td align="right"><html:submit property="submit">
