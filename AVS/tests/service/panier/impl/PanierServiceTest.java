@@ -68,8 +68,11 @@ class PanierServiceTest {
         final IPanierService iPanierService = Factory.getInstance(IPanierService.class);
         assertNotNull(iPanierService);
         PanierDto panierDto = new PanierDto();
-        panierDto.setQuantiteTotale(2);
-        panierDto.setTotalAvantRemise("60,00");
+        panierDto = iPanierService.addProduitPanier(panierDto, 12);
+        panierDto = iPanierService.addProduitPanier(panierDto, 13);
+        System.out.println("Prix total panier " + panierDto.getTotalAvantRemise());
+        assertEquals(2, panierDto.getMapDesProduitsQte().size());
+
         panierDto = iPanierService.deleteProduitPanier(panierDto, 12);
         assertEquals("30,00", panierDto.getTotalAvantRemise());
         assertEquals(1, panierDto.getMapDesProduitsQte().size());

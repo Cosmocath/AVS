@@ -21,8 +21,7 @@ import util.factory.Factory;
 public class SupprimerPanierAction extends Action {
 
     @Override
-    public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+    public ActionForward execute(final ActionMapping mapping,final  ActionForm form,final  HttpServletRequest request,final  HttpServletResponse response) throws Exception {
         final IPanierService iPanierService = Factory.getInstance(IPanierService.class);
 
         final Integer idProduit = Integer.parseInt(request.getParameter("id"));
@@ -34,5 +33,4 @@ public class SupprimerPanierAction extends Action {
 
         return mapping.findForward("success");
     }
-
 }
