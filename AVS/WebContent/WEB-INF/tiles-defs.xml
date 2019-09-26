@@ -76,5 +76,8 @@
 	<definition name="afficherPanier" extends="template">
 		<put name="body" value="/jsp/panier/panier.jsp" />
 	</definition>
+	<definition name="panierAdresseClient" extends="template">
+		<put name="body" value="/jsp/panier/panierAdresseClient.jsp" />
+	</definition>
 
 </tiles-definitions>

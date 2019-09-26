@@ -4,14 +4,13 @@
 <div style="background-color: white; height: 100%">
 
 
-	<%-- 	<%-- JS nécessaire pour le bouton supprimer --%>
-	<!-- 	<script type="text/javascript"> -->
-	<!-- // 		function RedirectionJavascript() { -->
-	<!-- // 			document.location.href = "ajouterPanier.do?id=" -->
-	<!-- // 					+ document.getElementById("id").value -->
-	<!-- // 			"&retour=panier"; -->
-	<!-- // 		} -->
-	<!-- 	</script> -->
+	<%-- JS nécessaire pour le bouton valider --%>
+	<script type="text/javascript">
+		function validerPanier() {
+			document.location.href = "voirValiderPanier.do";
+
+		}
+	</script>
 
 	<h1>
 		<bean:message key="PAN_00.Panier" />
@@ -82,7 +81,7 @@
 		<button type="button" onclick="viderPanier">
 			<bean:message key="PAN_00.Vider" />
 		</button>
-		<button type="button" onclick="validerPanier">
+		<button type="button" onclick="validerPanier()">
 			<bean:message key="PAN_00.Valider" />
 		</button>
 	</div>
