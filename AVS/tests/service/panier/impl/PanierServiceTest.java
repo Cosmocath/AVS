@@ -45,18 +45,41 @@ class PanierServiceTest {
         final IPanierService iPanierService = Factory.getInstance(IPanierService.class);
         iPanierService.remisePanier(panierDto);
         Assertions.assertEquals("10,00", panierDto.getTotalApresRemise());
+        Assertions.assertEquals("0,00", panierDto.getRemise());
 
         panierDto.setQuantiteTotale(4);
         panierDto.setTotalAvantRemise("100,00");
         panierDto.setTotalApresRemise("100,00");
         iPanierService.remisePanier(panierDto);
         Assertions.assertEquals("100,00", panierDto.getTotalApresRemise());
+        Assertions.assertEquals("0,00", panierDto.getRemise());
 
         panierDto.setQuantiteTotale(6);
         panierDto.setTotalAvantRemise("200,00");
         panierDto.setTotalApresRemise("200,00");
         iPanierService.remisePanier(panierDto);
         Assertions.assertEquals("180,00", panierDto.getTotalApresRemise());
+        Assertions.assertEquals("20,00", panierDto.getRemise());
+
+    }
+
+    /**
+     * Test method for {@link service.panier.impl.PanierService#viderPanierDto(presentation.panier.beanDto.PanierDto)}.
+     * 
+     */
+    @Test
+    void testViderPanier() {
+        final PanierDto panierDto = new PanierDto();
+        final IPanierService iPanierService = Factory.getInstance(IPanierService.class);
+        iPanierService.addProduitPanier(panierDto, 12);
+        iPanierService.addProduitPanier(panierDto, 15);
+        Assertions.assertNotNull(panierDto);
+        iPanierService.viderPanierDto(panierDto);
+        Assertions.assertEquals(0, panierDto.getQuantiteTotale());
+        Assertions.assertEquals("0,00", panierDto.getTotalAvantRemise());
+        Assertions.assertEquals("0,00", panierDto.getTotalApresRemise());
+        Assertions.assertEquals("0,00", panierDto.getRemise());
+        Assertions.assertEquals(0, panierDto.getMapDesProduitsQte().size());
 
     }
 
