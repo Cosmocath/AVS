@@ -60,6 +60,10 @@ class PanierServiceTest {
 
     }
 
+    /**
+     * permet de tester la methode viderPanier
+     * 
+     */
     @Test
     void testViderPanier() {
         final PanierDto panierDto = new PanierDto();

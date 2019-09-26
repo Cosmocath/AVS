@@ -54,7 +54,5 @@ public class ConnecterUserAction extends Action {
             return mapping.findForward("success");
         }
     }
-    
-    
 
 }
