@@ -57,6 +57,7 @@ class PanierServiceTest {
         panierDto.setTotalApresRemise("200,00");
         iPanierService.remisePanier(panierDto);
         Assertions.assertEquals("180,00", panierDto.getTotalApresRemise());
+        
 
     }
 
