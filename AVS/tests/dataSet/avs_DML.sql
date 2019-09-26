@@ -76,6 +76,7 @@ INSERT INTO `produitvendu` (`id_ProduitVendu`, `designation`, `reference`, `desc
 --
 
 INSERT INTO `commandeproduit` (`id_CommandeProduit`, `idCommande`, `id_ProduitVendu`, `quantite`) VALUES(1, 1, 1, 2);
+INSERT INTO `commandeproduit` (`id_CommandeProduit`, `idCommande`, `id_ProduitVendu`, `quantite`) VALUES(2, 1, 1, 5);
 
 --
 -- Déchargement des données de la table `droit`

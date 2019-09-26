@@ -2,6 +2,7 @@ package persistance.commande.dao.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -47,7 +48,18 @@ public class CommandeDao implements ICommandeDao {
 
     @Override
     public CommandeDo findById(Integer idCommande) {
-        // TODO à coder
+        try (final Session session = sessionFactory.openSession()) {
+            final Transaction transaction = session.beginTransaction();
+            final Query<CommandeDo> query = session.createQuery("From CommandeDo where id_Commande = :idCommande", CommandeDo.class);
+            query.setParameter("idCommande", idCommande);
+            final Optional<CommandeDo> commandeDo = query.uniqueResultOptional();
+
+            session.flush();
+            transaction.commit();
+            return commandeDo.orElse(null);
+        } catch (final HibernateException hibernateException) {
+            hibernateException.printStackTrace();
+        }
         return null;
     }
 
