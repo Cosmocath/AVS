@@ -34,7 +34,7 @@ public class PanierForm extends ActionForm {
 
     @Override
     public void reset(final ActionMapping mapping, final HttpServletRequest request) {
-
+        // empty method
     }
 
     @Override
