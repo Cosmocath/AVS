@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import persistance.image.dao.IImageDao;
-import service.image.impl.ImageService;
 
 /**
  * Gestion des images
@@ -56,15 +55,15 @@ public class ImageDao implements IImageDao {
     }
 
     @Override
-    public String uploadImage(final byte[] image, final File newFile) {
+    public boolean uploadImage(final byte[] image, final File newFile) {
         try (final FileOutputStream fos = new FileOutputStream(newFile);) {
             fos.write(image);
             fos.flush();
+            return true;
         } catch (final IOException e) {
             e.printStackTrace();
         }
-
-        return ImageService.REPERTOIRE_IMAGES + newFile.getName();
+        return false;
     }
 
 }

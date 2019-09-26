@@ -32,8 +32,8 @@ public class CreerProduitAction extends Action {
      * @return
      */
     private ProduitDto mapToDto(final ProduitForm produitForm) {
-        // Image initialisée a "" car changé après dans l'action
-        return ProduitDto.build(produitForm.getDesignation(), produitForm.getReference(), produitForm.getDescription(), ConversionUtil.convertStringCommaToDot(produitForm.getPrix()), "", 1);
+        return ProduitDto.build(produitForm.getDesignation(), produitForm.getReference(), produitForm.getDescription(), ConversionUtil.convertStringCommaToDot(produitForm.getPrix()),
+                        produitForm.getImage().getFileName(), 1);
     }
 
     @Override
@@ -41,22 +41,19 @@ public class CreerProduitAction extends Action {
         // on récupère les infos
         final ProduitForm produitForm = (ProduitForm) form;
 
-        final IImageService iImageService = Factory.getInstance(IImageService.class);
-        final String cheminImage = iImageService.uploadImage(produitForm.getImage().getFileData(), produitForm.getImage().getFileName());
-
         // on récupère les données du Service
         final IProduitService iProduitService = Factory.getInstance(IProduitService.class);
+        final ProduitDto produitDto = iProduitService.create(mapToDto(produitForm));
 
-        final ProduitDto produitDtoMapper = mapToDto(produitForm);
-        produitDtoMapper.setImage(cheminImage);
-
-        final ProduitDto produitDto = iProduitService.create(produitDtoMapper);
         // on teste le retour du service
         if (produitDto == null) {
             final ActionErrors errors = new ActionErrors();
             errors.add("error", new ActionMessage("PDT_02.error.creation", new Object[] { produitForm.getReference() }));
             saveErrors(request, errors);
         } else {
+            final IImageService iImageService = Factory.getInstance(IImageService.class);
+            iImageService.uploadImage(produitForm.getImage().getFileData(), produitDto.getImage());
+
             final ActionMessages messages = new ActionMessages();
             messages.add("creationProduitOK", new ActionMessage("PDT_02.valid.ok"));
             saveMessages(request, messages);

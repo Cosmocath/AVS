@@ -67,9 +67,7 @@ public class ProduitMapper {
         produitDo.setReference(produitDto.getReference());
         produitDo.setDescription(produitDto.getDescription());;
         produitDo.setPrix(FormatUtil.convertirStringToDouble(produitDto.getPrix()));
-        // TODO RKU : gérer l'ima
-        //produitDo.setImage(produitDto.getImage());
-        produitDo.setImage("null");
+        produitDo.setImage(produitDto.getImage());
         produitDo.setNumeroVersion(produitDto.getNoVersion());
         produitDo.setActif(true);
         return produitDo;

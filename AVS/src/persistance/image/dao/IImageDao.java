@@ -22,7 +22,7 @@ public interface IImageDao {
      * Récupère un tableau de byte et écrit le fichier dans un répertoire
      * 
      * @param file : le fichier sous la forme bye
-     * @return le chemin ou est stocké l'image
+     * @return true si l'upload à réussi, false sinon
      */
-    String uploadImage(final byte[] file, final File newFile);
+    boolean uploadImage(final byte[] file, final File newFile);
 }

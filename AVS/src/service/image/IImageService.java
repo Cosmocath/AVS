@@ -19,7 +19,7 @@ public interface IImageService {
      * Récupère un tableau de byte et appel le dao pour écrire dans un repertoire
      * 
      * @param file : le fichier sous la forme bye
-     * @return le chemin ou est stocké l'image
+     * @return true si l'upload à réussi, false sinon 
      */
-    String uploadImage(final byte[] file, final String fileName);
+    boolean uploadImage(final byte[] file, final String fileName);
 }

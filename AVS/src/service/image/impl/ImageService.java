@@ -42,16 +42,16 @@ public class ImageService implements IImageService {
     }
 
     @Override
-    public String uploadImage(final byte[] file, final String fileName) {
+    public boolean uploadImage(final byte[] file, final String fileName) {
         final IImageDao iImageDao = Factory.getInstance(IImageDao.class);
 
         if (!("").equals(fileName)) {
             final File newFile = new File(ImageService.REPERTOIRE_IMAGES, fileName);
             if (!newFile.exists()) {
-                iImageDao.uploadImage(file, newFile);
+                return iImageDao.uploadImage(file, newFile);
             }
         }
-        return null;
+        return false;
     }
 
 }
