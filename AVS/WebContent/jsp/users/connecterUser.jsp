@@ -14,14 +14,16 @@
 					<td align="right"><bean:message key="USR_00.identifiant"></bean:message></td>
 					<td align="left"><html:text property="mail" size="25"
 							maxlength="25" altKey="USR_00.mail"></html:text></td>
-					<td><html:errors property="mail" /></td>
+					<td><html:errors property="mail" header="errors.global.header"
+							footer="errors.global.footer" /></td>
 				</tr>
 
 				<tr>
 					<td align="right"><bean:message key="USR_00.password"></bean:message></td>
 					<td align="left"><html:password property="password" size="25"
 							maxlength="25"></html:password></td>
-					<td><html:errors property="password" /></td>
+					<td><html:errors property="password"
+							header="errors.global.header" footer="errors.global.footer" /></td>
 				</tr>
 				<tr>
 					<td align="right"><html:submit property="submit"
