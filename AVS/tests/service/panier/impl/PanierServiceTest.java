@@ -72,9 +72,14 @@ class PanierServiceTest {
         panierDto = iPanierService.addProduitPanier(panierDto, 13);
         System.out.println("Prix total panier " + panierDto.getTotalAvantRemise());
         assertEquals(2, panierDto.getMapDesProduitsQte().size());
+        System.out.println("Nombre de produit dans le panier => " + panierDto.getMapDesProduitsQte().size());
 
+        System.out.println("APRES SUPPRESSION / ");
         panierDto = iPanierService.deleteProduitPanier(panierDto, 12);
-        assertEquals("30,00", panierDto.getTotalAvantRemise());
+        System.out.println("Prix total panier " + panierDto.getTotalAvantRemise());
+        System.out.println("Nombre de produit dans le panier => " + panierDto.getMapDesProduitsQte().size());
+
+        assertEquals("20,00", panierDto.getTotalAvantRemise());
         assertEquals(1, panierDto.getMapDesProduitsQte().size());
     }
 }

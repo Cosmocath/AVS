@@ -13,6 +13,15 @@
 	<!-- // 		} -->
 	<!-- 	</script> -->
 
+	<script type="text/javascript">
+		function RedirectionJavascriptSupp() {
+			alert(document.getElementById("id").value);
+			document.location.href = "supprimerPanier.do?id="
+					+ document.getElementById("id").value;
+		}
+	</script>
+		<html:hidden  property="id" value="${produitDto.id}" styleId="id"/>
+
 	<h1>
 		<bean:message key="PAN_00.Panier" />
 	</h1>
@@ -37,7 +46,7 @@
 				<td>${quantiteProduit.quantite}</td>
 				<td>${produitDto.prix}<bean:message key="Global.euro" /></td>
 				<td>
-					<button type="button" onclick="RedirectionJavascript()">+</button>
+					<button type="button" onclick="augmenterQuantite">+</button>
 					<button type="button" onclick="diminuerQuantite">-</button>
 
 					<div style="float: right">
@@ -50,9 +59,17 @@
 				<td>${quantiteProduit.prixParProduit}<bean:message
 						key="Global.euro" /></td>
 				<td>
-					<button type="button" onclick="supprimerProduit">
+					<button type="button" onclick="RedirectionJavascriptSupp()">
 						<bean:message key="PAN_00.Supprimer" />
 					</button>
+
+
+					<div style="float: right">
+						<html:link href="supprimerPanier.do?id=${produitDto.id}">
+							<bean:message key="PAN_00.Supprimer" />
+						</html:link>
+					</div>
+
 				</td>
 			</tr>
 		</logic:iterate>

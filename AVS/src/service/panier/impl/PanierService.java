@@ -74,10 +74,28 @@ public class PanierService implements IPanierService {
     @Override
     public PanierDto deleteProduitPanier(final PanierDto panierDto, final int idProduit) {
         final IProduitService iProduitService = Factory.getInstance(IProduitService.class);
+
+        // Récupération de du produit grâce à son Id
         final ProduitDto produitDto = iProduitService.getProduitById(idProduit);
+
+        //Récupération "QuantitéPrix" dans la map 
         PanierDto.QuantitePrix quantitePrix = panierDto.getMapDesProduitsQte().get(produitDto);
+
+        //Récupération de la quantité de produit dans "QuantitéPrix (classe)" 
+        final int quantite = quantitePrix.getQuantite();
+
+        //Suppression du produit de la map
         panierDto.getMapDesProduitsQte().remove(produitDto, quantitePrix);
+
+        // Je màj la quantiteTotale 
+        panierDto.setQuantiteTotale(panierDto.getMapDesProduitsQte().size());
+
+        // Déduction du produit (quantité*prix) du TotalAVantRemise
+        final double totalAvtRemise = FormatUtil.convertirStringToDouble(panierDto.getTotalAvantRemise());
+        final double total = FormatUtil.convertirStringToDouble(produitDto.getPrix()) * quantite;
+
+        panierDto.setTotalAvantRemise(FormatUtil.convertirDoubleToString(totalAvtRemise - total));
+
         return panierDto;
     }
-
 }
