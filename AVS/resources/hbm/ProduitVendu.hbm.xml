@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-	<class name="persistance.commande.beanDo.ProduitVenduDo"
+	<class name="persistance.produitVendu.beanDo.ProduitVenduDo"
 		table="produitvendu">
 		<!-- la clé primaire -->
 		<id name="idProduitVendu" column="id_ProduitVendu" type="integer">

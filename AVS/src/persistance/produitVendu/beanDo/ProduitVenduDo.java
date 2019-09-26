@@ -1,7 +1,7 @@
 /**
  * 
  */
-package persistance.commande.beanDo;
+package persistance.produitVendu.beanDo;
 
 /**
  * Représentation d'un produitVendu dans la base de donnée

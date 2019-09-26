@@ -3,6 +3,8 @@
  */
 package persistance.commande.beanDo;
 
+import persistance.produitVendu.beanDo.ProduitVenduDo;
+
 /**
  * Représentation d'une commandeProduit dans la base de donnée
  * 
