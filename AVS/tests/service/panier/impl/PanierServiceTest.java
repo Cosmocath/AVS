@@ -60,4 +60,20 @@ class PanierServiceTest {
 
     }
 
+    @Test
+    void testViderPanier() {
+        final PanierDto panierDto = new PanierDto();
+        final IPanierService iPanierService = Factory.getInstance(IPanierService.class);
+        iPanierService.addProduitPanier(panierDto, 12);
+        iPanierService.addProduitPanier(panierDto, 15);
+        Assertions.assertNotNull(panierDto);
+        iPanierService.viderPanierDto(panierDto);
+        Assertions.assertEquals(0, panierDto.getQuantiteTotale());
+        Assertions.assertEquals("0,00", panierDto.getTotalAvantRemise());
+        Assertions.assertEquals("0,00", panierDto.getTotalApresRemise());
+        Assertions.assertEquals("0,00", panierDto.getRemise());
+        Assertions.assertEquals(0, panierDto.getMapDesProduitsQte().size());
+
+    }
+
 }

@@ -12,6 +12,16 @@
 		}
 	</script>
 
+	<%-- JS nécessaire pour le bouton vider --%>
+	<script type="text/javascript">
+		function viderPanier() {
+			document.location.href = "viderPanier.do";
+
+		}
+	</script>
+
+
+
 	<h1>
 		<bean:message key="PAN_00.Panier" />
 	</h1>
@@ -78,7 +88,7 @@
 	</table>
 	<br />
 	<div align="right">
-		<button type="button" onclick="viderPanier">
+		<button type="button" onclick="viderPanier()">
 			<bean:message key="PAN_00.Vider" />
 		</button>
 		<button type="button" onclick="validerPanier()">
