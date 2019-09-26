@@ -12,14 +12,13 @@
 		}
 	</script>
 
-	<script type="text/javascript">
-		function RedirectionJavascriptSupp() {
-			alert(document.getElementById("id").value);
-			document.location.href = "supprimerPanier.do?id="
-					+ document.getElementById("id").value;
-		}
-	</script>
-		<html:hidden  property="id" value="${produitDto.id}" styleId="id"/>
+<!-- 	<script type="text/javascript"> -->
+<!-- // 		function RedirectionJavascriptSupp() { -->
+<!-- // 			document.location.href = "supprimerPanier.do?id=" -->
+<!-- // 					+ document.getElementById("id").value; -->
+<!-- // 		} -->
+<!-- 	</script> -->
+<%-- 		<html:hidden  property="id" value="${produitDto.id}" styleId="id"/> --%>
 
 	<h1>
 		<bean:message key="PAN_00.Panier" />

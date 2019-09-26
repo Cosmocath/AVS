@@ -16,12 +16,15 @@ import util.factory.Factory;
 
 /**
  * @author Nora Liferki
+ * 
+ *         Action permettant de supprimer un produit du panier
+ * 
  *
  */
 public class SupprimerPanierAction extends Action {
 
     @Override
-    public ActionForward execute(final ActionMapping mapping,final  ActionForm form,final  HttpServletRequest request,final  HttpServletResponse response) throws Exception {
+    public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         final IPanierService iPanierService = Factory.getInstance(IPanierService.class);
 
         final Integer idProduit = Integer.parseInt(request.getParameter("id"));
