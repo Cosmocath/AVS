@@ -151,7 +151,7 @@
 			<forward name="success" path="validerPanier" redirect="false"></forward>
 		</action>
 
-		<action path="/viderPanier" scope="session" input=""
+		<action path="/viderPanier" scope="request" input=""
 			parameter="" name=""
 			type="presentation.panier.action.ViderPanierAction">
 			<forward name="success" path="afficherPanier"
