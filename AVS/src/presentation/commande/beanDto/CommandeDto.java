@@ -1,6 +1,7 @@
 package presentation.commande.beanDto;
 
 import java.io.Serializable;
+import java.util.Map;
 
 /**
  * Représentation de l'écran CDE_00
@@ -20,6 +21,9 @@ public class CommandeDto implements Serializable {
     private String            numeroCommande;
     private String            date;
     private String            montantAvecRemise;
+    private String            remise;
+    private String            montantSansRemise;
+    private Map<CommandeProduitDto,Integer> mapProduitDto;
 
     /**
      * Builder pour le Dto
@@ -122,6 +126,48 @@ public class CommandeDto implements Serializable {
      */
     public void setMontantAvecRemise(final String montantAvecRemise) {
         this.montantAvecRemise = montantAvecRemise;
+    }
+
+    /**
+     * @return the remise
+     */
+    public String getRemise() {
+        return remise;
+    }
+
+    /**
+     * @param remise the remise to set
+     */
+    public void setRemise(final String remise) {
+        this.remise = remise;
+    }
+
+    /**
+     * @return the montantSansRemise
+     */
+    public String getMontantSansRemise() {
+        return montantSansRemise;
+    }
+
+    /**
+     * @param montantSansRemise the montantSansRemise to set
+     */
+    public void setMontantSansRemise(final String montantSansRemise) {
+        this.montantSansRemise = montantSansRemise;
+    }
+
+    /**
+     * @return the mapProduitDto
+     */
+    public Map<CommandeProduitDto, Integer> getMapProduitDto() {
+        return mapProduitDto;
+    }
+
+    /**
+     * @param mapProduitDto the mapProduitDto to set
+     */
+    public void setMapProduitDto(final Map<CommandeProduitDto, Integer> mapProduitDto) {
+        this.mapProduitDto = mapProduitDto;
     }
 
 }
