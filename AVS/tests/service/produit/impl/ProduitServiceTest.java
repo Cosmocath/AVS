@@ -1,5 +1,7 @@
 package service.produit.impl;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -91,4 +93,14 @@ class ProduitServiceTest {
         assertEquals("designationProduit123456", produitDtoInserted.getDesignation());
     }
 
+    /**
+     * Test method for {@link service.produit.impl.ProduitService#isProduitFromPanierUpToDate(int, int))}.
+     */
+    @Test
+    void testIsProduitFromPanierUpToDate() {
+        final IProduitService iProduitService = Factory.getInstance(IProduitService.class);
+        assertTrue(iProduitService.isProduitFromPanierUpToDate(12, 1));
+        assertFalse(iProduitService.isProduitFromPanierUpToDate(12, 11));
+        assertFalse(iProduitService.isProduitFromPanierUpToDate(12001, 2));
+    }
 }

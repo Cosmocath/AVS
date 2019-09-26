@@ -66,4 +66,14 @@ public class ProduitService implements IProduitService {
         final ProduitDo produitDo = iProduitDao.findProduitById(idProduit);
         return ProduitMapper.mapToDto(produitDo);
     }
+
+    @Override
+    public boolean isProduitFromPanierUpToDate(final int idProduit, final int noVersion) {
+        final IProduitDao iProduitDao = Factory.getInstance(IProduitDao.class);
+        final ProduitDo produitBase = iProduitDao.findProduitById(idProduit);
+        if (produitBase == null) {
+            return false;
+        }
+        return (produitBase.getNumeroVersion() == noVersion);
+    }
 }

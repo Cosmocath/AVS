@@ -44,6 +44,15 @@ public interface IProduitService {
      * @param idProduit = id du Produit recherché
      * @return un ProduitDto contenant les informations du Produit recherché, null si non existant
      */
+
     ProduitDto getProduitById(final int idProduit);
 
+    /**
+     * Vérifie que la version du produit stocké dans le panier est bien en phase avec la table Produit
+     * 
+     * @param idProduit
+     * @param noVersion
+     * @return le booléen indiquant que c'est le même No de version
+     */
+    boolean isProduitFromPanierUpToDate(final int idProduit, final int noVersion);
 }
