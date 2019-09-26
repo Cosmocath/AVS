@@ -10,6 +10,8 @@
 			type="presentation.users.form.ConnecterUserForm" />
 		<form-bean name="userForm"
 			type="presentation.users.form.UserForm" />
+		<form-bean name="editerUserForm"
+			type="presentation.users.form.EditerUserForm" />
 		<form-bean name="produitForm"
 			type="presentation.produit.form.ProduitForm" />
 		<form-bean name="panierForm"
@@ -18,9 +20,9 @@
 
 	<action-mappings
 		type="org.apache.struts.action.ActionMapping">
-				
+
 		<!-- Action d'affichage des CGU -->
-		
+
 		<action path="/voirCGU" scope="request" input="" parameter=""
 			type="presentation.cgu.action.VoirCGUAction">
 			<forward name="success" path="cgu" redirect="false"></forward>
@@ -37,7 +39,7 @@
 		</action>
 
 		<!-- La connection/déconnection d'un utilisateur -->
-		
+
 		<action path="/connecterUser" scope="request"
 			input="voirConnecterUser" parameter="" name="connecterUserForm"
 			type="presentation.users.action.ConnecterUserAction">
@@ -60,7 +62,7 @@
 		</action>
 
 		<!-- Action de l'équipe Produit -->
-		
+
 		<action path="/listerProduitClient" scope="request" input=""
 			parameter="" type="presentation.produit.action.ListerProduitAction">
 			<forward name="success" path="listerProduitClient"
@@ -79,7 +81,7 @@
 			type="presentation.produit.action.CreerProduitAction">
 			<forward name="success" path="creerProduit" redirect="false" />
 		</action>
-				
+
 		<action path="/listerProduitAdmin" scope="request" input=""
 			parameter=""
 			type="presentation.produit.action.ListerProduitAdminAction">
@@ -95,7 +97,21 @@
 		</action>
 
 		<!-- Action de l'équipe User -->
-		
+
+		<action path="/voirEditerUser" scope="request" input=""
+			parameter="" type="presentation.users.action.VoirEditerUserAction">
+			<forward name="success" path="voirEditerUser"
+				redirect="false" />
+		</action>
+
+		<action path="/editerUser" scope="request"
+			input="voirEditerUser" parameter="" name="editerUserForm"
+			type="presentation.users.action.EditerUserAction">
+			<forward name="success" path="listerUser.do" redirect="true"></forward>
+			<forward name="notSuccess" path="voirEditerUser"
+				redirect="false" />
+		</action>
+
 		<action path="/voirCreerUser" scope="request" input=""
 			parameter="" type="presentation.users.action.VoirCreerUserAction">
 			<forward name="success" path="voirCreerUser" redirect="false" />
@@ -153,7 +169,7 @@
 
 
 		<!-- Action de l'équipe Commande -->
-		
+
 		<action path="/listerCommande" scope="request" input=""
 			parameter="" type="presentation.commande.action.ListerCommandeAction">
 			<forward name="success" path="listerCommande"
@@ -161,7 +177,7 @@
 		</action>
 
 		<!-- Action de gestion image -->
-		
+
 		<action path="/afficherImage" parameter=""
 			type="presentation.image.action.AfficherImageAction">
 

@@ -125,7 +125,7 @@ class UserDaoTest {
     }
 
     /**
-     * Test method for {@link persistance.user.dao.impl.UserDao#findAllUserDo()}.
+     * Test method for {@link persistance.users.dao.impl.UserDao#findAllUserDo()}.
      */
     @Test
     void testFindUserDo() {
@@ -139,7 +139,7 @@ class UserDaoTest {
     }
 
     /**
-     * Test method for {@link persistance.user.dao.impl.UserDao#updateUserDo()}.
+     * Test method for {@link persistance.users.dao.impl.UserDao#updateUserDo()}.
      */
     @Test
     public final void testUpdateUserDo() {

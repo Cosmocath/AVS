@@ -131,7 +131,7 @@ public class UserDao implements IUserDao {
     }
 
     @Override
-    public UserDo updateUserDo(Integer id, UserDo userDo) {
+    public UserDo updateUserDo(final Integer id, final UserDo userDo) {
         try (final Session session = sessionFactory.openSession()) {
             // sans auto-commit , on doit créer une transaction
             final Transaction transaction = session.beginTransaction();
@@ -150,7 +150,6 @@ public class UserDao implements IUserDao {
             query.setParameter("mail", userDo.getMail());
             query.executeUpdate();
 
-            session.save(userDo);
             session.flush();
 
             transaction.commit();
