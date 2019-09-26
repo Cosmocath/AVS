@@ -100,7 +100,20 @@
 			type="presentation.produit.action.CreerProduitAction">
 			<forward name="success" path="creerProduit" redirect="false" />
 		</action>
+		
+			<action path="/voirEditerProduit" scope="request" input=""
+			parameter=""
+			type="presentation.produit.action.VoirEditerProduitAction">
+			<forward name="success" path="voirCreerProduit"
+				redirect="false" />
+		</action>
 
+		<action path="/editerProduit" scope="request"
+			input="editerProduit" parameter="" name="produitForm"
+			type="presentation.produit.action.EditerProduitAction">
+			<forward name="success" path="editerProduit" redirect="false" />
+		</action>
+		
 		<!-- Action de l'équipe User -->
 		<action path="/voirCreerUser" scope="request" input=""
 			parameter="" type="presentation.users.action.VoirCreerUserAction">

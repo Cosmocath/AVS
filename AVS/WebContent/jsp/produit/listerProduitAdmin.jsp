@@ -4,6 +4,10 @@
 	function RedirectionJavascript() {
 		document.location.href = "voirCreerProduit.do";
 	}
+
+	function RedirectionEditer() {
+		document.location.href = "voirEditerProduit.do";
+	}
 </script>
 
 <div style="background-color: white; height: 100%">
@@ -35,7 +39,7 @@
 				<bean:write name="produit" property="reference" />
 			</div>
 			<div style="width: 20%; float: right;">
-				<html:button property="editer">
+				<html:button property="editer" onclick="RedirectionEditer()">
 					<bean:message key="PDT_04.bouton.editer" />
 				</html:button>
 				<div>
@@ -47,7 +51,7 @@
 
 		</div>
 		<div>
-			<hr style="color: grey; width: 90%; padding : 0px">
+			<hr style="color: grey; width: 90%; padding: 0px">
 		</div>
 
 	</logic:iterate>
