@@ -154,5 +154,4 @@ public class CommandeDo {
         this.commandeProduitSet = commandeProduitSet;
     }
 
-    
 }

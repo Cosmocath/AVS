@@ -1,6 +1,3 @@
-/**
- * 
- */
 package persistance.produitVendu.beanDo;
 
 /**
@@ -21,7 +18,7 @@ public class ProduitVenduDo {
     private Integer idProduitHistorise;
 
     /**
-     * 
+     * Constructeur
      */
     public ProduitVenduDo() {
         // empty method
@@ -139,5 +136,4 @@ public class ProduitVenduDo {
         this.numeroVersion = numeroVersion;
     }
 
-    
 }

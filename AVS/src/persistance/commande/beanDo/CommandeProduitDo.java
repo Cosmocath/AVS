@@ -1,6 +1,3 @@
-/**
- * 
- */
 package persistance.commande.beanDo;
 
 import persistance.produitVendu.beanDo.ProduitVenduDo;
@@ -19,7 +16,7 @@ public class CommandeProduitDo {
     private Integer        quantite;
 
     /**
-     * 
+     * Constructeur
      */
     public CommandeProduitDo() {
         // empty method
@@ -38,8 +35,6 @@ public class CommandeProduitDo {
     public void setIdCommandeProduit(final Integer idCommandeProduit) {
         this.idCommandeProduit = idCommandeProduit;
     }
-
-
 
     /**
      * @return the commandeDo
