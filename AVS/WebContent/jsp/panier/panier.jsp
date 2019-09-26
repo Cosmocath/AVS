@@ -27,8 +27,8 @@
 	</h1>
 
 	<logic:messagesPresent message="true">
-		<html:messages id="panierVide" message="true" header="PAN_00.myForm.header"
-			footer="PAN_00.myForm.footer">
+		<html:messages id="panierVide" message="true"
+			header="PAN_00.myForm.header" footer="PAN_00.myForm.footer">
 			<bean:write name="panierVide" />
 		</html:messages>
 	</logic:messagesPresent>
@@ -79,17 +79,17 @@
 	<table
 		style="border-top: 2px solid black; align: right; text-align: right;">
 		<tr>
-			<th>Total avant remise</th>
+			<th><bean:message key="PAN_00.Total.Avant.Remise" /></th>
 			<td>${sessionScope.monPanierDto.totalAvantRemise}<bean:message
 					key="Global.euro" /></td>
 		</tr>
 		<tr>
-			<th>Remise</th>
+			<th><bean:message key="PAN_00.Remise" /></th>
 			<td>${sessionScope.monPanierDto.remise}<bean:message
 					key="Global.euro" /></td>
 		</tr>
 		<tr>
-			<th>Total après remise</th>
+			<th><bean:message key="PAN_00.Total.Apres.Remise" /></th>
 			<td>${sessionScope.monPanierDto.totalApresRemise}<bean:message
 					key="Global.euro" /></td>
 		</tr>
