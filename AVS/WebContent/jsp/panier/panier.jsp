@@ -4,14 +4,13 @@
 <div style="background-color: white; height: 100%">
 
 
-	<%-- 	<%-- JS nécessaire pour le bouton supprimer --%>
-	<!-- 	<script type="text/javascript"> -->
-	<!-- // 		function RedirectionJavascript() { -->
-	<!-- // 			document.location.href = "ajouterPanier.do?id=" -->
-	<!-- // 					+ document.getElementById("id").value -->
-	<!-- // 			"&retour=panier"; -->
-	<!-- // 		} -->
-	<!-- 	</script> -->
+	<%-- JS nécessaire pour le bouton valider --%>
+	<script type="text/javascript">
+		function validerPanier() {
+			document.location.href = "voirValiderPanier.do";
+
+		}
+	</script>
 
 	<h1>
 		<bean:message key="PAN_00.Panier" />
@@ -34,7 +33,7 @@
 			<tr>
 				<td>${produitDto.designation}</td>
 				<td>${produitDto.reference}</td>
-				<td>${quantiteProduit}</td>
+				<td>${quantiteProduit.quantite}</td>
 				<td>${produitDto.prix}<bean:message key="Global.euro" /></td>
 				<td>
 					<button type="button" onclick="RedirectionJavascript()">+</button>
@@ -47,7 +46,8 @@
 						</html:link>
 					</div>
 				</td>
-				<td>Prix à calculer !</td>
+				<td>${quantiteProduit.prixParProduit}<bean:message
+						key="Global.euro" /></td>
 				<td>
 					<button type="button" onclick="supprimerProduit">
 						<bean:message key="PAN_00.Supprimer" />
@@ -62,15 +62,18 @@
 		style="border-top: 2px solid black; align: right; text-align: right;">
 		<tr>
 			<th>Total avant remise</th>
-			<td>${sessionScope.monPanierDto.totalAvantRemise}</td>
+			<td>${sessionScope.monPanierDto.totalAvantRemise}<bean:message
+					key="Global.euro" /></td>
 		</tr>
 		<tr>
 			<th>Remise</th>
-			<td>${sessionScope.monPanierDto.remise}</td>
+			<td>${sessionScope.monPanierDto.remise}<bean:message
+					key="Global.euro" /></td>
 		</tr>
 		<tr>
 			<th>Total après remise</th>
-			<td>${sessionScope.monPanierDto.totalApresRemise}</td>
+			<td>${sessionScope.monPanierDto.totalApresRemise}<bean:message
+					key="Global.euro" /></td>
 		</tr>
 	</table>
 	<br />
@@ -78,7 +81,7 @@
 		<button type="button" onclick="viderPanier">
 			<bean:message key="PAN_00.Vider" />
 		</button>
-		<button type="button" onclick="validerPanier">
+		<button type="button" onclick="validerPanier()">
 			<bean:message key="PAN_00.Valider" />
 		</button>
 	</div>

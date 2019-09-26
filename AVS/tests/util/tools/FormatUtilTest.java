@@ -59,7 +59,9 @@ class FormatUtilTest {
     @Test
     final void testConvertirStringToDouble() {
         Assertions.assertEquals(Double.valueOf(123), FormatUtil.convertirStringToDouble("123"));
-        Assertions.assertNotEquals(0123, FormatUtil.convertirStringToDouble("123"));
+        Assertions.assertEquals(Double.valueOf(123.05), FormatUtil.convertirStringToDouble("123.05"));
+        Assertions.assertEquals(Double.valueOf(123.00), FormatUtil.convertirStringToDouble("123,00"));
+        Assertions.assertNotEquals(123, FormatUtil.convertirStringToDouble("123.01"));
 
     }
 

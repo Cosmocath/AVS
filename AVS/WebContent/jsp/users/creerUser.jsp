@@ -11,8 +11,8 @@
 				<html:errors property="error" />
 				<tr>
 					<td align="right"><bean:message key="USR_01.mail"></bean:message></td>
-					<td align="left"><html:text property="mail" size="25"
-							maxlength="25"></html:text></td>
+					<td align="left"><html:text property="mail" size="25" 
+							maxlength="50"></html:text></td>
 					<td><html:errors property="mail" /></td>
 				</tr>
 
