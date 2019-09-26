@@ -27,7 +27,7 @@ public class VoirPanierAction extends Action {
         final HttpSession session = request.getSession();
         final PanierDto panierDto = (PanierDto) session.getAttribute(ConnecterUserAction.MON_PANIER);
         //message panier vide
-        if (panierDto.getMapDesProduitsQte().size() == 0) {
+        if (panierDto.getQuantiteTotale() == 0) {
             final ActionMessages messages = new ActionMessages();
             messages.add("panierVide", new ActionMessage("PAN_00.panierVide"));
             saveMessages(request, messages);
