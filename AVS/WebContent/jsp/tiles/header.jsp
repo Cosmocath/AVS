@@ -23,6 +23,7 @@
 				</html:link>
 			</logic:present>
 			<logic:present name="userConnected" scope="session">
+				<bean:write name="monPanierDto" property="quantiteTotale" />
 				<html:link href="afficherPanier.do" title="panier">
 					<img alt="logo" src="img/icone_panier.png">
 				</html:link>
