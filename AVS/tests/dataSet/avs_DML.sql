@@ -106,6 +106,7 @@ INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(24, 'editerProduit
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(25, 'voirValiderPanier.do', 'permet d_aller sur le panier');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(26, 'validerPanier.do', 'permet de valider le panier');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(27, 'voirEditerUser.do', 'permet d_aller sur la page pour editer un user');
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(28, 'viderPanier.do', 'permet d_aller sur la page pour vider');
 --
 -- Déchargement des données de la table `profildroit`
 --
@@ -162,6 +163,8 @@ INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(53,
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(54, 3, 26);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(55, 2, 27);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(56, 3, 27);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(57, 2, 28);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(58, 3, 28);
 
 
 --
