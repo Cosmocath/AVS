@@ -15,7 +15,6 @@ import presentation.users.beanDto.ProfilDto;
 import presentation.users.beanDto.UserDto;
 import presentation.users.form.EditerUserForm;
 import service.users.IUserService;
-import util.cryptage.MD5Encryption;
 import util.factory.Factory;
 import util.tools.Tools;
 
@@ -49,8 +48,7 @@ public class EditerUserAction extends Action {
         if (Tools.isEmpty(editerUserForm.getNewpassword())) {
             userDto.setPassword(editerUserForm.getPassword());
         } else {
-            final String newPassword = MD5Encryption.encrypt(editerUserForm.getNewpassword());
-            userDto.setPassword(newPassword);
+            userDto.setPassword(editerUserForm.getNewpassword());
         }
 
         userDto.setProfilDto(profilDto);

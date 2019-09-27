@@ -28,8 +28,8 @@ public class EditerUserForm extends ActionForm {
     private String            dateNaissance;
     private String            adresse;
     private String            password;
-    private String            confirmpassword;
-    private String            newpassword;
+    private String            confirmPassword;
+    private String            newPassword;
     private String            mail;
     private String            profil;
 
@@ -48,10 +48,10 @@ public class EditerUserForm extends ActionForm {
                 errors.add("mail", new ActionMessage("USR_04.errors.mail.pattern"));
             }
         }
-        if (!Tools.isEmpty(newpassword)) {
-            if (Tools.isEmpty(confirmpassword)) {
+        if (!Tools.isEmpty(newPassword)) {
+            if (Tools.isEmpty(confirmPassword)) {
                 errors.add("confirmpassword", new ActionMessage("USR_04.errors.confirmpassword.obligatoire"));
-            } else if (!newpassword.equals(confirmpassword)) {
+            } else if (!newPassword.equals(confirmPassword)) {
                 errors.add("newpassword", new ActionMessage("USR_04.errors.password.match"));
             }
         }
@@ -164,14 +164,14 @@ public class EditerUserForm extends ActionForm {
      * @return the confirmpassword
      */
     public String getConfirmpassword() {
-        return confirmpassword;
+        return confirmPassword;
     }
 
     /**
      * @param confirmpassword the confirmpassword to set
      */
     public void setConfirmpassword(final String confirmpassword) {
-        this.confirmpassword = confirmpassword;
+        this.confirmPassword = confirmpassword;
     }
 
     /**
@@ -206,13 +206,13 @@ public class EditerUserForm extends ActionForm {
      * @return the newpassword
      */
     public String getNewpassword() {
-        return newpassword;
+        return newPassword;
     }
 
     /**
      * @param newpassword the newpassword to set
      */
     public void setNewpassword(final String newpassword) {
-        this.newpassword = newpassword;
+        this.newPassword = newpassword;
     }
 }

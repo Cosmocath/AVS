@@ -90,10 +90,10 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public UserDto updateUser(UserDto userDto) {
+    public UserDto updateUser(final UserDto userDto) {
         final IUserDao iUserDao = Factory.getInstance(IUserDao.class);
         UserDo userDo = iUserDao.findUserDo(userDto.getId());
-        if (userDo == null || userDo.getId() == userDto.getId()) {
+        if (userDo == null || userDo.getId().equals(userDto.getId())) {
             userDo = iUserDao.updateUserDo(userDto.getId(), UserMapper.mapToDo(userDto));
             return UserMapper.mapToDto(userDo);
         }

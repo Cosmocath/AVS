@@ -30,7 +30,7 @@ public class VoirEditerUserAction extends Action {
         editerUserForm.setMail(userDto.getMail());
         editerUserForm.setId(userDto.getId().toString());
         editerUserForm.setPassword(userDto.getPassword());
-        editerUserForm.setProfil(userDto.getProfilDto().getId().toString());
+        editerUserForm.setProfil(String.valueOf(userDto.getProfilDto().getId()));
         return editerUserForm;
     }
 

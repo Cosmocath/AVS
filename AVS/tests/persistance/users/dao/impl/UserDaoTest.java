@@ -145,7 +145,7 @@ class UserDaoTest {
     }
 
     /**
-     * Test method for {@link persistance.users.dao.impl.UserDao#updateUserDo()}.
+     * Test method for {@link persistance.users.dao.impl.UserDao#updateUserDo(Integer id, UserDO userDo)}.
      */
     @Test
     public final void testUpdateUserDo() {
@@ -154,8 +154,8 @@ class UserDaoTest {
         userDo.setAdresse("Rue_Du_Test_Update");
         userDo.setMail("r@t.fr");
 
-        Assert.assertNotNull(iUserDao.updateUserDo(11, userDo));
-        Assert.assertTrue("r@t.fr".equals(iUserDao.findUserDo(11).getMail()));
-        Assert.assertTrue("Rue_Du_Test_Update".equals(iUserDao.findUserDo(11).getAdresse()));
+        Assertions.assertNotNull(iUserDao.updateUserDo(11, userDo));
+        Assertions.assertTrue("r@t.fr".equals(userDo.getMail()));
+        Assertions.assertEquals("Rue_Du_Test_Update", userDo.getAdresse());
     }
 }
