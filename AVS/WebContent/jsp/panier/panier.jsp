@@ -12,6 +12,14 @@
 		}
 	</script>
 
+<!-- 	<script type="text/javascript"> -->
+<!-- // 		function RedirectionJavascriptSupp() { -->
+<!-- // 			document.location.href = "supprimerPanier.do?id=" -->
+<!-- // 					+ document.getElementById("id").value; -->
+<!-- // 		} -->
+<!-- 	</script> -->
+<%-- 		<html:hidden  property="id" value="${produitDto.id}" styleId="id"/> --%>
+
 	<%-- JS nécessaire pour le bouton vider --%>
 	<script type="text/javascript">
 		function viderPanier() {
@@ -19,8 +27,6 @@
 
 		}
 	</script>
-
-
 
 	<h1>
 		<bean:message key="PAN_00.Panier" />
@@ -54,7 +60,7 @@
 				<td>${quantiteProduit.quantite}</td>
 				<td>${produitDto.prix}<bean:message key="Global.euro" /></td>
 				<td>
-					<button type="button" onclick="RedirectionJavascript()">+</button>
+					<button type="button" onclick="augmenterQuantite">+</button>
 					<button type="button" onclick="diminuerQuantite">-</button>
 
 					<div style="float: right">
@@ -67,9 +73,17 @@
 				<td>${quantiteProduit.prixParProduit}<bean:message
 						key="Global.euro" /></td>
 				<td>
-					<button type="button" onclick="supprimerProduit">
+					<button type="button" onclick="RedirectionJavascriptSupp()">
 						<bean:message key="PAN_00.Supprimer" />
 					</button>
+
+
+					<div style="float: right">
+						<html:link href="supprimerPanier.do?id=${produitDto.id}">
+							<bean:message key="PAN_00.Supprimer" />
+						</html:link>
+					</div>
+
 				</td>
 			</tr>
 		</logic:iterate>
