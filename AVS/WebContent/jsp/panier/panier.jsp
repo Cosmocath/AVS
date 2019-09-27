@@ -73,7 +73,14 @@
 							href="ajouterPanier.do?id=${produitDto.id}&retour=panier">
 							<bean:message key="PAN_00.bouton.ajouterPanier" />
 						</html:link>
+					</div> <br>
+					<div style="float: right">
+						<html:link
+							href="diminuerQuantite.do?id=${produitDto.id}&retour=panier">
+							<bean:message key="PAN_00.bouton.diminuerQuantite" />
+						</html:link>
 					</div>
+
 				</td>
 				<td>${quantiteProduit.prixParProduit}<bean:message
 						key="Global.euro" /></td>
