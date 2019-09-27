@@ -19,4 +19,11 @@ public interface ICommandeService {
      */
     List<CommandeDto> findAllCommande(final int idUtilisateur);
 
+    /**
+     * Permet de faire appel à la couche persitance afin d'avoir le détail d'une commande
+     * 
+     * @param idCommande
+     * @return le détail d'une commande
+     */
+    CommandeDto findById(final Integer idCommande);
 }

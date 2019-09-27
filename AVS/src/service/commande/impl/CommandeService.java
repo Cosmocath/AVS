@@ -28,4 +28,11 @@ public class CommandeService implements ICommandeService {
         return CommandeMapper.mapToListDto(listeCommandeDo);
     }
 
+    @Override
+    public CommandeDto findById(Integer idCommande) {
+        final ICommandeDao iCommandeDao = Factory.getInstance(ICommandeDao.class);
+        final CommandeDo commandeDo = (iCommandeDao).findById(idCommande);
+        return CommandeMapper.mapToDto(commandeDo);
+    }
+
 }
