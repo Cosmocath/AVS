@@ -68,6 +68,7 @@ public class PanierService implements IPanierService {
             panierDto.setRemise(FormatUtil.convertirDoubleToString(totalAvtRemise - totalApresRemise));
             return panierDto;
         } else {
+            panierDto.setRemise(FormatUtil.convertirDoubleToString(0.00));
             totalApresRemise = totalAvtRemise;
         }
 
