@@ -44,10 +44,10 @@ public interface IProduitService {
      * @param idProduit = id du Produit recherché
      * @return un ProduitDto contenant les informations du Produit recherché, null si non existant
      */
-
     ProduitDto getProduitById(final int idProduit);
 
     /**
+     *
      * Vérifie que la version du produit stocké dans le panier est bien en phase avec la table Produit
      * 
      * @param idProduit
@@ -55,4 +55,14 @@ public interface IProduitService {
      * @return le booléen indiquant que c'est le même No de version
      */
     boolean isProduitFromPanierUpToDate(final int idProduit, final int noVersion);
+
+    /**
+     * Permet de faire appel à la couche persistance afin de modifier un Produit en BDD à partir de son id </br>
+     * On applique les règles de gestion.
+     * 
+     * @param produitDto contenant les informations du produit à modifier en BDD
+     * @return un produitDto si la modification à fonctionné, null dans le cas contraire *
+     */
+    ProduitDto updateProduit(final ProduitDto produitDto);
+
 }
