@@ -137,9 +137,8 @@
 
 		<!-- Action de l'équipe Panier -->
 
-		<action path="/afficherPanier" scope="session"
-			input="afficherPanier" parameter="" name="afficherPanier"
-			type="presentation.panier.action.VoirPanierAction">
+		<action path="/afficherPanier" scope="request" input=""
+			parameter="" type="presentation.panier.action.VoirPanierAction">
 			<forward name="success" path="afficherPanier"
 				redirect="false" />
 		</action>

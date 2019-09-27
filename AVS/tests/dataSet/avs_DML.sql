@@ -75,16 +75,14 @@ INSERT INTO `produitvendu` (`id_ProduitVendu`, `designation`, `reference`, `desc
 INSERT INTO `produitvendu` (`id_ProduitVendu`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `id_Produit_Historise`) VALUES (2, 'demenagement', 'DE6789', 'service_au_demenagement', 40, 'demenagement.jpg', 1, 14);
 INSERT INTO `produitvendu` (`id_ProduitVendu`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `id_Produit_Historise`) VALUES (3, 'demenagement 2', 'DE6789', 'service_au_demenagement', 50, 'demenagement.jpg', 2, 14);
 INSERT INTO `produitvendu` (`id_ProduitVendu`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `id_Produit_Historise`) VALUES (4, 'demenagement 3', 'DE6789', 'service_au_demenagement', 60, 'demenagement.jpg', 3, 14);
-INSERT INTO `produitvendu` (`id_ProduitVendu`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `id_Produit_Historise`) VALUES(10, 'jardinage', 'AB3456', 'entretien de jardin', 30, 'jardinage.jpg', 1, 12);
-INSERT INTO `produitvendu` (`id_ProduitVendu`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `id_Produit_Historise`) VALUES (11, 'demenagement', 'DE6789', 'service_au_demenagement', 40, 'demenagement.jpg', 1, 14);
 
 --
 -- Déchargement des données de la table `commandeproduit`
 --
 
 INSERT INTO `commandeproduit` (`id_CommandeProduit`, `idCommande`, `id_ProduitVendu`, `quantite`) VALUES(1, 1, 1, 2);
-INSERT INTO `commandeproduit` (`id_CommandeProduit`, `idCommande`, `id_ProduitVendu`, `quantite`) VALUES(2, 7, 10, 2);
-INSERT INTO `commandeproduit` (`id_CommandeProduit`, `idCommande`, `id_ProduitVendu`, `quantite`) VALUES(2, 7, 11, 1);
+INSERT INTO `commandeproduit` (`id_CommandeProduit`, `idCommande`, `id_ProduitVendu`, `quantite`) VALUES(2, 7, 1, 2);
+INSERT INTO `commandeproduit` (`id_CommandeProduit`, `idCommande`, `id_ProduitVendu`, `quantite`) VALUES(3, 7, 2, 1);
 
 --
 -- Déchargement des données de la table `droit`
@@ -117,6 +115,9 @@ INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(26, 'validerPanier
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(27, 'voirEditerUser.do', 'permet d_aller sur la page pour editer un user');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(28, 'viderPanier.do', 'permet d_aller sur la page pour vider');
 INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(29, 'supprimerPanier.do', 'permet de supprimer le panier');
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(30, 'diminuerQuantite.do', 'permet de diminuer la quantite d_un produit dans le panier');
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(31, 'supprimerProduit.do', 'permet de supprimer un produit');
+INSERT INTO `droit` (`id_Droit`, `url`, `description`) VALUES(32, 'consulterCommande.do', 'permet de consulter le detail d_une commande');
 
 --
 -- Déchargement des données de la table `profildroit`
@@ -178,6 +179,11 @@ INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(57,
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(58, 3, 28);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(59, 2, 29);
 INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(60, 3, 29);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(61, 2, 30);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(62, 3, 30);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(63, 3, 31);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(64, 2, 32);
+INSERT INTO `profildroit` (`id_ProfilDroit`, `id_Profil`, `id_Droit`) VALUES(65, 3, 32);
 
 --
 -- Déchargement des données de la table `produit`

@@ -26,7 +26,8 @@
 	<br /> <br />
 	<table>
 		<tr>
-			<td>Image</td>
+			<td><html:img style="width:100px; height:100px;"
+					src="${pageContext.request.contextPath}/afficherImage.do?urlImage=${produit.image}" /></td>
 			<td width="80%" style="padding-left: 80px"><bean:write
 					name="produit" property="description" /><br /> <bean:write
 					name="produit" property="prix" /> <bean:message key="Global.euro" />

@@ -59,13 +59,17 @@ public class PanierService implements IPanierService {
     public PanierDto remisePanier(final PanierDto panierDto) {
         // on convertit
         final double totalAvtRemise = FormatUtil.convertirStringToDouble(panierDto.getTotalAvantRemise());
+        double totalApresRemise = 0;
         if (panierDto.getQuantiteTotale() > QUANTITE_AVANT_REMISE && totalAvtRemise >= SEUIL_REMISE) {
             // on calcule le total après la remise
             panierDto.setTotalApresRemise(FormatUtil.convertirDoubleToString(totalAvtRemise * REMISE));
             // on calcule la remise
-            final double totalApresRemise = FormatUtil.convertirStringToDouble(panierDto.getTotalApresRemise());
+            totalApresRemise = FormatUtil.convertirStringToDouble(panierDto.getTotalApresRemise());
             panierDto.setRemise(FormatUtil.convertirDoubleToString(totalAvtRemise - totalApresRemise));
             return panierDto;
+        } else {
+            panierDto.setRemise(FormatUtil.convertirDoubleToString(0.00));
+            totalApresRemise = totalAvtRemise;
         }
 
         return panierDto;
