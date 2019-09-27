@@ -1,6 +1,7 @@
 package persistance.commande.beanDo;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -19,7 +20,7 @@ public class CommandeDo {
     private double                 remise;
     private String                 adresseLivraison;
     private String                 adresseFacturation;
-    private Set<CommandeProduitDo> commandeProduitSet;
+    private Set<CommandeProduitDo> commandeProduitSet = new HashSet<>();
 
     /**
      * Constructeur
