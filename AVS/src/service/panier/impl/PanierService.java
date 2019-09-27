@@ -65,6 +65,40 @@ public class PanierService implements IPanierService {
     }
 
     @Override
+    public PanierDto diminuerProduitPanier(final PanierDto panierDto, final int idProduit) {
+        final IProduitService iProduitService = Factory.getInstance(IProduitService.class);
+        final ProduitDto produitDto = iProduitService.getProduitById(idProduit);
+
+        // on récupère la quantité du produit dans le panier
+        final PanierDto.QuantitePrix quantitePrix = panierDto.getMapDesProduitsQte().get(produitDto);
+        final Integer quantite = quantitePrix.getQuantite();
+        if (quantite == 1) {
+            // s'il n'y a qu'un produit dans le panier, on enleve le produit de la map
+            panierDto.getMapDesProduitsQte().remove(produitDto);
+        } else {
+            // on convertit en double pour faire les calculs
+            final double prixProduit = FormatUtil.convertirStringToDouble(produitDto.getPrix());
+            final double prixCourant = FormatUtil.convertirStringToDouble(quantitePrix.getPrixParProduit());
+            // on calcule le nouveau prix
+            final double prixTotal = prixCourant - prixProduit;
+            // on met à jour la map en ajoutant 1 à la quantité et le nouveau prix en String
+            panierDto.getMapDesProduitsQte().put(produitDto, quantitePrix.ajouterQuantite(-1).updatePrix(FormatUtil.convertirDoubleToString(prixTotal)));
+        }
+
+        // on met à jour les autres attributs du panier
+        panierDto.setQuantiteTotale(panierDto.getMapDesProduitsQte().size());
+        // on convertit pour les calculs
+        final double total = FormatUtil.convertirStringToDouble(produitDto.getPrix());
+        final double totalAvtRemise = FormatUtil.convertirStringToDouble(panierDto.getTotalAvantRemise());
+        // on met à jour
+        panierDto.setTotalAvantRemise(FormatUtil.convertirDoubleToString(totalAvtRemise - total));
+        // on calcule la remise
+        remisePanier(panierDto);
+
+        return panierDto;
+    }
+
+    @Override
     public PanierDto remisePanier(final PanierDto panierDto) {
         // on convertit
         final double totalAvtRemise = FormatUtil.convertirStringToDouble(panierDto.getTotalAvantRemise());
@@ -78,7 +112,8 @@ public class PanierService implements IPanierService {
             return panierDto;
         } else {
             panierDto.setRemise(FormatUtil.convertirDoubleToString(0.00));
-            totalApresRemise = totalAvtRemise;
+            // on calcule le total après la remise
+            panierDto.setTotalApresRemise(FormatUtil.convertirDoubleToString(totalAvtRemise));
         }
 
         return panierDto;

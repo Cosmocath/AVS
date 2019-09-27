@@ -23,9 +23,19 @@ public class ConsulterCommandeAction extends Action {
     @Override
     public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         final ICommandeService iCommandeService = Factory.getInstance(ICommandeService.class);
-        final Integer idCommande = Integer.valueOf(request.getParameter("id"));
+
+        final Integer idCommande;
+
+        if (request.getParameter("id") != null) {
+            idCommande = Integer.parseInt(request.getParameter("id"));
+        } else {
+            idCommande = (Integer) request.getAttribute("id");
+        }
+
         final CommandeDto commandeDto = iCommandeService.findById(idCommande);
+
         request.setAttribute("consulterCommande", commandeDto);
+
         return mapping.findForward("success");
     }
 

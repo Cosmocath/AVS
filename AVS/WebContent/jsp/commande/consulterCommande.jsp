@@ -5,13 +5,10 @@
 	text-align: center;
 }
 
-produit {
-	text-align: center;
-}
 </style>
 <div style="background-color: white; height: 100%">
 
-	N°Commande :
+	<bean:message key="CDE_01.Commande.NumeroCommande" />:
 	<bean:write name="consulterCommande" property="numeroCommande" />
 
 	<table style="width: 100%">
@@ -75,7 +72,6 @@ produit {
 			<td><bean:write name="consulterCommande"
 					property="montantAvecRemise" /></td>
 		</tr>
-
 
 	</table>
 
