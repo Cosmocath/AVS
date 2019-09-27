@@ -34,7 +34,7 @@
 	<script language="JavaScript">
 		function tailleEcran() {
 			htEcran = screen.height;
-			htEcran = Math.round(htEcran * 0.853);
+			htEcran = Math.round(htEcran * 0.80);
 			document.getElementById("ecran").style.height = htEcran + "px";
 			document.getElementById("divBody").style.maxHeight = htEcran * 0.8
 					+ "px";
