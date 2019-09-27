@@ -15,10 +15,9 @@ import service.panier.IPanierService;
 import util.factory.Factory;
 
 /**
+ * Action permettant de supprimer un produit du panier
+ * 
  * @author Nora Liferki
- * 
- *         Action permettant de supprimer un produit du panier
- * 
  *
  */
 public class SupprimerPanierAction extends Action {
