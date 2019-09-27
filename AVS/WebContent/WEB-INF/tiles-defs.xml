@@ -63,6 +63,9 @@
 
 	<!-- Equipe Commande -->
 
+	<definition name="consulterCommande" extends="template">
+		<put name="body" value="/jsp/commande/consulterCommande.jsp" />
+	</definition>
 
 	<!-- Equipe Panier -->
 	<definition name="afficherPanier" extends="template">

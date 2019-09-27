@@ -170,6 +170,12 @@
 			<forward name="success" path="listerCommande"
 				redirect="false"></forward>
 		</action>
+		
+		<action path="/consulterCommande" scope="request" input=""
+			parameter="" type="presentation.commande.action.ConsulterCommandeAction">
+			<forward name="success" path="consulterCommande"
+				redirect="false"></forward>
+		</action>
 
 		<!-- Action de gestion image -->
 

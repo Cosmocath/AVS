@@ -8,6 +8,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import presentation.commande.beanDto.CommandeDto;
 import service.commande.ICommandeService;
 import util.factory.Factory;
 
@@ -17,17 +18,15 @@ import util.factory.Factory;
  * @author Valentin
  *
  */
-public class ConsulterCommandeAction extends Action{
+public class ConsulterCommandeAction extends Action {
 
     @Override
     public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
-        final ICommandeService iCommandeService = Factory.getInstance(ICommandeService.class);        
+        final ICommandeService iCommandeService = Factory.getInstance(ICommandeService.class);
         final Integer idCommande = Integer.valueOf(request.getParameter("idCommande"));
-        
-        
-        return super.execute(mapping, form, request, response);
+        final CommandeDto commandeDto = iCommandeService.findById(idCommande);
+        request.setAttribute("consulterCommande", commandeDto);
+        return mapping.findForward("success");
     }
-
- 
 
 }
