@@ -129,16 +129,18 @@ public class PanierService implements IPanierService {
     public CommandeDo validerPanier(PanierDto panierDto, CommandeInfoDto commandeInfoDto) {
         // vérifier que les produits sont bien à jour
         if (!isPanierValidable(panierDto)) {
+            // TODO RKU
+            System.out.println("pdts pas a jour");
             return null;
         }
 
         // construction de la map ProduitVenduDo/Quantité
         final IProduitVenduService iProduitVenduService = Factory.getInstance(IProduitVenduService.class);
         final Map<ProduitVenduDo, Integer> mapProduitVenduQuantite = iProduitVenduService.buildMapProduitVenduQuantite(panierDto);
-
+        // TODO RKU
+        System.out.println("map taille" + mapProduitVenduQuantite);
         // construction de la commandeDo
-        buildCommandeDo(panierDto, commandeInfoDto, mapProduitVenduQuantite);
-        return null;
+        return buildCommandeDo(panierDto, commandeInfoDto, mapProduitVenduQuantite);
     }
 
     @Override
