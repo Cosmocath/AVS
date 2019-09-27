@@ -66,7 +66,7 @@
 				<td>${produitDto.prix}<bean:message key="Global.euro" /></td>
 				<td>
 					<button type="button" onclick="augmenterQuantite">+</button>
-					<button type="button" onclick="diminuerLaQuantite">-</button>
+					<button type="button" onclick="diminuerQuantite">-</button>
 
 					<div style="float: right">
 						<html:link

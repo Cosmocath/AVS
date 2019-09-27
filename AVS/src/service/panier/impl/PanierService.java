@@ -61,7 +61,7 @@ public class PanierService implements IPanierService {
         final ProduitDto produitDto = iProduitService.getProduitById(idProduit);
 
         // on récupère la quantité du produit dans le panier
-        PanierDto.QuantitePrix quantitePrix = panierDto.getMapDesProduitsQte().get(produitDto);
+        final PanierDto.QuantitePrix quantitePrix = panierDto.getMapDesProduitsQte().get(produitDto);
         final Integer quantite = quantitePrix.getQuantite();
         if (quantite == 1) {
             // s'il n'y a qu'un produit dans le panier, on enleve le produit de la map

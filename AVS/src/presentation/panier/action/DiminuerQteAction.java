@@ -1,6 +1,3 @@
-/**
- * 
- */
 package presentation.panier.action;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,7 +25,7 @@ public class DiminuerQteAction extends Action {
     @Override
     public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         //je recupère la session
-        HttpSession session = request.getSession();
+        final HttpSession session = request.getSession();
         //je recupère le panier dans la session
         final PanierDto panierDto = (PanierDto) session.getAttribute(ConnecterUserAction.MON_PANIER);
         //je recupère l'idProduit en paramètre
