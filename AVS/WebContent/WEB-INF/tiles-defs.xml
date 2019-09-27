@@ -60,12 +60,8 @@
 	<definition name="creerProduit" extends="template">
 		<put name="body" value="/jsp/produit/creerProduit.jsp" />
 	</definition>
-	
+
 	<definition name="voirEditerProduit" extends="template">
-		<put name="body" value="/jsp/produit/editerProduit.jsp" />
-	</definition>
-	
-	<definition name="editerProduit" extends="template">
 		<put name="body" value="/jsp/produit/editerProduit.jsp" />
 	</definition>
 

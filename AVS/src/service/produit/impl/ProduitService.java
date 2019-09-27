@@ -68,12 +68,12 @@ public class ProduitService implements IProduitService {
     }
 
     @Override
-    public ProduitDto updateProduit(final Integer idProduit, final ProduitDto produitDto) {
+    public ProduitDto updateProduit(final ProduitDto produitDto) {
         final IProduitDao iProduitDao = Factory.getInstance(IProduitDao.class);
         // on recherche d abord si la nouvelle reference existe deja en BD
         ProduitDo produitDo = iProduitDao.findByReference(produitDto.getReference());
         // soit il n'y a pas de produit qui possede deja cette reference, soit c est le meme produit
-        if (produitDo == null || produitDo.getReference() == produitDo.getReference()) {
+        if (produitDo == null || produitDo.getId().equals(produitDto.getId())) {
             produitDo = iProduitDao.updateProduit(produitDto.getId(), ProduitMapper.mapToDo(produitDto));
             return ProduitMapper.mapToDto(produitDo);
         }

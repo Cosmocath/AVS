@@ -62,4 +62,5 @@ public interface IProduitDao {
      * @return le produit mis a jour, null en cas de probleme
      */
     ProduitDo updateProduit(final Integer idProduit, final ProduitDo produitDo);
+
 }

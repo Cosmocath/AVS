@@ -33,6 +33,8 @@ public class ProduitForm extends ActionForm {
     private String            prix;
     private String            image;
 
+    //TODO probleme avec l idProduit
+
     @Override
     public void reset(final ActionMapping mapping, final HttpServletRequest request) {
         // empty method

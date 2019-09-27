@@ -5,8 +5,9 @@
 		document.location.href = "voirCreerProduit.do";
 	}
 
-	function RedirectionEditer() {
-		document.location.href = "voirEditerProduit.do";
+// 	function RedirectionEditer() {
+// 		document.location.href = "voirEditerProduit.do?id="
+// 				+ document.getElementById("id").value;
 	}
 </script>
 
@@ -15,7 +16,6 @@
 	<h1>
 		<bean:message key="PDT_04.listerProduits.titre" />
 	</h1>
-
 	<div style="width: 100%; text-align: right; margin-bottom: 30px">
 		<html:button property="create" onclick="RedirectionJavascript()">
 			<bean:message key="PDT_04.bouton.creer" />
@@ -26,6 +26,9 @@
 	</div>
 
 	<logic:iterate name="listeProduits" id="produit" scope="request">
+<%-- 		<%-- ne pas perdre l'id du produit à modifier, on le soumet en tant que champ caché du form 
+		<html:hidden property="id" name="produit" styleId="id" /> --%>
+ 		
 		<div style="width: 100%; display: inline-block;">
 			<div style="width: 20%; float: left">
 				<html:link
@@ -39,9 +42,12 @@
 				<bean:write name="produit" property="reference" />
 			</div>
 			<div style="width: 20%; float: right;">
-				<html:button property="editer" onclick="RedirectionEditer()">
+				<html:link
+					href="voirEditerProduit.do?id=${produit.id}&retour=produitAdmin">
 					<bean:message key="PDT_04.bouton.editer" />
-				</html:button>
+				</html:link>
+					
+				
 				<div>
 					<bean:write name="produit" property="prix" />
 					<bean:message key="Global.euro" />
