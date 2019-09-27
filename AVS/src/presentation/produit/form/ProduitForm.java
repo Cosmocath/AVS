@@ -22,18 +22,19 @@ public class ProduitForm extends ActionForm {
     /**
      * 
      */
-    private static final long serialVersionUID = -6080826135423756585L;
-    private static final Integer TAILLE_MAX_IMAGE = 1000000;
+    private static final long    serialVersionUID = -6080826135423756585L;
+    // Correspond à 1mo
+    private static final Integer TAILLE_MAX_IMAGE = 1048576;
 
     /**
      * Pour le champ caché de la modif
      */
-    private String            idProduit;
-    private String            designation;
-    private String            reference;
-    private String            description;
-    private String            prix;
-    private FormFile          image;
+    private String               idProduit;
+    private String               designation;
+    private String               reference;
+    private String               description;
+    private String               prix;
+    private FormFile             image;
 
     @Override
     public void reset(final ActionMapping mapping, final HttpServletRequest request) {
@@ -72,7 +73,7 @@ public class ProduitForm extends ActionForm {
 
         if (getImage().getFileSize() > TAILLE_MAX_IMAGE) {
             //10kb verifier la taille avec des tests
-            errors.add("image", new ActionMessage("PDT_02.image.size.limit", TAILLE_MAX_IMAGE));
+            errors.add("image", new ActionMessage("PDT_02.image.size.limit", TAILLE_MAX_IMAGE / Math.pow(1024, 2)));
             return errors;
         }
 
