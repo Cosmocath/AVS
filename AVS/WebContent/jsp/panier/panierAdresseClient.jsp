@@ -16,7 +16,6 @@
 							value="${adresse}"></html:textarea></td>
 					<td><html:errors property="adresseLivraison"
 							header="errors.global.header" footer="errors.global.footer" /></td>
-					<td><html:errors property="adresseLivraison" /></td>
 				</tr>
 				<tr>
 					<td><bean:message key="PAN_01.Label.Adresse.Facturation" /></td>
@@ -24,7 +23,6 @@
 							value="${adresse}"></html:textarea></td>
 					<td><html:errors property="adresseFacturation"
 							header="errors.global.header" footer="errors.global.footer" /></td>
-					<td><html:errors property="adresseFacturation" /></td>
 				</tr>
 				<tr>
 					<td align="left"><html:reset property="submit" value="Reset" />

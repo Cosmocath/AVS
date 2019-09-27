@@ -6,15 +6,14 @@
 		<h1>
 			<bean:message key="USR_04.titre" />
 		</h1>
-		
-			<%-- Permet d'afficher les messages si present --%>
-	<logic:messagesPresent message="true">
-		<html:messages id="updateOK" property="updateOK"
-			message="true" header="valid.global.header"
-			footer="valid.global.footer">
-			<bean:write name="updateOK" />
-		</html:messages>
-	</logic:messagesPresent>
+
+		<%-- Permet d'afficher les messages si present --%>
+		<logic:messagesPresent message="true">
+			<html:messages id="updateOK" property="updateOK" message="true"
+				header="valid.global.header" footer="valid.global.footer">
+				<bean:write name="updateOK" />
+			</html:messages>
+		</logic:messagesPresent>
 
 		<html:form action="/editerUser.do" focus="mail">
 

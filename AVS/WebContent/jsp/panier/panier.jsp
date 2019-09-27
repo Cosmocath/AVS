@@ -126,7 +126,7 @@
 			<bean:message key="PAN_00.Vider" />
 		</button>
 		<button type="button" onclick="validerPanier()" >
-			<bean:message key="PAN_00.Valider" />
+			<bean:message key="PAN_00.Valider"/>
 		</button>
 	</div>
 	<br /> <br />
