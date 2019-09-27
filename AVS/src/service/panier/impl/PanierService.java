@@ -15,6 +15,7 @@ import presentation.produit.beanDto.ProduitDto;
 import service.panier.IPanierService;
 import service.produit.IProduitService;
 import service.produitVendu.IProduitVenduService;
+import service.users.IUserService;
 import util.factory.Factory;
 import util.tools.FormatUtil;
 
@@ -32,7 +33,7 @@ public class PanierService implements IPanierService {
     }
 
     /**
-     * Vérifie que tous les produits du panier sont à jour avec la table 'Produit' (concerne les versions)
+     * Vérifie que tous les produits du panier sont à jour avec la table 'Produit' en terme de version
      * 
      * @param panierDto
      * @return vrai ou faux
@@ -49,19 +50,28 @@ public class PanierService implements IPanierService {
     }
 
     private CommandeDo buildCommandeDo(final PanierDto panierDto, final CommandeInfoDto commandeInfoDto, final Map<ProduitVenduDo, Integer> mapProduitVenduQuantite) {
-        CommandeDo commandeDo = new CommandeDo();
+        final CommandeDo commandeDo = new CommandeDo();
         commandeDo.setAdresseLivraison(commandeInfoDto.getAdresseLivraison());
         commandeDo.setAdresseFacturation(commandeInfoDto.getAdresseFacturation());
+        
+        // récupération de l'idUser
+        final int idUser = Integer.valueOf(commandeInfoDto.getUserId());
+        commandeDo.setIdUtilisateur(idUser);
 
-        commandeDo.setIdUtilisateur(Integer.valueOf(commandeInfoDto.getUserId()));
+        //TODO RKU : définir N°commande (pour l'instant en dur)
+        commandeDo.setNumeroCommande("007_numero en dur");
+        //renseignement du nom
+        final IUserService iUserService = Factory.getInstance(IUserService.class);
+        //on recupère le nom de l'utilisateur
+        final String nomUtilisateur = iUserService.findUserDto(idUser).getNom();
+        commandeDo.setNom(nomUtilisateur);
 
-        //TODO RKU : définir nomUser, date et N°commande
         commandeDo.setDateCommande(new Date());
         commandeDo.setMontantSansRemise(FormatUtil.convertirStringToDouble(panierDto.getTotalAvantRemise()));
         commandeDo.setRemise(FormatUtil.convertirStringToDouble(panierDto.getRemise()));
 
         // construction du Set CommandeProduitDo
-        Set<CommandeProduitDo> setCommandeProduitDo = new HashSet<>();
+        final Set<CommandeProduitDo> setCommandeProduitDo = new HashSet<>();
         for (final Map.Entry<ProduitVenduDo, Integer> entry : mapProduitVenduQuantite.entrySet()) {
             final CommandeProduitDo commandeProduitDo = new CommandeProduitDo();
             commandeProduitDo.setCommandeDo(commandeDo);
@@ -163,8 +173,6 @@ public class PanierService implements IPanierService {
 
         // vérifier que les produits sont bien à jour
         if (!isPanierValidable(panierDto)) {
-            // TODO RKU
-            System.out.println("pdts pas a jour");
             return null;
         }
 
