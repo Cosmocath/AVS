@@ -121,9 +121,8 @@
 
 		<!-- Action de l'équipe Panier -->
 
-		<action path="/afficherPanier" scope="session"
-			input="afficherPanier" parameter="" name="afficherPanier"
-			type="presentation.panier.action.VoirPanierAction">
+		<action path="/afficherPanier" scope="request" input=""
+			parameter="" type="presentation.panier.action.VoirPanierAction">
 			<forward name="success" path="afficherPanier"
 				redirect="false" />
 		</action>
@@ -137,7 +136,13 @@
 				redirect="true" />
 			<forward name="pan_00" path="afficherPanier.do"
 				redirect="true" />
+		</action>
 
+		<action path="/supprimerPanier" scope="request" input=""
+			parameter="" name=""
+			type="presentation.panier.action.SupprimerPanierAction">
+			<forward name="success" path="afficherPanier.do"
+				redirect="true" />
 		</action>
 		<action path="/voirValiderPanier" scope="request" input=""
 			parameter=""
