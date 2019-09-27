@@ -36,6 +36,15 @@ public interface IPanierService {
      */
     CommandeDo validerPanier(final PanierDto panierDto);
 
+    /** 
+     *  Méthode permettant de faire appel à un produit de la couche persistance pour le supprimer du panier
+     * 
+     * @param panierDto qui contient les infos des produits à supprimer du panier
+     * @param idProduit l'id du produit à supprimer
+     * @return un panierDto si supp OK, sinon null
+     */
+    PanierDto deleteProduitPanier(final PanierDto panierDto, final int idProduit);
+
     /**
      * Permet de vider le panier
      * 
@@ -43,5 +52,4 @@ public interface IPanierService {
      * @return panierDto vide
      */
     PanierDto viderPanierDto(final PanierDto panierDto);
-
 }

@@ -12,13 +12,13 @@
 		<bean:message key="PDT_00.listerProduits.titre" />
 	</h1>
 
-	<%-- 	<%-- JS nécessaire pour le bouton supprimer --%>
-	<!--A décommenter après les tests!! -->
-	<!-- 	<script type="text/javascript"> -->
-	<!-- 	// function RedirectionJavascript() { // document.location.href = -->
-	<!-- 	"ajouterPanier.do?id=" // + document.getElementById("id").value // -->
-	<!-- 	"&retour=listeProduitClient"; // } -->
-	<!-- 	</script> -->
+	<script type="text/javascript">
+		function RedirectionJavascript(id) {
+			var lien = "ajouterPanier.do?id=" + id
+					+ "&retour=listeProduitClient";
+			document.location.href = lien;
+		}
+	</script>
 
 	<div style="float: right">
 		<html:link href="listerProduitClient.do?orderBy=${TRI}">
@@ -43,10 +43,10 @@
 						name="produit" property="prix" /> <bean:message key="Global.euro" />
 					<bean:message key="PDT_00.produit.labelPrix" /></td>
 
-				<td align="right"><html:link
-						href="ajouterPanier.do?id=${produit.id}&retour=listeProduitClient">
+				<td align="right"><html:button property="add"
+						onclick="RedirectionJavascript(${produit.id})">
 						<bean:message key="PDT_00.bouton.ajouterPanier" />
-					</html:link></td>
+					</html:button></td>
 			</tr>
 		</logic:iterate>
 	</table>

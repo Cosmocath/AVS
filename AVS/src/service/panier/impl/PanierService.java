@@ -45,14 +45,14 @@ public class PanierService implements IPanierService {
         }
         return true;
     }
-    
-    private CommandeDo buildCommandeDo(final PanierDto panierDto, final String adresseLivraison, final String adresseFacturation, final Map<ProduitVenduDo,Integer> mapProduitVenduQuantite) {
+
+    private CommandeDo buildCommandeDo(final PanierDto panierDto, final String adresseLivraison, final String adresseFacturation, final Map<ProduitVenduDo, Integer> mapProduitVenduQuantite) {
         CommandeDo commandeDo = new CommandeDo();
         commandeDo.setAdresseLivraison(adresseLivraison);
         commandeDo.setAdresseFacturation(adresseFacturation);
         commandeDo.setMontantSansRemise(FormatUtil.convertirStringToDouble(panierDto.getTotalAvantRemise()));
         commandeDo.setRemise(FormatUtil.convertirStringToDouble(panierDto.getRemise()));
-        
+
         // construction du Set CommandeProduitDo
         Set<CommandeProduitDo> setCommandeProduitDo = new HashSet<>();
         for (final Map.Entry<ProduitVenduDo, Integer> entry : mapProduitVenduQuantite.entrySet()) {
@@ -105,13 +105,17 @@ public class PanierService implements IPanierService {
     public PanierDto remisePanier(final PanierDto panierDto) {
         // on convertit
         final double totalAvtRemise = FormatUtil.convertirStringToDouble(panierDto.getTotalAvantRemise());
+        double totalApresRemise = 0;
         if (panierDto.getQuantiteTotale() > QUANTITE_AVANT_REMISE && totalAvtRemise >= SEUIL_REMISE) {
             // on calcule le total après la remise
             panierDto.setTotalApresRemise(FormatUtil.convertirDoubleToString(totalAvtRemise * REMISE));
             // on calcule la remise
-            final double totalApresRemise = FormatUtil.convertirStringToDouble(panierDto.getTotalApresRemise());
+            totalApresRemise = FormatUtil.convertirStringToDouble(panierDto.getTotalApresRemise());
             panierDto.setRemise(FormatUtil.convertirDoubleToString(totalAvtRemise - totalApresRemise));
             return panierDto;
+        } else {
+            panierDto.setRemise(FormatUtil.convertirDoubleToString(0.00));
+            totalApresRemise = totalAvtRemise;
         }
 
         return panierDto;
@@ -131,6 +135,37 @@ public class PanierService implements IPanierService {
         // construction de la commandeDo
         buildCommandeDo(panierDto, adresseLivraison, adresseFacturation, mapProduitVenduQuantite)
         return null;
+    }
+
+    @Override
+    public PanierDto deleteProduitPanier(final PanierDto panierDto, final int idProduit) {
+        final IProduitService iProduitService = Factory.getInstance(IProduitService.class);
+
+        // Récupération de du produit grâce à son Id
+        final ProduitDto produitDto = iProduitService.getProduitById(idProduit);
+
+        //Récupération "QuantitéPrix" dans la map 
+        final PanierDto.QuantitePrix quantitePrix = panierDto.getMapDesProduitsQte().get(produitDto);
+
+        //Récupération de la quantité de produit dans "QuantitéPrix (classe)" 
+        final int quantite = quantitePrix.getQuantite();
+
+        //Suppression du produit de la map
+        panierDto.getMapDesProduitsQte().remove(produitDto, quantitePrix);
+
+        // Je màj la quantiteTotale 
+        panierDto.setQuantiteTotale(panierDto.getMapDesProduitsQte().size());
+
+        // Déduction du produit (quantité*prix) du TotalAVantRemise
+        final double totalAvtRemise = FormatUtil.convertirStringToDouble(panierDto.getTotalAvantRemise());
+        final double total = FormatUtil.convertirStringToDouble(produitDto.getPrix()) * quantite;
+
+        panierDto.setTotalAvantRemise(FormatUtil.convertirDoubleToString(totalAvtRemise - total));
+
+        // on calcule la remise
+        remisePanier(panierDto);
+        return panierDto;
+
     }
 
     @Override

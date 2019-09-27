@@ -12,6 +12,7 @@
 		<!-- les propriétés simples -->
 		<property name="idUtilisateur" column="id_Utilisateur"
 			type="int"></property>
+		<property name="nom" column="nom"></property>
 		<property name="numeroCommande" column="numero_Commande"></property>
 		<property name="dateCommande" column="date_Commande"
 			type="date"></property>
