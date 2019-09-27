@@ -10,6 +10,7 @@ import java.util.Set;
  *
  */
 public class CommandeDo {
+    
     private int                    idCommande;
     private int                    idUtilisateur;
     private String                 numeroCommande;

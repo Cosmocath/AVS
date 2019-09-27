@@ -2,6 +2,7 @@ package service.produitVendu.impl;
 
 import persistance.produitVendu.beanDo.ProduitVenduDo;
 import presentation.produit.beanDto.ProduitDto;
+import presentation.produitVendu.beanDto.ProduitVenduDto;
 import service.produitVendu.IProduitVenduService;
 import util.tools.FormatUtil;
 
@@ -10,7 +11,6 @@ import util.tools.FormatUtil;
  *
  */
 public class ProduitVenduService implements IProduitVenduService {
-    
 
     /**
      * Constructeur vide
@@ -31,5 +31,15 @@ public class ProduitVenduService implements IProduitVenduService {
         produitVenduDo.setNumeroVersion(produitDto.getNoVersion());
         return produitVenduDo;
 
+    }
+
+    @Override
+    public ProduitVenduDto mapProduitDoToDto(final ProduitVenduDo produitVenduDo) {
+        final ProduitVenduDto produitVenduDto = new ProduitVenduDto();
+        produitVenduDto.setIdProduitHistorise(produitVenduDo.getIdProduitHistorise());
+        produitVenduDto.setReference(produitVenduDo.getReference());
+        produitVenduDto.setPrix(FormatUtil.convertirDoubleToString(produitVenduDo.getPrix()));
+        produitVenduDto.setImage(produitVenduDo.getImage());
+        return produitVenduDto;
     }
 }

@@ -10,7 +10,10 @@ import java.util.Set;
 import persistance.commande.beanDo.CommandeDo;
 import persistance.commande.beanDo.CommandeProduitDo;
 import presentation.commande.beanDto.CommandeDto;
-import presentation.commande.beanDto.CommandeProduitDto;
+import presentation.commande.beanDto.CommandeDto.QuantitePrix;
+import presentation.produitVendu.beanDto.ProduitVenduDto;
+import service.produitVendu.IProduitVenduService;
+import util.factory.Factory;
 import util.tools.FormatUtil;
 
 /**
@@ -28,20 +31,28 @@ public class CommandeMapper {
      * @return commandeDto
      */
     public static CommandeDto mapToDto(final CommandeDo commandeDo) {
+        final IProduitVenduService iProduitVenduService = Factory.getInstance(IProduitVenduService.class);
         final DecimalFormat df = new DecimalFormat("0.00");
         final double montantMoinsRemise = (commandeDo.getMontantSansRemise() - commandeDo.getRemise());
         final String montant = df.format(montantMoinsRemise);
+        // On recupère la set de commandeDo
         Set<CommandeProduitDo> setComm = commandeDo.getCommandeProduitSet();
-
-        Map<CommandeProduitDto, Integer> mapComm = new HashMap<>();
-
+        // On prépare une map 
+        Map<ProduitVenduDto, QuantitePrix> mapComm = new HashMap<>();
+        // pour chaque commandeProduits dans le set
         for (CommandeProduitDo comm : setComm) {
-            //TODO mapper CommandeProduitDo
-            //            mapComm.put(comm, comm.getQuantite());
+            // on fait un QuantitePrix on recupère la quantite et on calcul du prixtotal par type de produit et mis en string
+            final QuantitePrix quantitePrix = new QuantitePrix();
+            quantitePrix.setQuantite(comm.getQuantite());
+            quantitePrix.setPrixParTypeProduit(FormatUtil.convertirDoubleToString(comm.getProduitVenduDo().getPrix() * comm.getQuantite()));
+            // on met le produitVenduDo de commandeProduit dans la map mapper en Dto et le quantiteprix
+            mapComm.put(iProduitVenduService.mapProduitDoToDto(comm.getProduitVenduDo()), quantitePrix);
+
         }
 
         return CommandeDto.build(commandeDo.getIdUtilisateur(), commandeDo.getIdCommande(), commandeDo.getNumeroCommande(), FormatUtil.convertirDateToString(commandeDo.getDateCommande()), montant,
-                        commandeDo.getRemise(), commandeDo.getMontantSansRemise());
+                        FormatUtil.convertirDoubleToString(commandeDo.getRemise()), FormatUtil.convertirDoubleToString(commandeDo.getMontantSansRemise()), mapComm, commandeDo.getAdresseLivraison(),
+                        commandeDo.getAdresseFacturation());
     }
 
     /**

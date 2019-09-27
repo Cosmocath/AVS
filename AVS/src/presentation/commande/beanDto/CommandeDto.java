@@ -3,6 +3,8 @@ package presentation.commande.beanDto;
 import java.io.Serializable;
 import java.util.Map;
 
+import presentation.produitVendu.beanDto.ProduitVenduDto;
+
 /**
  * Représentation de l'écran CDE_00
  * 
@@ -14,18 +16,18 @@ public class CommandeDto implements Serializable {
     /**
      * generated UID
      */
-    private static final long                serialVersionUID = 542346324375306389L;
+    private static final long                  serialVersionUID = 542346324375306389L;
 
-    private Integer                          idUtilisateur;
-    private Integer                          idCommande;
-    private String                           numeroCommande;
-    private String                           date;
-    private String                           montantAvecRemise;
-    private String                           remise;
-    private String                           montantSansRemise;
-    private Map<CommandeProduitDto, Integer> mapProduitDto;
-    private String                           adresseLivraison;
-    private String                           adresseFacturation;
+    private Integer                            idUtilisateur;
+    private Integer                            idCommande;
+    private String                             numeroCommande;
+    private String                             date;
+    private String                             montantAvecRemise;
+    private String                             remise;
+    private String                             montantSansRemise;
+    private Map<ProduitVenduDto, QuantitePrix> mapProduitVenduDto;
+    private String                             adresseLivraison;
+    private String                             adresseFacturation;
 
     /**
      * Builder pour le Dto
@@ -41,7 +43,7 @@ public class CommandeDto implements Serializable {
      * @return la commade Dto Initialisé
      */
     public static CommandeDto build(final Integer idUtilisateur, final Integer idCommande, final String numeroCommande, final String date, final String montantAvecRemise, final String remise,
-                    final String montantSansRemise, final Map<CommandeProduitDto, Integer> mapProduitDto, final String adresseLivraison, final String adresseFacturation) {
+                    final String montantSansRemise, final Map<ProduitVenduDto, QuantitePrix> mapProduitVenduDto, final String adresseLivraison, final String adresseFacturation) {
         final CommandeDto commandeDto = new CommandeDto();
         commandeDto.setIdUtilisateur(idUtilisateur);
         commandeDto.setIdCommande(idCommande);
@@ -50,7 +52,7 @@ public class CommandeDto implements Serializable {
         commandeDto.setMontantAvecRemise(montantAvecRemise);
         commandeDto.setRemise(remise);
         commandeDto.setMontantSansRemise(montantSansRemise);
-        commandeDto.setMapProduitDto(mapProduitDto);
+        commandeDto.setMapProduitVenduDto(mapProduitVenduDto);
         commandeDto.setAdresseLivraison(adresseLivraison);
         commandeDto.setAdresseFacturation(adresseFacturation);
         return commandeDto;
@@ -69,8 +71,8 @@ public class CommandeDto implements Serializable {
      * @return la commande Dto Initialisé
      */
     public static CommandeDto build(final Integer idCommande, final String numeroCommande, final String date, final String montantAvecRemise, final String remise, final String montantSansRemise,
-                    final Map<CommandeProduitDto, Integer> mapProduitDto, final String adresseLivraison, final String adresseFacturation) {
-        return build(null, idCommande, numeroCommande, date, montantAvecRemise, remise, montantSansRemise, mapProduitDto, adresseLivraison, adresseFacturation);
+                    final Map<ProduitVenduDto, QuantitePrix> mapProduitVenduDto, final String adresseLivraison, final String adresseFacturation) {
+        return build(null, idCommande, numeroCommande, date, montantAvecRemise, remise, montantSansRemise, mapProduitVenduDto, adresseLivraison, adresseFacturation);
     }
 
     /**
@@ -172,17 +174,17 @@ public class CommandeDto implements Serializable {
     }
 
     /**
-     * @return the mapProduitDto
+     * @return the mapProduitVenduDto
      */
-    public Map<CommandeProduitDto, Integer> getMapProduitDto() {
-        return mapProduitDto;
+    public Map<ProduitVenduDto, QuantitePrix> getMapProduitVenduDto() {
+        return mapProduitVenduDto;
     }
 
     /**
-     * @param mapProduitDto the mapProduitDto to set
+     * @param mapProduitVenduDto the mapProduitVenduDto to set
      */
-    public void setMapProduitDto(final Map<CommandeProduitDto, Integer> mapProduitDto) {
-        this.mapProduitDto = mapProduitDto;
+    public void setMapProduitVenduDto(final Map<ProduitVenduDto, QuantitePrix> mapProduitVenduDto) {
+        this.mapProduitVenduDto = mapProduitVenduDto;
     }
 
     /**
@@ -211,6 +213,46 @@ public class CommandeDto implements Serializable {
      */
     public void setAdresseFacturation(final String adresseFacturation) {
         this.adresseFacturation = adresseFacturation;
+    }
+
+    /**
+     * Classe interne pour la quantite et le prix d'un produit
+     * 
+     * @author Administrateur
+     *
+     */
+    public static class QuantitePrix {
+        private Integer quantite           = 0;
+        private String  prixParTypeProduit = "";
+
+        /**
+         * @return the quantite
+         */
+        public Integer getQuantite() {
+            return quantite;
+        }
+
+        /**
+         * @param quantite the quantite to set
+         */
+        public void setQuantite(final Integer quantite) {
+            this.quantite = quantite;
+        }
+
+        /**
+         * @return the prixParTypeProduit
+         */
+        public String getPrixParTypeProduit() {
+            return prixParTypeProduit;
+        }
+
+        /**
+         * @param prixParTypeProduit the prixParTypeProduit to set
+         */
+        public void setPrixParTypeProduit(final String prixParTypeProduit) {
+            this.prixParTypeProduit = prixParTypeProduit;
+        }
+
     }
 
 }
