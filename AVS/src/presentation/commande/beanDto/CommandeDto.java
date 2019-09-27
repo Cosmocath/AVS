@@ -14,16 +14,18 @@ public class CommandeDto implements Serializable {
     /**
      * generated UID
      */
-    private static final long serialVersionUID = 542346324375306389L;
+    private static final long                serialVersionUID = 542346324375306389L;
 
-    private Integer           idUtilisateur;
-    private Integer           idCommande;
-    private String            numeroCommande;
-    private String            date;
-    private String            montantAvecRemise;
-    private String            remise;
-    private String            montantSansRemise;
-    private Map<CommandeProduitDto,Integer> mapProduitDto;
+    private Integer                          idUtilisateur;
+    private Integer                          idCommande;
+    private String                           numeroCommande;
+    private String                           date;
+    private String                           montantAvecRemise;
+    private String                           remise;
+    private String                           montantSansRemise;
+    private Map<CommandeProduitDto, Integer> mapProduitDto;
+    private String                           adresseLivraison;
+    private String                           adresseFacturation;
 
     /**
      * Builder pour le Dto
@@ -33,15 +35,24 @@ public class CommandeDto implements Serializable {
      * @param numeroCommande
      * @param date
      * @param montantAvecRemise
+     * @param remise
+     * @param montantSansRemise
+     * @param mapProduitDto
      * @return la commade Dto Initialisé
      */
-    public static CommandeDto build(final Integer idUtilisateur, final Integer idCommande, final String numeroCommande, final String date, final String montantAvecRemise) {
+    public static CommandeDto build(final Integer idUtilisateur, final Integer idCommande, final String numeroCommande, final String date, final String montantAvecRemise, final String remise,
+                    final String montantSansRemise, final Map<CommandeProduitDto, Integer> mapProduitDto, final String adresseLivraison, final String adresseFacturation) {
         final CommandeDto commandeDto = new CommandeDto();
         commandeDto.setIdUtilisateur(idUtilisateur);
         commandeDto.setIdCommande(idCommande);
         commandeDto.setNumeroCommande(numeroCommande);
         commandeDto.setDate(date);
         commandeDto.setMontantAvecRemise(montantAvecRemise);
+        commandeDto.setRemise(remise);
+        commandeDto.setMontantSansRemise(montantSansRemise);
+        commandeDto.setMapProduitDto(mapProduitDto);
+        commandeDto.setAdresseLivraison(adresseLivraison);
+        commandeDto.setAdresseFacturation(adresseFacturation);
         return commandeDto;
     }
 
@@ -52,10 +63,14 @@ public class CommandeDto implements Serializable {
      * @param numeroCommande
      * @param date
      * @param montantAvecRemise
+     * @param remise
+     * @param montantSansRemise
+     * @param mapProduitDto
      * @return la commande Dto Initialisé
      */
-    public static CommandeDto build(final Integer idCommande, final String numeroCommande, final String date, final String montantAvecRemise) {
-        return build(null, idCommande, numeroCommande, date, montantAvecRemise);
+    public static CommandeDto build(final Integer idCommande, final String numeroCommande, final String date, final String montantAvecRemise, final String remise, final String montantSansRemise,
+                    final Map<CommandeProduitDto, Integer> mapProduitDto, final String adresseLivraison, final String adresseFacturation) {
+        return build(null, idCommande, numeroCommande, date, montantAvecRemise, remise, montantSansRemise, mapProduitDto, adresseLivraison, adresseFacturation);
     }
 
     /**
@@ -168,6 +183,34 @@ public class CommandeDto implements Serializable {
      */
     public void setMapProduitDto(final Map<CommandeProduitDto, Integer> mapProduitDto) {
         this.mapProduitDto = mapProduitDto;
+    }
+
+    /**
+     * @return the adresseLivraison
+     */
+    public String getAdresseLivraison() {
+        return adresseLivraison;
+    }
+
+    /**
+     * @param adresseLivraison the adresseLivraison to set
+     */
+    public void setAdresseLivraison(final String adresseLivraison) {
+        this.adresseLivraison = adresseLivraison;
+    }
+
+    /**
+     * @return the adresseFacturation
+     */
+    public String getAdresseFacturation() {
+        return adresseFacturation;
+    }
+
+    /**
+     * @param adresseFacturation the adresseFacturation to set
+     */
+    public void setAdresseFacturation(final String adresseFacturation) {
+        this.adresseFacturation = adresseFacturation;
     }
 
 }

@@ -2,10 +2,15 @@ package service.commande;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import persistance.commande.beanDo.CommandeDo;
+import persistance.commande.beanDo.CommandeProduitDo;
 import presentation.commande.beanDto.CommandeDto;
+import presentation.commande.beanDto.CommandeProduitDto;
 import util.tools.FormatUtil;
 
 /**
@@ -24,8 +29,19 @@ public class CommandeMapper {
      */
     public static CommandeDto mapToDto(final CommandeDo commandeDo) {
         final DecimalFormat df = new DecimalFormat("0.00");
-        final String montant = df.format(commandeDo.getMontantSansRemise());
-        return CommandeDto.build(commandeDo.getIdUtilisateur(), commandeDo.getIdCommande(), commandeDo.getNumeroCommande(), FormatUtil.convertirDateToString(commandeDo.getDateCommande()), montant);
+        final double montantMoinsRemise = (commandeDo.getMontantSansRemise() - commandeDo.getRemise());
+        final String montant = df.format(montantMoinsRemise);
+        Set<CommandeProduitDo> setComm = commandeDo.getCommandeProduitSet();
+
+        Map<CommandeProduitDto, Integer> mapComm = new HashMap<>();
+
+        for (CommandeProduitDo comm : setComm) {
+            //TODO mapper CommandeProduitDo
+            //            mapComm.put(comm, comm.getQuantite());
+        }
+
+        return CommandeDto.build(commandeDo.getIdUtilisateur(), commandeDo.getIdCommande(), commandeDo.getNumeroCommande(), FormatUtil.convertirDateToString(commandeDo.getDateCommande()), montant,
+                        commandeDo.getRemise(), commandeDo.getMontantSansRemise());
     }
 
     /**
