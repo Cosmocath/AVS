@@ -27,5 +27,13 @@ public interface ICommandeDao {
      * @return une commande
      */
     CommandeDo findById(final Integer idCommande);
+    
+    /**
+     * Permet de creer une commande
+     * 
+     * @param commandeDo
+     * @return une commandeDo
+     */
+    CommandeDo createCommandeDo(final CommandeDo commandeDo);
 
 }

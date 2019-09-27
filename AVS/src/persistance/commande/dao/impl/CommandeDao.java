@@ -51,4 +51,26 @@ public class CommandeDao implements ICommandeDao {
         return null;
     }
 
+    @Override
+    public CommandeDo createCommandeDo(final CommandeDo commandeDo) {
+        try (final Session session = sessionFactory.openSession()) {
+            //on crée une transaction
+            final Transaction transaction = session.beginTransaction();
+
+            session.save(commandeDo);
+            session.flush();
+
+            //on commite
+            transaction.commit();
+
+            //en cas d'erreur:
+            //transaction.rollback
+            return commandeDo;
+        } catch (final HibernateException hibernateException) {
+            //on catche des HibernateException
+            hibernateException.printStackTrace();
+        }
+        return null;
+    }
+
 }
