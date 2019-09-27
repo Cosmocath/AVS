@@ -12,6 +12,7 @@ import java.util.Set;
 public class CommandeDo {
     private int                    idCommande;
     private int                    idUtilisateur;
+    private String                 nom;
     private String                 numeroCommande;
     private Date                   dateCommande;
     private double                 montantSansRemise;
@@ -152,6 +153,20 @@ public class CommandeDo {
      */
     public void setCommandeProduitSet(final Set<CommandeProduitDo> commandeProduitSet) {
         this.commandeProduitSet = commandeProduitSet;
+    }
+
+    /**
+     * @return the nom
+     */
+    public String getNom() {
+        return nom;
+    }
+
+    /**
+     * @param nom the nom to set
+     */
+    public void setNom(final String nom) {
+        this.nom = nom;
     }
 
 }

@@ -1,5 +1,7 @@
 package presentation.produit.action;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -31,17 +33,24 @@ public class CreerProduitAction extends Action {
      * @return
      */
     private ProduitDto mapToDto(final ProduitForm produitForm) {
-        return ProduitDto.build(produitForm.getDesignation(), produitForm.getReference(), produitForm.getDescription(), ConversionUtil.convertStringCommaToDot(produitForm.getPrix()),
-                        produitForm.getImage(), 1);
+        try {
+            return ProduitDto.build(produitForm.getDesignation(), produitForm.getReference(), produitForm.getDescription(), ConversionUtil.convertStringCommaToDot(produitForm.getPrix()),
+                            produitForm.getImage().getFileName(), 1, produitForm.getImage().getFileData());
+        } catch (final IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
     public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         // on récupère les infos
         final ProduitForm produitForm = (ProduitForm) form;
+
         // on récupère les données du Service
         final IProduitService iProduitService = Factory.getInstance(IProduitService.class);
         final ProduitDto produitDto = iProduitService.create(mapToDto(produitForm));
+
         // on teste le retour du service
         if (produitDto == null) {
             final ActionErrors errors = new ActionErrors();
