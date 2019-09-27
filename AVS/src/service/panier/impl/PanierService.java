@@ -103,7 +103,8 @@ public class PanierService implements IPanierService {
             return panierDto;
         } else {
             panierDto.setRemise(FormatUtil.convertirDoubleToString(0.00));
-            totalApresRemise = totalAvtRemise;
+            // on calcule le total après la remise
+            panierDto.setTotalApresRemise(FormatUtil.convertirDoubleToString(totalAvtRemise));
         }
 
         return panierDto;
