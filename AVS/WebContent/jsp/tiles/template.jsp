@@ -17,7 +17,8 @@
 					attribute="header" /></td>
 		</tr>
 		<tr valign="top">
-			<td width="20%" style="height: 80%"><tiles:insert
+			<td width="20%"
+				style="height: 80%; padding-top: 29px; padding-left: 14px;"><tiles:insert
 					attribute="menu" /></td>
 			<td width="80%" style="height: 80%"><div id="divBody"
 					style="overflow-y: auto; max-height: 100px">
@@ -33,9 +34,10 @@
 	<script language="JavaScript">
 		function tailleEcran() {
 			htEcran = screen.height;
-			htEcran = Math.round(htEcran * 0.855);
+			htEcran = Math.round(htEcran * 0.80);
 			document.getElementById("ecran").style.height = htEcran + "px";
-			document.getElementById("divBody").style.maxHeight = htEcran * 0.8 + "px";
+			document.getElementById("divBody").style.maxHeight = htEcran * 0.8
+					+ "px";
 		}
 		tailleEcran();
 	</script>
