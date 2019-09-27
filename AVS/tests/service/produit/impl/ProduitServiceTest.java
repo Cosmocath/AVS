@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
@@ -18,6 +19,7 @@ import org.junit.jupiter.api.Test;
 
 import persistance.factory.HibernateFactory;
 import presentation.produit.beanDto.ProduitDto;
+import service.image.IImageService;
 import service.produit.IProduitService;
 import util.enumeration.OrderBy;
 import util.factory.Factory;
@@ -79,7 +81,9 @@ class ProduitServiceTest {
         final ProduitDto produitDtoNew2 = new ProduitDto();
         produitDtoNew2.setDesignation("designationProduit123456");
         produitDtoNew2.setDescription("description produit 123456");
-        produitDtoNew2.setImage("chemin image 123456");
+        produitDtoNew2.setImage("imageTest.jpg");
+        IImageService iImageService = Factory.getInstance(IImageService.class);
+        produitDtoNew2.setImageByte(iImageService.getImage("salades.jpg"));
         produitDtoNew2.setPrix("11.6");
         produitDtoNew2.setReference("3001");
         produitDtoNew2.setActif(true);
