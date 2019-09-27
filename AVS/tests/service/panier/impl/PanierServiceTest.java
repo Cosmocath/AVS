@@ -113,16 +113,17 @@ class PanierServiceTest {
         PanierDto panierDto = new PanierDto();
         panierDto = iPanierService.addProduitPanier(panierDto, 12);
         panierDto = iPanierService.addProduitPanier(panierDto, 14);
-        
-        final CommandeInfoDto commandeInfoDto= new CommandeInfoDto();
+        panierDto = iPanierService.addProduitPanier(panierDto, 18);
+
+        final CommandeInfoDto commandeInfoDto = new CommandeInfoDto();
         commandeInfoDto.setUserId("7");
         commandeInfoDto.setAdresseFacturation("adresse fact");
         commandeInfoDto.setAdresseLivraison("adr livraison");
-        
+
         CommandeDo commandeDo = iPanierService.validerPanier(panierDto, commandeInfoDto);
         assertNotNull(commandeDo);
         Set<CommandeProduitDo> commandeProduitSet = commandeDo.getCommandeProduitSet();
-        assertEquals(2, commandeProduitSet.size());
+        assertEquals(3, commandeProduitSet.size());
         for (CommandeProduitDo cpdo : commandeProduitSet) {
             System.out.println(cpdo.toString());
         }
