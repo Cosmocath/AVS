@@ -53,4 +53,14 @@ public interface IProduitDao {
      * @return le produit recherché, null sinon
      */
     ProduitDo findProduitById(final Integer idProduit);
+
+    /**
+     * Permet de mettre à jour un produit
+     * 
+     * @param idProduit l id du produit a mettre a jour
+     * @param produitDo le produit
+     * @return le produit mis a jour, null en cas de probleme
+     */
+    ProduitDo updateProduit(final Integer idProduit, final ProduitDo produitDo);
+
 }
