@@ -54,6 +54,12 @@
 						footer="errors.field.footer" /></td>
 			</tr>
 			<tr>
+				<td align="right"><bean:message key="PDT_02.actif" /></td>
+				<td align="left"><html:checkbox property="actif" value="true" /></td>
+				<td><html:errors property="actif" header="errors.field.header"
+						footer="errors.field.footer" /></td>
+			</tr>
+			<tr>
 				<td align="right"><html:submit property="submit">
 						<bean:message key="PDT_02.submit" />
 					</html:submit></td>
