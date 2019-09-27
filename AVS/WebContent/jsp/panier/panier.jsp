@@ -12,13 +12,13 @@
 		}
 	</script>
 
-<!-- 	<script type="text/javascript"> -->
-<!-- // 		function RedirectionJavascriptSupp() { -->
-<!-- // 			document.location.href = "supprimerPanier.do?id=" -->
-<!-- // 					+ document.getElementById("id").value; -->
-<!-- // 		} -->
-<!-- 	</script> -->
-<%-- 		<html:hidden  property="id" value="${produitDto.id}" styleId="id"/> --%>
+	<!-- 	<script type="text/javascript"> -->
+	<!-- // 		function RedirectionJavascriptSupp() { -->
+	<!-- // 			document.location.href = "supprimerPanier.do?id=" -->
+	<!-- // 					+ document.getElementById("id").value; -->
+	<!-- // 		} -->
+	<!-- 	</script> -->
+	<%-- 		<html:hidden  property="id" value="${produitDto.id}" styleId="id"/> --%>
 
 	<%-- JS nécessaire pour le bouton vider --%>
 	<script type="text/javascript">
@@ -32,9 +32,11 @@
 		<bean:message key="PAN_00.Panier" />
 	</h1>
 
-	<logic:equal name="monPanierDto"
-		scope="session" property="quantiteTotale" value="0">
-		<bean:message key="PAN_00.panierVide" />
+	<logic:equal name="monPanierDto" scope="session"
+		property="quantiteTotale" value="0">
+		<h3>
+			<font color="red"> <bean:message key="PAN_00.panierVide" /></font>
+		</h3>
 	</logic:equal>
 
 	<table style="width: 100%; text-align: center">
