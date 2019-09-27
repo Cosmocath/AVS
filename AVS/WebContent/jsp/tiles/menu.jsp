@@ -23,9 +23,6 @@
 			<html:link href="deconnecterUser.do">
 				<bean:message key="MENU.Deconnecter" />
 			</html:link>
-			<%
-			    //TODO a spprimer plus tard
-			%>
 			<br />
 		</logic:equal>
 
