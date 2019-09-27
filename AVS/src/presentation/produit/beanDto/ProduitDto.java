@@ -74,8 +74,9 @@ public class ProduitDto implements Serializable {
      * @param noVersion
      * @return le Produit Dto créé
      */
-    public static ProduitDto build(final String designation, final String reference, final String description, final String prix, final String image, final int noVersion, final byte[] imageByte) {
-        return buildProduitDto(null, designation, reference, description, prix, image, noVersion, true, imageByte);
+    public static ProduitDto build(final String designation, final String reference, final String description, final String prix, final String image, final int noVersion, final boolean actif,
+                    final byte[] imageByte) {
+        return buildProduitDto(null, designation, reference, description, prix, image, noVersion, actif, imageByte);
     }
 
     @Override
