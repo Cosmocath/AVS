@@ -31,9 +31,8 @@ public class EditerProduitAction extends Action {
      * @return
      */
     private ProduitDto mapToDto(final ProduitForm produitForm) {
-        //TODO 1 correspond au no version. il faudra voir comment gerer les non actifs et images
         return ProduitDto.buildProduitDto(Integer.valueOf(produitForm.getIdProduit()), produitForm.getDesignation(), produitForm.getReference(), produitForm.getDescription(), produitForm.getPrix(),
-                        produitForm.getImage(), 1, true);
+                        String.valueOf(produitForm.getImage()), 1, true, new byte[0]);
     }
 
     @Override

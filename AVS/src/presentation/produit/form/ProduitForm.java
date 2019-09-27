@@ -37,8 +37,6 @@ public class ProduitForm extends ActionForm {
     private FormFile             image;
     private boolean              actif            = false;
 
-    //TODO probleme avec l idProduit
-
     @Override
     public void reset(final ActionMapping mapping, final HttpServletRequest request) {
         // empty method
@@ -63,21 +61,23 @@ public class ProduitForm extends ActionForm {
                 errors.add("prix", new ActionMessage("PDT_02.price.format.numeric"));
             }
         }
+        //TODO a changer quand editerProduit gerera la gestion de l image
+        if (image != null) {
+            if (getImage().getFileSize() == 0) {
+                errors.add("image", new ActionMessage("PDT_02.image.required"));
+                return errors;
+            }
+            // verifie le type du fichier grâce au contentType
+            if (!"image/jpeg".equals(getImage().getContentType()) && !"image/png".equals(getImage().getContentType())) {
+                errors.add("image", new ActionMessage("PDT_02.image.only"));
+                return errors;
+            }
 
-        if (getImage().getFileSize() == 0) {
-            errors.add("image", new ActionMessage("PDT_02.image.required"));
-            return errors;
-        }
-        // verifie le type du fichier grâce au contentType
-        if (!"image/jpeg".equals(getImage().getContentType()) && !"image/png".equals(getImage().getContentType())) {
-            errors.add("image", new ActionMessage("PDT_02.image.only"));
-            return errors;
-        }
-
-        if (getImage().getFileSize() > TAILLE_MAX_IMAGE) {
-            //10kb verifier la taille avec des tests
-            errors.add("image", new ActionMessage("PDT_02.image.size.limit", TAILLE_MAX_IMAGE / Math.pow(1024, 2)));
-            return errors;
+            if (getImage().getFileSize() > TAILLE_MAX_IMAGE) {
+                //10kb verifier la taille avec des tests
+                errors.add("image", new ActionMessage("PDT_02.image.size.limit", TAILLE_MAX_IMAGE / Math.pow(1024, 2)));
+                return errors;
+            }
         }
 
         if (!errors.isEmpty()) {
