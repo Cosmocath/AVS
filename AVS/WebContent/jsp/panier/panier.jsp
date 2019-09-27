@@ -58,9 +58,9 @@
 
 			<tr>
 
-				<td>${produitDto.designation}<br />
-				<html:img style="width:100px; height:100px;"
-						src="${pageContext.request.contextPath}/afficherImage.do?urlImage=${produit.image}" /></td>
+				<td>${produitDto.designation}<br /> <html:img
+						style="width:100px; height:100px;"
+						src="${pageContext.request.contextPath}/afficherImage.do?urlImage=${produitDto.image}" /></td>
 				<td>${produitDto.reference}</td>
 				<td>${quantiteProduit.quantite}</td>
 				<td>${produitDto.prix}<bean:message key="Global.euro" /></td>
