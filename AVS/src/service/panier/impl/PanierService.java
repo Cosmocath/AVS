@@ -1,6 +1,7 @@
 package service.panier.impl;
 
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import persistance.commande.beanDo.CommandeDo;
@@ -8,7 +9,6 @@ import persistance.commande.beanDo.CommandeProduitDo;
 import persistance.produitVendu.beanDo.ProduitVenduDo;
 import persistance.produitVendu.dao.IProduitVenduDao;
 import presentation.panier.beanDto.PanierDto;
-import presentation.panier.beanDto.PanierDto.QuantitePrix;
 import presentation.produit.beanDto.ProduitDto;
 import service.panier.IPanierService;
 import service.produit.IProduitService;
@@ -27,6 +27,43 @@ public class PanierService implements IPanierService {
 
     private PanierService() {
         //Empty Constructeur
+    }
+
+    /**
+     * Vérifie que tous les produits du panier sont à jour avec la table 'Produit' (concerne les versions)
+     * 
+     * @param panierDto
+     * @return vrai ou faux
+     */
+    private boolean isPanierValidable(final PanierDto panierDto) {
+        final IProduitService iProduitService = Factory.getInstance(IProduitService.class);
+        final Set<ProduitDto> setProduit = panierDto.getMapDesProduitsQte().keySet();
+        for (final ProduitDto produitDto : setProduit) {
+            if (!iProduitService.isProduitFromPanierUpToDate(produitDto.getId(), produitDto.getNoVersion())) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private CommandeDo buildCommandeDo(final PanierDto panierDto, final String adresseLivraison, final String adresseFacturation, final Map<ProduitVenduDo, Integer> mapProduitVenduQuantite) {
+        CommandeDo commandeDo = new CommandeDo();
+        commandeDo.setAdresseLivraison(adresseLivraison);
+        commandeDo.setAdresseFacturation(adresseFacturation);
+        commandeDo.setMontantSansRemise(FormatUtil.convertirStringToDouble(panierDto.getTotalAvantRemise()));
+        commandeDo.setRemise(FormatUtil.convertirStringToDouble(panierDto.getRemise()));
+
+        // construction du Set CommandeProduitDo
+        Set<CommandeProduitDo> setCommandeProduitDo = new HashSet<>();
+        for (final Map.Entry<ProduitVenduDo, Integer> entry : mapProduitVenduQuantite.entrySet()) {
+            final CommandeProduitDo commandeProduitDo = new CommandeProduitDo();
+            commandeProduitDo.setCommandeDo(commandeDo);
+            commandeProduitDo.setProduitVenduDo(entry.getKey());
+            commandeProduitDo.setQuantite(entry.getValue());
+            setCommandeProduitDo.add(commandeProduitDo);
+        }
+        commandeDo.setCommandeProduitSet(setCommandeProduitDo);
+        return commandeDo;
     }
 
     @Override
@@ -85,6 +122,7 @@ public class PanierService implements IPanierService {
     }
 
     @Override
+
     public PanierDto deleteProduitPanier(final PanierDto panierDto, final int idProduit) {
         final IProduitService iProduitService = Factory.getInstance(IProduitService.class);
 
@@ -114,38 +152,70 @@ public class PanierService implements IPanierService {
         return panierDto;
     }
 
-    public CommandeDo validerPanier(PanierDto panierDto) {
+    public CommandeDo validerPanier(PanierDto panierDto, CommandeInfoDto commandeInfoDto) {
+
         // vérifier que les produits sont bien à jour
-        final IProduitService iProduitService = Factory.getInstance(IProduitService.class);
-        final Set<ProduitDto> setProduit = panierDto.getMapDesProduitsQte().keySet();
-        for (final ProduitDto produitDto : setProduit) {
-            if (!iProduitService.isProduitFromPanierUpToDate(produitDto.getId(), produitDto.getNoVersion())) {
-                return null;
-            }
+        if (!isPanierValidable(panierDto)) {
+            return null;
         }
-
-        // on va construire la commande
-        CommandeDo commandeDo = new CommandeDo();
-        commandeDo.setCommandeProduitSet(new HashSet<CommandeProduitDo>());
-        final IProduitVenduDao iProduitVenduDao = Factory.getInstance(IProduitVenduDao.class);
+        
+        // construction de la map ProduitVenduDo/Quantité
         final IProduitVenduService iProduitVenduService = Factory.getInstance(IProduitVenduService.class);
+        final Map<ProduitVenduDo, Integer> mapProduitVenduQuantite = iProduitVenduService.buildMapProduitVenduQuantite(panierDto);
+        
+        // construction de la commandeDo
+        buildCommandeDo(panierDto, adresseLivraison, adresseFacturation, mapProduitVenduQuantite)
+        return null;
+    }
 
-        // on parcourt les produits du panier
-        for (final ProduitDto produitDto : setProduit) {
-            // recherche d'un produitVendu correspondant à notre produit courant
-            ProduitVenduDo produitVenduDo = iProduitVenduDao.findProduitVenduByIdProduitHistoriseAndVersion(produitDto.getId(), produitDto.getNoVersion());
-            if (produitVenduDo == null) {
-                // Mapping
-                produitVenduDo = iProduitVenduService.mapProduitDtoToProduitVenduDo(produitDto);
-            }
-            CommandeProduitDo commandeProduitDo = new CommandeProduitDo();
-            commandeProduitDo.setProduitVenduDo(produitVenduDo);
-            // recherche quantité
-            QuantitePrix quantitePrix = panierDto.getMapDesProduitsQte().get(produitDto);
-            commandeProduitDo.setQuantite(quantitePrix.getQuantite());
-            commandeDo.getCommandeProduitSet().add(commandeProduitDo);
+    // on parcourt les produits du panier
+    for(
+
+    final ProduitDto produitDto:setProduit)
+    {
+        // recherche d'un produitVendu correspondant à notre produit courant
+        ProduitVenduDo produitVenduDo = iProduitVenduDao.findProduitVenduByIdProduitHistoriseAndVersion(produitDto.getId(), produitDto.getNoVersion());
+        if (produitVenduDo == null) {
+            // Mapping
+            produitVenduDo = iProduitVenduService.mapProduitDtoToProduitVenduDo(produitDto);
         }
-        return commandeDo;
+        CommandeProduitDo commandeProduitDo = new CommandeProduitDo();
+        commandeProduitDo.setProduitVenduDo(produitVenduDo);
+        // recherche quantité
+        QuantitePrix quantitePrix = panierDto.getMapDesProduitsQte().get(produitDto);
+        commandeProduitDo.setQuantite(quantitePrix.getQuantite());
+        commandeDo.getCommandeProduitSet().add(commandeProduitDo);
+    }return commandeDo;
+
+    @Override
+    public PanierDto deleteProduitPanier(final PanierDto panierDto, final int idProduit) {
+        final IProduitService iProduitService = Factory.getInstance(IProduitService.class);
+
+        // Récupération de du produit grâce à son Id
+        final ProduitDto produitDto = iProduitService.getProduitById(idProduit);
+
+        //Récupération "QuantitéPrix" dans la map 
+        final PanierDto.QuantitePrix quantitePrix = panierDto.getMapDesProduitsQte().get(produitDto);
+
+        //Récupération de la quantité de produit dans "QuantitéPrix (classe)" 
+        final int quantite = quantitePrix.getQuantite();
+
+        //Suppression du produit de la map
+        panierDto.getMapDesProduitsQte().remove(produitDto, quantitePrix);
+
+        // Je màj la quantiteTotale 
+        panierDto.setQuantiteTotale(panierDto.getMapDesProduitsQte().size());
+
+        // Déduction du produit (quantité*prix) du TotalAVantRemise
+        final double totalAvtRemise = FormatUtil.convertirStringToDouble(panierDto.getTotalAvantRemise());
+        final double total = FormatUtil.convertirStringToDouble(produitDto.getPrix()) * quantite;
+
+        panierDto.setTotalAvantRemise(FormatUtil.convertirDoubleToString(totalAvtRemise - total));
+
+        // on calcule la remise
+        remisePanier(panierDto);
+        return panierDto;
+
 
     }
 

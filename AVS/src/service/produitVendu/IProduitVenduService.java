@@ -1,6 +1,9 @@
 package service.produitVendu;
 
+import java.util.Map;
+
 import persistance.produitVendu.beanDo.ProduitVenduDo;
+import presentation.panier.beanDto.PanierDto;
 import presentation.produit.beanDto.ProduitDto;
 
 /**
@@ -19,4 +22,12 @@ public interface IProduitVenduService {
      * @return le ProduitVenduDo
      */
     ProduitVenduDo mapProduitDtoToProduitVenduDo(final ProduitDto produitDto);
+    
+    /**
+     * Construction de la map ProduitVendu/Quantité
+     * 
+     * @param panierDto
+     * @return la map clé : ProduitVenduDo, valeur : quantité
+     */
+    Map<ProduitVenduDo, Integer> buildMapProduitVenduQuantite(final PanierDto panierDto);
 }
