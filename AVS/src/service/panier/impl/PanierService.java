@@ -81,6 +81,7 @@ public class PanierService implements IPanierService {
     }
 
     @Override
+<<<<<<< HEAD
     public CommandeDo validerPanier(PanierDto panierDto) {
         // vérifier que les produits sont bien à jour
         final IProduitService iProduitService = Factory.getInstance(IProduitService.class);
@@ -115,4 +116,14 @@ public class PanierService implements IPanierService {
         return commandeDo;
     }
 
+=======
+    public PanierDto viderPanierDto(final PanierDto panierDto) {
+        panierDto.setQuantiteTotale(0);
+        panierDto.setTotalAvantRemise("0,00");
+        panierDto.setRemise("0,00");
+        panierDto.setTotalApresRemise("0,00");
+        panierDto.getMapDesProduitsQte().clear();
+        return panierDto;
+    }
+>>>>>>> develop
 }

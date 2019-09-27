@@ -27,7 +27,7 @@ public interface IPanierService {
      * @return le panierDto
      */
     PanierDto remisePanier(final PanierDto panierDto);
-    
+
     /**
      * Permet de valider le panier et de dréer la commande associée
      * 
@@ -35,4 +35,13 @@ public interface IPanierService {
      * @return la commande, null sinon
      */
     CommandeDo validerPanier(final PanierDto panierDto);
+
+    /**
+     * Permet de vider le panier
+     * 
+     * @param panierDto à vider
+     * @return panierDto vide
+     */
+    PanierDto viderPanierDto(final PanierDto panierDto);
+
 }
