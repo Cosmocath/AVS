@@ -138,6 +138,14 @@
 			<forward name="pan_00" path="afficherPanier.do"
 				redirect="true" />
 		</action>
+		
+		<action path="/diminuerQuantite" scope="request" input=""
+			parameter="" name=""
+			type="presentation.panier.action.DiminuerQteAction">
+			<forward name="pan_00" path="afficherPanier.do"
+				redirect="true" />
+		</action>
+		
 
 		<action path="/supprimerPanier" scope="request" input=""
 			parameter="" name=""

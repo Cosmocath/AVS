@@ -16,8 +16,16 @@ public interface IPanierService {
      * @param idProduit l'id du produit à rajouter
      * @return un panierDto si ajout OK, sinon null
      */
-
     PanierDto addProduitPanier(final PanierDto panierDto, final int idProduit);
+
+    /**
+     * Méthode permettant de diminuer la quantité d'un produit dans le panier
+     * 
+     * @param panierDto qui contient le produit à diminuer
+     * @param idProduit du produit à diminuer
+     * @return panierDto mise à jour
+     */
+    PanierDto diminuerProduitPanier(final PanierDto panierDto, final int idProduit);
 
     /**
      * Permet de calculer la remise sur le panier quand le seuil de 6 articles à 100 euros est atteint
