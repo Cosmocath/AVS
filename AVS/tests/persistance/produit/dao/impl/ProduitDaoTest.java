@@ -89,4 +89,18 @@ class ProduitDaoTest {
         assertNotNull(iProduitDao.findProduitById(12));
         assertNull(iProduitDao.findProduitById(2));
     }
+
+    @Test
+    void testUpdateProduit() {
+        final IProduitDao iProduitDao = Factory.getInstance(IProduitDao.class);
+        final ProduitDo produitDo = new ProduitDo();
+        produitDo.setDesignation("cours de guitare");
+        produitDo.setReference("YY8888");
+        produitDo.setDescription("apprendre à gratter sur des cordes");
+        produitDo.setPrix(80);
+        assertNotNull(iProduitDao.updateProduit(13, produitDo));
+        assertEquals("YY8888", iProduitDao.findProduitById(produitDo.getId()).getReference());
+
+    }
+
 }
