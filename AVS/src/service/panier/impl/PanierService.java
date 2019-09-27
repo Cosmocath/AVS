@@ -81,7 +81,6 @@ public class PanierService implements IPanierService {
     }
 
     @Override
-<<<<<<< HEAD
     public CommandeDo validerPanier(PanierDto panierDto) {
         // vérifier que les produits sont bien à jour
         final IProduitService iProduitService = Factory.getInstance(IProduitService.class);
@@ -97,7 +96,7 @@ public class PanierService implements IPanierService {
         commandeDo.setCommandeProduitSet(new HashSet<CommandeProduitDo>());
         final IProduitVenduDao iProduitVenduDao = Factory.getInstance(IProduitVenduDao.class);
         final IProduitVenduService iProduitVenduService = Factory.getInstance(IProduitVenduService.class);
-        
+
         // on parcourt les produits du panier
         for (final ProduitDto produitDto : setProduit) {
             // recherche d'un produitVendu correspondant à notre produit courant
@@ -116,7 +115,6 @@ public class PanierService implements IPanierService {
         return commandeDo;
     }
 
-=======
     public PanierDto viderPanierDto(final PanierDto panierDto) {
         panierDto.setQuantiteTotale(0);
         panierDto.setTotalAvantRemise("0,00");
@@ -125,5 +123,4 @@ public class PanierService implements IPanierService {
         panierDto.getMapDesProduitsQte().clear();
         return panierDto;
     }
->>>>>>> develop
 }
