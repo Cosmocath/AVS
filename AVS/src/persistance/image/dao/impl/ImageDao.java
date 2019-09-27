@@ -3,6 +3,7 @@ package persistance.image.dao.impl;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -51,6 +52,18 @@ public class ImageDao implements IImageDao {
             e.printStackTrace();
             return null;
         }
+    }
+
+    @Override
+    public boolean uploadImage(final byte[] image, final File newFile) {
+        try (final FileOutputStream fos = new FileOutputStream(newFile);) {
+            fos.write(image);
+            fos.flush();
+            return true;
+        } catch (final IOException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
 }
