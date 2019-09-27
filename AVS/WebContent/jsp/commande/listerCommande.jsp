@@ -9,6 +9,14 @@
 	text-align: center;
 }
 </style>
+
+<script type="text/javascript">
+		function RedirectionJavascript(id) {
+			var lien = "consulterCommande.do?id=" + id + "&retour=listeProduitClient";
+			document.location.href = lien;
+		}
+	</script>
+
 <div style="background-color: white; height: 100%">
 	<table style="width: 100%">
 		<tr class="commande">
@@ -17,11 +25,11 @@
 		</tr>
 		<logic:iterate name="listeCommande" id="commande" scope="request">
 			<tr class="prix_titre">
-				<td><html:link
-						href="consulterCommande.do?id=${commande.idCommande}">
+				<td><html:button property="add"
+						onclick="RedirectionJavascript(${commande.idCommande})">
 						<bean:message key="CDE_00.N°Commande" />
 						<bean:write name="commande" property="numeroCommande" />
-					</html:link> <br /> <bean:message key="CDE_00.Date" /> : <bean:write
+					</html:button> <br /> <bean:message key="CDE_00.Date" /> : <bean:write
 						name="commande" property="date" /></td>
 				<td>
 					<div class="prix">

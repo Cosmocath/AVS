@@ -17,6 +17,13 @@
 	<!-- // 		} -->
 	<!-- 	</script> -->
 
+	<script type="text/javascript">
+		function ajouterPanier(id) {
+			var lien = "ajouterPanier.do?id= + id + "&retour=consulterProduit";
+			document.location.href = lien;
+		}
+	</script>
+
 	<div style="float: right">
 		<html:link href="${urlRetour}">
 			<bean:message key="PDT_01.bouton.retour" />
@@ -33,10 +40,12 @@
 					name="produit" property="prix" /> <bean:message key="Global.euro" />
 				<bean:message key="PDT_01.produit.labelPrix" /></td>
 
-			<td><html:link
-					href="ajouterPanier.do?id=${produit.id}&retour=consulterProduit">
+			<td><html:button property="add"
+					onclick="ajouterPanier(${produit.id})">
 					<bean:message key="PDT_01.bouton.ajouterPanier" />
-				</html:link></td>
+				</html:button></td>
+
+
 			<%-- 			<td align="right"><html:button property="ajout" --%>
 			<%-- 					onclick="RedirectionJavascript()"> --%>
 			<%-- 					<bean:message key="PDT_01.bouton.ajouterPanier" /> --%>
