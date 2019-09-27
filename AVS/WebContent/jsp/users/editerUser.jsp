@@ -12,16 +12,9 @@
 			<%-- ne pas perdre l'id du chat à modifier, on le soumet en tant que champ caché du form --%>
 			<html:hidden property="id" styleId="id" />
 			<html:hidden property="password" />
-
+			<html:hidden property="mail" />
 			<table style="border: none;">
-				<tr>
-					<td align="right"><bean:message key="USR_04.mail" /></td>
-					<td align="left"><html:text property="mail" size="25"
-							maxlength="25" /></td>
-					<td><html:errors property="mail"
-							header="USR_04.errors.global.header"
-							footer="USR_04.errors.field.footer" /></td>
-				</tr>
+
 				<tr>
 					<td align="right"><bean:message key="USR_04.nom" /></td>
 					<td align="left"><html:text property="nom" size="25"
@@ -48,15 +41,15 @@
 				</tr>
 				<tr>
 					<td align="right"><bean:message key="USR_04.password" /></td>
-					<td align="left"><html:text property="newpassword" size="25"
-							maxlength="25" /></td>
+					<td align="left"><html:password property="newpassword"
+							size="25" maxlength="25" /></td>
 					<td><html:errors property="newpassword"
 							header="USR_04.errors.global.header"
 							footer="USR_04.errors.field.footer" /></td>
 				</tr>
 				<tr>
 					<td align="right"><bean:message key="USR_04.confirm.password" /></td>
-					<td align="left"><html:text property="confirmpassword"
+					<td align="left"><html:password property="confirmpassword"
 							size="25" maxlength="25" /></td>
 					<td><html:errors property="confirmpassword"
 							header="USR_04.errors.global.header"
