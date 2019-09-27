@@ -1,20 +1,25 @@
 package persistance.commande.beanDo;
 
 import java.util.Date;
+import java.util.Set;
 
 /**
  * Représentation de la commande dans la base de donnée
  * 
- * @author Administrateur
+ * @author Administrateur / Valentin
  *
  */
 public class CommandeDo {
-    private int    idCommande;
-    private int    idUtilisateur;
-    private String numeroCommande;
-    private Date   dateCommande;
-    private double montantSansRemise;
-    private double montantAvecRemise;
+    private int                    idCommande;
+    private int                    idUtilisateur;
+    private String                 nom;
+    private String                 numeroCommande;
+    private Date                   dateCommande;
+    private double                 montantSansRemise;
+    private double                 remise;
+    private String                 adresseLivraison;
+    private String                 adresseFacturation;
+    private Set<CommandeProduitDo> commandeProduitSet;
 
     /**
      * Constructeur
@@ -95,17 +100,73 @@ public class CommandeDo {
     }
 
     /**
-     * @return the montantAvecRemise
+     * @return the remise
      */
-    public double getMontantAvecRemise() {
-        return montantAvecRemise;
+    public double getRemise() {
+        return remise;
     }
 
     /**
-     * @param montantAvecRemise the montantAvecRemise to set
+     * @param remise the remise to set
      */
-    public void setMontantAvecRemise(final double montantAvecRemise) {
-        this.montantAvecRemise = montantAvecRemise;
+    public void setRemise(final double remise) {
+        this.remise = remise;
+    }
+
+    /**
+     * @return the adresseLivraison
+     */
+    public String getAdresseLivraison() {
+        return adresseLivraison;
+    }
+
+    /**
+     * @param adresseLivraison the adresseLivraison to set
+     */
+    public void setAdresseLivraison(final String adresseLivraison) {
+        this.adresseLivraison = adresseLivraison;
+    }
+
+    /**
+     * @return the adresseFacturation
+     */
+    public String getAdresseFacturation() {
+        return adresseFacturation;
+    }
+
+    /**
+     * @param adresseFacturation the adresseFacturation to set
+     */
+    public void setAdresseFacturation(final String adresseFacturation) {
+        this.adresseFacturation = adresseFacturation;
+    }
+
+    /**
+     * @return the commandeProduitSet
+     */
+    public Set<CommandeProduitDo> getCommandeProduitSet() {
+        return commandeProduitSet;
+    }
+
+    /**
+     * @param commandeProduitSet the commandeProduitSet to set
+     */
+    public void setCommandeProduitSet(final Set<CommandeProduitDo> commandeProduitSet) {
+        this.commandeProduitSet = commandeProduitSet;
+    }
+
+    /**
+     * @return the nom
+     */
+    public String getNom() {
+        return nom;
+    }
+
+    /**
+     * @param nom the nom to set
+     */
+    public void setNom(final String nom) {
+        this.nom = nom;
     }
 
 }

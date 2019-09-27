@@ -12,6 +12,7 @@
 		<!-- les propriétés simples -->
 		<property name="idUtilisateur" column="id_Utilisateur"
 			type="int"></property>
+		<property name="nom" column="nom"></property>
 		<property name="numeroCommande" column="numero_Commande"></property>
 		<property name="dateCommande" column="date_Commande"
 			type="date"></property>
@@ -19,5 +20,16 @@
 		<property name="montantSansRemise" type="double">
 			<column name="montant_Sans_Remise" sql-type="float" />
 		</property>
+		<property name="remise" type="double">
+			<column name="remise" sql-type="float" />
+		</property>
+		<property name="adresseLivraison" column="adresse_livraison"></property>
+		<property name="adresseFacturation"
+			column="adresse_facturation"></property>
+		<set name="commandeProduitSet" inverse="true" lazy="false">
+			<key column="idCommande"></key>
+			<one-to-many
+				class="persistance.commande.beanDo.CommandeProduitDo" />
+		</set>
 	</class>
 </hibernate-mapping>

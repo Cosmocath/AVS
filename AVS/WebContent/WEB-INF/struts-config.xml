@@ -10,6 +10,8 @@
 			type="presentation.users.form.ConnecterUserForm" />
 		<form-bean name="userForm"
 			type="presentation.users.form.UserForm" />
+		<form-bean name="editerUserForm"
+			type="presentation.users.form.EditerUserForm" />
 		<form-bean name="produitForm"
 			type="presentation.produit.form.ProduitForm" />
 		<form-bean name="panierForm"
@@ -104,10 +106,27 @@
 		<action path="/editerProduit" scope="request"
 			input="voirEditerProduit" parameter="" name="produitForm"
 			type="presentation.produit.action.EditerProduitAction">
-			<forward name="success" path="/voirEditerProduit.do" redirect="false" />
+			<forward name="success" path="/voirEditerProduit.do"
+				redirect="false" />
 		</action>
 
 		<!-- Action de l'équipe User -->
+
+
+		<action path="/voirEditerUser" scope="request" input=""
+			parameter="" type="presentation.users.action.VoirEditerUserAction">
+			<forward name="success" path="voirEditerUser"
+				redirect="false" />
+		</action>
+
+		<action path="/editerUser" scope="request"
+			input="voirEditerUser" parameter="" name="editerUserForm"
+			type="presentation.users.action.EditerUserAction">
+			<forward name="success" path="listerUser.do" redirect="true"></forward>
+			<forward name="notSuccess" path="voirEditerUser"
+				redirect="false" />
+		</action>
+
 
 		<action path="/voirCreerUser" scope="request" input=""
 			parameter="" type="presentation.users.action.VoirCreerUserAction">
@@ -134,9 +153,8 @@
 
 		<!-- Action de l'équipe Panier -->
 
-		<action path="/afficherPanier" scope="session"
-			input="afficherPanier" parameter="" name="afficherPanier"
-			type="presentation.panier.action.VoirPanierAction">
+		<action path="/afficherPanier" scope="request" input=""
+			parameter="" type="presentation.panier.action.VoirPanierAction">
 			<forward name="success" path="afficherPanier"
 				redirect="false" />
 		</action>
@@ -150,7 +168,13 @@
 				redirect="true" />
 			<forward name="pan_00" path="afficherPanier.do"
 				redirect="true" />
+		</action>
 
+		<action path="/supprimerPanier" scope="request" input=""
+			parameter="" name=""
+			type="presentation.panier.action.SupprimerPanierAction">
+			<forward name="success" path="afficherPanier.do"
+				redirect="true" />
 		</action>
 		<action path="/voirValiderPanier" scope="request" input=""
 			parameter=""
@@ -164,6 +188,12 @@
 			<forward name="success" path="validerPanier" redirect="false"></forward>
 		</action>
 
+		<action path="/viderPanier" scope="request" input=""
+			parameter="" name=""
+			type="presentation.panier.action.ViderPanierAction">
+			<forward name="success" path="afficherPanier"
+				redirect="false" />
+		</action>
 
 		<!-- Action de l'équipe Commande -->
 

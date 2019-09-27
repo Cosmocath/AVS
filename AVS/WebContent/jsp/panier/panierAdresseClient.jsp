@@ -12,13 +12,17 @@
 				<html:errors property="error" />
 				<tr>
 					<td><bean:message key="PAN_01.Label.Adresse.Livraison" /></td>
-					<td><html:textarea property="adresseLivraison" value="${adresse}"></html:textarea></td>
-					<td><html:errors property="adresseLivraison" /></td>
+					<td><html:textarea property="adresseLivraison"
+							value="${adresse}"></html:textarea></td>
+					<td><html:errors property="adresseLivraison"
+							header="errors.global.header" footer="errors.global.footer" /></td>
 				</tr>
 				<tr>
 					<td><bean:message key="PAN_01.Label.Adresse.Facturation" /></td>
-					<td><html:textarea property="adresseFacturation" value="${adresse}"></html:textarea></td>
-					<td><html:errors property="adresseFacturation" /></td>
+					<td><html:textarea property="adresseFacturation"
+							value="${adresse}"></html:textarea></td>
+					<td><html:errors property="adresseFacturation"
+							header="errors.global.header" footer="errors.global.footer" /></td>
 				</tr>
 				<tr>
 					<td align="left"><html:reset property="submit" value="Reset" />

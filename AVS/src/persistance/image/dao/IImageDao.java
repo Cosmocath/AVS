@@ -1,5 +1,7 @@
 package persistance.image.dao;
 
+import java.io.File;
+
 /**
  * Gestion des images
  * 
@@ -15,4 +17,13 @@ public interface IImageDao {
      * @return le tableau d'octets de l'image
      */
     byte[] getImage(final String urlImage);
+
+    /**
+     * Récupère un tableau de byte et écrit le fichier dans un répertoire
+     * 
+     * @param file : le fichier sous la forme bye
+     * @param newFile : le nouveau fichier
+     * @return true si l'upload à réussi, false sinon
+     */
+    boolean uploadImage(final byte[] file, final File newFile);
 }

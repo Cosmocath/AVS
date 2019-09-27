@@ -13,37 +13,51 @@
 		</html:messages>
 	</logic:messagesPresent>
 	<%-- permet d'afficher les erreurs "globales" --%>
-	<html:errors header="errors.global.header" property="error" />
+	<html:errors header="errors.global.header"
+		footer="errors.global.footer" property="error" />
 	<br />
 
-	<html:form action="/creerProduit.do" focus="designation">
+	<html:form action="/creerProduit.do" focus="designation"
+		enctype="multipart/form-data">
 		<table>
 			<tr>
 				<td align="right"><bean:message key="PDT_02.designation" /></td>
 				<td align="left"><html:text property="designation" size="25"
 						maxlength="25" /></td>
 				<td><html:errors property="designation"
-						header="errors.field.header" footer="errors.field.footer" /></td>
+						header="errors.global.header" footer="errors.global.footer" /></td>
 			</tr>
 			<tr>
 				<td align="right"><bean:message key="PDT_02.reference" /></td>
 				<td align="left"><html:text property="reference" size="25"
 						maxlength="25" /></td>
 				<td><html:errors property="reference"
-						header="errors.field.header" footer="errors.field.footer" /></td>
+						header="errors.global.header" footer="errors.global.footer" /></td>
 			</tr>
 			<tr>
 				<td align="right"><bean:message key="PDT_02.description" /></td>
 				<td align="left"><html:textarea property="description" /></td>
 				<td><html:errors property="description"
-						header="errors.field.header" footer="errors.field.footer" /></td>
+						header="errors.global.header" footer="errors.global.footer" /></td>
 			</tr>
 			<tr>
 
 				<td align="right"><bean:message key="PDT_02.prix" /></td>
 				<td align="left"><html:text property="prix" size="25"
 						maxlength="25" /></td>
-				<td><html:errors property="prix" header="errors.field.header"
+				<td><html:errors property="prix" header="errors.global.header"
+						footer="errors.global.footer" /></td>
+			</tr>
+			<tr>
+				<td align="right"><bean:message key="PDT_02.image" /></td>
+				<td align="left"><html:file property="image" /></td>
+				<td><html:errors property="image" header="errors.field.header"
+						footer="errors.field.footer" /></td>
+			</tr>
+			<tr>
+				<td align="right"><bean:message key="PDT_02.actif" /></td>
+				<td align="left"><html:checkbox property="actif" value="true" /></td>
+				<td><html:errors property="actif" header="errors.field.header"
 						footer="errors.field.footer" /></td>
 			</tr>
 			<tr>

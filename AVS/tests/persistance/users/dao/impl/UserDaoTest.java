@@ -1,14 +1,13 @@
 package persistance.users.dao.impl;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.Date;
-import static org.junit.Assert.assertEquals;
-
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -20,8 +19,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import persistance.users.beanDo.ProfilDo;
 import persistance.factory.HibernateFactory;
+import persistance.users.beanDo.ProfilDo;
 import persistance.users.beanDo.UserDo;
 import persistance.users.dao.IUserDao;
 import util.enumeration.OrderBy;
@@ -103,14 +102,20 @@ class UserDaoTest {
     void testCreateUser() {
         final IUserDao iUserDao = Factory.getInstance(IUserDao.class);
         final ProfilDo profilDo = new ProfilDo();
+
         profilDo.setId(2);
         profilDo.setNom("client");
 
         final UserDo userDo = UserDo.buildUserDo(2, "testNomCreation", "testPrenomCreation", new Date(), "rue test", "acvc", profilDo, "r@t.fr", true);
 
         final UserDo userDoRetour = iUserDao.createUser(userDo);
-        assertEquals("rue test", userDoRetour.getAdresse());
-        assertTrue(userDoRetour.isActif());
+        Assertions.assertNotNull(userDoRetour);
+        Assertions.assertNotNull(userDoRetour.getId());
+        Assertions.assertNotNull(iUserDao.findUserDo(userDoRetour.getId()));
+        final UserDo userFound = iUserDao.findUserDo(userDoRetour.getId());
+        assertEquals("client", userFound.getProfilDo().getNom());
+        assertTrue(userFound.isActif());
+
     }
 
     /**
@@ -126,7 +131,7 @@ class UserDaoTest {
     }
 
     /**
-     * Test method for {@link persistance.user.dao.impl.UserDao#findAllUserDo()}.
+     * Test method for {@link persistance.users.dao.impl.UserDao#findAllUserDo()}.
      */
     @Test
     void testFindUserDo() {
@@ -139,4 +144,18 @@ class UserDaoTest {
         Assertions.assertEquals(2, userDo.getSetCommandeDo().size());
     }
 
+    /**
+     * Test method for {@link persistance.users.dao.impl.UserDao#updateUserDo(Integer id, UserDO userDo)}.
+     */
+    @Test
+    public final void testUpdateUserDo() {
+        final IUserDao iUserDao = Factory.getInstance(IUserDao.class);
+        final UserDo userDo = iUserDao.findUserDo(11);
+        userDo.setAdresse("Rue_Du_Test_Update");
+        userDo.setMail("r@t.fr");
+
+        Assertions.assertNotNull(iUserDao.updateUserDo(11, userDo));
+        Assertions.assertTrue("r@t.fr".equals(userDo.getMail()));
+        Assertions.assertEquals("Rue_Du_Test_Update", userDo.getAdresse());
+    }
 }

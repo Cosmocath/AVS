@@ -33,7 +33,8 @@
 			<div style="width: 20%; float: left">
 				<html:link
 					href="consulterProduit.do?id=${produit.id}&retour=produitAdmin">
-					Image
+					<html:img style="width:100px; height:100px;"
+						src="${pageContext.request.contextPath}/afficherImage.do?urlImage=${produit.image}" />
 				</html:link>
 			</div>
 			<div style="width: 60%; float: left;">

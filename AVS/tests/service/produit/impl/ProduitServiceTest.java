@@ -18,6 +18,7 @@ import org.junit.jupiter.api.Test;
 
 import persistance.factory.HibernateFactory;
 import presentation.produit.beanDto.ProduitDto;
+import service.image.IImageService;
 import service.produit.IProduitService;
 import util.enumeration.OrderBy;
 import util.factory.Factory;
@@ -73,20 +74,24 @@ class ProduitServiceTest {
         produitDtoNew.setActif(true);
         produitDtoNew.setNoVersion(1);
         assertNull(iProduitService.create(produitDtoNew));
-        assertEquals(2, iProduitService.findAllProduitOrderBy(OrderBy.ASC).size());
+        assertEquals(3, iProduitService.findAllProduitOrderBy(OrderBy.ASC).size());
 
         // cas passant
         final ProduitDto produitDtoNew2 = new ProduitDto();
         produitDtoNew2.setDesignation("designationProduit123456");
         produitDtoNew2.setDescription("description produit 123456");
-        produitDtoNew2.setImage("chemin image 123456");
+        produitDtoNew2.setImage("imageTest.jpg");
+
+        final IImageService iImageService = Factory.getInstance(IImageService.class);
+        produitDtoNew2.setImageByte(iImageService.getImage("salades.jpg"));
+
         produitDtoNew2.setPrix("11.6");
         produitDtoNew2.setReference("3001");
         produitDtoNew2.setActif(true);
         produitDtoNew2.setNoVersion(1);
         final ProduitDto produitDtoInserted = iProduitService.create(produitDtoNew2);
         assertNotNull(produitDtoInserted);
-        assertEquals(3, iProduitService.findAllProduitOrderBy(OrderBy.ASC).size());
+        assertEquals(4, iProduitService.findAllProduitOrderBy(OrderBy.ASC).size());
         assertNotNull(produitDtoInserted.getId());
         assertEquals("designationProduit123456", produitDtoInserted.getDesignation());
     }
