@@ -194,23 +194,6 @@ INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, 
 INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(17, 'soutien scolaire', 'JK9123', 'aide aux devoirs', 25, 'null', 1, b'0');
 INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(18, 'mecanique', 'JK9123', 'reparations mecaniques', 75, 'null', 1, b'1');
 
---
--- Enrichissement Produit/ProduitVendu
---
-INSERT INTO `produit` (`id_Produit`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `actif`) VALUES(18, 'mecanique', 'JK9123', 'reparations mecaniques', 75, 'null', 1, b'1');
-
-
--- 
-
--- jardinage v2
-update produit set designation = 'jardinage 2', numero_version = 2, prix = 40 where id_produit = 12 ;
-
--- demenagement v3
-update produit set designation = 'demenagement 3', numero_version = 3, prix = 60 where id_produit = 14 ;
-INSERT INTO `produitvendu` (`id_ProduitVendu`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `id_Produit_Historise`) VALUES (2, 'demenagement', 'DE6789', 'service_au_demenagement', '40', 'demenagement.jpg', '1', '14'), (3, 'demenagement 2', 'DE6789', 'service_au_demenagement', '50', 'demenagement.jpg', '2', '14');
-INSERT INTO `produitvendu` (`id_ProduitVendu`, `designation`, `reference`, `description`, `prix`, `image`, `numero_version`, `id_Produit_Historise`) VALUES (4, 'demenagement 3', 'DE6789', 'service_au_demenagement', '60', 'demenagement.jpg', '3', '14');
-COMMIT;
-
 
 
 
