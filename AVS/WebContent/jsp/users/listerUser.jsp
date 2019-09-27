@@ -34,7 +34,8 @@
 
 
 					<!-- Les lien sont bloqués en attendant les ecrans correspondant -->
-					<td width="30%" align="center"><html:link href="#">
+					<td width="30%" align="center"><html:link
+							href="voirEditerUser.do?id=${utilisateur.id}">
 							<bean:message key="USR_02.editer" />
 						</html:link></td>
 					<td width="30%" align="center"><html:link

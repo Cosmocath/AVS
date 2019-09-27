@@ -10,6 +10,8 @@
 			type="presentation.users.form.ConnecterUserForm" />
 		<form-bean name="userForm"
 			type="presentation.users.form.UserForm" />
+		<form-bean name="editerUserForm"
+			type="presentation.users.form.EditerUserForm" />
 		<form-bean name="produitForm"
 			type="presentation.produit.form.ProduitForm" />
 		<form-bean name="panierForm"
@@ -95,6 +97,20 @@
 		</action>
 
 		<!-- Action de l'équipe User -->
+
+		<action path="/voirEditerUser" scope="request" input=""
+			parameter="" type="presentation.users.action.VoirEditerUserAction">
+			<forward name="success" path="voirEditerUser"
+				redirect="false" />
+		</action>
+
+		<action path="/editerUser" scope="request"
+			input="voirEditerUser" parameter="" name="editerUserForm"
+			type="presentation.users.action.EditerUserAction">
+			<forward name="success" path="listerUser.do" redirect="true"></forward>
+			<forward name="notSuccess" path="voirEditerUser"
+				redirect="false" />
+		</action>
 
 		<action path="/voirCreerUser" scope="request" input=""
 			parameter="" type="presentation.users.action.VoirCreerUserAction">
