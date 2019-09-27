@@ -82,7 +82,7 @@ class ProduitServiceTest {
         produitDtoNew2.setDescription("description produit 123456");
         produitDtoNew2.setImage("imageTest.jpg");
 
-        IImageService iImageService = Factory.getInstance(IImageService.class);
+        final IImageService iImageService = Factory.getInstance(IImageService.class);
         produitDtoNew2.setImageByte(iImageService.getImage("salades.jpg"));
 
         produitDtoNew2.setPrix("11.6");
