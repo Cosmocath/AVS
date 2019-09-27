@@ -126,24 +126,7 @@ public class PanierService implements IPanierService {
     }
 
     @Override
-    public CommandeDo validerPanier(PanierDto panierDto, CommandeInfoDto commandeInfoDto) {
-        // vérifier que les produits sont bien à jour
-        if (!isPanierValidable(panierDto)) {
-            // TODO RKU
-            System.out.println("pdts pas a jour");
-            return null;
-        }
 
-        // construction de la map ProduitVenduDo/Quantité
-        final IProduitVenduService iProduitVenduService = Factory.getInstance(IProduitVenduService.class);
-        final Map<ProduitVenduDo, Integer> mapProduitVenduQuantite = iProduitVenduService.buildMapProduitVenduQuantite(panierDto);
-        // TODO RKU
-        System.out.println("map taille" + mapProduitVenduQuantite);
-        // construction de la commandeDo
-        return buildCommandeDo(panierDto, commandeInfoDto, mapProduitVenduQuantite);
-    }
-
-    @Override
     public PanierDto deleteProduitPanier(final PanierDto panierDto, final int idProduit) {
         final IProduitService iProduitService = Factory.getInstance(IProduitService.class);
 
@@ -171,7 +154,41 @@ public class PanierService implements IPanierService {
         // on calcule la remise
         remisePanier(panierDto);
         return panierDto;
+    }
 
+    public CommandeDo validerPanier(PanierDto panierDto, CommandeInfoDto commandeInfoDto) {
+
+        // vérifier que les produits sont bien à jour
+        if (!isPanierValidable(panierDto)) {
+            // TODO RKU
+            System.out.println("pdts pas a jour");
+            return null;
+        }
+
+        // construction de la map ProduitVenduDo/Quantité
+        final IProduitVenduService iProduitVenduService = Factory.getInstance(IProduitVenduService.class);
+        final Map<ProduitVenduDo, Integer> mapProduitVenduQuantite = iProduitVenduService.buildMapProduitVenduQuantite(panierDto);
+        // TODO RKU
+        System.out.println("map taille" + mapProduitVenduQuantite);
+        // construction de la commandeDo
+        return buildCommandeDo(panierDto, commandeInfoDto, mapProduitVenduQuantite);
+
+        // on parcourt les produits du panier
+        for (final ProduitDto produitDto : setProduit) {
+            // recherche d'un produitVendu correspondant à notre produit courant
+            ProduitVenduDo produitVenduDo = iProduitVenduDao.findProduitVenduByIdProduitHistoriseAndVersion(produitDto.getId(), produitDto.getNoVersion());
+            if (produitVenduDo == null) {
+                // Mapping
+                produitVenduDo = iProduitVenduService.mapProduitDtoToProduitVenduDo(produitDto);
+            }
+            CommandeProduitDo commandeProduitDo = new CommandeProduitDo();
+            commandeProduitDo.setProduitVenduDo(produitVenduDo);
+            // recherche quantité
+            QuantitePrix quantitePrix = panierDto.getMapDesProduitsQte().get(produitDto);
+            commandeProduitDo.setQuantite(quantitePrix.getQuantite());
+            commandeDo.getCommandeProduitSet().add(commandeProduitDo);
+        }
+        return commandeDo;
     }
 
     @Override
