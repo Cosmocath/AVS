@@ -46,7 +46,7 @@ public class VoirEditerProduitAction extends Action {
         return mapping.findForward("success");
     }
 
-    public ProduitForm mapToProduitForm(final ProduitDto produitDto) {
+    private ProduitForm mapToProduitForm(final ProduitDto produitDto) {
         final ProduitForm produitForm = new ProduitForm();
         produitForm.setIdProduit(String.valueOf(produitDto.getId()));
         produitForm.setDesignation(produitDto.getDesignation());

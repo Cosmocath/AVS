@@ -51,11 +51,11 @@
 	</html:form>
 
 	<div style="float: left">
-		<html:link href="http://localhost:8080/AVS/listerProduitAdmin.do">
+		<html:link href="listerProduitAdmin.do">
 			<bean:message key="PDT_01.bouton.retour" />
 		</html:link>
 	</div>
-	<br>
+	<br />
 	<logic:messagesPresent message="true">
 		<html:messages id="updateProduitOK" property="updateProduitOK"
 			message="true" header="valid.global.header"

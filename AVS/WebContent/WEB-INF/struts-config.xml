@@ -112,7 +112,6 @@
 
 		<!-- Action de l'équipe User -->
 
-
 		<action path="/voirEditerUser" scope="request" input=""
 			parameter="" type="presentation.users.action.VoirEditerUserAction">
 			<forward name="success" path="voirEditerUser"
@@ -126,7 +125,6 @@
 			<forward name="notSuccess" path="voirEditerUser"
 				redirect="false" />
 		</action>
-
 
 		<action path="/voirCreerUser" scope="request" input=""
 			parameter="" type="presentation.users.action.VoirCreerUserAction">
