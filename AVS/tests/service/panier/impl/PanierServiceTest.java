@@ -77,5 +77,8 @@ class PanierServiceTest {
         assertNotNull(commandeDo);
         Set<CommandeProduitDo> commandeProduitSet = commandeDo.getCommandeProduitSet();
         assertEquals(2, commandeProduitSet.size());
+        for (CommandeProduitDo cpdo : commandeProduitSet) {
+            System.out.println(cpdo.toString());
+        }
     }
 }
