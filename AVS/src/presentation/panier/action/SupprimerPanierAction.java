@@ -12,16 +12,15 @@ import org.apache.struts.action.ActionMapping;
 import presentation.panier.beanDto.PanierDto;
 import presentation.users.action.ConnecterUserAction;
 import service.panier.IPanierService;
-import util.enumeration.ParamPanier;
 import util.factory.Factory;
 
 /**
- * Permet d'ajouter le produit au panier en session
+ * Action permettant de supprimer un produit du panier
  * 
- * @author Nora LIFERKI
+ * @author Nora Liferki
  *
  */
-public class AjouterPanierAction extends Action {
+public class SupprimerPanierAction extends Action {
 
     @Override
     public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
@@ -32,21 +31,7 @@ public class AjouterPanierAction extends Action {
         final HttpSession session = request.getSession();
         //je récupère le panier en session et je le remplis
         final PanierDto panierDto = (PanierDto) session.getAttribute(ConnecterUserAction.MON_PANIER);
-        iPanierService.addProduitPanier(panierDto, idProduit);
-        
-        final String retour = request.getParameter("retour");
-        // je convertis ma chaine retour en une valeur de l enum
-        final ParamPanier valeurEnum = ParamPanier.getValue(retour);
-
-        //on teste la valeur de l'enum pour les 4 écrans qu'on veut attendre en cliquant retour
-        switch (valeurEnum) {
-            case LISTE_PRODUIT_CLIENT :
-                return mapping.findForward("pdt_00");
-            case CONSULTER_PRODUIT :
-                return mapping.findForward("pdt_01");
-            case PANIER :
-                return mapping.findForward("pan_00");
-        }
+        iPanierService.deleteProduitPanier(panierDto, idProduit);
 
         return mapping.findForward("success");
     }

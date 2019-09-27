@@ -18,9 +18,9 @@
 
 	<action-mappings
 		type="org.apache.struts.action.ActionMapping">
-				
+
 		<!-- Action d'affichage des CGU -->
-		
+
 		<action path="/voirCGU" scope="request" input="" parameter=""
 			type="presentation.cgu.action.VoirCGUAction">
 			<forward name="success" path="cgu" redirect="false"></forward>
@@ -37,7 +37,7 @@
 		</action>
 
 		<!-- La connection/déconnection d'un utilisateur -->
-		
+
 		<action path="/connecterUser" scope="request"
 			input="voirConnecterUser" parameter="" name="connecterUserForm"
 			type="presentation.users.action.ConnecterUserAction">
@@ -60,7 +60,7 @@
 		</action>
 
 		<!-- Action de l'équipe Produit -->
-		
+
 		<action path="/listerProduitClient" scope="request" input=""
 			parameter="" type="presentation.produit.action.ListerProduitAction">
 			<forward name="success" path="listerProduitClient"
@@ -79,7 +79,7 @@
 			type="presentation.produit.action.CreerProduitAction">
 			<forward name="success" path="creerProduit" redirect="false" />
 		</action>
-				
+
 		<action path="/listerProduitAdmin" scope="request" input=""
 			parameter=""
 			type="presentation.produit.action.ListerProduitAdminAction">
@@ -95,7 +95,7 @@
 		</action>
 
 		<!-- Action de l'équipe User -->
-		
+
 		<action path="/voirCreerUser" scope="request" input=""
 			parameter="" type="presentation.users.action.VoirCreerUserAction">
 			<forward name="success" path="voirCreerUser" redirect="false" />
@@ -137,7 +137,13 @@
 				redirect="true" />
 			<forward name="pan_00" path="afficherPanier.do"
 				redirect="true" />
+		</action>
 
+		<action path="/supprimerPanier" scope="request" input=""
+			parameter="" name=""
+			type="presentation.panier.action.SupprimerPanierAction">
+			<forward name="success" path="afficherPanier.do"
+				redirect="true" />
 		</action>
 		<action path="/voirValiderPanier" scope="request" input=""
 			parameter=""
@@ -151,9 +157,15 @@
 			<forward name="success" path="validerPanier" redirect="false"></forward>
 		</action>
 
+		<action path="/viderPanier" scope="request" input=""
+			parameter="" name=""
+			type="presentation.panier.action.ViderPanierAction">
+			<forward name="success" path="afficherPanier"
+				redirect="false" />
+		</action>
 
 		<!-- Action de l'équipe Commande -->
-		
+
 		<action path="/listerCommande" scope="request" input=""
 			parameter="" type="presentation.commande.action.ListerCommandeAction">
 			<forward name="success" path="listerCommande"
@@ -161,7 +173,7 @@
 		</action>
 
 		<!-- Action de gestion image -->
-		
+
 		<action path="/afficherImage" parameter=""
 			type="presentation.image.action.AfficherImageAction">
 

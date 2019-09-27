@@ -8,30 +8,32 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionMessage;
-import org.apache.struts.action.ActionMessages;
 
 import presentation.panier.beanDto.PanierDto;
 import presentation.users.action.ConnecterUserAction;
+import service.panier.IPanierService;
+import util.factory.Factory;
 
 /**
- * Permet d'afficher le panierDto de la session
+ * Permet de vider le panier en session
  * 
  * @author Administrateur
  *
  */
-public class VoirPanierAction extends Action {
+public class ViderPanierAction extends Action {
 
     @Override
     public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
+
+        //je recupère la session
         final HttpSession session = request.getSession();
+        //je recupère le panier en session
         final PanierDto panierDto = (PanierDto) session.getAttribute(ConnecterUserAction.MON_PANIER);
-        //message panier vide
-        if (panierDto.getQuantiteTotale() == 0) {
-            final ActionMessages messages = new ActionMessages();
-            messages.add("panierVide", new ActionMessage("PAN_00.panierVide"));
-            saveMessages(request, messages);
-        }
+        //je vide la panierDto
+        final IPanierService iPanierService = Factory.getInstance(IPanierService.class);
+        iPanierService.viderPanierDto(panierDto);
+
+        //je retourne la direction
         return mapping.findForward("success");
     }
 

@@ -70,4 +70,44 @@ public class PanierService implements IPanierService {
 
         return panierDto;
     }
+
+    @Override
+    public PanierDto deleteProduitPanier(final PanierDto panierDto, final int idProduit) {
+        final IProduitService iProduitService = Factory.getInstance(IProduitService.class);
+
+        // Récupération de du produit grâce à son Id
+        final ProduitDto produitDto = iProduitService.getProduitById(idProduit);
+
+        //Récupération "QuantitéPrix" dans la map 
+        final PanierDto.QuantitePrix quantitePrix = panierDto.getMapDesProduitsQte().get(produitDto);
+
+        //Récupération de la quantité de produit dans "QuantitéPrix (classe)" 
+        final int quantite = quantitePrix.getQuantite();
+
+        //Suppression du produit de la map
+        panierDto.getMapDesProduitsQte().remove(produitDto, quantitePrix);
+
+        // Je màj la quantiteTotale 
+        panierDto.setQuantiteTotale(panierDto.getMapDesProduitsQte().size());
+
+        // Déduction du produit (quantité*prix) du TotalAVantRemise
+        final double totalAvtRemise = FormatUtil.convertirStringToDouble(panierDto.getTotalAvantRemise());
+        final double total = FormatUtil.convertirStringToDouble(produitDto.getPrix()) * quantite;
+
+        panierDto.setTotalAvantRemise(FormatUtil.convertirDoubleToString(totalAvtRemise - total));
+
+        // on calcule la remise
+        remisePanier(panierDto);
+        return panierDto;
+    }
+
+    @Override
+    public PanierDto viderPanierDto(final PanierDto panierDto) {
+        panierDto.setQuantiteTotale(0);
+        panierDto.setTotalAvantRemise("0,00");
+        panierDto.setRemise("0,00");
+        panierDto.setTotalApresRemise("0,00");
+        panierDto.getMapDesProduitsQte().clear();
+        return panierDto;
+    }
 }

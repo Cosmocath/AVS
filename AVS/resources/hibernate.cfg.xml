@@ -22,17 +22,23 @@
 
 		<!-- Permet de formatter les requêtes executées par hibernate -->
 		<!-- <property name="format_sql>true</property> -->
-		<mapping resource="hbm/Droit.hbm.xml" />
-		<mapping resource="hbm/Profil.hbm.xml" />
-		<mapping resource="hbm/ProfilDroit.hbm.xml" />
-
-		<!-- Liste des fichiers de Mapping hbm pour chaque table / Do -->
-		<mapping resource="hbm/Commande.hbm.xml" />
+		
+		<!-- Liste des fichiers de Mapping hbm pour chaque table / Do par domaine -->
+		<!-- hbm domaine User -->
 		<mapping resource="hbm/User.hbm.xml" />
-		<mapping resource="hbm/Profil.hbm.xml" />
+		
+		<!-- hbm domaine Produit -->
 		<mapping resource="hbm/Produit.hbm.xml" />
-		<mapping resource="hbm/CommandeProduit.hbm.xml" />
 		<mapping resource="hbm/ProduitVendu.hbm.xml" />
+		
+		<!-- hbm domaine Commande -->
+		<mapping resource="hbm/Commande.hbm.xml" />
+		<mapping resource="hbm/CommandeProduit.hbm.xml" />
+		
+		<!-- hbm domaine profil et droit -->
+		<mapping resource="hbm/Profil.hbm.xml" />
+		<mapping resource="hbm/Droit.hbm.xml" />
+		<mapping resource="hbm/ProfilDroit.hbm.xml" />	
 
 	</session-factory>
 </hibernate-configuration>
