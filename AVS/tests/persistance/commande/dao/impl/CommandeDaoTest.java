@@ -17,8 +17,7 @@ import persistance.commande.beanDo.CommandeProduitDo;
 import persistance.commande.dao.ICommandeDao;
 
 import persistance.factory.HibernateFactory;
-
-import persistance.produitVendu.IProduitVenduDao;
+import persistance.produitVendu.dao.IProduitVenduDao;
 import util.factory.Factory;
 
 /**
@@ -30,25 +29,25 @@ class CommandeDaoTest {
     /**
      * 
      */
-    @BeforeEach
-    public void initData() {
-        try (final Session session = HibernateFactory.getSessionFactory().openSession()) {
-            final Transaction transaction = session.beginTransaction();
-            try (final Scanner scanner = new Scanner(new FileReader("tests/dataSet/avs_DML.sql"))) {
-                while (scanner.hasNext()) {
-                    final String sql = scanner.nextLine();
-                    if (!sql.isEmpty()) {
-
-                        final NativeQuery<?> query = session.createNativeQuery(sql);
-                        query.executeUpdate();
-                    }
-                }
-            } catch (final FileNotFoundException e) {
-                e.printStackTrace();
-            }
-            transaction.commit();
-        }
-    }
+//    @BeforeEach
+//    public void initData() {
+//        try (final Session session = HibernateFactory.getSessionFactory().openSession()) {
+//            final Transaction transaction = session.beginTransaction();
+//            try (final Scanner scanner = new Scanner(new FileReader("tests/dataSet/avs_DML.sql"))) {
+//                while (scanner.hasNext()) {
+//                    final String sql = scanner.nextLine();
+//                    if (!sql.isEmpty()) {
+//
+//                        final NativeQuery<?> query = session.createNativeQuery(sql);
+//                        query.executeUpdate();
+//                    }
+//                }
+//            } catch (final FileNotFoundException e) {
+//                e.printStackTrace();
+//            }
+//            transaction.commit();
+//        }
+//    }
 
     /**
      * Test method for {@link persistance.commande.dao.impl.CommandeDao#findAllCommandeDo(int)}.
@@ -70,7 +69,7 @@ class CommandeDaoTest {
         final CommandeProduitDo commandeProduit = new CommandeProduitDo();
         final IProduitVenduDao iProduitVenduDao = Factory.getInstance(IProduitVenduDao.class);
 
-        commandeProduit.setProduitVenduDo(iProduitVenduDao.findProduitVenduByIdProduitHistorise(12));
+        commandeProduit.setProduitVenduDo(iProduitVenduDao.findProduitVenduByIdProduitHistoriseAndVersion(12, 1));
         commandeProduit.setQuantite(5);
 
         final CommandeDo commandeDo = new CommandeDo();
@@ -83,7 +82,7 @@ class CommandeDaoTest {
         commandeDo.getCommandeProduitSet().add(commandeProduit);
         final CommandeDo commande = iCommandeDao.createCommandeDo(commandeDo);
         //ne pas hesiter a regarder l'id du produit avt et apres le create
-        Assert.assertNotNull(iCommandeDao.createCommandeDo(commandeDo));
+        Assert.assertNotNull(commande);
         Assert.assertEquals("cmd_154", commande.getNumeroCommande());
     }
 
