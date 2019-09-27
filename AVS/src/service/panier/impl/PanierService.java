@@ -1,11 +1,13 @@
 package service.panier.impl;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
 import persistance.commande.beanDo.CommandeDo;
 import persistance.commande.beanDo.CommandeProduitDo;
+import persistance.commande.dao.ICommandeDao;
 import persistance.produitVendu.beanDo.ProduitVenduDo;
 import presentation.panier.beanDto.CommandeInfoDto;
 import presentation.panier.beanDto.PanierDto;
@@ -54,6 +56,7 @@ public class PanierService implements IPanierService {
         commandeDo.setIdUtilisateur(Integer.valueOf(commandeInfoDto.getUserId()));
 
         //TODO RKU : définir nomUser, date et N°commande
+        commandeDo.setDateCommande(new Date());
         commandeDo.setMontantSansRemise(FormatUtil.convertirStringToDouble(panierDto.getTotalAvantRemise()));
         commandeDo.setRemise(FormatUtil.convertirStringToDouble(panierDto.getRemise()));
 
@@ -171,24 +174,14 @@ public class PanierService implements IPanierService {
         // TODO RKU
         System.out.println("map taille" + mapProduitVenduQuantite);
         // construction de la commandeDo
-        return buildCommandeDo(panierDto, commandeInfoDto, mapProduitVenduQuantite);
-
-        // on parcourt les produits du panier
-        for (final ProduitDto produitDto : setProduit) {
-            // recherche d'un produitVendu correspondant à notre produit courant
-            ProduitVenduDo produitVenduDo = iProduitVenduDao.findProduitVenduByIdProduitHistoriseAndVersion(produitDto.getId(), produitDto.getNoVersion());
-            if (produitVenduDo == null) {
-                // Mapping
-                produitVenduDo = iProduitVenduService.mapProduitDtoToProduitVenduDo(produitDto);
-            }
-            CommandeProduitDo commandeProduitDo = new CommandeProduitDo();
-            commandeProduitDo.setProduitVenduDo(produitVenduDo);
-            // recherche quantité
-            QuantitePrix quantitePrix = panierDto.getMapDesProduitsQte().get(produitDto);
-            commandeProduitDo.setQuantite(quantitePrix.getQuantite());
-            commandeDo.getCommandeProduitSet().add(commandeProduitDo);
-        }
-        return commandeDo;
+        final CommandeDo commandeDo = buildCommandeDo(panierDto, commandeInfoDto, mapProduitVenduQuantite);
+        // TODO RKU : gérer nom
+        commandeDo.setNom("commandeTest");
+        commandeDo.setNumeroCommande("2001");
+        // persistance
+        final ICommandeDao iCommandeDao = Factory.getInstance(ICommandeDao.class);
+        return iCommandeDao.createCommandeDo(commandeDo);
+        
     }
 
     @Override

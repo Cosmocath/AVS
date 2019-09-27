@@ -111,16 +111,20 @@ class PanierServiceTest {
     void testValiderPanier() {
         final IPanierService iPanierService = Factory.getInstance(IPanierService.class);
         PanierDto panierDto = new PanierDto();
+        // jardinage 2 (pas encore vendu)
         panierDto = iPanierService.addProduitPanier(panierDto, 12);
+        // demenagement 3 (existe en vendu v3)
         panierDto = iPanierService.addProduitPanier(panierDto, 14);
+        // mecanique 2 (existe en vendu v2)
         panierDto = iPanierService.addProduitPanier(panierDto, 18);
 
         final CommandeInfoDto commandeInfoDto = new CommandeInfoDto();
+        
         commandeInfoDto.setUserId("7");
         commandeInfoDto.setAdresseFacturation("adresse fact");
         commandeInfoDto.setAdresseLivraison("adr livraison");
-
         CommandeDo commandeDo = iPanierService.validerPanier(panierDto, commandeInfoDto);
+        
         assertNotNull(commandeDo);
         Set<CommandeProduitDo> commandeProduitSet = commandeDo.getCommandeProduitSet();
         assertEquals(3, commandeProduitSet.size());

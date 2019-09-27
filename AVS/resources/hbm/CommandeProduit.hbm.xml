@@ -11,7 +11,7 @@
 			<generator class="identity"></generator>
 		</id>
 		<many-to-one name="commandeDo" column="idCommande"></many-to-one>
-		<many-to-one name="produitVenduDo"
+		<many-to-one name="produitVenduDo" cascade="save"
 			column="id_ProduitVendu" lazy="false"></many-to-one>
 		<property name="quantite" column="quantite" type="integer"></property>
 	</class>
