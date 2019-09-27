@@ -1,7 +1,5 @@
 package presentation.produit.action;
 
-import java.io.IOException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -17,50 +15,47 @@ import presentation.produit.beanDto.ProduitDto;
 import presentation.produit.form.ProduitForm;
 import service.produit.IProduitService;
 import util.factory.Factory;
-import util.tools.ConversionUtil;
 
 /**
- * Action permettant de créer un produit
+ * Action permettant de modifier un produit
  * 
- * @author Rodolphe
- *
+ * @author Catherine
+ * 
  */
-public class CreerProduitAction extends Action {
+public class EditerProduitAction extends Action {
+
     /**
-     * Permet de mapper un form en produit
+     * methode permettant de mapper de produitForm a dto
      * 
      * @param produitForm
      * @return
      */
     private ProduitDto mapToDto(final ProduitForm produitForm) {
-        try {
-            return ProduitDto.build(produitForm.getDesignation(), produitForm.getReference(), produitForm.getDescription(), ConversionUtil.convertStringCommaToDot(produitForm.getPrix()),
-                            produitForm.getImage().getFileName(), 1, produitForm.isActif(), produitForm.getImage().getFileData());
-        } catch (final IOException e) {
-            e.printStackTrace();
-            return null;
-        }
+        return ProduitDto.buildProduitDto(Integer.valueOf(produitForm.getIdProduit()), produitForm.getDesignation(), produitForm.getReference(), produitForm.getDescription(), produitForm.getPrix(),
+                        String.valueOf(produitForm.getImage()), 1, true, new byte[0]);
     }
 
     @Override
     public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         // on récupère les infos
         final ProduitForm produitForm = (ProduitForm) form;
-
         // on récupère les données du Service
         final IProduitService iProduitService = Factory.getInstance(IProduitService.class);
-        final ProduitDto produitDto = iProduitService.create(mapToDto(produitForm));
-
+        final ProduitDto produitDto = iProduitService.updateProduit(mapToDto(produitForm));
         // on teste le retour du service
         if (produitDto == null) {
+            request.setAttribute("id", Integer.valueOf(produitForm.getIdProduit()));
             final ActionErrors errors = new ActionErrors();
-            errors.add("error", new ActionMessage("PDT_02.error.creation", new Object[] { produitForm.getReference() }));
+            errors.add("error", new ActionMessage("PDT_03.errors.modification"));
             saveErrors(request, errors);
         } else {
+            request.setAttribute("id", produitDto.getId());
             final ActionMessages messages = new ActionMessages();
-            messages.add("creationProduitOK", new ActionMessage("PDT_02.valid.ok"));
+            messages.add("updateProduitOK", new ActionMessage("PDT_03.editer.ok"));
             saveMessages(request, messages);
         }
+
+        // On redirige 
         return mapping.findForward("success");
     }
 

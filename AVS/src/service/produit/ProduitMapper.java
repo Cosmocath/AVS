@@ -70,7 +70,7 @@ public class ProduitMapper {
         produitDo.setPrix(FormatUtil.convertirStringToDouble(produitDto.getPrix()));
         produitDo.setImage(produitDto.getImage());
         produitDo.setNumeroVersion(produitDto.getNoVersion());
-        produitDo.setActif(true);
+        produitDo.setActif(produitDto.isActif());
         return produitDo;
     }
 }
