@@ -34,7 +34,7 @@ public class ProduitForm extends ActionForm {
     private String               description;
     private String               prix;
     private FormFile             image;
-    private String               actif;
+    private boolean              actif            = false;
 
     @Override
     public void reset(final ActionMapping mapping, final HttpServletRequest request) {
@@ -170,14 +170,14 @@ public class ProduitForm extends ActionForm {
     /**
      * @return the actif
      */
-    public String getActif() {
+    public boolean isActif() {
         return actif;
     }
 
     /**
      * @param actif the actif to set
      */
-    public void setActif(final String actif) {
+    public void setActif(final boolean actif) {
         this.actif = actif;
     }
 
