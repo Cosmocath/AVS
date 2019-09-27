@@ -115,6 +115,7 @@ public class PanierService implements IPanierService {
         return commandeDo;
     }
 
+    @Override
     public PanierDto viderPanierDto(final PanierDto panierDto) {
         panierDto.setQuantiteTotale(0);
         panierDto.setTotalAvantRemise("0,00");
