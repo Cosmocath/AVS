@@ -34,6 +34,30 @@ class PanierServiceTest {
     }
 
     /**
+     * Test method for {@link service.panier.impl.PanierService#diminuerProduitPanier(presentation.panier.beanDto.PanierDto, int)}.
+     */
+    @Test
+    void testDiminuerProduitPanier() {
+        final PanierDto panierDto = new PanierDto();
+        Assertions.assertNotNull(panierDto);
+        final IPanierService iPanierService = Factory.getInstance(IPanierService.class);
+        iPanierService.addProduitPanier(panierDto, 12);
+        iPanierService.addProduitPanier(panierDto, 12);
+        iPanierService.addProduitPanier(panierDto, 15);
+        iPanierService.addProduitPanier(panierDto, 13);
+        iPanierService.addProduitPanier(panierDto, 19);
+        iPanierService.addProduitPanier(panierDto, 18);
+        iPanierService.addProduitPanier(panierDto, 16);
+        Assertions.assertNotNull(panierDto.getRemise());
+        Assertions.assertEquals("232,20", panierDto.getTotalAvantRemise());
+        Assertions.assertEquals("27,22", panierDto.getRemise());
+        iPanierService.diminuerProduitPanier(panierDto, 12);
+        iPanierService.diminuerProduitPanier(panierDto, 15);
+        Assertions.assertEquals("0,00", panierDto.getRemise());
+
+    }
+
+    /**
      * Test method for {@link service.panier.impl.PanierService#remisePanier(presentation.panier.beanDto.PanierDto)}.
      */
     @Test
