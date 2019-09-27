@@ -1,9 +1,18 @@
 package service.panier.impl;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import persistance.commande.beanDo.CommandeDo;
+import persistance.commande.beanDo.CommandeProduitDo;
+import persistance.produitVendu.beanDo.ProduitVenduDo;
+import persistance.produitVendu.dao.IProduitVenduDao;
 import presentation.panier.beanDto.PanierDto;
+import presentation.panier.beanDto.PanierDto.QuantitePrix;
 import presentation.produit.beanDto.ProduitDto;
 import service.panier.IPanierService;
 import service.produit.IProduitService;
+import service.produitVendu.IProduitVenduService;
 import util.factory.Factory;
 import util.tools.FormatUtil;
 
@@ -102,6 +111,40 @@ public class PanierService implements IPanierService {
     }
 
     @Override
+    public CommandeDo validerPanier(PanierDto panierDto) {
+        // vérifier que les produits sont bien à jour
+        final IProduitService iProduitService = Factory.getInstance(IProduitService.class);
+        final Set<ProduitDto> setProduit = panierDto.getMapDesProduitsQte().keySet();
+        for (final ProduitDto produitDto : setProduit) {
+            if (!iProduitService.isProduitFromPanierUpToDate(produitDto.getId(), produitDto.getNoVersion())) {
+                return null;
+            }
+        }
+
+        // on va construire la commande
+        CommandeDo commandeDo = new CommandeDo();
+        commandeDo.setCommandeProduitSet(new HashSet<CommandeProduitDo>());
+        final IProduitVenduDao iProduitVenduDao = Factory.getInstance(IProduitVenduDao.class);
+        final IProduitVenduService iProduitVenduService = Factory.getInstance(IProduitVenduService.class);
+
+        // on parcourt les produits du panier
+        for (final ProduitDto produitDto : setProduit) {
+            // recherche d'un produitVendu correspondant à notre produit courant
+            ProduitVenduDo produitVenduDo = iProduitVenduDao.findProduitVenduByIdProduitHistoriseAndVersion(produitDto.getId(), produitDto.getNoVersion());
+            if (produitVenduDo == null) {
+                // Mapping
+                produitVenduDo = iProduitVenduService.mapProduitDtoToProduitVenduDo(produitDto);
+            }
+            CommandeProduitDo commandeProduitDo = new CommandeProduitDo();
+            commandeProduitDo.setProduitVenduDo(produitVenduDo);
+            // recherche quantité
+            QuantitePrix quantitePrix = panierDto.getMapDesProduitsQte().get(produitDto);
+            commandeProduitDo.setQuantite(quantitePrix.getQuantite());
+            commandeDo.getCommandeProduitSet().add(commandeProduitDo);
+        }
+        return commandeDo;
+    }
+
     public PanierDto viderPanierDto(final PanierDto panierDto) {
         panierDto.setQuantiteTotale(0);
         panierDto.setTotalAvantRemise("0,00");
