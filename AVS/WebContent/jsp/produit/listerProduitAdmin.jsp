@@ -4,6 +4,11 @@
 	function RedirectionJavascript() {
 		document.location.href = "voirCreerProduit.do";
 	}
+
+	// 	function RedirectionEditer() {
+	// 		document.location.href = "voirEditerProduit.do?id="
+	// 				+ document.getElementById("id").value;
+	//	}
 </script>
 
 <logic:messagesPresent message="true">
@@ -29,6 +34,7 @@
 	</div>
 
 	<logic:iterate name="listeProduits" id="produit" scope="request">
+
 		<div style="width: 100%; display: inline-block;">
 			<div style="width: 20%; float: left">
 				<html:link
@@ -43,9 +49,12 @@
 				<bean:write name="produit" property="reference" />
 			</div>
 			<div style="width: 20%; float: right;">
-				<html:button property="editer">
+				<html:link
+					href="voirEditerProduit.do?id=${produit.id}&retour=produitAdmin">
 					<bean:message key="PDT_04.bouton.editer" />
-				</html:button>
+				</html:link>
+
+
 				<div>
 					<bean:write name="produit" property="prix" />
 					<bean:message key="Global.euro" />

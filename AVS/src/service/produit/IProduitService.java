@@ -46,4 +46,13 @@ public interface IProduitService {
      */
     ProduitDto getProduitById(final int idProduit);
 
+    /**
+     * Permet de faire appel à la couche persistance afin de modifier un Produit en BDD à partir de son id </br>
+     * On applique les règles de gestion.
+     * 
+     * @param produitDto contenant les informations du produit à modifier en BDD
+     * @return un produitDto si la modification à fonctionné, null dans le cas contraire *
+     */
+    ProduitDto updateProduit(final ProduitDto produitDto);
+
 }
