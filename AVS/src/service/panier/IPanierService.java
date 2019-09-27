@@ -1,6 +1,7 @@
 package service.panier;
 
 import persistance.commande.beanDo.CommandeDo;
+import presentation.panier.beanDto.CommandeInfoDto;
 import presentation.panier.beanDto.PanierDto;
 
 /**
@@ -29,6 +30,15 @@ public interface IPanierService {
     PanierDto remisePanier(final PanierDto panierDto);
 
     /**
+     * Méthode permettant de faire appel à un produit de la couche persistance pour le supprimer du panier Permet de valider le panier et de créer la commande associée
+     * 
+     * @param panierDto le panier à valider
+     * @param commandeInfoDto les infos (userId, adresses)
+     * @return la commande, null sinon
+     */
+    CommandeDo validerPanier(final PanierDto panierDto, final CommandeInfoDto commandeInfoDto);
+
+    /**
      * Méthode permettant de faire appel à un produit de la couche persistance pour le supprimer du panier
      * 
      * @param panierDto qui contient les infos des produits à supprimer du panier
@@ -36,14 +46,6 @@ public interface IPanierService {
      * @return un panierDto si supp OK, sinon null
      */
     PanierDto deleteProduitPanier(final PanierDto panierDto, final int idProduit);
-
-    /**
-     * Permet de valider le panier et de dréer la commande associée
-     * 
-     * @param panierDto la panier à valider
-     * @return la commande, null sinon
-     */
-    CommandeDo validerPanier(final PanierDto panierDto);
 
     /**
      * Permet de vider le panier

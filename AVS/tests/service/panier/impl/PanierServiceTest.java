@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import persistance.commande.beanDo.CommandeDo;
 import persistance.commande.beanDo.CommandeProduitDo;
 import persistance.factory.HibernateFactory;
+import presentation.panier.beanDto.CommandeInfoDto;
 import presentation.panier.beanDto.PanierDto;
 import service.panier.IPanierService;
 import util.factory.Factory;
@@ -112,7 +113,13 @@ class PanierServiceTest {
         PanierDto panierDto = new PanierDto();
         panierDto = iPanierService.addProduitPanier(panierDto, 12);
         panierDto = iPanierService.addProduitPanier(panierDto, 14);
-        CommandeDo commandeDo = iPanierService.validerPanier(panierDto);
+        
+        final CommandeInfoDto commandeInfoDto= new CommandeInfoDto();
+        commandeInfoDto.setUserId("7");
+        commandeInfoDto.setAdresseFacturation("adresse fact");
+        commandeInfoDto.setAdresseLivraison("adr livraison");
+        
+        CommandeDo commandeDo = iPanierService.validerPanier(panierDto, commandeInfoDto);
         assertNotNull(commandeDo);
         Set<CommandeProduitDo> commandeProduitSet = commandeDo.getCommandeProduitSet();
         assertEquals(2, commandeProduitSet.size());
