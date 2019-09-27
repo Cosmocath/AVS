@@ -13,7 +13,8 @@
 		</html:messages>
 	</logic:messagesPresent>
 	<%-- permet d'afficher les erreurs "globales" --%>
-	<html:errors header="errors.global.header" footer="errors.global.footer" property="error" />
+	<html:errors header="errors.global.header"
+		footer="errors.global.footer" property="error" />
 	<br />
 
 	<html:form action="/creerProduit.do" focus="designation"
@@ -51,6 +52,12 @@
 				<td align="right"><bean:message key="PDT_02.image" /></td>
 				<td align="left"><html:file property="image" /></td>
 				<td><html:errors property="image" header="errors.field.header"
+						footer="errors.field.footer" /></td>
+			</tr>
+			<tr>
+				<td align="right"><bean:message key="PDT_02.actif" /></td>
+				<td align="left"><html:checkbox property="actif" value="true" /></td>
+				<td><html:errors property="actif" header="errors.field.header"
 						footer="errors.field.footer" /></td>
 			</tr>
 			<tr>
