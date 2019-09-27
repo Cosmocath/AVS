@@ -33,7 +33,7 @@ public class ProduitDto implements Serializable {
     public ProduitDto() {
         // empty constructor
     }
-    
+
     /**
      * Builder pour le ProduitDto
      * 
