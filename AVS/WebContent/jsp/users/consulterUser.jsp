@@ -25,7 +25,7 @@
 					<bean:message key="USR_03.retour" />
 				</html:link>
 
-				<html:link href="#">
+				<html:link href="voirEditerUser.do?id=${user.id}">
 					<bean:message key="USR_03.editer" />
 				</html:link>
 

@@ -35,7 +35,7 @@ public class CreerProduitAction extends Action {
     private ProduitDto mapToDto(final ProduitForm produitForm) {
         try {
             return ProduitDto.build(produitForm.getDesignation(), produitForm.getReference(), produitForm.getDescription(), ConversionUtil.convertStringCommaToDot(produitForm.getPrix()),
-                            produitForm.getImage().getFileName(), 1, produitForm.getImage().getFileData());
+                            produitForm.getImage().getFileName(), 1, produitForm.isActif(), produitForm.getImage().getFileData());
         } catch (final IOException e) {
             e.printStackTrace();
             return null;

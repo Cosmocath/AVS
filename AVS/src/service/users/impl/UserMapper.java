@@ -8,6 +8,7 @@ import persistance.users.beanDo.ProfilDo;
 import persistance.users.beanDo.UserDo;
 import presentation.users.beanDto.ConnectedUserDto;
 import presentation.users.beanDto.UserDto;
+import util.cryptage.MD5Encryption;
 import util.tools.FormatUtil;
 
 /**
@@ -75,10 +76,9 @@ public class UserMapper {
     public static UserDo mapToDo(final UserDto userDto) {
         final Date dateNaissance = FormatUtil.convertirStringToDate(userDto.getDateNaissance());
         final ProfilDo profilDo = ProfilMapper.mapProfilDtoToProfilDo(userDto.getProfilDto());
-
-        final UserDo userDo = UserDo.buildUserDo(userDto.getId(), userDto.getNom(), userDto.getPrenom(), dateNaissance, userDto.getAdresse(), userDto.getPassword(), profilDo, userDto.getMail(),
+        final String newPassword = MD5Encryption.encrypt(userDto.getPassword());
+        final UserDo userDo = UserDo.buildUserDo(userDto.getId(), userDto.getNom(), userDto.getPrenom(), dateNaissance, userDto.getAdresse(), newPassword, profilDo, userDto.getMail(),
                         userDto.isActif());
-
         return userDo;
     }
 }
