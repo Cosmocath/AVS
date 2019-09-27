@@ -3,7 +3,8 @@
 <div style="background-color: white; height: 100%">
 	<%-- Permet d'afficher les messages si present (si un visiteur vient de creer un compte) --%>
 	<logic:messagesPresent message="true">
-		<html:messages id="creationOK" property="creationOK" message="true">
+		<html:messages id="creationOK" property="creationOK" message="true"
+			header="valid.global.header" footer="valid.global.footer">
 			<bean:write name="creationOK" />
 		</html:messages>
 	</logic:messagesPresent>
