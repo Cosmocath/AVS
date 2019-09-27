@@ -13,8 +13,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import persistance.commande.beanDo.CommandeDo;
+import persistance.commande.beanDo.CommandeProduitDo;
 import persistance.commande.dao.ICommandeDao;
+
 import persistance.factory.HibernateFactory;
+
+import persistance.produitVendu.IProduitVenduDao;
 import util.factory.Factory;
 
 /**
@@ -55,6 +59,32 @@ class CommandeDaoTest {
         final List<CommandeDo> listeCommandeDo = iCommandeDao.findAllCommandeDo(8);
         Assert.assertNotNull(listeCommandeDo);
         Assert.assertEquals(1, listeCommandeDo.size());
+    }
+
+    /**
+     * Test method for {@link persistance.commande.dao.impl.CommandeDao#createCommandeDo(CommandeDo commandeDo)}.
+     */
+    @Test
+    void testCreateCommandeDo() {
+        final ICommandeDao iCommandeDao = Factory.getInstance(ICommandeDao.class);
+        final CommandeProduitDo commandeProduit = new CommandeProduitDo();
+        final IProduitVenduDao iProduitVenduDao = Factory.getInstance(IProduitVenduDao.class);
+
+        commandeProduit.setProduitVenduDo(iProduitVenduDao.findProduitVenduByIdProduitHistorise(12));
+        commandeProduit.setQuantite(5);
+
+        final CommandeDo commandeDo = new CommandeDo();
+        commandeDo.setAdresseFacturation("15 av la republique");
+        commandeDo.setAdresseLivraison("15 av la republique");
+        commandeDo.setNumeroCommande("cmd_154");
+        commandeDo.setIdUtilisateur(8);
+        commandeDo.setMontantSansRemise(120);
+        commandeProduit.setCommandeDo(commandeDo);
+        commandeDo.getCommandeProduitSet().add(commandeProduit);
+        final CommandeDo commande = iCommandeDao.createCommandeDo(commandeDo);
+        //ne pas hesiter a regarder l'id du produit avt et apres le create
+        Assert.assertNotNull(iCommandeDao.createCommandeDo(commandeDo));
+        Assert.assertEquals("cmd_154", commande.getNumeroCommande());
     }
 
 }
