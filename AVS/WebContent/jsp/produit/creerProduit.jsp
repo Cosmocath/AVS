@@ -13,7 +13,8 @@
 		</html:messages>
 	</logic:messagesPresent>
 	<%-- permet d'afficher les erreurs "globales" --%>
-	<html:errors header="errors.global.header" footer="errors.global.footer" property="error" />
+	<html:errors header="errors.global.header"
+		footer="errors.global.footer" property="error" />
 	<br />
 
 	<html:form action="/creerProduit.do" focus="designation"
