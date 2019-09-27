@@ -1,6 +1,3 @@
-/**
- * 
- */
 package presentation.produit.action;
 
 import javax.servlet.http.HttpServletRequest;
