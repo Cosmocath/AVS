@@ -7,7 +7,7 @@ import java.util.Set;
 import persistance.commande.beanDo.CommandeDo;
 import persistance.commande.beanDo.CommandeProduitDo;
 import persistance.produitVendu.beanDo.ProduitVenduDo;
-import persistance.produitVendu.dao.IProduitVenduDao;
+import presentation.panier.beanDto.CommandeInfoDto;
 import presentation.panier.beanDto.PanierDto;
 import presentation.produit.beanDto.ProduitDto;
 import service.panier.IPanierService;
@@ -46,10 +46,14 @@ public class PanierService implements IPanierService {
         return true;
     }
 
-    private CommandeDo buildCommandeDo(final PanierDto panierDto, final String adresseLivraison, final String adresseFacturation, final Map<ProduitVenduDo, Integer> mapProduitVenduQuantite) {
+    private CommandeDo buildCommandeDo(final PanierDto panierDto, final CommandeInfoDto commandeInfoDto, final Map<ProduitVenduDo, Integer> mapProduitVenduQuantite) {
         CommandeDo commandeDo = new CommandeDo();
-        commandeDo.setAdresseLivraison(adresseLivraison);
-        commandeDo.setAdresseFacturation(adresseFacturation);
+        commandeDo.setAdresseLivraison(commandeInfoDto.getAdresseLivraison());
+        commandeDo.setAdresseFacturation(commandeInfoDto.getAdresseFacturation());
+
+        commandeDo.setIdUtilisateur(Integer.valueOf(commandeInfoDto.getUserId()));
+
+        //TODO RKU : définir nomUser, date et N°commande
         commandeDo.setMontantSansRemise(FormatUtil.convertirStringToDouble(panierDto.getTotalAvantRemise()));
         commandeDo.setRemise(FormatUtil.convertirStringToDouble(panierDto.getRemise()));
 
@@ -127,13 +131,13 @@ public class PanierService implements IPanierService {
         if (!isPanierValidable(panierDto)) {
             return null;
         }
-        
+
         // construction de la map ProduitVenduDo/Quantité
         final IProduitVenduService iProduitVenduService = Factory.getInstance(IProduitVenduService.class);
         final Map<ProduitVenduDo, Integer> mapProduitVenduQuantite = iProduitVenduService.buildMapProduitVenduQuantite(panierDto);
-        
+
         // construction de la commandeDo
-        buildCommandeDo(panierDto, adresseLivraison, adresseFacturation, mapProduitVenduQuantite)
+        buildCommandeDo(panierDto, commandeInfoDto, mapProduitVenduQuantite);
         return null;
     }
 
