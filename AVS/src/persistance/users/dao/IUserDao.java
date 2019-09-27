@@ -54,4 +54,13 @@ public interface IUserDao {
      */
     UserDo findUserDo(final Integer id);
 
+    /**
+     * Permet de mettre à jour un user
+     * 
+     * @param id du user à mettre à jour
+     * @param userDo le user
+     * @return le user mis à jour, null en cas de problème
+     */
+    UserDo updateUserDo(final Integer id, final UserDo userDo);
+
 }
