@@ -1,6 +1,7 @@
 package presentation.produit.beanDto;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * ProduitDto couche presentation pour l'écran
@@ -31,7 +32,7 @@ public class ProduitDto implements Serializable {
     public ProduitDto() {
         // empty constructor
     }
-
+    
     /**
      * Builder pour le ProduitDto
      * 
@@ -73,6 +74,26 @@ public class ProduitDto implements Serializable {
      */
     public static ProduitDto build(final String designation, final String reference, final String description, final String prix, final String image, final int noVersion) {
         return buildProduitDto(null, designation, reference, description, prix, image, noVersion, true);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!(obj instanceof ProduitDto)) {
+            return false;
+        }
+        final ProduitDto other = (ProduitDto) obj;
+        return Objects.equals(id, other.id);
     }
 
     /**

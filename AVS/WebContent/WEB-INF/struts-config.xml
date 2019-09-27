@@ -153,7 +153,13 @@
 				redirect="true" />
 			<forward name="pan_00" path="afficherPanier.do"
 				redirect="true" />
+		</action>
 
+		<action path="/supprimerPanier" scope="request" input=""
+			parameter="" name=""
+			type="presentation.panier.action.SupprimerPanierAction">
+			<forward name="success" path="afficherPanier.do"
+				redirect="true" />
 		</action>
 		<action path="/voirValiderPanier" scope="request" input=""
 			parameter=""
