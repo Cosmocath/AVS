@@ -49,11 +49,19 @@ public class PanierService implements IPanierService {
         return true;
     }
 
+    /**
+     * Construction de l'objet CommandeDo
+     * 
+     * @param panierDto : les infos du panier
+     * @param commandeInfoDto : les infos de la commande (idUser, adresse livraison, ...)
+     * @param mapProduitVenduQuantite : les produits vendus correspondants et leur quantité
+     * @return le CommandeDo
+     */
     private CommandeDo buildCommandeDo(final PanierDto panierDto, final CommandeInfoDto commandeInfoDto, final Map<ProduitVenduDo, Integer> mapProduitVenduQuantite) {
         final CommandeDo commandeDo = new CommandeDo();
         commandeDo.setAdresseLivraison(commandeInfoDto.getAdresseLivraison());
         commandeDo.setAdresseFacturation(commandeInfoDto.getAdresseFacturation());
-        
+
         // récupération de l'idUser
         final int idUser = Integer.valueOf(commandeInfoDto.getUserId());
         commandeDo.setIdUtilisateur(idUser);
@@ -174,7 +182,6 @@ public class PanierService implements IPanierService {
     }
 
     @Override
-
     public PanierDto deleteProduitPanier(final PanierDto panierDto, final int idProduit) {
         final IProduitService iProduitService = Factory.getInstance(IProduitService.class);
 
@@ -204,7 +211,8 @@ public class PanierService implements IPanierService {
         return panierDto;
     }
 
-    public CommandeDo validerPanier(PanierDto panierDto, CommandeInfoDto commandeInfoDto) {
+    @Override
+    public CommandeDo validerPanier(final PanierDto panierDto, final CommandeInfoDto commandeInfoDto) {
 
         // vérifier que les produits sont bien à jour
         if (!isPanierValidable(panierDto)) {
@@ -214,8 +222,6 @@ public class PanierService implements IPanierService {
         // construction de la map ProduitVenduDo/Quantité
         final IProduitVenduService iProduitVenduService = Factory.getInstance(IProduitVenduService.class);
         final Map<ProduitVenduDo, Integer> mapProduitVenduQuantite = iProduitVenduService.buildMapProduitVenduQuantite(panierDto);
-        // TODO RKU
-        System.out.println("map taille" + mapProduitVenduQuantite);
         // construction de la commandeDo
         final CommandeDo commandeDo = buildCommandeDo(panierDto, commandeInfoDto, mapProduitVenduQuantite);
         // TODO RKU : gérer nom
@@ -224,7 +230,7 @@ public class PanierService implements IPanierService {
         // persistance
         final ICommandeDao iCommandeDao = Factory.getInstance(ICommandeDao.class);
         return iCommandeDao.createCommandeDo(commandeDo);
-        
+
     }
 
     @Override

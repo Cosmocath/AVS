@@ -119,12 +119,12 @@ class PanierServiceTest {
         panierDto = iPanierService.addProduitPanier(panierDto, 18);
 
         final CommandeInfoDto commandeInfoDto = new CommandeInfoDto();
-        
+
         commandeInfoDto.setUserId("7");
         commandeInfoDto.setAdresseFacturation("adresse fact");
         commandeInfoDto.setAdresseLivraison("adr livraison");
         CommandeDo commandeDo = iPanierService.validerPanier(panierDto, commandeInfoDto);
-        
+
         assertNotNull(commandeDo);
         Set<CommandeProduitDo> commandeProduitSet = commandeDo.getCommandeProduitSet();
         assertEquals(3, commandeProduitSet.size());

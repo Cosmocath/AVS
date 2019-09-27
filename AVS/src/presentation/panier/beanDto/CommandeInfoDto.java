@@ -3,6 +3,8 @@ package presentation.panier.beanDto;
 import java.io.Serializable;
 
 /**
+ * Informations sur l'utilisateur qui réalise une commande
+ * 
  * @author Rodolphe
  *
  */
