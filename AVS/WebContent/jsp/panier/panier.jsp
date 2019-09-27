@@ -26,12 +26,10 @@
 		<bean:message key="PAN_00.Panier" />
 	</h1>
 
-	<logic:messagesPresent message="true">
-		<html:messages id="panierVide" message="true" header="PAN_00.myForm.header"
-			footer="PAN_00.myForm.footer">
-			<bean:write name="panierVide" />
-		</html:messages>
-	</logic:messagesPresent>
+	<logic:equal name="monPanierDto"
+		scope="session" property="quantiteTotale" value="0">
+		<bean:message key="PAN_00.panierVide" />
+	</logic:equal>
 
 	<table style="width: 100%; text-align: center">
 		<tr>
