@@ -42,7 +42,7 @@ public class AfficherImageAction extends Action {
         }
 
         //on retourne la redirection
-        return mapping.findForward("success");
+        return null;
 
     }
 

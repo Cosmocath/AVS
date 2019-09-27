@@ -23,13 +23,7 @@
 			<html:link href="deconnecterUser.do">
 				<bean:message key="MENU.Deconnecter" />
 			</html:link>
-			<%
-			    //TODO a spprimer plus tard
-			%>
 			<br />
-			<html:link href="afficherPanier.do">
-				Afficher Panier
-			</html:link>
 		</logic:equal>
 
 		<logic:equal name="userConnected" property="profil"
@@ -65,9 +59,6 @@
 			    //TODO a spprimer plus tard
 			%>
 			<br />
-			<html:link href="afficherPanier.do">
-				Afficher Panier
-			</html:link>
 		</logic:equal>
 
 	</logic:present>

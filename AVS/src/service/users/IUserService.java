@@ -54,4 +54,14 @@ public interface IUserService {
      * @return le UserDto crée
      */
     UserDto createUser(final UserDto userDto);
+
+    /**
+     * Méthode permettant de faire appel à la couche persistance afin d'updater un user en BDD. </br>
+     * On applique les règles de gestion. </br>
+     * On fait ensuite appel au Mapper afin de transformer le UserDTO en UserDO, puis on fait appel à la couche persistance
+     * 
+     * @param userDto = UserDTO contenant les informations du user à modifier en BDD
+     * @return un UserDto si la modification à fonctionné, null dans le cas contraire
+     */
+    UserDto updateUser(final UserDto userDto);
 }
