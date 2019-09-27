@@ -6,6 +6,15 @@
 		<h1>
 			<bean:message key="USR_01.titre" />
 		</h1>
+		
+			<logic:messagesPresent message="true">
+		<html:messages id="creationUserOK" property="creationUserOK"
+			message="true" header="valid.global.header"
+			footer="valid.global.footer">
+			<bean:write name="creationUserOK" />
+		</html:messages>
+			</logic:messagesPresent>
+		
 		<html:form action="/creerUser.do" focus="mail">
 
 			<table style="border: none;">

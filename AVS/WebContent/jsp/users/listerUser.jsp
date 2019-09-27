@@ -3,6 +3,14 @@
 
 <div style="height: 100%">
 
+
+	<logic:messagesPresent message="true">
+		<html:messages id="updateOK" property="updateOK" message="true"
+			header="valid.global.header" footer="valid.global.footer">
+			<bean:write name="updateOK" />
+		</html:messages>
+	</logic:messagesPresent>
+	
 	<div>
 		<h1>
 			<bean:message key="USR_02.titre" />

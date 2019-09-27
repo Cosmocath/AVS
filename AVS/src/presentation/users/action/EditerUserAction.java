@@ -71,7 +71,7 @@ public class EditerUserAction extends Action {
         } else {
             final ActionMessages messages = new ActionMessages();
             messages.add("updateOK", new ActionMessage("USR_04.editer.ok", new Object[] { userDto.getId() }));
-            saveMessages(request, messages);
+            saveMessages(request.getSession(), messages);
         }
         return mapping.findForward("success");
     }
