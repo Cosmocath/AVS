@@ -35,4 +35,12 @@ public interface IPanierService {
      * @return un panierDto si supp OK, sinon null
      */
     PanierDto deleteProduitPanier(final PanierDto panierDto, final int idProduit);
+
+    /**
+     * Permet de vider le panier
+     * 
+     * @param panierDto à vider
+     * @return panierDto vide
+     */
+    PanierDto viderPanierDto(final PanierDto panierDto);
 }

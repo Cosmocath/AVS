@@ -98,7 +98,16 @@ public class PanierService implements IPanierService {
 
         // on calcule la remise
         remisePanier(panierDto);
+        return panierDto;
+    }
 
+    @Override
+    public PanierDto viderPanierDto(final PanierDto panierDto) {
+        panierDto.setQuantiteTotale(0);
+        panierDto.setTotalAvantRemise("0,00");
+        panierDto.setRemise("0,00");
+        panierDto.setTotalApresRemise("0,00");
+        panierDto.getMapDesProduitsQte().clear();
         return panierDto;
     }
 }
