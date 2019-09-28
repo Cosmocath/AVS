@@ -34,7 +34,7 @@ class PanierServiceTest {
         assertEquals("40,00", panierDto.getTotalAvantRemise());
         // TODO XSI : compléter les tests
     }
-    
+
     /**
      * Test method for {@link service.panier.impl.PanierService#diminuerProduitPanier(presentation.panier.beanDto.PanierDto, int)}.
      */
@@ -53,14 +53,13 @@ class PanierServiceTest {
         iPanierService.addProduitPanier(panierDto, 17);
         iPanierService.addProduitPanier(panierDto, 17);
         iPanierService.addProduitPanier(panierDto, 18);
-        
+
         Assertions.assertNotNull(panierDto);
         Assertions.assertNotNull(panierDto.getMapDesProduitsQte());
         Assertions.assertEquals(6, panierDto.getQuantiteTotale());
         Assertions.assertEquals("365,00", panierDto.getTotalAvantRemise());
         Assertions.assertEquals("36,50", panierDto.getRemise());
         Assertions.assertEquals("328,50", panierDto.getTotalApresRemise());
-        
         Assertions.assertEquals(3, panierDto.getMapDesProduitsQte().get(iProduitService.getProduitById(17)).getQuantite());
         iPanierService.diminuerProduitPanier(panierDto, 17);
         Assertions.assertEquals(2, panierDto.getMapDesProduitsQte().get(iProduitService.getProduitById(17)).getQuantite());
@@ -68,7 +67,6 @@ class PanierServiceTest {
         Assertions.assertEquals("34,00", panierDto.getRemise());
         Assertions.assertEquals("306,00", panierDto.getTotalApresRemise());
         Assertions.assertEquals(6, panierDto.getQuantiteTotale());
-        
         Assertions.assertEquals(1, panierDto.getMapDesProduitsQte().get(iProduitService.getProduitById(14)).getQuantite());
         iPanierService.diminuerProduitPanier(panierDto, 14);
         Assertions.assertNull(panierDto.getMapDesProduitsQte().get(iProduitService.getProduitById(14)));
@@ -76,10 +74,8 @@ class PanierServiceTest {
         Assertions.assertEquals("0,00", panierDto.getRemise());
         Assertions.assertEquals("280,00", panierDto.getTotalApresRemise());
         Assertions.assertEquals(5, panierDto.getQuantiteTotale());
-        
+
     }
-    
-    
 
     /**
      * Test method for {@link service.panier.impl.PanierService#remisePanier(presentation.panier.beanDto.PanierDto)}.
