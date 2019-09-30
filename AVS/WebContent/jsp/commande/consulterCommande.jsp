@@ -40,7 +40,7 @@
 			<bean:define id="quantitePrix" name="mapQttPrix" property="value"></bean:define>
 
 			<%
-			    //TODO voir le retour pour le lien retour
+			    //TODO voir le bouton retour pour le lien retour
 			%>
 			<tr>
 				<td align="center"><html:link
