@@ -30,26 +30,19 @@ public class ValiderPanierAction extends Action {
         final HttpSession session = request.getSession();
         final PanierForm panierform = (PanierForm) form;
         //je récupère le panier en session
-        final PanierDto panierDto = (PanierDto) session.getAttribute(ConnecterUserAction.MON_PANIER);       
+        final PanierDto panierDto = (PanierDto) session.getAttribute(ConnecterUserAction.MON_PANIER);
         //je recupère le profil qui est en session
         final ConnectedUserDto connectedUser = (ConnectedUserDto) session.getAttribute(ConnecterUserAction.USER_CONNECTED);
-        //je recupère l'id du connectedUser
-//        final int id = Integer.valueOf(connectedUser.getId()); 
-        
-        
+
         // construction du CommandeInfoDto
         final CommandeInfoDto commandeInfoDto = new CommandeInfoDto();
         commandeInfoDto.setAdresseFacturation(panierform.getAdresseFacturation());
         commandeInfoDto.setAdresseLivraison(panierform.getAdresseLivraison());
         commandeInfoDto.setUserId(connectedUser.getId().toString());
-        
-        // TODO RKU : sysout
-        System.out.println("id:"+connectedUser.getId().toString());
-        System.out.println("fact:"+ panierform.getAdresseFacturation());
-        
+
         final IPanierService iPanierService = Factory.getInstance(IPanierService.class);
         iPanierService.validerPanier(panierDto, commandeInfoDto);
-        
+
         return mapping.findForward("success");
     }
 
