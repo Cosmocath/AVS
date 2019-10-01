@@ -191,7 +191,7 @@
 		<action path="/validerPanier" scope="request"
 			input="voirValiderPanier" parameter="" name="panierForm"
 			type="presentation.panier.action.ValiderPanierAction">
-			<forward name="success" path="validerPanier" redirect="false"></forward>
+			<forward name="success" path="/listerCommande.do" redirect="false"></forward>
 		</action>
 
 		<action path="/viderPanier" scope="request" input=""

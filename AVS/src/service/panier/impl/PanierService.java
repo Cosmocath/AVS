@@ -213,7 +213,8 @@ public class PanierService implements IPanierService {
 
     @Override
     public CommandeDo validerPanier(final PanierDto panierDto, final CommandeInfoDto commandeInfoDto) {
-
+        // TODO RKU sysout
+        System.out.println("validerPanier");
         // vérifier que les produits sont bien à jour
         if (!isPanierValidable(panierDto)) {
             return null;
