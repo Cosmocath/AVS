@@ -38,7 +38,7 @@ public interface IPanierService {
     PanierDto remisePanier(final PanierDto panierDto);
 
     /**
-     * Méthode permettant de faire appel à un produit de la couche persistance pour le supprimer du panier Permet de valider le panier et de créer la commande associée
+     * Permet de valider le panier et de créer la commande associée
      * 
      * @param panierDto le panier à valider
      * @param commandeInfoDto les infos (userId, adresses)
