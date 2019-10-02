@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 
 import persistance.factory.HibernateFactory;
 import presentation.panier.beanDto.PanierDto;
-import presentation.produit.beanDto.ProduitDto;
 import service.panier.IPanierService;
 import service.produit.IProduitService;
 import util.factory.Factory;
@@ -42,7 +41,6 @@ class PanierServiceTest {
     void testDiminuerProduitPanier() {
         final PanierDto panierDto = new PanierDto();
         final IPanierService iPanierService = Factory.getInstance(IPanierService.class);
-        final PanierDto.QuantitePrix quantitePrix = new PanierDto.QuantitePrix();
         final IProduitService iProduitService = Factory.getInstance(IProduitService.class);
         iPanierService.addProduitPanier(panierDto, 12);
         iPanierService.addProduitPanier(panierDto, 12);

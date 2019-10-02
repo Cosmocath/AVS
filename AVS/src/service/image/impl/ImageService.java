@@ -5,6 +5,7 @@ import java.io.File;
 import persistance.image.dao.IImageDao;
 import service.image.IImageService;
 import util.factory.Factory;
+import util.tools.Tools;
 
 /**
  * Services de gestion des images
@@ -34,6 +35,9 @@ public class ImageService implements IImageService {
     public byte[] getImage(final String urlImage) {
         // obtention des images : l'image passée en paramètre, sinon l'image par défaut, sinon null
         final IImageDao iImageDao = Factory.getInstance(IImageDao.class);
+        if (Tools.isEmpty(urlImage) || "null".equalsIgnoreCase(urlImage)) {
+            return iImageDao.getImage(DEFAULT_IMAGE);
+        }
         final byte[] image = iImageDao.getImage(REPERTOIRE_IMAGES + urlImage);
         if (image == null) {
             return iImageDao.getImage(DEFAULT_IMAGE);

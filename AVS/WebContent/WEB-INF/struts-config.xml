@@ -23,19 +23,19 @@
 
 		<!-- Action d'affichage des CGU -->
 
-		<action path="/voirCGU" scope="request" input="" parameter=""
+		<action path="/voirCGU" scope="request"
 			type="presentation.cgu.action.VoirCGUAction">
 			<forward name="success" path="cgu" redirect="false"></forward>
 		</action>
 
-		<action path="/afficherCGU" scope="request" input=""
-			parameter="" type="presentation.cgu.action.AfficherCGUAction">
+		<action path="/afficherCGU" scope="request"
+			type="presentation.cgu.action.AfficherCGUAction">
 		</action>
 
 		<!-- Le language -->
 
-		<action path="/changerLangue" scope="request" input=""
-			parameter="" type="presentation.i18n.action.ChangerLangueAction">
+		<action path="/changerLangue" scope="request"
+			type="presentation.i18n.action.ChangerLangueAction">
 		</action>
 
 		<!-- La connection/déconnection d'un utilisateur -->
@@ -49,28 +49,27 @@
 				redirect="false" />
 		</action>
 
-		<action path="/voirConnecterUser" scope="request" input=""
-			parameter="" type="presentation.users.action.VoirConnecterUserAction">
+		<action path="/voirConnecterUser" scope="request"
+			type="presentation.users.action.VoirConnecterUserAction">
 			<forward name="success" path="voirConnecterUser"
 				redirect="false" />
 		</action>
 
-		<action path="/deconnecterUser" scope="request" input=""
-			parameter="" type="presentation.users.action.DeconnecterUserAction">
+		<action path="/deconnecterUser" scope="request"
+			type="presentation.users.action.DeconnecterUserAction">
 			<forward name="success" path="listerProduitClient.do"
 				redirect="true"></forward>
 		</action>
 
 		<!-- Action de l'équipe Produit -->
 
-		<action path="/listerProduitClient" scope="request" input=""
-			parameter="" type="presentation.produit.action.ListerProduitAction">
+		<action path="/listerProduitClient" scope="request"
+			type="presentation.produit.action.ListerProduitAction">
 			<forward name="success" path="listerProduitClient"
 				redirect="false"></forward>
 		</action>
 
-		<action path="/voirCreerProduit" scope="request" input=""
-			parameter=""
+		<action path="/voirCreerProduit" scope="request"
 			type="presentation.produit.action.VoirCreerProduitAction">
 			<forward name="success" path="voirCreerProduit"
 				redirect="false" />
@@ -82,22 +81,19 @@
 			<forward name="success" path="creerProduit" redirect="false" />
 		</action>
 
-		<action path="/listerProduitAdmin" scope="request" input=""
-			parameter=""
+		<action path="/listerProduitAdmin" scope="request"
 			type="presentation.produit.action.ListerProduitAdminAction">
 			<forward name="success" path="listerProduitAdmin"
 				redirect="false"></forward>
 		</action>
 
-		<action path="/consulterProduit" scope="request" input=""
-			parameter=""
+		<action path="/consulterProduit" scope="request"
 			type="presentation.produit.action.ConsulterProduitAction">
 			<forward name="success" path="consulterProduit"
 				redirect="false"></forward>
 		</action>
 
-		<action path="/voirEditerProduit" scope="request" input=""
-			parameter=""
+		<action path="/voirEditerProduit" scope="request"
 			type="presentation.produit.action.VoirEditerProduitAction">
 			<forward name="success" path="voirEditerProduit"
 				redirect="false" />
@@ -112,8 +108,8 @@
 
 		<!-- Action de l'équipe User -->
 
-		<action path="/voirEditerUser" scope="request" input=""
-			parameter="" type="presentation.users.action.VoirEditerUserAction">
+		<action path="/voirEditerUser" scope="request"
+			type="presentation.users.action.VoirEditerUserAction">
 			<forward name="success" path="voirEditerUser"
 				redirect="false" />
 		</action>
@@ -126,39 +122,37 @@
 				redirect="false" />
 		</action>
 
-		<action path="/voirCreerUser" scope="request" input=""
-			parameter="" type="presentation.users.action.VoirCreerUserAction">
+		<action path="/voirCreerUser" scope="request"
+			type="presentation.users.action.VoirCreerUserAction">
 			<forward name="success" path="voirCreerUser" redirect="false" />
 		</action>
 
 		<action path="/creerUser" scope="request" input="voirCreerUser"
-			parameter="" name="userForm"
-			type="presentation.users.action.CreerUserAction">
+			name="userForm" type="presentation.users.action.CreerUserAction">
 			<forward name="success" path="listerProduitClient.do"
 				redirect="true"></forward>
 			<forward name="notSuccess" path="voirCreerUser"
 				redirect="false" />
 		</action>
-		<action path="/listerUser" scope="request" input=""
-			parameter="" type="presentation.users.action.ListerUserAction">
+		<action path="/listerUser" scope="request"
+			type="presentation.users.action.ListerUserAction">
 			<forward name="success" path="listerUser" redirect="true"></forward>
 		</action>
 
-		<action path="/consulterUser" scope="request" input=""
-			parameter="" type="presentation.users.action.ConsulterUserAction">
+		<action path="/consulterUser" scope="request"
+			type="presentation.users.action.ConsulterUserAction">
 			<forward name="success" path="consulterUser" redirect="true"></forward>
 		</action>
 
 		<!-- Action de l'équipe Panier -->
 
-		<action path="/afficherPanier" scope="request" input=""
-			parameter="" type="presentation.panier.action.VoirPanierAction">
+		<action path="/afficherPanier" scope="request"
+			type="presentation.panier.action.VoirPanierAction">
 			<forward name="success" path="afficherPanier"
 				redirect="false" />
 		</action>
 
-		<action path="/ajouterPanier" scope="request" input=""
-			parameter="" name=""
+		<action path="/ajouterPanier" scope="request"
 			type="presentation.panier.action.AjouterPanierAction">
 			<forward name="pdt_00" path="listeProduitClient.do"
 				redirect="true" />
@@ -167,23 +161,19 @@
 			<forward name="pan_00" path="afficherPanier.do"
 				redirect="true" />
 		</action>
-		
-		<action path="/diminuerQuantite" scope="request" input=""
-			parameter="" name=""
+
+		<action path="/diminuerQuantite" scope="request"
 			type="presentation.panier.action.DiminuerQteAction">
 			<forward name="pan_00" path="afficherPanier.do"
 				redirect="true" />
 		</action>
-		
 
-		<action path="/supprimerPanier" scope="request" input=""
-			parameter="" name=""
+		<action path="/supprimerPanier" scope="request"
 			type="presentation.panier.action.SupprimerPanierAction">
 			<forward name="success" path="afficherPanier.do"
 				redirect="true" />
 		</action>
-		<action path="/voirValiderPanier" scope="request" input=""
-			parameter=""
+		<action path="/voirValiderPanier" scope="request"
 			type="presentation.panier.action.VoirValiderPanierAction">
 			<forward name="success" path="panierAdresseClient"
 				redirect="false" />
@@ -194,8 +184,7 @@
 			<forward name="success" path="validerPanier" redirect="false"></forward>
 		</action>
 
-		<action path="/viderPanier" scope="request" input=""
-			parameter="" name=""
+		<action path="/viderPanier" scope="request"
 			type="presentation.panier.action.ViderPanierAction">
 			<forward name="success" path="afficherPanier"
 				redirect="false" />
@@ -203,17 +192,16 @@
 
 		<!-- Action de l'équipe Commande -->
 
-		<action path="/listerCommande" scope="request" input=""
-			parameter="" type="presentation.commande.action.ListerCommandeAction">
+		<action path="/listerCommande" scope="request"
+			type="presentation.commande.action.ListerCommandeAction">
 			<forward name="success" path="listerCommande"
 				redirect="false"></forward>
 		</action>
 
 		<!-- Action de gestion image -->
 
-		<action path="/afficherImage" parameter=""
+		<action path="/afficherImage"
 			type="presentation.image.action.AfficherImageAction">
-
 		</action>
 
 	</action-mappings>

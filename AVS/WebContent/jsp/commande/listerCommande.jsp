@@ -15,12 +15,11 @@
 			var lien = "consulterCommande.do?id=" + id + "&retour=listeProduitClient";
 			document.location.href = lien;
 		}
-	</script>
+</script>
 
 <div style="background-color: white; height: 100%">
 
 	<logic:empty name="listeCommande">
-
 		<h3>
 			<font color="red"> <bean:message key="CDE_00.commandeVide" /></font>
 		</h3>
@@ -33,9 +32,9 @@
 		</tr>
 		<logic:iterate name="listeCommande" id="commande" scope="request">
 			<tr class="prix_titre">
-				<td><html:button property="add"
+				<td>
+					<html:button property="add"
 						onclick="RedirectionJavascript(${commande.idCommande})">
-						<bean:message key="CDE_00.N°Commande" />
 						<bean:write name="commande" property="numeroCommande" />
 					</html:button> <br /> <bean:message key="CDE_00.Date" /> : <bean:write
 						name="commande" property="date" /></td>
