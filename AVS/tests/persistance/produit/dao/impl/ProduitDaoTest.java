@@ -73,7 +73,7 @@ class ProduitDaoTest {
     void testFindAllProduitAdminOrderBy() {
         final IProduitDao iProduitDao = Factory.getInstance(IProduitDao.class);
         final List<ProduitDo> listeProduitDo = iProduitDao.findAllProduitAdminOrderBy(OrderBy.ASC);
-        assertEquals(7, listeProduitDo.size());
+        assertEquals(8, listeProduitDo.size());
         assertEquals("demenagement 3", listeProduitDo.get(2).getDesignation());
         assertEquals("menage", listeProduitDo.get(5).getDesignation());
         assertEquals(true, listeProduitDo.get(2).getActif());

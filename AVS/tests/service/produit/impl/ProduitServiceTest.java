@@ -74,7 +74,7 @@ class ProduitServiceTest {
         produitDtoNew.setActif(true);
         produitDtoNew.setNoVersion(1);
         assertNull(iProduitService.create(produitDtoNew));
-        assertEquals(3, iProduitService.findAllProduitOrderBy(OrderBy.ASC).size());
+        assertEquals(4, iProduitService.findAllProduitOrderBy(OrderBy.ASC).size());
 
         // cas passant
         final ProduitDto produitDtoNew2 = new ProduitDto();
