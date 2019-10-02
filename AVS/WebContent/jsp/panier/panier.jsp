@@ -8,20 +8,22 @@
 	<script type="text/javascript">
 		function validerPanier() {
 			document.location.href = "voirValiderPanier.do";
-
 		}
-	</script>
+// 		function BoutonAjouterPanier(id) {
+// 			var lien = "ajouterPanier.do?id=" + id + "&retour=panier";
+// 				document.location.href = lien;
+//        	}
+// 		function BoutonDiminuerPanier(id) {
+// 			var lien = "ajouterPanier.do?id=" + id + "&retour=panier";
+// 				document.location.href = lien;
+//        	}
 
-	<!-- 	<script type="text/javascript"> -->
-	<!-- // 		function RedirectionJavascriptSupp() { -->
-	<!-- // 			document.location.href = "supprimerPanier.do?id=" -->
-	<!-- // 					+ document.getElementById("id").value; -->
-	<!-- // 		} -->
-	<!-- 	</script> -->
-	<%-- 		<html:hidden  property="id" value="${produitDto.id}" styleId="id"/> --%>
+		function BoutonSupprimerPanier(id) {
+			var lien = "supprimerPanier.do?id=" + id + "&retour=panier";
+				document.location.href = lien;
+       	}
 
 	<%-- JS nécessaire pour le bouton vider --%>
-	<script type="text/javascript">
 		function viderPanier() {
 			document.location.href = "viderPanier.do";
 
@@ -68,6 +70,7 @@
 					<button type="button" onclick="augmenterQuantite">+</button>
 					<button type="button" onclick="diminuerQuantite">-</button>
 
+
 					<div style="float: right">
 						<html:link
 							href="ajouterPanier.do?id=${produitDto.id}&retour=panier">
@@ -85,15 +88,11 @@
 				<td>${quantiteProduit.prixParProduit}<bean:message
 						key="Global.euro" /></td>
 				<td>
-					<button type="button" onclick="RedirectionJavascriptSupp()">
-						<bean:message key="PAN_00.Supprimer" />
-					</button>
-
-
 					<div style="float: right">
-						<html:link href="supprimerPanier.do?id=${produitDto.id}">
+						<html:button property="add"
+							onclick="BoutonSupprimerPanier(${produitDto.id})">
 							<bean:message key="PAN_00.Supprimer" />
-						</html:link>
+						</html:button>
 					</div>
 
 				</td>
@@ -122,7 +121,7 @@
 	</table>
 	<br />
 	<div align="right">
-		<button type="button" onclick="viderPanier()">
+		<button type="button" onclick="BoutonAjouterPanier(${produitDto.id})">
 			<bean:message key="PAN_00.Vider" />
 		</button>
 		<button type="button" onclick="validerPanier()">
