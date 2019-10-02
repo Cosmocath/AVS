@@ -74,10 +74,10 @@ class ProduitDaoTest {
         final IProduitDao iProduitDao = Factory.getInstance(IProduitDao.class);
         final List<ProduitDo> listeProduitDo = iProduitDao.findAllProduitAdminOrderBy(OrderBy.ASC);
         assertEquals(8, listeProduitDo.size());
-        assertEquals("demenagement 3", listeProduitDo.get(2).getDesignation());
-        assertEquals("menage", listeProduitDo.get(5).getDesignation());
+        assertEquals("chat", listeProduitDo.get(2).getDesignation());
+        assertEquals("menage", listeProduitDo.get(6).getDesignation());
         assertEquals(true, listeProduitDo.get(2).getActif());
-        assertEquals(false, listeProduitDo.get(5).getActif());
+        assertEquals(false, listeProduitDo.get(6).getActif());
     }
 
     /**
