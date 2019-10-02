@@ -3,13 +3,19 @@
 
 <div style="height: 100%">
 
+	<logic:messagesPresent message="true">
+		<html:messages id="updateOK" property="updateOK" message="true"
+			header="valid.global.header" footer="valid.global.footer">
+			<bean:write name="updateOK" />
+		</html:messages>
+	</logic:messagesPresent>
+	
 	<script type="text/javascript">
 		function BoutonTrier(tri) {
 			var lien = "listerUser.do?orderBy=" + String(tri);
 			document.location.href = lien;
 		}
 	</script>
-
 
 	<div>
 		<h1>
