@@ -9,28 +9,21 @@
 		function validerPanier() {
 			document.location.href = "voirValiderPanier.do";
 		}
-		function BoutonSupprimerPanier(id) {
-			var lien = "ajouterPanier.do?id=" + id + "&retour=panier";
-				document.location.href = lien;
-       }
+// 		function BoutonAjouterPanier(id) {
+// 			var lien = "ajouterPanier.do?id=" + id + "&retour=panier";
+// 				document.location.href = lien;
+//        	}
+// 		function BoutonDiminuerPanier(id) {
+// 			var lien = "ajouterPanier.do?id=" + id + "&retour=panier";
+// 				document.location.href = lien;
+//        	}
+
 		function BoutonSupprimerPanier(id) {
 			var lien = "supprimerPanier.do?id=" + id + "&retour=panier";
 				document.location.href = lien;
-       }
-	</script>
-
-
-
-	<!-- 	<script type="text/javascript"> -->
-	<!-- // 		function RedirectionJavascriptSupp() { -->
-	<!-- // 			document.location.href = "supprimerPanier.do?id=" -->
-	<!-- // 					+ document.getElementById("id").value; -->
-	<!-- // 		} -->
-	<!-- 	</script> -->
-	<%-- 		<html:hidden  property="id" value="${produitDto.id}" styleId="id"/> --%>
+       	}
 
 	<%-- JS nécessaire pour le bouton vider --%>
-	<script type="text/javascript">
 		function viderPanier() {
 			document.location.href = "viderPanier.do";
 
@@ -90,7 +83,6 @@
 							<bean:message key="PAN_00.bouton.diminuerQuantite" />
 						</html:link>
 					</div>
-
 
 				</td>
 				<td>${quantiteProduit.prixParProduit}<bean:message

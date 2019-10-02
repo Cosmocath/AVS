@@ -7,19 +7,9 @@
 		<bean:write name="produit" property="reference" />
 	</h1>
 
-	<%-- 	<%-- JS nécessaire pour le bouton supprimer --%>
-
-	<!-- 	<script type="text/javascript"> -->
-	<!-- // 		function RedirectionJavascript() { -->
-	<!-- // 			document.location.href = "ajouterPanier.do?id=" -->
-	<!-- // 					+ document.getElementById("id").value -->
-	<!-- // 			"&retour=consulterProduit"; -->
-	<!-- // 		} -->
-	<!-- 	</script> -->
-
 	<script type="text/javascript">
 		function ajouterPanier(id) {
-			var lien = "ajouterPanier.do?id= + id + "&retour=consulterProduit";
+			var lien = "ajouterPanier.do?id=" + id + "&retour=consulterProduit";
 			document.location.href = lien;
 		}
 	</script>
@@ -44,12 +34,6 @@
 					onclick="ajouterPanier(${produit.id})">
 					<bean:message key="PDT_01.bouton.ajouterPanier" />
 				</html:button></td>
-
-
-			<%-- 			<td align="right"><html:button property="ajout" --%>
-			<%-- 					onclick="RedirectionJavascript()"> --%>
-			<%-- 					<bean:message key="PDT_01.bouton.ajouterPanier" /> --%>
-			<%-- 				</html:button></td> --%>
-			<!-- 		</tr> -->
+		</tr>
 	</table>
 </div>
