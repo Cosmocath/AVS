@@ -18,6 +18,14 @@
 	</script>
 
 <div style="background-color: white; height: 100%">
+
+	<logic:empty name="listeCommande">
+
+		<h3>
+			<font color="red"> <bean:message key="CDE_00.commandeVide" /></font>
+		</h3>
+	</logic:empty>
+
 	<table style="width: 100%">
 		<tr class="commande">
 			<th><bean:message key="CDE_00.Commande.titre" /></th>
