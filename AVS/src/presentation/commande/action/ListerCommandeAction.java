@@ -28,11 +28,14 @@ public class ListerCommandeAction extends Action {
     @Override
     public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         final ICommandeService iCommandeService = Factory.getInstance(ICommandeService.class);
-        // recupération du User
-        final HttpSession session = request.getSession();
-        final ConnectedUserDto connectedUser = (ConnectedUserDto) session.getAttribute(ConnecterUserAction.USER_CONNECTED);
 
-        final Integer id = connectedUser.getId();
+        // recupération du UserId
+        String id = request.getParameter("id");
+        if (id == null || "".equals(id)) {
+            final HttpSession session = request.getSession();
+            final ConnectedUserDto connectedUser = (ConnectedUserDto) session.getAttribute(ConnecterUserAction.USER_CONNECTED);
+            id = connectedUser.getId().toString();
+        }
         final List<CommandeDto> listeCommandeDto = iCommandeService.findAllCommande(Integer.valueOf(id));
         request.setAttribute("listeCommande", listeCommandeDto);
         return mapping.findForward("success");
