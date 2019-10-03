@@ -59,7 +59,7 @@ class ProduitVenduDaoTest {
         final IProduitVenduDao iProduitVenduDao = Factory.getInstance(IProduitVenduDao.class);
         assertNull(iProduitVenduDao.findProduitVenduByIdProduitHistoriseAndVersion(18, 1));
         assertNotNull(iProduitVenduDao.findProduitVenduByIdProduitHistoriseAndVersion(14, 2));
-        assertEquals("demenagement 3",iProduitVenduDao.findProduitVenduByIdProduitHistoriseAndVersion(14, 3).getDesignation());
+        assertEquals("demenagement 3", iProduitVenduDao.findProduitVenduByIdProduitHistoriseAndVersion(14, 3).getDesignation());
     }
 
 }

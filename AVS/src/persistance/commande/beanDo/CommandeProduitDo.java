@@ -21,7 +21,7 @@ public class CommandeProduitDo {
     public CommandeProduitDo() {
         // empty method
     }
-    
+
     public String toString() {
         return "produit : " + produitVenduDo.getIdProduitVendu() + ", qte : " + quantite + "idPr : " + produitVenduDo.getIdProduitHistorise();
     }

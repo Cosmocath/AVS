@@ -13,11 +13,11 @@ public class CommandeInfoDto implements Serializable {
      * 
      */
     private static final long serialVersionUID = 5456347500549851141L;
-    
-    private String userId;
-    private String adresseLivraison;
-    private String adresseFacturation;
-    
+
+    private String            userId;
+    private String            adresseLivraison;
+    private String            adresseFacturation;
+
     /**
      * Constructeur par défaut
      */
@@ -66,6 +66,5 @@ public class CommandeInfoDto implements Serializable {
     public void setAdresseFacturation(final String adresseFacturation) {
         this.adresseFacturation = adresseFacturation;
     }
-    
 
 }

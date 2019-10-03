@@ -13,16 +13,15 @@ import presentation.produit.beanDto.ProduitDto;
  *
  */
 public interface IProduitVenduService {
-    
-    
+
     /**
      * Permet de mapper un ProduitDto en produitVenduDo
      * 
-     * @param produitDto le produitDto 
+     * @param produitDto le produitDto
      * @return le ProduitVenduDo
      */
     ProduitVenduDo mapProduitDtoToProduitVenduDo(final ProduitDto produitDto);
-    
+
     /**
      * Construction de la map ProduitVendu/Quantité
      * 

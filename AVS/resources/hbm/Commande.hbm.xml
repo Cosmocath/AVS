@@ -26,7 +26,8 @@
 		<property name="adresseLivraison" column="adresse_livraison"></property>
 		<property name="adresseFacturation"
 			column="adresse_facturation"></property>
-		<set name="commandeProduitSet" inverse="true" lazy="false" cascade="all">
+		<set name="commandeProduitSet" inverse="true" lazy="false"
+			cascade="all">
 			<key column="idCommande"></key>
 			<one-to-many
 				class="persistance.commande.beanDo.CommandeProduitDo" />

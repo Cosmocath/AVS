@@ -19,7 +19,6 @@ import persistance.produitVendu.dao.IProduitVenduDao;
  *
  */
 public class ProduitVenduDao implements IProduitVenduDao {
-    
 
     /**
      * Constructeur vide

@@ -30,25 +30,25 @@ class CommandeDaoTest {
     /**
      * 
      */
-        @BeforeEach
-        public void initData() {
-            try (final Session session = HibernateFactory.getSessionFactory().openSession()) {
-                final Transaction transaction = session.beginTransaction();
-                try (final Scanner scanner = new Scanner(new FileReader("tests/dataSet/avs_DML.sql"))) {
-                    while (scanner.hasNext()) {
-                        final String sql = scanner.nextLine();
-                        if (!sql.isEmpty()) {
-    
-                            final NativeQuery<?> query = session.createNativeQuery(sql);
-                            query.executeUpdate();
-                        }
+    @BeforeEach
+    public void initData() {
+        try (final Session session = HibernateFactory.getSessionFactory().openSession()) {
+            final Transaction transaction = session.beginTransaction();
+            try (final Scanner scanner = new Scanner(new FileReader("tests/dataSet/avs_DML.sql"))) {
+                while (scanner.hasNext()) {
+                    final String sql = scanner.nextLine();
+                    if (!sql.isEmpty()) {
+
+                        final NativeQuery<?> query = session.createNativeQuery(sql);
+                        query.executeUpdate();
                     }
-                } catch (final FileNotFoundException e) {
-                    e.printStackTrace();
                 }
-                transaction.commit();
+            } catch (final FileNotFoundException e) {
+                e.printStackTrace();
             }
+            transaction.commit();
         }
+    }
 
     /**
      * Test method for {@link persistance.commande.dao.impl.CommandeDao#findAllCommandeDo(int)}.
@@ -85,7 +85,7 @@ class CommandeDaoTest {
 
         commandeDo.getCommandeProduitSet().add(commandeProduit);
         final CommandeDo commande = iCommandeDao.createCommandeDo(commandeDo);
-        
+
         Assert.assertNotNull(commande);
         Assert.assertEquals("cmd_154", commande.getNumeroCommande());
     }
