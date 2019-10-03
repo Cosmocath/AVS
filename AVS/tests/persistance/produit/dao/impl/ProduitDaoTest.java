@@ -61,9 +61,9 @@ class ProduitDaoTest {
     void testFindAllProduitOrderBy() {
         final IProduitDao iProduitDao = Factory.getInstance(IProduitDao.class);
         final List<ProduitDo> listeProduitDo = iProduitDao.findAllProduitOrderBy(OrderBy.ASC);
-        assertEquals(3, listeProduitDo.size());
-        assertEquals("demenagement 3", listeProduitDo.get(0).getDesignation());
-        assertEquals("jardinage 2", listeProduitDo.get(1).getDesignation());
+        assertEquals(4, listeProduitDo.size());
+        assertEquals("mecanique", listeProduitDo.get(3).getDesignation());
+        assertEquals("jardinage 2", listeProduitDo.get(2).getDesignation());
     }
 
     /**
@@ -73,11 +73,11 @@ class ProduitDaoTest {
     void testFindAllProduitAdminOrderBy() {
         final IProduitDao iProduitDao = Factory.getInstance(IProduitDao.class);
         final List<ProduitDo> listeProduitDo = iProduitDao.findAllProduitAdminOrderBy(OrderBy.ASC);
-        assertEquals(7, listeProduitDo.size());
-        assertEquals("demenagement 3", listeProduitDo.get(2).getDesignation());
-        assertEquals("menage", listeProduitDo.get(5).getDesignation());
+        assertEquals(8, listeProduitDo.size());
+        assertEquals("chat", listeProduitDo.get(2).getDesignation());
+        assertEquals("menage", listeProduitDo.get(6).getDesignation());
         assertEquals(true, listeProduitDo.get(2).getActif());
-        assertEquals(false, listeProduitDo.get(5).getActif());
+        assertEquals(false, listeProduitDo.get(6).getActif());
     }
 
     /**

@@ -3,14 +3,28 @@
 
 <div style="height: 100%">
 
+	<logic:messagesPresent message="true">
+		<html:messages id="updateOK" property="updateOK" message="true"
+			header="valid.global.header" footer="valid.global.footer">
+			<bean:write name="updateOK" />
+		</html:messages>
+	</logic:messagesPresent>
+	
+	<script type="text/javascript">
+		function BoutonTrier(tri) {
+			var lien = "listerUser.do?orderBy=" + String(tri);
+			document.location.href = lien;
+		}
+	</script>
+
 	<div>
 		<h1>
 			<bean:message key="USR_02.titre" />
 		</h1>
 		<div>
-			<html:link href="listerUser.do?orderBy=${TRI}">
+			<html:button property="add" onclick="BoutonTrier('${TRI}')">
 				<bean:message key="USR_02.bouton.trierListe" />
-			</html:link>
+			</html:button>
 		</div>
 		<br />
 		<table border="1">

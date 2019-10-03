@@ -11,6 +11,13 @@
 	//	}
 </script>
 
+<logic:messagesPresent message="true">
+	<html:messages id="creationOK" property="creationOK" message="true"
+		header="valid.global.header" footer="valid.global.footer">
+		<bean:write name="creationOK" />
+	</html:messages>
+</logic:messagesPresent>
+
 <div style="background-color: white; height: 100%">
 
 	<h1>

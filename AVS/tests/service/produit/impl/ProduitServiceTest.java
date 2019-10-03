@@ -76,7 +76,7 @@ class ProduitServiceTest {
         produitDtoNew.setActif(true);
         produitDtoNew.setNoVersion(1);
         assertNull(iProduitService.create(produitDtoNew));
-        assertEquals(3, iProduitService.findAllProduitOrderBy(OrderBy.ASC).size());
+        assertEquals(4, iProduitService.findAllProduitOrderBy(OrderBy.ASC).size());
 
         // cas passant
         final ProduitDto produitDtoNew2 = new ProduitDto();
@@ -93,7 +93,7 @@ class ProduitServiceTest {
         produitDtoNew2.setNoVersion(1);
         final ProduitDto produitDtoInserted = iProduitService.create(produitDtoNew2);
         assertNotNull(produitDtoInserted);
-        assertEquals(4, iProduitService.findAllProduitOrderBy(OrderBy.ASC).size());
+        assertEquals(5, iProduitService.findAllProduitOrderBy(OrderBy.ASC).size());
         assertNotNull(produitDtoInserted.getId());
         assertEquals("designationProduit123456", produitDtoInserted.getDesignation());
     }
